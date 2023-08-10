@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://1405904364.github.io</id>
+    <title>Live My Life • Posts by &#34;html&#34; tag</title>
+    <link href="http://1405904364.github.io" />
+    <updated>2023-08-10T08:29:50.063Z</updated>
+    <category term="Html" />
+    <category term="Java8" />
+    <category term="Java" />
+    <entry>
+        <id>http://1405904364.github.io/2023/08/10/Java/Apache-poi/</id>
+        <title>Apache-Poi</title>
+        <link rel="alternate" href="http://1405904364.github.io/2023/08/10/Java/Apache-poi/"/>
+        <content type="html">&lt;h1 id=&#34;apache-poi&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#apache-poi&#34;&gt;#&lt;/a&gt; Apache-Poi&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wb2kuYXBhY2hlLm9yZy8=&#34;&gt;官网&lt;/span&gt;&lt;br&gt;
+&lt;br/&gt; &lt;br/&gt;&lt;br&gt;
+&lt;img data-src=&#34;/image/Java/project-header.png&#34; alt=&#34;官网&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h2&gt;
+&lt;h3 id=&#34;hssf-sxxf-sxssf的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hssf-sxxf-sxssf的区别&#34;&gt;#&lt;/a&gt; HSSF SXXF SXSSF 的区别&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;HSSF:Excel97-2003 版本，扩展名为.xls。一个 sheet 最大行数 65536，最大列数 256。&lt;/li&gt;
+&lt;li&gt;XSSF:Excel2007 版本开始，扩展名为.xlsx。一个 sheet 最大行数 1048576，最大列数 16384。&lt;/li&gt;
+&lt;li&gt;SXSSF: 是在 XSSF 基础上，POI3.8 版本开始提供的支持低内存占用的操作方式，扩展名为.xlsx。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HSSF 用于 Excel03 版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  缺点：最多只能处理65536行，否则会报异常，
+
+  优点：过程中写入缓存，不操作磁盘，最后一次性写入磁盘，速度快
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;XSSF 用于 Excel07 版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  缺点：写数据时速度非常慢，非常耗内存，也会发生内存溢出，如100万条数据
+  优点：可以写较大的数据量，如20万条数据
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SXSSF 可以理解为 SXXF 超大量数据升级版：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  优点：可以写非常大量的数据库，如100万条甚至更多条，写数据速度快，占用更少的内存
+  注意：
+      - 过程中会产生临时文件，需要清理临时文件
+      - 默认由100条记录被保存在内存中，如果超出这数量，则最前面的数据被写入临时文件
+      - 如果想自定义内存中数据的数量，可以使用new SXSSFWorkbook（数量）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;其他常见名称含义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#其他常见名称含义&#34;&gt;#&lt;/a&gt; 其他常见名称含义&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;其他常见名称含义：&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;XSSF (XML SpreadSheet Format) – Used to reading and writting Open Office XML (XLSX) format files.&lt;/li&gt;
+&lt;li&gt;HSSF (Horrible SpreadSheet Format) – Use to read and write Microsoft Excel (XLS) format files.&lt;/li&gt;
+&lt;li&gt;HWPF (Horrible Word Processor Format) – to read and write Microsoft Word 97 (DOC) format files.&lt;/li&gt;
+&lt;li&gt;HSMF (Horrible Stupid Mail Format) – pure Java implementation for Microsoft Outlook MSG files&lt;/li&gt;
+&lt;li&gt;HDGF (Horrible DiaGram Format) – One of the first pure Java implementation for Microsoft Visio binary files.&lt;/li&gt;
+&lt;li&gt;HPSF (Horrible Property Set Format) – For reading “Document Summary” information from Microsoft Office files.&lt;/li&gt;
+&lt;li&gt;HSLF (Horrible Slide Layout Format) – a pure Java implementation for Microsoft PowerPoint files.&lt;/li&gt;
+&lt;li&gt;HPBF (Horrible PuBlisher Format) – Apache’s pure Java implementation for Microsoft Publisher files.&lt;/li&gt;
+&lt;li&gt;DDF (Dreadful Drawing Format) – Apache POI package for decoding the Microsoft Office Drawing format.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用&#34;&gt;#&lt;/a&gt; 使用&lt;/h2&gt;
+&lt;h3 id=&#34;步骤一导入依赖&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#步骤一导入依赖&#34;&gt;#&lt;/a&gt; 步骤一：导入依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.poi&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;poi&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;4.1.1&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.poi&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;poi-ooxml&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;4.1.1&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Html" />
+        <updated>2023-08-10T08:29:50.063Z</updated>
+    </entry>
+</feed>

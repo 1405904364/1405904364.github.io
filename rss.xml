@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Live My Life</title>
+        <link>http://1405904364.github.io</link>
+        <description>个人学习使用</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 10 Aug 2023 16:29:50 +0800</pubDate>
+        <lastBuildDate>Thu, 10 Aug 2023 16:29:50 +0800</lastBuildDate>
+        <category>Html</category>
+        <category>Java8</category>
+        <category>Java</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/10/Java/Stream%E6%B5%81/</guid>
+            <title>Stream流式编程</title>
+            <link>http://1405904364.github.io/2023/08/10/Java/Stream%E6%B5%81/</link>
+            <category>Java8</category>
+            <pubDate>Thu, 10 Aug 2023 16:29:50 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;stream流式编程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream流式编程&#34;&gt;#&lt;/a&gt; Stream 流式编程&lt;/h1&gt;
+&lt;h2 id=&#34;分类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分类&#34;&gt;#&lt;/a&gt; 分类&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/Java/13170952_625693608975b29303.webp&#34; alt=&#34;分类图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;中间操作&lt;/strong&gt;可分为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;无状态：指元素的处理不受之前元素的影响&lt;/li&gt;
+&lt;li&gt;有状态：指该操作只有拿到所有元素之后才能继续下去&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;终结操作&lt;/strong&gt;可分为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;非短路操作：指必须处理所有元素才能得到最终结果&lt;/li&gt;
+&lt;li&gt;短路操作：指遇到某些符合条件的元素就可以得到最终结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;具体操作如图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/Java/20201218181011714.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;stream-api使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-api使用&#34;&gt;#&lt;/a&gt; Stream API 使用&lt;/h2&gt;
+&lt;h3 id=&#34;流的构成&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#流的构成&#34;&gt;#&lt;/a&gt; 流的构成&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用流的时候，通常包括三个步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;获取一个数据源&lt;/li&gt;
+&lt;li&gt;数据转换&lt;br&gt;
+执行操作获取想要的结果，每次转换原有的 Stream 对象不变，返回一个新的 Stream 对象，这就允许对其操作可以像链条一样排列&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;流的创建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#流的创建&#34;&gt;#&lt;/a&gt; 流的创建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通过 java.util.Collection.stream () 方法用集合创建流&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+  List&amp;lt;String&amp;gt; list = Arrays.asList(&amp;quot;hello&amp;quot;,&amp;quot;world&amp;quot;,&amp;quot;stream&amp;quot;);
+  //创建顺序流
+  Stream&amp;lt;String&amp;gt; stream = list.stream();
+  //创建并行流
+  Stream&amp;lt;String&amp;gt; parallelStream = list.parallelStream();
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 java.util.Arrays.stream (T [] array) 方法用数组创建流&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+  String[] array = &amp;#123;&amp;quot;h&amp;quot;, &amp;quot;e&amp;quot;, &amp;quot;l&amp;quot;, &amp;quot;l&amp;quot;, &amp;quot;o&amp;quot;&amp;#125;;
+  Stream&amp;lt;String&amp;gt; arrayStream = Arrays.stream(array);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stream 的静态方法：of ()、iterate ()、generate ()&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+  Stream&amp;lt;Integer&amp;gt; stream1 = Stream.of(1, 2, 3, 4, 5, 6);
+  
+  Stream&amp;lt;Integer&amp;gt; stream2 = Stream.iterate(0, (x) -&amp;gt; x + 2).limit(3);
+  
+  Stream&amp;lt;Double&amp;gt; stream3 = Stream.generate(Math::random).limit(3);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;stream 和 parallelStream 的简单区分&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;stream 是顺序流，由主线程按顺序对流执行操作，而 parallelStream 是并行流，内部以多线程并行执行的方式对流进行操作，需要注意使用并行流的前提是流中的数据处理没有顺序要求（会乱序，即使用了 forEachOrdered）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;一-stream中间操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-stream中间操作&#34;&gt;#&lt;/a&gt; 一、Stream 中间操作&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Stream流中间操作是指在流链当中，可以对数据进行处理操作，包括filter过滤、map映射转换、flatMap合并、distinct去重、sorted排序等操作，这些操作都会返回一个新的Stream流对象，可以通过链式调用多个中间操作进行复杂的数据处理。
+
+需要注意的是，中间操作需要具有终止操作才会触发。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;无状态stateless操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#无状态stateless操作&#34;&gt;#&lt;/a&gt; 无状态 (Stateless) 操作&lt;/h4&gt;
+&lt;h5 id=&#34;filter过滤出符合条件的元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#filter过滤出符合条件的元素&#34;&gt;#&lt;/a&gt; filter: 过滤出符合条件的元素&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;filter () 方法常用于实现数据过滤，即可以对集合、数组等数据源筛选出符合指定条件的元素，并返回一个新的流&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;// 将数组转换为一个字符串列表
+List&amp;lt;String&amp;gt; numbers = Arrays.asList&amp;quot;13378520000&amp;quot;,&amp;quot;13278520000&amp;quot;,&amp;quot;13178520000&amp;quot;,&amp;quot;13358520000&amp;quot;);
+// 通过stream()方法创建一个流，接着使用filter方法过滤出前缀为&amp;quot;133&amp;quot;的元素，最终通过collect()方法将结果收集到一个新的列表中
+List&amp;lt;String&amp;gt; filterNumbers = numbers.stream().filter(s -&amp;gt; s.startWith(&amp;quot;133&amp;quot;)).collect(Collectors.toList());
+System.out.println(filterNumbers);
+
+打印结果：[13378520000, 13358520000]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;map映射转换元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#map映射转换元素&#34;&gt;#&lt;/a&gt; map: 映射转换元素&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;map 方法用于对流中的每个元素进行映射操作，将其转换为另一个元素或者提取其中的信息，并返回一个新的流&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.2.1 转换元素&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;获取每个手机号的前七位子字符串&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;List&amp;lt;String&amp;gt; numbers = Arrays.asList(&amp;quot;13378520000&amp;quot;,&amp;quot;13278520000&amp;quot;,&amp;quot;13178520000&amp;quot;,&amp;quot;13558520000&amp;quot;);
+//通过stream()方法创建一个流，使用map()方法将每个字符串转换为截取前7位的字符，最后使用collect()方法将结果收集到一个新列表中
+List&amp;lt;String&amp;gt; filterdNumbers = numbers.stream().map(s -&amp;gt; s.substring(0,7)).collect(Collectors.toList());
+System.out.println(filterdNumbers);
+
+
+打印结果：[1337852, 1327852, 1317852, 1355852]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;1.2.2 提取元素信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;获取每个对象的手机号&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;List&amp;lt;People&amp;gt; peopleList = Arrays.asList(
+        new People(&amp;quot;王二&amp;quot;,&amp;quot;13378520000&amp;quot;),
+        new People(&amp;quot;李二&amp;quot;,&amp;quot;13278520000&amp;quot;),
+        new People(&amp;quot;张四&amp;quot;,&amp;quot;13178520000&amp;quot;)
+);
+//通过stream()方法创建一个流，使用map()方法提取每个用户的手机号，最后使用collect()方法将结果收集到一个新列表中
+List&amp;lt;String&amp;gt; tel = peopleList.stream().map(People::getTel).collect(Collectors.toList());
+System.out.println(tel);
+
+
+打印结果：[13378520000, 13278520000, 13178520000]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;flatmap将多个流合并为一个流&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#flatmap将多个流合并为一个流&#34;&gt;#&lt;/a&gt; flatMap: 将多个流合并为一个流&lt;/h5&gt;
+&lt;p&gt;1.3.1 实现多对多的映射&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将 A 组数据和 B 组数据一次进行相加&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+List&amp;lt;Integer&amp;gt; listA = Arrays.asList(1,2,3);
+List&amp;lt;Integer&amp;gt; listB = Arrays.asList(4, 5, 6);
+List&amp;lt;Integer&amp;gt; list = listA.stream().flatMap(a -&amp;gt; listB.stream().map(b -&amp;gt; a +b)).collect(Collectors.toList());
+System.out.println(list);
+
+
+打印结果:  [5, 6, 7, 6, 7, 8, 7, 8, 9]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;1.3.2 将多个列表合并成一个列表&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; listOfLists = Arrays.asList(
+        Arrays.asList(&amp;quot;13378520000&amp;quot;, &amp;quot;13278520000&amp;quot;),
+        Arrays.asList(&amp;quot;13178520000&amp;quot;, &amp;quot;13558520000&amp;quot;),
+        Arrays.asList(&amp;quot;15138510000&amp;quot;, &amp;quot;15228310000&amp;quot;)
+);
+List&amp;lt;String&amp;gt; flatMapList = listOfLists.stream().flatMap(Collection::stream).collect(Collectors.toList());
+System.out.println(flatMapList);
+
+
+打印结果：[13378520000, 13278520000, 13178520000, 13558520000, 15138510000, 15228310000]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;peek查看每个元素的信息但不改变流中元素的状态&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#peek查看每个元素的信息但不改变流中元素的状态&#34;&gt;#&lt;/a&gt; peek: 查看每个元素的信息，但不改变流中元素的状态&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+List&amp;lt;String&amp;gt; telList = Arrays.asList(&amp;quot;13378520000&amp;quot;,&amp;quot;13278520000&amp;quot;,&amp;quot;13178520000&amp;quot;,&amp;quot;13558520000&amp;quot;);
+telList.stream().peek(t -&amp;gt; System.out.println(t))
+        .map(t -&amp;gt; t.substring(0,3))
+        .peek(t -&amp;gt; System.out.println(t))
+        .collect(Collectors.toList());
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;重点:&lt;/strong&gt; peek VS map&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;peek 操作一般用于 不想改变流中元素本身的类型或者只想元素的内部状态改变时&lt;br&gt;
+ map 则用于改变流中元素本身，即从元素中派生出另一种类型的操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;maptoint-maptolong-maptodouble-flatmaptodouble-flatmaptoint-flatmaptolong&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#maptoint-maptolong-maptodouble-flatmaptodouble-flatmaptoint-flatmaptolong&#34;&gt;#&lt;/a&gt; mapToInt、mapToLong、mapToDouble、flatMapToDouble、flatMapToInt、flatMapToLong&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以上操作是 map 和 flatMap 的特别版，也就是针对特定的数据类型进行映射处理&lt;/p&gt;
+&lt;p&gt;其对应方法如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+IntStream mapToInt(ToIntFunction&amp;lt;? super T&amp;gt; mapper);
+ 
+LongStream mapToLong(ToLongFunction&amp;lt;? super T&amp;gt; mapper); 
+ 
+DoubleStream mapToDouble(ToDoubleFunction&amp;lt;? super T&amp;gt; mapper);
+ 
+IntStream flatMapToInt(Function&amp;lt;? super T, ? extends IntStream&amp;gt; mapper);
+ 
+LongStream flatMapToLong(Function&amp;lt;? super T, ? extends LongStream&amp;gt; mapper);
+ 
+DoubleStream flatMapToDouble(Function&amp;lt;? super T, ? extends DoubleStream&amp;gt; mapper);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;有状态stateful操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#有状态stateful操作&#34;&gt;#&lt;/a&gt; 有状态 (Stateful) 操作&lt;/h4&gt;
+&lt;h5 id=&#34;distinct去除重复的元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#distinct去除重复的元素&#34;&gt;#&lt;/a&gt; distinct: 去除重复的元素&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;distinct () 方法可以用来去除流中的重复元素，生成无重复的列表&lt;br&gt;
+需要注意的是：distinct 用于针对流元素去重操作时，需要确定流中的元素实现了 equals () 和 hasCode () 方法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+List&amp;lt;String&amp;gt; numbers = Arrays.asList(&amp;quot;13378520000&amp;quot;, &amp;quot;15138510000&amp;quot;,&amp;quot;13178520000&amp;quot;, &amp;quot;15138510000&amp;quot;);
+List&amp;lt;String&amp;gt; disNumbers = numbers.stream().distinct().collect(Collectors.toList());
+System.out.println(disNumbers);		
+
+
+打印结果：[13378520000, 15138510000, 13178520000]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;15-sorted排序元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#15-sorted排序元素&#34;&gt;#&lt;/a&gt; 1.5 sorted: 排序元素&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sorted 方法用于对流中元素进行排序&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.5.1 升序排序&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+List&amp;lt;People&amp;gt; peopleList = Arrays.asList(
+        new People(&amp;quot;王二&amp;quot;,20),
+        new People(&amp;quot;李二&amp;quot;,30),
+        new People(&amp;quot;张四&amp;quot;,31)
+);
+List&amp;lt;People&amp;gt; newpeopleList=peopleList.stream().sorted(Comparator.comparing(People::getAge)).collect(Collectors.toList());
+//打印结果
+newpeopleList.stream().forEach(System.out::println);
+
+
+打印结果：
+People&amp;#123;name=&#39;王二&#39;, age=20&amp;#125;
+People&amp;#123;name=&#39;李二&#39;, age=30&amp;#125;
+People&amp;#123;name=&#39;张四&#39;, age=31&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1.5.2 降序排序&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过 reversed () 方法进行逆序排序&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+List&amp;lt;People&amp;gt; peopleList = Arrays.asList(
+        new People(&amp;quot;王二&amp;quot;,20),
+        new People(&amp;quot;李二&amp;quot;,30),
+        new People(&amp;quot;张四&amp;quot;,31)
+);
+List&amp;lt;People&amp;gt; newpeopleList = peopleList.stream().sorted(Comparator.comparing(People::getAge).reversed()).collect(Collectors.toList());
+//打印结果
+newpeopleList.stream().forEach(System.out::println);
+
+打印结果：
+People&amp;#123;name=&#39;张四&#39;, age=31&amp;#125;
+People&amp;#123;name=&#39;李二&#39;, age=30&amp;#125;
+People&amp;#123;name=&#39;王二&#39;, age=20&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;17-limit和skip截取流中的部分元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#17-limit和skip截取流中的部分元素&#34;&gt;#&lt;/a&gt; 1.7 limit 和 skip: 截取流中的部分元素&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;limit 返回一个包含前 n 个元素的新流&lt;br&gt;
+ skip 返回一个丢弃前 n 个元素后剩余元素组成的新流&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+int[] arr = &amp;#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10&amp;#125;;
+System.out.print(&amp;quot;取数组前5个元素:&amp;quot;);
+Arrays.stream(arr).limit(5).forEach(n -&amp;gt; System.out.print(n + &amp;quot; &amp;quot;)); // 输出结果为：1 2 3 4 5
+
+System.out.print(&amp;quot;跳过前3个元素，取剩余数组元素:&amp;quot;);
+Arrays.stream(arr).skip(3).forEach(n -&amp;gt; System.out.print(n + &amp;quot; &amp;quot;)); // 输出结果为：4 5 6 7 8 9 10
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;终结操作terminal-operation&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#终结操作terminal-operation&#34;&gt;#&lt;/a&gt; 终结操作 (Terminal Operation)&lt;/h3&gt;
+&lt;h4 id=&#34;短路short-circuiting操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#短路short-circuiting操作&#34;&gt;#&lt;/a&gt; 短路 (Short-circuiting) 操作&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;anyMatch: Stream 中只要有一个元素符合传入的 predicate, 返回 true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;boolean anyMatch(Predicate&amp;lt;? super T&amp;gt; predicate);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;allMatch: Stream 中全部元素符合传入的 predicate, 返回 true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;boolean allMatch(Predicate&amp;lt;? super T&amp;gt; predicate);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;noneMatch: Stream 中没有一个元素符合传入的 predicate, 返回 true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;boolean noneMatch(Predicate&amp;lt;? super T&amp;gt; predicate);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;findFirst: 用于返回满足条件的第一个元素 (凡是该元素是封装在 Optional 类中)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Optional&lt;T&gt; findFirst();&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;findAny: 返回流中的任意元素 (但是该元素也是封装在 Optional 类中)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Optional&lt;T&gt; findAny();&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;非短路操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非短路操作&#34;&gt;#&lt;/a&gt; 非短路操作&lt;/h4&gt;
+&lt;h5 id=&#34;foreach&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#foreach&#34;&gt;#&lt;/a&gt; forEach()&lt;/h5&gt;
+&lt;p&gt;该方法接收一个 lambda 表达式，然后在 Stream 的每一个元素上执行该表达式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;void forEach(Consumer&amp;lt;? super T&amp;gt; action);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;foreachordered&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#foreachordered&#34;&gt;#&lt;/a&gt; forEachOrdered()&lt;/h5&gt;
+&lt;p&gt;该方法接收一个 Lambda 表达式，然后按顺序在 Stream 中的每一个元素上执行该表达式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;void forEachOrdered(Consumer&amp;lt;? super T&amp;gt; action);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;该功能其实和 forEach 是很相似的，也是循环操作！那唯一的区别，就在于 forEachOrdered 是可以保证循环时元素是按原来的顺序逐个循环的！&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;toarray&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#toarray&#34;&gt;#&lt;/a&gt; toArray()&lt;/h5&gt;
+&lt;p&gt;返回包含此流元素的数组，当有参数时，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Object [] toArray();&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;A&gt; A[] toArray(IntFunction&amp;lt;A[]&amp;gt; generator);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;举例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+
+List&amp;lt;String&amp;gt; strList = Arrays.asList( &amp;quot;Jhonny&amp;quot;, &amp;quot;David&amp;quot;, &amp;quot;Jack&amp;quot;, &amp;quot;Duke&amp;quot;, &amp;quot;Jill&amp;quot;,&amp;quot;Dany&amp;quot;,&amp;quot;Julia&amp;quot;,&amp;quot;Jenish&amp;quot;,&amp;quot;Divya&amp;quot;);
+ 
+Object [] strAryNoArg = strList.stream().toArray();
+String [] strAry = strList.stream().toArray(String[]::new);
+
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/10/Java/Apache-poi/</guid>
+            <title>Apache-Poi</title>
+            <link>http://1405904364.github.io/2023/08/10/Java/Apache-poi/</link>
+            <category>Html</category>
+            <pubDate>Thu, 10 Aug 2023 16:29:50 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;apache-poi&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#apache-poi&#34;&gt;#&lt;/a&gt; Apache-Poi&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wb2kuYXBhY2hlLm9yZy8=&#34;&gt;官网&lt;/span&gt;&lt;br&gt;
+&lt;br/&gt; &lt;br/&gt;&lt;br&gt;
+&lt;img data-src=&#34;/image/Java/project-header.png&#34; alt=&#34;官网&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h2&gt;
+&lt;h3 id=&#34;hssf-sxxf-sxssf的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hssf-sxxf-sxssf的区别&#34;&gt;#&lt;/a&gt; HSSF SXXF SXSSF 的区别&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;HSSF:Excel97-2003 版本，扩展名为.xls。一个 sheet 最大行数 65536，最大列数 256。&lt;/li&gt;
+&lt;li&gt;XSSF:Excel2007 版本开始，扩展名为.xlsx。一个 sheet 最大行数 1048576，最大列数 16384。&lt;/li&gt;
+&lt;li&gt;SXSSF: 是在 XSSF 基础上，POI3.8 版本开始提供的支持低内存占用的操作方式，扩展名为.xlsx。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HSSF 用于 Excel03 版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  缺点：最多只能处理65536行，否则会报异常，
+
+  优点：过程中写入缓存，不操作磁盘，最后一次性写入磁盘，速度快
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;XSSF 用于 Excel07 版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  缺点：写数据时速度非常慢，非常耗内存，也会发生内存溢出，如100万条数据
+  优点：可以写较大的数据量，如20万条数据
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SXSSF 可以理解为 SXXF 超大量数据升级版：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  优点：可以写非常大量的数据库，如100万条甚至更多条，写数据速度快，占用更少的内存
+  注意：
+      - 过程中会产生临时文件，需要清理临时文件
+      - 默认由100条记录被保存在内存中，如果超出这数量，则最前面的数据被写入临时文件
+      - 如果想自定义内存中数据的数量，可以使用new SXSSFWorkbook（数量）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;其他常见名称含义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#其他常见名称含义&#34;&gt;#&lt;/a&gt; 其他常见名称含义&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;其他常见名称含义：&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;XSSF (XML SpreadSheet Format) – Used to reading and writting Open Office XML (XLSX) format files.&lt;/li&gt;
+&lt;li&gt;HSSF (Horrible SpreadSheet Format) – Use to read and write Microsoft Excel (XLS) format files.&lt;/li&gt;
+&lt;li&gt;HWPF (Horrible Word Processor Format) – to read and write Microsoft Word 97 (DOC) format files.&lt;/li&gt;
+&lt;li&gt;HSMF (Horrible Stupid Mail Format) – pure Java implementation for Microsoft Outlook MSG files&lt;/li&gt;
+&lt;li&gt;HDGF (Horrible DiaGram Format) – One of the first pure Java implementation for Microsoft Visio binary files.&lt;/li&gt;
+&lt;li&gt;HPSF (Horrible Property Set Format) – For reading “Document Summary” information from Microsoft Office files.&lt;/li&gt;
+&lt;li&gt;HSLF (Horrible Slide Layout Format) – a pure Java implementation for Microsoft PowerPoint files.&lt;/li&gt;
+&lt;li&gt;HPBF (Horrible PuBlisher Format) – Apache’s pure Java implementation for Microsoft Publisher files.&lt;/li&gt;
+&lt;li&gt;DDF (Dreadful Drawing Format) – Apache POI package for decoding the Microsoft Office Drawing format.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用&#34;&gt;#&lt;/a&gt; 使用&lt;/h2&gt;
+&lt;h3 id=&#34;步骤一导入依赖&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#步骤一导入依赖&#34;&gt;#&lt;/a&gt; 步骤一：导入依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.poi&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;poi&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;4.1.1&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.poi&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;poi-ooxml&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;4.1.1&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/10/Java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
+            <title>函数式编程</title>
+            <link>http://1405904364.github.io/2023/08/10/Java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+            <category>Java</category>
+            <pubDate>Thu, 10 Aug 2023 16:29:50 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;函数式编程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数式编程&#34;&gt;#&lt;/a&gt; 函数式编程&lt;/h1&gt;
+&lt;p&gt;一种 语法优雅、简洁健壮、高并发、易于测试和调试 的编程方式，这就是函数式编程 (FP) 的意义所在。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OO (Object oriented, 面向对象) 是抽象数据&lt;br&gt;
+ FP (Function programming, 函数式编程) 是抽象行为&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;两个关键概念:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;函数是第一等公民&lt;/li&gt;
+&lt;li&gt;函数要满足以下约束
+&lt;ul&gt;
+&lt;li&gt;函数的返回值仅取决于传递给函数的输入参数&lt;/li&gt;
+&lt;li&gt;函数的执行没有副作用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;函数是一等公民&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数是一等公民&#34;&gt;#&lt;/a&gt; 函数是一等公民&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在函数式编程范式中，函数是语言的第一等公民。这意味着可以创建函数的 “实例”，对函数实例的变量引用，就像对字符串、Map 或者任何其他对象的引用一样。函数也可以作为参数传递给其他函数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 Java 中，函数显然不是第一等公民，类 (Class) 才是。所以 Java 才引用 Lambda 表达式，这个语法糖从表现层让 Java 拥有了函数，让函数可以作为变量的引用、方法的参数等等。（为什么说是从表现层呢？因为实际上，在编译的时候，Java 编译器还是会把 Lambda 表达式编译成类。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;纯函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#纯函数&#34;&gt;#&lt;/a&gt; 纯函数&lt;/h3&gt;
+&lt;p&gt;函数式编程中，有个纯函数 (Pure Function) 的概念，如果一个函数满足以下条件，才是纯函数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;该函数的执行没有副作用&lt;/li&gt;
+&lt;li&gt;函数的返回值仅取决于传递给函数的输入参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class ObjectWithPureFunction&amp;#123;
+    public int sum(int a, int b)&amp;#123;
+        return a+b;
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;非纯函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非纯函数&#34;&gt;#&lt;/a&gt; 非纯函数&lt;/h3&gt;
+&lt;p&gt;上面的 sum 方法的返回值仅取决于其输入参数，而且 sum 是没有副作用的，它不会在任何地方修改函数之外的任何状态 (变量)&lt;/p&gt;
+&lt;p&gt;相反，这个一个非纯函数的例子:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class ObjectWithNonPureFunction&amp;#123;
+    private int value = 0;
+
+    public int add(int nextValue) &amp;#123;
+        this.value += nextValue;
+        return this.value;
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;add 方法使用成员变量 value 来计算返回值，并且它还修改了 value 成员变量，这代表它有副作用，这两个条件都导致 add 方法不是一个纯函数&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;函数式接口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数式接口&#34;&gt;#&lt;/a&gt; 函数式接口&lt;/h2&gt;
+&lt;p&gt;所谓函数式接口，实际上就是接口里面有且只能有一个抽象方法的接口。&lt;/p&gt;
+&lt;p&gt;函数式接口也称为 单一抽象方法 (SAM) 接口&lt;/p&gt;
+&lt;h3 id=&#34;函数式接口的特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数式接口的特点&#34;&gt;#&lt;/a&gt; 函数式接口的特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;接口有且仅有一个抽象方法，如接口 Comparator&lt;/li&gt;
+&lt;li&gt;允许出现 java.lang.Object 中的 public 方法，如 equals&lt;/li&gt;
+&lt;li&gt;允许定义静态非抽象方法&lt;/li&gt;
+&lt;li&gt;允许定义默认 default 非抽象方法 (default 方法式 java8 开始出现的)&lt;/li&gt;
+&lt;li&gt;FunctionInterface 注解不是必须的，如果一个接口符合 “函数式接口” 的定义，那么不加该注解也没有影响&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;甚至可以说：函数式接口是专门为 lambda 表达式准备的，lambda 表达式是只实现接口中唯一抽象方法的匿名实现类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;default关键字&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#default关键字&#34;&gt;#&lt;/a&gt; default 关键字&lt;/h3&gt;
+&lt;p&gt;在 java8 之前&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;接口是不能有方法的实现，所有的方法必须是抽象方法&lt;/li&gt;
+&lt;li&gt;实现接口就必须实现接口里面的所有方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这样导致：当一个接口有很多实现类的时候，修改这个接口，就必须修改所有的实现类。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不过在 java8 中这个问题得到解决，这就是 default 方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;default 方法可以有自己的默认实现，即有方法体&lt;/li&gt;
+&lt;li&gt;接口实现类可以不去实现 default 方法，并且可以使用 default 方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;jdk中函数式接口的举例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#jdk中函数式接口的举例&#34;&gt;#&lt;/a&gt; JDK 中函数式接口的举例&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;java.lang.Runnable,&lt;/li&gt;
+&lt;li&gt;java.util.Comparator,&lt;/li&gt;
+&lt;li&gt;java.util.concurrent.Callable&lt;/li&gt;
+&lt;li&gt;java.util.function 包下的接口，如 Consumer、Predicate、Supplier 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;编译器会根据 Lambda 表达式的参数和返回值类型推断出其实现的抽象方法，进而推断出其实现的接口，如果一个接口有多个抽象方法，显然是没有办法用 Lambda 表达式实现该接口的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;functioninterface-注解&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#functioninterface-注解&#34;&gt;#&lt;/a&gt; @FunctionInterface 注解&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;标注接口是一个函数式接口的注解&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;@FunctionalInterface // 标明接口为函数式接口
+public interface MyInterface &amp;#123;
+    public void run(); //抽象方法
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一旦使用了该注解标注接口，Java 的编译器会强制检查该接口是否满足函数式接口的要求：“确实仅有一个抽象方法”，否则将会报错&lt;/p&gt;
+&lt;p&gt;需要注意的是，及时不适用该注解，只要有一个接口满足函数式接口的要求，那它仍然是一个函数式接口，使用起来都一样。该注解只起到标记接口指示编译器对其进行检查的作用&lt;/p&gt;
+&lt;h3 id=&#34;java内置的函数式接口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java内置的函数式接口&#34;&gt;#&lt;/a&gt; Java 内置的函数式接口&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Function&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Function 接口（全限定名：java.util.function.Function）是 Java 中最核心的函数式接口。 Function 接口表示一个接受单个参数并返回单个值的函数（方法）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Predicate&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Predicate 接口 （全限定名：java.util.function.Predicate）表示一个接收单个参数，并返回布尔值 true 或 false 的函数&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Supplier&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Supplier 接口（java.util.function.Supplier），表示提供某种值的函数&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Consume&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Consumer 接口（java.util.function.Consume）表示一个函数，该函数接收一个参数，但是不返回任何值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Optional&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Optional 接口并不是一个函数式接口，它常在 Stream 操作中出现，作为操作的返回值类型。&lt;/p&gt;
+&lt;p&gt;Optional 接口是预防 NullPointerException 的好工具，它是一个简单的容器，其值可以是 null 或非 null。比如一个可能返回一个非空结果的方法，方法在有些情况下返回值，有些情况不满足返回条件返回空值，这种情况下使用 Optional 接口作为返回类型，比直接无值时返回 Null 要更安全&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;lambda表达式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#lambda表达式&#34;&gt;#&lt;/a&gt; Lambda 表达式&lt;/h2&gt;
+&lt;h3 id=&#34;双冒号语法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#双冒号语法&#34;&gt;#&lt;/a&gt; 双冒号语法&lt;/h3&gt;
+&lt;p&gt;其实双冒号就是 lambda 表达式的简写。被用作方法的引用。使用 lambda 表达式会创建匿名方法，但是有时候会需要一个 lambda 表达式只调用一个已经存在的方法，在此才有了方法的引用&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;静态方法的引用 (static method)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class Demo &amp;#123;
+	@Test
+	public void test() &amp;#123;
+		List&amp;lt;String&amp;gt; list = Arrays.asList(&amp;quot;aaaa&amp;quot;, &amp;quot;bbbb&amp;quot;, &amp;quot;cccc&amp;quot;);
+		
+		//静态方法语法	ClassName::methodName
+		list.forEach(Demo::print);
+	&amp;#125;
+	
+	public static void print(String content)&amp;#123;
+		System.out.println(content);
+	&amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;对象实例方法的引用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class Demo &amp;#123;
+	@Test
+	public void test() &amp;#123;
+		List&amp;lt;String&amp;gt; list = Arrays.asList(&amp;quot;aaaa&amp;quot;, &amp;quot;bbbb&amp;quot;, &amp;quot;cccc&amp;quot;);
+		
+		//静态方法语法	ClassName::methodName
+		list.forEach(new Demo()::print);
+	&amp;#125;
+	
+	public void print(String content)&amp;#123;
+		System.out.println(content);
+	&amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;对象的超类方法引用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Example extends BaseExample&amp;#123;
+ 
+	@Test
+	public void test() &amp;#123;
+		List&amp;lt;String&amp;gt; list = Arrays.asList(&amp;quot;aaaa&amp;quot;, &amp;quot;bbbb&amp;quot;, &amp;quot;cccc&amp;quot;);
+		
+		//对象的超类方法语法： super::methodName 
+		list.forEach(super::print);
+	&amp;#125;
+&amp;#125;
+ 
+class BaseExample &amp;#123;
+	public void print(String content)&amp;#123;
+		System.out.println(content);
+	&amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;类构造器引用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class Example &amp;#123;
+ 
+	@Test
+	public void test() &amp;#123;
+		InterfaceExample com =  Example::new;
+		Example bean = com.create();
+        Example bean = com.create(&amp;quot;STRING&amp;quot;);
+		System.out.println(bean);
+	&amp;#125;
+&amp;#125;
+ 
+interface InterfaceExample&amp;#123;
+    //不带参数
+	Example create();
+    //带参数
+    Example create(String str);
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/10/hello-world/</guid>
+            <title>Hello World</title>
+            <link>http://1405904364.github.io/2023/08/10/hello-world/</link>
+            <pubDate>Thu, 10 Aug 2023 11:59:27 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
+&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
