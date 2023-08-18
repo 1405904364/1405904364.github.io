@@ -5,11 +5,116 @@
         <link>http://1405904364.github.io</link>
         <description>个人学习使用</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 10 Aug 2023 16:29:50 +0800</pubDate>
-        <lastBuildDate>Thu, 10 Aug 2023 16:29:50 +0800</lastBuildDate>
+        <pubDate>Fri, 18 Aug 2023 14:16:27 +0800</pubDate>
+        <lastBuildDate>Fri, 18 Aug 2023 14:16:27 +0800</lastBuildDate>
         <category>Java8</category>
+        <category>maven</category>
         <category>Html</category>
         <category>Java</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/18/maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/</guid>
+            <title>常用元素标签</title>
+            <link>http://1405904364.github.io/2023/08/18/maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/</link>
+            <category>maven</category>
+            <pubDate>Fri, 18 Aug 2023 14:16:27 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;pomxml常用元素介绍&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pomxml常用元素介绍&#34;&gt;#&lt;/a&gt; pom.xml 常用元素介绍&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;project 包含 pom 一些约束的信息&lt;/li&gt;
+&lt;li&gt;modelVersion 指定当前 pom 的版本&lt;/li&gt;
+&lt;li&gt;groupId（主项目标示，定义当前 maven 属于哪个项目，- 反写公司网址 + 项目名）、&lt;/li&gt;
+&lt;li&gt;artifactId（实际项目模块标识，项目名 + 模块名）、&lt;/li&gt;
+&lt;li&gt;version（当前项目版本号，第一个 0 标识大版本号，第 - 二个 0 标示分支版本号，第三个 0 标识小版本号，0.0.1，- snapshot 快照，alpha 内部测试，beta 公测，release 稳 - 定，GA 正式发布）&lt;/li&gt;
+&lt;li&gt;name 项目描述名&lt;/li&gt;
+&lt;li&gt;url 项目地址&lt;/li&gt;
+&lt;li&gt;description 项目描述&lt;/li&gt;
+&lt;li&gt;developers 开发人员列表&lt;/li&gt;
+&lt;li&gt;licenses 许可证&lt;/li&gt;
+&lt;li&gt;organization：组织&lt;/li&gt;
+&lt;li&gt;dependencies：依赖列表&lt;/li&gt;
+&lt;li&gt;dependency：依赖项目 里面放置坐标&lt;/li&gt;
+&lt;li&gt;scope：包的依赖范围 test&lt;/li&gt;
+&lt;li&gt;optional ：设置依赖是否可选&lt;/li&gt;
+&lt;li&gt;exclusions：排除依赖传递列表&lt;/li&gt;
+&lt;li&gt;dependencyManagement 依赖的管理&lt;/li&gt;
+&lt;li&gt;build：为构建行为提供支持&lt;/li&gt;
+&lt;li&gt;plugins：插件列表&lt;/li&gt;
+&lt;li&gt;parent：子模块对父模块的继承&lt;/li&gt;
+&lt;li&gt;modules：聚合多个 maven 项目&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/18/maven/scope%E6%A0%87%E7%AD%BE/</guid>
+            <title>scope标签的作用</title>
+            <link>http://1405904364.github.io/2023/08/18/maven/scope%E6%A0%87%E7%AD%BE/</link>
+            <category>maven</category>
+            <pubDate>Fri, 18 Aug 2023 14:16:27 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;scope的作用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#scope的作用&#34;&gt;#&lt;/a&gt; Scope 的作用&lt;/h1&gt;
+&lt;p&gt;概述：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Maven 中使用 scope 来指定当前包的依赖范围和依赖的传递性。常见的可选值有: complie、provide、runtime、test、system 等&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-maven&#34;&gt;        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;spring-test&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;3.2.1.RELEASE&amp;lt;/version&amp;gt;
+            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;scope取值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#scope取值&#34;&gt;#&lt;/a&gt; scope 取值&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;complie
+&lt;ul&gt;
+&lt;li&gt;范围：all&lt;/li&gt;
+&lt;li&gt;依赖传递：是&lt;/li&gt;
+&lt;li&gt;例子：spring-core&lt;/li&gt;
+&lt;li&gt;详解：complie 为默认的依赖有效范围。如果没有明确指定依赖有效范围的花，则默认采用该值。在编译、运行、测试时均有效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;provided
+&lt;ul&gt;
+&lt;li&gt;范围：complie、test&lt;/li&gt;
+&lt;li&gt;依赖传递：否&lt;/li&gt;
+&lt;li&gt;例子：servlet-api&lt;/li&gt;
+&lt;li&gt;详解：provided 在编译、测试时有效，但是在运行时无效。例如 servlet-api 依赖，在部署到 tomcat 服务器中，容器已经提供了，就不再需要 maven 重复引入了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;runtime
+&lt;ul&gt;
+&lt;li&gt;范围：runtime、test&lt;/li&gt;
+&lt;li&gt;依赖传递：是&lt;/li&gt;
+&lt;li&gt;例子：JDBC 驱动&lt;/li&gt;
+&lt;li&gt;详解：runtime 在运行、测试时有效，但是在编译时无效。例如 JDBC 的驱动实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;test
+&lt;ul&gt;
+&lt;li&gt;范围：test&lt;/li&gt;
+&lt;li&gt;依赖传递：否&lt;/li&gt;
+&lt;li&gt;例子：JUnit&lt;/li&gt;
+&lt;li&gt;详解：只在测试时有效，例如 Junit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;system
+&lt;ul&gt;
+&lt;li&gt;范围：complie、test&lt;/li&gt;
+&lt;li&gt;依赖传递：是&lt;/li&gt;
+&lt;li&gt;例子：&lt;/li&gt;
+&lt;li&gt;详解：system 在编译、测试时有效，但是在运行时无效。与 provided 的区别是，使用 system 范围依赖时，必须通过 systemPath 元素显示指定依赖文件的路径。此依赖时通过本机绑定的，不可移植使用，因此要谨慎使用。systemPath 元素可以引用环境变量。例如：&lt;pre&gt;&lt;code class=&#34;language-maven&#34;&gt;        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;javax.sql&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;jdbc-stdext&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;2.0&amp;lt;/version&amp;gt;
+            &amp;lt;scope&amp;gt;system&amp;lt;/scope&amp;gt;
+            &amp;lt;systemPath&amp;gt;$&amp;#123;java.home&amp;#125;/lib/rt.jar&amp;lt;/systemPath&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在编译或者是运行时有效的范围依赖，在打包时会一起打包&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://1405904364.github.io/2023/08/10/Java/Stream%E6%B5%81/</guid>
             <title>Stream流式编程</title>
