@@ -5,12 +5,2274 @@
         <link>http://1405904364.github.io</link>
         <description>个人学习使用</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 18 Aug 2023 14:16:27 +0800</pubDate>
-        <lastBuildDate>Fri, 18 Aug 2023 14:16:27 +0800</lastBuildDate>
+        <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+        <lastBuildDate>Wed, 30 Aug 2023 16:50:51 +0800</lastBuildDate>
         <category>Java8</category>
         <category>Java</category>
         <category>Html</category>
         <category>maven</category>
+        <category>webService</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/9.%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/9.%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;分组查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分组查询&#34;&gt;#&lt;/a&gt; 分组查询&lt;/h2&gt;
+&lt;h3 id=&#34;sql语句各个关键字的执行顺序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sql语句各个关键字的执行顺序&#34;&gt;#&lt;/a&gt; SQL 语句各个关键字的执行顺序&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;select
+    ...         5
+from
+    ...         1
+where
+    ...         2
+group by
+    ...         3
+having
+    ...         4
+order by
+    ...         6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;执行顺序：&lt;br&gt;
+1. from&lt;br&gt;
+2. where&lt;br&gt;
+3. group by&lt;br&gt;
+4. having&lt;br&gt;
+5. select&lt;br&gt;
+6. order by&lt;/p&gt;
+&lt;h3 id=&#34;重点结论&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重点结论&#34;&gt;#&lt;/a&gt; 重点结论&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;在一条select语句当中，如果有group by语句的话，select后面只能跟分组函数，以及参加分组的字段。其他的一律不能跟。（Mysql可以执行，但没有意义，Oracle数据库当中会报错）
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/8.%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E8%A1%8C%E6%95%B0/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/8.%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E8%A1%8C%E6%95%B0/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;多行处理行数分组函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#多行处理行数分组函数&#34;&gt;#&lt;/a&gt; 多行处理行数（分组函数）&lt;/h2&gt;
+&lt;p&gt;特点：输入多行、最终输出一行&lt;/p&gt;
+&lt;h4 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意：&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;分组函数在使用时必须先进行分组，然后才能使用。
+如果你没有对数据进行分组，整张表默认为一组
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;count-计数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#count-计数&#34;&gt;#&lt;/a&gt; count 计数&lt;/h3&gt;
+&lt;p&gt;计算员工数量总和&lt;br&gt;
+ select count (name) from emp;&lt;/p&gt;
+&lt;h3 id=&#34;sum-求和&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sum-求和&#34;&gt;#&lt;/a&gt; sum 求和&lt;/h3&gt;
+&lt;p&gt;计算工资合&lt;br&gt;
+ select sum (sal) from emp;&lt;/p&gt;
+&lt;h3 id=&#34;avg-平均值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#avg-平均值&#34;&gt;#&lt;/a&gt; avg 平均值&lt;/h3&gt;
+&lt;p&gt;计算平均工资&lt;br&gt;
+ select avg (sal) from emp;&lt;/p&gt;
+&lt;h3 id=&#34;max-最大值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#max-最大值&#34;&gt;#&lt;/a&gt; max 最大值&lt;/h3&gt;
+&lt;p&gt;找出最高工资&lt;br&gt;
+ select max (sal) from emp;&lt;/p&gt;
+&lt;h3 id=&#34;min-最小值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#min-最小值&#34;&gt;#&lt;/a&gt; min 最小值&lt;/h3&gt;
+&lt;p&gt;找出最低工资&lt;br&gt;
+ select min (sal) from emp;&lt;/p&gt;
+&lt;h2 id=&#34;分组函数使用时需要注意的地方&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分组函数使用时需要注意的地方&#34;&gt;#&lt;/a&gt; 分组函数使用时，需要注意的地方&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1. 分组函数自动忽略 NULL, 不需要提前处理。
+ 例如：求所有员工津贴/补助的总和。
+    select sum(comm) from emp;//不需要加where comm is not null条件。
+2. 分组函数count(*) 和 count(具体字段)的区别。
+   1. count(具体字段)：表示统计该字段下所有不为 NULL 的元素的总数。
+   2. count(*)：统计表中所有行数。
+3. 分组函数不能直接用在where子句中。
+ 例如：找出比最低工资高的员工信息。
+ select ename, sal from emp where sal &amp;gt; min(sal);// 错误SQL语句
+4. 所有分组函数可以组合起来一起使用。
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/7.%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/7.%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;单行处理函数也叫做数据处理函数&lt;/p&gt;
+&lt;p&gt;单行处理函数的特点：&lt;/p&gt;
+&lt;p&gt;​	一个输入对应一个输出&lt;/p&gt;
+&lt;p&gt;和单行处理函数相对的是：&lt;/p&gt;
+&lt;p&gt;​	多行处理函数（特点：多个输入，对应一个输出）&lt;/p&gt;
+&lt;p&gt;常见的单行处理函数&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;lower 转换小写&lt;/p&gt;
+&lt;p&gt;select  lower(name)  from city;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;upper 转换大写&lt;/p&gt;
+&lt;p&gt;select  upper(name)  from city;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;substr 取子串&lt;/p&gt;
+&lt;p&gt;substr (被截取的字符串，起始下标，截取的长度)// 注意起始下标从 1 开始，没有 0&lt;/p&gt;
+&lt;p&gt;select  substr(name, 1, length(name))  from city;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;concat 进行字符串拼接&lt;/p&gt;
+&lt;p&gt;select concat(name, countrycode) from city;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;length 取长度&lt;/p&gt;
+&lt;p&gt;select length(name) from city;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;trim 去除空格&lt;/p&gt;
+&lt;p&gt;select * from city where name = trim (’   King   &#39;);// 将查询条件中的前后空格去除&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;round 四舍五入&lt;/p&gt;
+&lt;p&gt;select 字段 from 表名；&lt;/p&gt;
+&lt;p&gt;select name from city;&lt;/p&gt;
+&lt;p&gt;select ‘abc’ from city;//select 后面直接跟 “字面量”/“字面值”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;结论：select 后面可以跟某个表的字段名（可以等同看作变量名），也可以跟字面量 / 字面值（数据）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;p&gt;select round (1276.567, 2) from city;// 保留二位小数 1276.57&lt;/p&gt;
+&lt;p&gt;select round (1276.567, 1) from city;// 保留一位小数 1276.6&lt;/p&gt;
+&lt;p&gt;select round (1276.567, 0) from city;// 保留整数 1277&lt;/p&gt;
+&lt;p&gt;select round (1276.567, -1) from city;// 保留到十位 1270&lt;/p&gt;
+&lt;p&gt;select round (1276.567, -2) from city;// 保留到百位 1280&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rand 生成随机数&lt;/p&gt;
+&lt;p&gt;select rand() from city;&lt;/p&gt;
+&lt;p&gt;例如：生成 100 以内的随机数&lt;/p&gt;
+&lt;p&gt;select round(rand() * 100, 0) from city;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ifnull 可以将 null 转换成一个具体值。&lt;/p&gt;
+&lt;p&gt;ifnull 是空处理函数。专门处理空的。（因为在所有数据库中，只要有 null 参与的数学运算，最终结果都为 null）&lt;/p&gt;
+&lt;p&gt;ifnull 函数语法：ifnull (数据，被当作那个值)&lt;/p&gt;
+&lt;p&gt;如果 “数据” 为 null 的时候，把这个数据当作那个值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;case when … then … when … then … else … end&lt;/p&gt;
+&lt;p&gt;例如：当员工的岗位为 MANAGER 的时候，工资上调 %10，当工作岗位是 SALESMAN 的时候，工资上调 %50，其他正常。&lt;/p&gt;
+&lt;p&gt;（注意：不修改数据库，只是将查询结果显示为工资上调）&lt;/p&gt;
+&lt;p&gt;select&lt;/p&gt;
+&lt;p&gt;ename,&lt;/p&gt;
+&lt;p&gt;job,&lt;/p&gt;
+&lt;p&gt;sal as oldsal,&lt;/p&gt;
+&lt;p&gt;(case when ‘MANAGER’ then sal*1.1 when ‘SALESMAN’ then sal**1.5 else sal end) as newsal&lt;/p&gt;
+&lt;p&gt;from emp;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;format 数字格式化&lt;br&gt;
+ format (数字，‘格式’)&lt;/p&gt;
+&lt;p&gt;select ename, (sal, ‘$999,999’) from emp;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;str_to_date&lt;/p&gt;
+&lt;p&gt;字符串转换为 date 类型&lt;/p&gt;
+&lt;p&gt;str_to_date (‘日期字符串’, ‘日期格式’)&lt;/p&gt;
+&lt;p&gt;Mysql 中日期格式：&lt;br&gt;
+% Y 年&lt;br&gt;
+ % m 月&lt;br&gt;
+ % d 日&lt;br&gt;
+ % h 时&lt;br&gt;
+ % i 分&lt;br&gt;
+ % s 秒&lt;/p&gt;
+&lt;p&gt;Java 中日期格式：&lt;br&gt;
+yyyy-MM-dd HH:mm:ss SSS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;date_format&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;从 date 类型转换为具有一定格式的字符串类型&lt;/p&gt;
+&lt;p&gt;date_format (日期值，‘日期格式’)&lt;/p&gt;
+&lt;p&gt;insert into test values(1, ‘zhangsan’, str_to_date(‘10:13:20 11-11-1999’, ‘%h:%i:%s %d-%m-%Y’));&lt;/p&gt;
+&lt;p&gt;insert into test values (1, ‘zhangsan’, str_to_date (‘11-1999’, ‘% m-% Y’));//date 类型为年月日，插入的值不完整，所以报错&lt;/p&gt;
+&lt;p&gt;insert into test values(1, ‘zhangsan’, str_to_date(‘11-1999’, ‘11-%m-%Y’));&lt;/p&gt;
+&lt;p&gt;insert into test values(1, ‘zhangsan’, str_to_date(‘10-11-1999’, ‘10-%m-%Y’));&lt;/p&gt;
+&lt;p&gt;insert into test values (1, ‘zhangsan’, str_to_date (‘10-11-1999’, ‘% d-% m-% Y’));// 正确&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/25.%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/25.%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;mysql存储过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mysql存储过程&#34;&gt;#&lt;/a&gt; Mysql 存储过程&lt;/h1&gt;
+&lt;p&gt;存储过程是在数据库中定义一些 SQL 语句的集合，可以直接去调用这些存储过程来执行已经定义好的 SQL 语句。&lt;/p&gt;
+&lt;p&gt;触发器和存储过程相似，都是嵌入到 MySql 中的一段儿程序。触发器是由事件来触发某个操作。当数据库执行这些事件时，就会激活触发器来执行相应的操作。&lt;/p&gt;
+&lt;h2 id=&#34;存储过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#存储过程&#34;&gt;#&lt;/a&gt; 存储过程&lt;/h2&gt;
+&lt;p&gt;数据库的实际操作中，经常会有需要多条 SQL 语句处理多个表才能完成的操作。例如，为了确认学生能否毕业，需要同时查询学生档案、成绩表和从何表，此时就需要使用多条 SQL 语句来针对这几个数据表完成处理要求。存储过程就是这样一组为了完成特定功能的 SQL 语句的集合。&lt;/p&gt;
+&lt;p&gt;使用存储过程的目的是将经常或复杂的工作预先使用 SQL 语句写好，并用一个指定的名称存储起来，这个过程经编译和优化由存储在数据库服务器中，因此成为存储过程。当以后需要数据库提供与已定义好的存储过程的功能相同的服务时，只需要调用 “CALL 存储过程名字” 即可自动完成。&lt;/p&gt;
+&lt;p&gt;常用操作数据库的 SQL 语句在执行的时候需要先编译，然后执行。存储过程则采用另一种方式来执行 SQL 语句。&lt;/p&gt;
+&lt;p&gt;一个存储过程即一个可编程的函数，它可以在数据库中创建并保存，一般由 SQL 语句和一些特殊控制结构组成。当希望在不同的应用程序或平台上执行相同的特定功能时，存储过程尤为合适。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;MySql5.0版本以前并不支持存储过程。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;存储过程时数据库中的一个重要功能，存储过程可以用来转换数据、数据迁移、制作报表，它类似于编程语言，一次执行成功，就可以被调用，完成指定的功能操作。&lt;/p&gt;
+&lt;p&gt;使用存储过程不仅可以提高数据的访问效率，同时也可以提高数据库使用的安全性。&lt;/p&gt;
+&lt;p&gt;对于调用者来说，存储过程封装了 SQL 语句，调用者无需考虑逻辑功能的具体实现过程。只是简单调用即可，它可以被 Java 和 C# 等编程语言调用。&lt;/p&gt;
+&lt;h2 id=&#34;创建存储过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建存储过程&#34;&gt;#&lt;/a&gt; 创建存储过程&lt;/h2&gt;
+&lt;p&gt;创建存储过程使用 create procedure 语句，语法格式如下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;create procedure &amp;lt;过程名&amp;gt; ([过程参数[,...]]) &amp;lt;过程体&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中，过程参数是存储过程的参数列表。MySQL 存储过程支持三种类型的参数，即输入参数，输出参数和输入 / 输出参数，分别用 IN、OUT 和 INOUT 三个关键字标识。其中输入参数可以传递给一个存储过程，输出参数用于存储过程需要返回一个操作结果的情形，而输出 / 输出参数既可以充当输入参数也可以充当输出参数。格式如下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[ IN | OUT | INOUT ] &amp;lt;参出名&amp;gt; &amp;lt;类型&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;过程体是存储过程的主体部分，包含在过程调用的时候必须执行的 SQL 语句。这个部分以关键字 &lt;strong&gt;BEGIN&lt;/strong&gt; 开始，以关键字 &lt;strong&gt;END&lt;/strong&gt; 结束。若存储过程体中只有一条 SQL 语句，则可以省略 BEGIN-END 标志。&lt;/p&gt;
+&lt;p&gt;在 Mysql 中，服务器处理 SQL 语句默认是以分号作为语句结束标志的。然而，在创建存储过程时，存储过程体可能包含有多条 SQL 语句，这些 SQL 语句如果仍以分号作为语句结束符号，那么 MySQL 服务器在处理存储过程时，会以遇到的第一条 SQL 语句结尾处的分号作为整个程序的额结束符，而不再去处理存储过程体后面的 SQL 语句，这样显然不行。为了解决以上问题，通常使用 &lt;strong&gt;DELIMITER&lt;/strong&gt; 命令将结束命令修改为其他字符。语法格式如下。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DELIMITER $$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;语法说明如下：&lt;br&gt;
+$$ 是用户定义的结束符，通常这个符号可以是一些特殊的符号，如两个 “？” 或两个 “￥“ 等。&lt;br&gt;
+当使用 DELIMITER 命令时，应该避免使用反斜杠 &amp;quot;&amp;quot; 字符，因为它是 MySQL 的转义字符。&lt;/p&gt;
+&lt;p&gt;在 MySQL 命令行客户端使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; DELIMITER ??
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;执行该命令后，任何命令、语句或程序的结束标志就换为两个问号 &amp;quot;??&amp;quot; 了。&lt;/p&gt;
+&lt;p&gt;注意：DELIMITER 和分号 “;” 之间一定要有一个空格（使用分号 &amp;quot;;&amp;quot; 作为 MySQL 语句结束符）。&lt;/p&gt;
+&lt;p&gt;在创建存储过程时，必须具有 create routine 权限。&lt;/p&gt;
+&lt;p&gt;例如：&lt;br&gt;
+mysql&amp;gt; DELIMITER //&lt;br&gt;
+mysql&amp;gt; CREATE PROCEDURE GetScoreByStu&lt;br&gt;
+-&amp;gt; (IN name VARCHAR(30))&lt;br&gt;
+-&amp;gt; BEGIN&lt;br&gt;
+-&amp;gt; SELECT student_score FROM tb_students_score&lt;br&gt;
+-&amp;gt; WHERE student_name=name;&lt;br&gt;
+-&amp;gt; END //&lt;br&gt;
+Query OK, 0 rows affected (0.01 sec)&lt;/p&gt;
+&lt;h2 id=&#34;12-查看存储过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#12-查看存储过程&#34;&gt;#&lt;/a&gt; 1.2 查看存储过程&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;SHOW PROCEDURE STATUS LIKE 存储过程名;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也可以查看存储过程的定义，语法格式如下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SHOW CREATE PROCEDURE 存储过程名
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;13修改存储过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#13修改存储过程&#34;&gt;#&lt;/a&gt; 1.3 修改存储过程&lt;/h2&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;主从同步机制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#主从同步机制&#34;&gt;#&lt;/a&gt; 主从同步机制&lt;/h1&gt;
+&lt;p&gt;作用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以用作一种备份机制，相当于热备份&lt;/li&gt;
+&lt;li&gt;可以用做读写分离，均衡数据库负载&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;概述&lt;/p&gt;
+&lt;p&gt;MySQL 主从复制也能够称为 MySQL 主从同步，它是构建数据库高可用集群架构的基础。它经过将一台主机的数据复制到其余一台或多台主机上，并从新应用 relay log 中的 SQL 语句来实现复制功能。MySQL 支持单向、双向、链式级联、异步复制，5.5 版本以后加入的半同步复制，5.6 版本以后的 GTID 复制，MySQL5.7 的多源复制、并行复制、loss-less 复制。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/23.%E6%95%B0%E6%8D%AE%E5%BA%93%E8%8C%83%E5%BC%8F/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%8C%83%E5%BC%8F/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/23.%E6%95%B0%E6%8D%AE%E5%BA%93%E8%8C%83%E5%BC%8F/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%8C%83%E5%BC%8F/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;数据库设计三范式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库设计三范式&#34;&gt;#&lt;/a&gt; 数据库设计三范式&lt;/h1&gt;
+&lt;p&gt;什么是数据库设计范式？&lt;br&gt;
+数据库表的设计依据。&lt;/p&gt;
+&lt;h2 id=&#34;第一范式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第一范式&#34;&gt;#&lt;/a&gt; 第一范式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;要求任何一张表必须有主键，每一个字段原子性不可再分
+
+案例：
+学生编号    学生姓名    联系方式
+1001        张三        zs@gmail.com,135999999
+1002        李四        li@gmail.com,136999999
+1003        王五        ww@gmail.com,137999999
+
+以上表设计不满足第一范式--没有主键，联系方式可拆分
+
+修改：
+学生编号(pk)    学生姓名        邮箱                联系电话
+1001            张三        zs@gmail.com       135999999
+1002            李四        li@gmail.com       136999999
+1003            王五        ww@gmail.com       137999999
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;第二范式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第二范式&#34;&gt;#&lt;/a&gt; 第二范式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;建立在第一范式基础之上，要求所有非主键字段完全依赖主键，不要产生部分依赖
+
+案例：
+学生编号        学生姓名        教师编号        教师姓名
+1001            张三            001             王老师
+1002            李四            002             赵老师
+1002            李四            002             王老师
+1001            张三            001             赵老师
+
+以上表设计不满足第一范式--没有主键
+
+修改：
+学生编号    +    教师编号（pk）        学生姓名          教师姓名
+1001            001             张三               王老师
+1002            002             李四               赵老师
+1002            002             李四               王老师
+1001            001             张三               赵老师
+
+学生编号和教师编号连个字段做复合主键
+以上修改完之后表不满足第二范式--非主键字段，产生部分依赖(学生和教师关系产生多对多关系)
+    导致：数据冗余，空间浪费
+
+修改：
+学生编号    学生姓名
+1001        张三
+1002        李四
+
+教师编号    教师姓名
+001         王老师
+002         赵老师
+
+学生教师联合表
+id(pk)      学生编号(fk)   教师编号(fk)
+1            1001          001
+2            1002          001
+3            1001          002
+4            1002          002
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;第三范式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第三范式&#34;&gt;#&lt;/a&gt; 第三范式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;建立在第二范式基础之上，要求所有非主键字段直接依赖主键，不要产生传递依赖
+
+案例：
+学生编号（PK）        学生姓名        班级编号         班级名称
+1001                   张三            01             一班
+1002                   李四            02             二班
+1003                   王五            03             三班
+1004                   赵六            03             四班
+
+以上表的设计满足第一范式--有主键
+以上表的设计满足第二范式--主键是单一主键，不是复合主键，没有产生部分依赖（表中学生和班级是一对多关系）
+
+以上表不满足第三范式--传递性依赖（班级名称依赖班级编号，产生了传递依赖，不符合第三范式，产生了数据冗余）
+
+修改：
+班级表
+班级编号（pk）      班级名称
+01                  一班
+02                  二班
+...
+
+学生表
+学生编号（pk）      学生姓名        班级编号
+1001                张三            01
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;作用：避免数据冗余，空间的浪费&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;一对多：
+    一对多，两张表，多的表加外键
+
+多对多：
+    多对多，三张表，关系表两个外键
+
+一对一：
+    在一对一中，可能存在表字段太多，太庞大，需要拆分表
+    
+    案例：
+    id      login_name      login_pwd       real_name       email
+    1           admin       admin           张三            zs@gmail.com
+
+
+    修改：
+    登录信息表：
+    id      login_name      login_pwd
+    1       admin           admin
+
+    用户详细信息表：
+    id      real_name       email           login_id(fk+unique)
+    100        admin        zs@gmail.com        1
+
+    在一对一拆分表时，可以使用 外键+唯一性约束 设计表
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;重点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重点&#34;&gt;#&lt;/a&gt; 重点&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;数据库设计三范式是理论上的。
+实践和理论有时候有偏差。
+最终的目的都是为了满足客户的需求，有的时候会拿数据冗余换速度。因为Sql中，表和表之间的连接次数过多，效率越低（笛卡尔积）
+有的时候可能会存在冗余，但是为了减少表的连接次数，这样做也是合理的。
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/22.DBA%E5%91%BD%E4%BB%A4/DBA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/22.DBA%E5%91%BD%E4%BB%A4/DBA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;dba命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dba命令&#34;&gt;#&lt;/a&gt; DBA 命令&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;必须超级管理员操作&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;新建用户&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#新建用户&#34;&gt;#&lt;/a&gt; 新建用户&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;create USER username IDENTIFIED by &#39;password&#39;;
+
+create USER &#39;username&#39;@&#39;host&#39; IDENTIFIED by &#39;password&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;username：创建的用户名。&lt;/p&gt;
+&lt;p&gt;host：指定该用户在哪个主机上可以登陆，如果是本地用户可用 localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符 %&lt;/p&gt;
+&lt;p&gt;password：该用户的登陆密码。密码可以为空，如果为空则该用户可以不需要密码登陆服务器。&lt;/p&gt;
+&lt;h2 id=&#34;授权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#授权&#34;&gt;#&lt;/a&gt; 授权&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRANT SELECT,INSERT on *.* to &#39;guest&#39;@&#39;%&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;.&lt;/em&gt;：表示表示所有库的所有表&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;grant all privileges on 数据库 to &#39;用户名&#39;@&#39;IP地址&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;回收权限&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#回收权限&#34;&gt;#&lt;/a&gt; 回收权限&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;revoke all privileges from 数据库 to &#39;用户名&#39;@&#39;IP地址&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;all privileges 指除了 grant 之外的所有权限，也可以自己设置权限&lt;/p&gt;
+&lt;p&gt;例如：grant insert on world.* to ‘用户名’@‘IP 地址’;(只能对 world 数据库做插入操作，world.* 表示对 world 中所有表）&lt;/p&gt;
+&lt;h2 id=&#34;导出导入&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#导出导入&#34;&gt;#&lt;/a&gt; 导出导入&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;导出
+    在windows的dos命令窗口中：
+    mysqldump nk&amp;gt;D:\nk.sql -uroot -proot
+
+    导出指定的表:导出nk数据库中 student表
+    mysqldump nk student&amp;gt;D:\nk.sql -uroot -proot
+
+
+导入
+    登录到mysql中，创建数据库 create database nk;
+    然后导入sql文件
+    source D:\nk.sql
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/21.%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/21.%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图&#34;&gt;#&lt;/a&gt; 视图&lt;/h1&gt;
+&lt;p&gt;什么是视图？&lt;br&gt;
+view：站在不同的角度，去看待同一份数据&lt;/p&gt;
+&lt;h2 id=&#34;创建视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建视图&#34;&gt;#&lt;/a&gt; 创建视图&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;create view 视图名 as DQL语句;
+
+create view emp_view as select * from emp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：只有 DQL 语句才能以 view 的形式创建&lt;/p&gt;
+&lt;h2 id=&#34;删除视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#删除视图&#34;&gt;#&lt;/a&gt; 删除视图&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;drop view emp_view;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;视图作用可以干什么方便-简化开发-利于维护&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图作用可以干什么方便-简化开发-利于维护&#34;&gt;#&lt;/a&gt; 视图作用（可以干什么）–方便、简化开发、利于维护&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;可以面向视图对象进行增删改查，对视图对象的增删改查，会导致原表被操作
+
+特点：对视图的操作，会影响到原表数据
+
+select * from dept2_view;
+
+insert into dept2_view(deptno, dname, loc) vlaues(60, &#39;SALES&#39;, &#39;BJ&#39;);// （insert、delete、update）操作会影响到原表
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;视图对象在实际开发中，到底有什么作用？&lt;br&gt;
+假设有一条 SQL 语句，需要在不同位置反复使用，每次使用需要重新编写，可以把这条复杂的 SQL 语句以视图对象的形式创建出来&lt;br&gt;
+在需要编写这条 SQL 语句的位置直接使用视图对象。可以简化开发，并且利于后期维护。因为只需要修改一个位置就行了，只需要修改视图对象所映射的 SQL 语句&lt;/p&gt;
+&lt;p&gt;使用视图开发的时候，可以像使用 table 一样，可以对视图进行增删改查等操作。&lt;br&gt;
+视图对象是存储在硬盘上的，不会消失&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/20.%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/20.%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;索引失效&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#索引失效&#34;&gt;#&lt;/a&gt; 索引失效&lt;/h1&gt;
+&lt;p&gt;什么时候索引会失效？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;第一种情况：
+ select * from t_user where name like &#39;%z&#39;;
+
+ 因为模糊匹配中以 &#39;%&#39; 开头了，索引失效（存在索引，但不走索引）
+
+
+第二种情况：
+ 使用or的时候会失效，如果使用or，那么要求or两边字段条件都要有索引，才会走索引。如果其中一边有一个字段没有索引，那么另一个字段上的索引也会失效
+
+
+第三种情况：
+ 使用复合索引的时候，没有使用左侧的列查找，索引失效( 最左原则 )
+ create index emp_job_sal_index on emp(job, sal);
+
+ explain select * from emp where job = &#39;MANAGER&#39;;// 走索引
+ explain select * from emp where sal = 1000;// 索引失效
+
+
+第四种情况：
+ 在where当中，索引参与了数学运算，索引失效
+
+ create index emp_sal_index on emp(sal);
+
+ explain select * from emp where sal = 800;// 走索引
+ explain select * from emp where sal = 800 + 100;// 走索引
+
+ explain select * from emp where sal + 100 = 800;// 索引失效
+
+
+第五种情况：
+ 在where当中，索引列使用了函数，索引失效
+
+ create index emp_ename_index on emp(ename);
+
+ explain select * from emp where ename = &#39;SIMTH&#39;;// 走索引
+
+ explain select * from emp where lower(ename) = &#39;simth&#39;;// 索引失效
+
+
+第六种情况：....
+第七种情况：....
+...
+
+
+
+索引是数据库优化的重要手段，优化的时候，优先考虑的因素就是索引。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;索引分类：&lt;br&gt;
+单一索引：&lt;br&gt;
+复合索引：&lt;br&gt;
+主键索引：&lt;br&gt;
+唯一性索引：&lt;br&gt;
+…&lt;/p&gt;
+&lt;p&gt;注意：唯一性比较弱的字段上添加索引用处不大。（可能存在大量重复数据，这个时候索引起不到什么作用，越唯一，效率越高）&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/20.%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/20.%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#索引&#34;&gt;#&lt;/a&gt; 索引&lt;/h1&gt;
+&lt;p&gt;什么是索引？&lt;br&gt;
+索引在数据库表的字段上添加的，是为了提高检索（查询）效率存在的一种机制&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;一张表的一个字段可以添加一个索引，多个字段可以联合起来添加索引
+
+索引相当于一本书的目录，是为了缩小扫描范围而存在的一种机制
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;举例：&lt;br&gt;
+查字典：&lt;br&gt;
+1. 一页一页查找，直到找到为止。这种查找属于全表扫描，效率低&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    3. 通过目录（索引），去定位一个大概的位置，然后直接定位到该位置，做局域性扫描，缩小扫描的范围，快速的查找。这种方式属于索引检索，效率高
+
+Mysql中查询的两种方式：
+    1. 全表扫描
+    2. 根据索引检索
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：&lt;br&gt;
+在 Mysql 数据库当中索引也是需要排序的，并且这个索引的排序和 TreeSet 数据结构相同。TreeSet（TreeMap）底层是一个自平衡的二叉树！&lt;br&gt;
+在 Mysq 中索引是一个 B-Tree 数据结构。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;遵循左小右大原则存放，采用中序遍历方式遍历取数据
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;在任何数据库当中，主键都会自动添加索引对象&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在任何数据库当中，任何一张表的任何一条记录在硬盘存储上都有一个硬盘的物理存储编号&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在 Mysql 中，一个字段上如果右 unique 约束的话，也会自动创建索引对象&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在 Mysql 当中，索引是一个单独的对象，不同的存储引擎以不同形式存在。&lt;/strong&gt;&lt;br&gt;
+1. 在 MyISAM 存储引擎中，索引存储在一个.MYI 文件中&lt;br&gt;
+ 2. 在 InnoDB 存储引擎当中，索引存储在一个叫 tablespace 当中。&lt;br&gt;
+3. 在 Memory 存储引擎当中，被存储在内存当中&lt;br&gt;
+不管索引存储在哪里，索引在 Mysql 中都是一个树的形式存在。（自平衡二叉树：B-Tree）&lt;/p&gt;
+&lt;h2 id=&#34;在mysql中主键以及unique字段上都会自动添加索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#在mysql中主键以及unique字段上都会自动添加索引&#34;&gt;#&lt;/a&gt; 在 Mysql 中，主键以及 unique 字段上都会自动添加索引&lt;/h2&gt;
+&lt;p&gt;什么条件下，需要考虑给字段添加索引？&lt;br&gt;
+1. 数据量庞大（需要测试）&lt;br&gt;
+2. 该字段经常出现在 where 查询条件中&lt;br&gt;
+ 3. 该字段很少的 DML 操作（因为 DML 之后，索引经常需要重新排序）&lt;br&gt;
+注意：&lt;br&gt;
+建议不要随意添加索引，因为索引也是需要维护的，太多反而会降低系统性能&lt;br&gt;
+建议通过主键查询，建议通过 unique 约束字段进行查询，效率是比较高的&lt;/p&gt;
+&lt;h2 id=&#34;创建和删除索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建和删除索引&#34;&gt;#&lt;/a&gt; 创建和删除索引&lt;/h2&gt;
+&lt;h3 id=&#34;创建索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建索引&#34;&gt;#&lt;/a&gt; 创建索引&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;create index 索引名 on 表名(要添加索引的字段名);
+
+create index emp_ename_index on emp(ename);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;删除索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#删除索引&#34;&gt;#&lt;/a&gt; 删除索引&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;drop index 索引名 on 表名;
+
+drop index emp_ename_index on emp;
+
+
+在Mysql中查看一个SQL语句是否使用了索引进行检索
+explain select * from t_user where name = &#39;zhangsan6&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;举例：&lt;br&gt;
+## 查看 sql 语句执行详情&lt;br&gt;
+ mysql&amp;gt; explain select * from t_user where name = ‘zhangsan6’;&lt;br&gt;
+±—±------------±-------±-----------±-----±--------------±-----±--------±-----±-----±---------±------------+&lt;br&gt;
+| id | select_type | table  | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |&lt;br&gt;
+±—±------------±-------±-----------±-----±--------------±-----±--------±-----±-----±---------±------------+&lt;br&gt;
+|  1 | SIMPLE      | t_user | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   12 |    10.00 | Using where |&lt;br&gt;
+±—±------------±-------±-----------±-----±--------------±-----±--------±-----±-----±---------±------------+&lt;br&gt;
+1 row in set, 1 warning (0.00 sec)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## 为name字段创建索引
+create index user_name_index on t_user(name);
+
+## 在索引创建后，重新执行sql语句，查看sql执行情况
+mysql&amp;gt; explain select * from t_user where name = &#39;zhangsan6&#39;;
++----+-------------+--------+------------+------+-----------------+-----------------+---------+-------+------+----------+-------------+
+| id | select_type | table  | partitions | type | possible_keys   | key             | key_len | ref   | rows | filtered | Extra       |
++----+-------------+--------+------------+------+-----------------+-----------------+---------+-------+------+----------+-------------+
+|  1 | SIMPLE      | t_user | NULL       | ref  | user_name_index | user_name_index | 1023    | const |    1 |   100.00 | Using index |
++----+-------------+--------+------------+------+-----------------+-----------------+---------+-------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;事务隔离级别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#事务隔离级别&#34;&gt;#&lt;/a&gt; 事务隔离级别&lt;/h1&gt;
+&lt;h2 id=&#34;分类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分类&#34;&gt;#&lt;/a&gt; 分类&lt;/h2&gt;
+&lt;h3 id=&#34;读未提交read-uncommitted&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#读未提交read-uncommitted&#34;&gt;#&lt;/a&gt; 读未提交：read uncommitted&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;概念：
+    事务A可以读取到事务B未提交的数据
+
+存在脏读现象（Dirty Rread）：称读到脏数据
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;读已提交readcommitted&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#读已提交readcommitted&#34;&gt;#&lt;/a&gt; 读已提交：readcommitted&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;概念：
+    事务A只能读取到事务B提交之后的数据
+这种隔离级别解决了脏读现象
+
+存在‘不可重复读取数据’问题：在事务开启后，每次读取到的数据可能不一致。比如A开始事务循环读取数据的过程中，B事务不断修改数据并提交，导致A事务在后续的数据读取过程中，数据产生不一致的现象
+
+这种隔离级别是比较真实的数据，每一次读到的数据绝对真实
+注意：Oracle数据库默认的隔离级别是： read committed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;可重复读repeatable-read&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可重复读repeatable-read&#34;&gt;#&lt;/a&gt; 可重复读：repeatable read&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;概念：
+    事务A开启后，不管多久，每一次在事务A中读取到的数据都是一致的。即使事务B将数据修改，并且提交了。事务A读取到的数据还是没有发生改变，这就是可重复读
+解决了不可重复读的现象
+
+存在幻读现象：每一次读取到的数据都是幻象，不够真实
+
+Mysql默认隔离级别
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;序列化串行化serializable&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#序列化串行化serializable&#34;&gt;#&lt;/a&gt; 序列化 / 串行化：serializable&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;概念：
+
+隔离级别最高，效率最低。解决了所有问题
+不能并发
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;测试隔离级别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#测试隔离级别&#34;&gt;#&lt;/a&gt; 测试隔离级别&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;查看变量：
+show variables;
+通过like 通配符查询
+show variables like &#39;%isolation%&#39;;
+
+查看隔离级别：
+select @@transaction_isolation; 
+
+设置全局事务等级
+set global transaction isolation level read committed;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;事务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#事务&#34;&gt;#&lt;/a&gt; 事务&lt;/h1&gt;
+&lt;p&gt;什么是事务？&lt;br&gt;
+一个事务就是一个完整的业务逻辑。&lt;br&gt;
+是一个最小的工作单元。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;例如转账的业务逻辑，就是一个最小的工作单元，要么同时成功，要么同时失败，不可再分。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;本质：就是多条 DML 语句同时成功或者同时失败&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;只有 DML 语句和事务有关系，其他语句无关。&lt;/strong&gt;&lt;br&gt;
+insert&lt;br&gt;
+update&lt;br&gt;
+delete&lt;br&gt;
+ 因为以上三个语句是操作数据库中数据的&lt;/p&gt;
+&lt;p&gt;事务是怎么做到同时成功或者同时失败的？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;InnoDB：提供一组用于记录事务特性活动的日志文件
+
+在事务执行的过程中，每一条DML的操作都会被记录到“事务特性活动的日志文件”中
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;在事务执行的过程中，可以提交事务，也可以回滚事务&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;提交事务： 清空事务性活动的日志文件，将数据全部彻底持久化到数据库表中
+    标志着事务的结束，并且是一种全部成功的结束
+
+回滚事务： 将之前所有的DML操作全部撤销，并且清空事务性活动的日志文件
+    回滚事务标志着事务的结束，并且是一种全部失败的结束
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;提交事务-回滚事务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#提交事务-回滚事务&#34;&gt;#&lt;/a&gt; 提交事务、回滚事务&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;提交事务：commit
+回滚事务：rollback (回滚只能回滚到上一次的提交点)
+
+事务对应的单词：transaction
+
+Mysql中默认情况下是自动提交事务的（自动提交）
+
+开启事务
+    start transaction;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;事务特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#事务特性&#34;&gt;#&lt;/a&gt; 事务特性&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;A：原子性
+    说明事务是最小工作单元，不可再分
+
+C：一致性
+    所有事务要求，在同一个事务中，所有操作必须同时成功，或者同时失败，以保证数据的一致性
+
+I：隔离性
+    A事务和B事务之间具有一定的隔离
+
+D：持久性
+    事务最终结束的一个保障，事务提交，将没有保存到硬盘上的数据保存到硬盘上
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/18.%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/18.%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;存储引擎&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#存储引擎&#34;&gt;#&lt;/a&gt; 存储引擎&lt;/h1&gt;
+&lt;p&gt;什么是存储引擎？有什么用？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;存储引擎是Mysql中特有的一个术语。其他数据库中没有（Oracle中也有，不叫这个名字）
+
+存储引擎实际上是一张表存储/组织数据的方式。
+
+不同的存储引擎，表存储的方式不同。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如何制定表的存储引擎？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;可以在建表时，最后来指定表的存储引擎。
+charset 来指定表的字符编码方式
+
+show create table student;
+
+CREATE TABLE `student` (
+`id` int NOT NULL AUTO_INCREMENT,
+`name` varchar(255) DEFAULT NULL,
+`cno` int DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `cno` (`cno`),
+CONSTRAINT `student_ibfk_1` FOREIGN KEY (`cno`) REFERENCES `t_class` (`t_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;结论：&lt;br&gt;
+mysql 默认的存储引擎是 InnoDB&lt;br&gt;
+mysql 默认的字符编码方式： utf8mb4&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;create table test(
+    id int,
+    name varchar(10)
+) engine=InnoDB default CHARSET=utf8mb4;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;查看mysql支持哪些存储引擎&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#查看mysql支持哪些存储引擎&#34;&gt;#&lt;/a&gt; 查看 Mysql 支持哪些存储引擎&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;show engines \G;
+
+mysql&amp;gt; show engines \G;
+*************************** 1. row ***************************
+    Engine: MEMORY
+    Support: YES
+    Comment: Hash based, stored in memory, useful for temporary tables
+Transactions: NO
+        XA: NO
+Savepoints: NO
+*************************** 2. row ***************************
+    Engine: MRG_MYISAM
+    Support: YES
+    Comment: Collection of identical MyISAM tables
+Transactions: NO
+        XA: NO
+Savepoints: NO
+*************************** 3. row ***************************
+    Engine: CSV
+    Support: YES
+    Comment: CSV storage engine
+Transactions: NO
+        XA: NO
+Savepoints: NO
+*************************** 4. row ***************************
+    Engine: FEDERATED
+    Support: NO
+    Comment: Federated MySQL storage engine
+Transactions: NULL
+        XA: NULL
+Savepoints: NULL
+*************************** 5. row ***************************
+    Engine: PERFORMANCE_SCHEMA
+    Support: YES
+    Comment: Performance Schema
+Transactions: NO
+        XA: NO
+Savepoints: NO
+*************************** 6. row ***************************
+    Engine: MyISAM
+    Support: YES
+    Comment: MyISAM storage engine
+Transactions: NO
+        XA: NO
+Savepoints: NO
+*************************** 7. row ***************************
+    Engine: InnoDB
+    Support: DEFAULT
+    Comment: Supports transactions, row-level locking, and foreign keys
+Transactions: YES
+        XA: YES
+Savepoints: YES
+*************************** 8. row ***************************
+    Engine: ndbinfo
+    Support: NO
+    Comment: MySQL Cluster system information storage engine
+Transactions: NULL
+        XA: NULL
+Savepoints: NULL
+*************************** 9. row ***************************
+    Engine: BLACKHOLE
+    Support: YES
+    Comment: /dev/null storage engine (anything you write to it disappears)
+Transactions: NO
+        XA: NO
+Savepoints: NO
+*************************** 10. row ***************************
+    Engine: ARCHIVE
+    Support: YES
+    Comment: Archive storage engine
+Transactions: NO
+        XA: NO
+Savepoints: NO
+*************************** 11. row ***************************
+    Engine: ndbcluster
+    Support: NO
+    Comment: Clustered, fault-tolerant tables
+Transactions: NULL
+        XA: NULL
+Savepoints: NULL
+11 rows in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;常用存储引擎&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#常用存储引擎&#34;&gt;#&lt;/a&gt; 常用存储引擎&lt;/h2&gt;
+&lt;h3 id=&#34;myisam&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#myisam&#34;&gt;#&lt;/a&gt; MyISAM&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;特征：
+    使用三个文件夹表示每个表
+        格式文件-存储表结构的定义（mytable.frm)
+        数据文件-存储表行的内容（mytable.MYD)
+        索引文件-存储表上的索引（mytable.MYI) ：索引是一本数的目录，缩小扫描范围，提高效率
+    可被转换为压缩、只读表来节省空间
+
+优点：可被转换为压缩、只读表来节省空间
+缺点：不支持事务机制，安全性低
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;innodb&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#innodb&#34;&gt;#&lt;/a&gt; InnoDB&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Mysql默认的存储引擎，同时也是一个重量级的存储引擎
+主要特点：非常安全
+    InnoDB支持事务
+    支持数据库崩溃后自动回复机制
+
+特征：
+    1. 每个InnoDB表在数据库目录中以.frm格式文件表示
+    2. InnoDB表空间tablespace被用于存储表的内容
+    3. 提供一组用于记录事务特性活动的日志文件
+    4. 用commit（提交）、savepoint 及 rollback（回滚）支持事务处理
+    5. 提供全ACID兼容
+    6. 在Mysql服务器崩溃后提供自动恢复
+    7. 多版本（MVCC）和行级锁定
+    8. 支持外键及引用的完整性，包括级联删除和更新
+    
+优点：支持事务
+    以保证数据的安全。
+缺点：
+    1. 效率不是很高
+    2. 不能压缩
+    3. 不能转换为只读
+    4. 不能很好的节省存储空间
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;memory&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#memory&#34;&gt;#&lt;/a&gt; MEMORY&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;内存存储引擎（别名堆引擎）
+
+使用MEMORY存储引擎的表，其数据存储在内存中，且长度固定
+这俩个特点使得MEMORY存储引擎非常快
+
+特征：
+    1. 在数据库目录中，每个表都以.frm 格式的文件表示
+    2. 表数据和索引被存储在内存中（目的：查询快）
+    3. 表级锁机制
+    4. 不能包含 TEXT 或 BLOB 字段
+
+MEMORY 存储引擎以前被称为HEAP引擎。
+
+优点：查询效率最高
+缺点：不安全，关机后数据消失，因为数据和索引都是存储在内存当中
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;注意对于一张表来说只要是主键或者加有unique约束的字段上会自动创建索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意对于一张表来说只要是主键或者加有unique约束的字段上会自动创建索引&#34;&gt;#&lt;/a&gt; 注意：对于一张表来说，只要是主键，或者加有 unique 约束的字段上会自动创建索引。&lt;/h2&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#约束&#34;&gt;#&lt;/a&gt; 约束&lt;/h1&gt;
+&lt;h2 id=&#34;概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概念&#34;&gt;#&lt;/a&gt; 概念&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;constraint，在创建表的时候，创建一些约束，保证表中数据的完整性、有效性
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;作用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#作用&#34;&gt;#&lt;/a&gt; 作用&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;保证表中的数据有效。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;非空约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非空约束&#34;&gt;#&lt;/a&gt; 非空约束&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;not null：字段值不能为NULL
+
+create table student(
+    id int,
+    name varchar(50) not null   // 只有列级 &#39;非空约束&#39;，没有表级 &#39;非空约束&#39;
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;唯一性约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#唯一性约束&#34;&gt;#&lt;/a&gt; 唯一性约束&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;unique:字段值不能重复，但可以为NULL（可以有多条NULL值）
+
+create table student(
+    id int,
+    name varchar(50) unique
+);
+
+案例：
+mysql&amp;gt; select * from student;
++------+------+
+| id   | name |
++------+------+
+|    1 | z    |
+|    1 | NULL |
+|    1 | NULL |
+|    1 | NULL |
+|    1 | NULL |
+|    1 | NULL |
++------+------+
+6 rows in set (0.00 sec)
+
+mysql&amp;gt; desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(50) | YES  | UNI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;建立多个字段唯一性约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#建立多个字段唯一性约束&#34;&gt;#&lt;/a&gt; 建立多个字段唯一性约束&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;1. 多字段各自唯一性约束
+create table student(
+    id int unique,
+    name varchar(50) unique // 列级约束
+);
+上边的表，id 和 name 字段各自有唯一性约束，互不影响。
+
+2. 多字段组合后唯一性约束
+create table student(
+    id int,
+    name varchar(50),
+    unique(id, name)    // 表级约束
+);
+上边的表，id 和 name 字段联合起来唯一。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;在Mysql中，如果一个字段同时被 not null 和 unique 约束的话，该字段自动成为主键。（Oracle中不一样）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;主键约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#主键约束&#34;&gt;#&lt;/a&gt; 主键约束&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;primary key
+
+主键值是每一行的唯一标识
+主键特征：unique + not null
+
+写法一：列级约束
+create table student(
+    id int primary key,
+    name varchar(255)
+);
+
+写法二：表级约束
+create table student(
+    id int,
+    name varchar(255),
+    primary key(id)
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;多个字段建立主键约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#多个字段建立主键约束&#34;&gt;#&lt;/a&gt; 多个字段建立主键约束&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;// 复合主键
+create table student(
+    id int,
+    name varchar(255),
+    primary key(id, name)
+);
+
+//错误 一张表不能建立多个主键
+    create table student(
+    id int primary key,
+    name varchar(255) primary key
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;mysql中自然主键&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mysql中自然主键&#34;&gt;#&lt;/a&gt; Mysql 中自然主键&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;create table student(
+    id int primary key auto_increment,  // 从 1 开始递增
+    name varchar(255)
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;外键约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#外键约束&#34;&gt;#&lt;/a&gt; 外键约束&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt; foreign key
+
+create table t_class(
+    t_id int primary key auto_increment,
+    t_name varchar(50)
+);
+
+create table student(
+    id int primary key auto_increment,
+    name varchar(255),
+    cno int,
+    foreign key (cno) references t_class(t_id)
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：子表中的外键引用父表中的某个字段，被引用的这个字段不一定是主键，但是至少有 unique 约束。（否则，子表不能确定引用的是父表中的那条数据）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：外键可以为 NULL&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;检查性约束&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#检查性约束&#34;&gt;#&lt;/a&gt; 检查性约束&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;check(Mysql 不支持， Oracle支持)
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/16.DML/DML/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/16.DML/DML/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;insert&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#insert&#34;&gt;#&lt;/a&gt; insert&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;// 根据字段名，插入数据
+// 注意： 字段名和值要一一对应
+insert into 表名(字段名1,字段名2...) values(值1,值2...);
+
+
+//表示插入所有字段
+insert into 表名 values(值1,值2...);
+
+// 一次插入多条数据，用逗号隔开
+insert into test values(1, &#39;张三&#39;, &#39;1999-12-13&#39;), (2, &#39;李四&#39;, &#39;2000-01-02&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;将查询结果插入到一张表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#将查询结果插入到一张表&#34;&gt;#&lt;/a&gt; 将查询结果插入到一张表&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;快速创建dept_bak表，同时数据也存入了dept_bak表中。
+create table dept_bak as select * from dept;
+
+将查询到的结果insert into到dept_bak表中
+insert into dept_bak select * from dept;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;update&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#update&#34;&gt;#&lt;/a&gt; update&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;update 表名 set 字段名1 = 值1, 字段名2 = 值2 where 条件;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;delete&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#delete&#34;&gt;#&lt;/a&gt; delete&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;delete from 表名 where 条件;
+
+原理：
+表中的数据被删除了，但是这个数据在硬盘上的真实存储空间不会被释放
+
+优点：支持回滚，可以恢复
+缺点：删除效率低
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;快速删除表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#快速删除表&#34;&gt;#&lt;/a&gt; 快速删除表&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;truncate 语句删除数据（属于DDL）
+    删除效率高，表被一次截断，物理删除
+
+    优点：效率高，快
+    缺点：不支持回滚
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/15.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/15.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;mysql-数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mysql-数据类型&#34;&gt;#&lt;/a&gt; Mysql 数据类型&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;varchar
+    可变长度的字符串
+    比较智能，节省空间
+    会根据实际长度，动态的分配空间
+
+    缺点：需要动态分配空间，速度慢
+    优点：节省空间
+
+char
+    定长字符串
+    不管实际长度是多少
+    分配固定长度的空间去存储数据
+    使用不恰当的时候，可能导致空间浪费
+
+    缺点：使用不当，可能导致空间浪费
+    优点：不需要动态分配空间，速度快
+
+int
+
+bigint
+
+float
+
+double
+
+date
+    短日期类型
+
+datetime
+    长日期类型
+
+clob
+    字符大对象
+    最多存储4g的字符串
+    比如：存储一篇文章
+    超过255个字符的，尽量都使用clob
+    Character Large Object: clob
+
+blob
+    存储二进制对象
+    图片，声音，视频，等流媒体数据
+    往blob字段中插入数据时，需要使用IO流。
+
+date
+    短日期：只包括 年月日
+
+    Mysql默认格式：可以将该格式的时间字符串直接插入到date类型的字段中
+    %Y-%m-%d
+
+
+datetime
+    长日期：包括 年月日时分秒
+
+    Mysql默认格式：可以将该格式的时间字符串直接插入到date类型的字段中
+    %Y-%m-%d %h:%i:%s
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/14.DDL/DDL/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/14.DDL/DDL/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;ddl-语句&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ddl-语句&#34;&gt;#&lt;/a&gt; DDL 语句&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;create、drop、alter
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;create-建表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-建表&#34;&gt;#&lt;/a&gt; create 建表&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;语法格式：
+create table 表名 (
+    字段名 数据类型,
+    字段名 数据类型,
+    ...
+    字段名 数据类型 //切记！！！   最后一句没有标点符号
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;快速创建表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#快速创建表&#34;&gt;#&lt;/a&gt; 快速创建表&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;create table emp2 as select * from emp;
+原理：
+    将一个查询结果当作一张表新建
+    可以快速创建一张表，同时数据也存在。
+
+create table emp2 as select * from emp where ename = &#39;SMITH&#39;;
+注意：查询语句可以添加条件等。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;drop-删表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#drop-删表&#34;&gt;#&lt;/a&gt; drop 删表&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;语法格式：
+drop table 表名;    //当表不存在时，会报错
+drop table if exists 表名;  // 当表存在的话，删除
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;alter-对表结构修改&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#alter-对表结构修改&#34;&gt;#&lt;/a&gt; alter 对表结构修改&lt;/h2&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/13.%E5%88%86%E9%A1%B5/limit/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/13.%E5%88%86%E9%A1%B5/limit/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;limit&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#limit&#34;&gt;#&lt;/a&gt; limit&lt;/h1&gt;
+&lt;h2 id=&#34;作用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#作用&#34;&gt;#&lt;/a&gt; 作用&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;将查询结果集的一部分取出来，通常用在分页中。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;语法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#语法&#34;&gt;#&lt;/a&gt; 语法&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;limit startIndex, length
+startIndex: 起始下标，从0开始
+length: 长度
+
+缺省用法：limit length
+length: 长度
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;案例：按照薪资降序，取出前五名员工。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+缺省用法：
+
+select
+    ename, sal
+from
+    emp
+order by
+    sal desc
+limit 5;
+
+完整用法：
+
+select
+    ename, sal
+from
+    emp
+order by
+    sal desc
+limit 5;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;在mysql中，limit是在order by之后执行的。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;分页&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分页&#34;&gt;#&lt;/a&gt; 分页&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;limit (pageNum - 1) * pageSize, pageSize;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;offset&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#offset&#34;&gt;#&lt;/a&gt; offset&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;作用同limit，配合limit使用，注意：limit此时只能有一个参数
+
+limit pageSize, offset (pageNum - 1) * pageSize;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/6.union/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/6.union/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;union&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#union&#34;&gt;#&lt;/a&gt; union&lt;/h1&gt;
+&lt;h2 id=&#34;作用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#作用&#34;&gt;#&lt;/a&gt; 作用&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;合并查询结果集
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;union的效率更高一些。对于表连接来说，每连接一次新表，则匹配的次数满足笛卡尔积，成倍的翻。
+但是union可以减少匹配次数。
+在减少匹配次数的情况下，还可以完成两个结果的拼接。
+
+例如：a 连接 b 连接 c
+a: 10条记录
+b: 10条记录
+c: 10条记录
+匹配次数为 : 10*10*10 = 1000
+
+如果改为union
+a 连接 b ： 10*10 = 100
+a 连接 c ： 10*10 = 100
+100 + 100 = 200次（union把乘法变成了加法运算）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;案例：查询工作岗位是 ‘MANAGER’ 和 ‘SALESMAN’ 的员工&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+第一种方法：or
+第二种方法：in
+第三种方法：union
+select ename from emp where job = &#39;MANAGER&#39;
+union
+select ename from emp where job = &#39;SALESMAN&#39;;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意：&lt;/h2&gt;
+&lt;p&gt;在使用 union 需要注意：&lt;br&gt;
+1.  union 在结果集合并的时候，要求两个结果列数相同。&lt;br&gt;
+2.  MYSQL 中，对应列的数据类型可以不相同，Oracle 里会报错（会要求对应列的数据类型相同）。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/5.%E5%AD%90%E6%9F%A5%E8%AF%A2/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/5.%E5%AD%90%E6%9F%A5%E8%AF%A2/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子查询&#34;&gt;#&lt;/a&gt; 子查询&lt;/h1&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;select语句中嵌套select语句，被嵌套的select语句被称为子查询。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;子查询可以出现的位置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子查询可以出现的位置&#34;&gt;#&lt;/a&gt; 子查询可以出现的位置&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;select
+    ..(select子).
+from
+    ..(select子).
+where
+    ..(select子).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;where子句中的子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#where子句中的子查询&#34;&gt;#&lt;/a&gt; where 子句中的子查询&lt;/h2&gt;
+&lt;p&gt;案例：找出比最低工资高的员工的姓名和薪资。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select 
+    ename, sal
+from
+    emp
+where
+    sal &amp;gt; (select min(sal) from emp);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;from-子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#from-子查询&#34;&gt;#&lt;/a&gt; from 子查询&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;from后边的子查询，可以当作一张临时的表。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;案例：找出每个岗位的平均工资的薪资等级&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select
+    t.*, sg.grade
+from
+    (select job, avg(sal) as avgsal from emp group job) t
+join
+    salgrade
+on
+    t.avgsal between sg.losal and hisal;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;select-子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#select-子查询&#34;&gt;#&lt;/a&gt; select 子查询&lt;/h2&gt;
+&lt;p&gt;案例：找出每个员工的部门名称，要求显示员工姓名，部门名称。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select
+    e.ename, (select d.ename from dept e where e.deptno = d.deptno) as dname
+from
+    emp e;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;在select语句中的子查询，这个子查询语句只能一次返回一条结果，多于一条，就报错了。
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/4.%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/4.%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;多表连接查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#多表连接查询&#34;&gt;#&lt;/a&gt; 多表连接查询&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;语法：
+select
+    ...
+from
+    a
+join                    // 内连接
+    b
+on
+    a表和b表的连接条件
+join                    // 内连接
+    c
+on
+    a表和c表的连接条件
+right join              // 外连接
+    d
+on
+    a和d的连接条件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;一条 SQL 中内连接和外连接可以混合，都可以出现！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;案例：找出每个员工的部门名称，以及工资等级，要求显示员工名，部门名，薪资，薪资等级。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select 
+    e.ename, d.ename, e.sal, sg.grade 
+from 
+    emp e 
+join 
+    dept d 
+on 
+    e.deptno = d.deptno 
+join 
+    salgrade sg 
+on 
+    e.sal between sg.losal and hisal;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;案例：找出每个员工的部门名称，以及工资等级，要求显示员工名，领导名，部门名，薪资，薪资等级。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select 
+    e.ename, d.ename, e.sal, sg.grade 
+from 
+    emp e 
+join 
+    dept d 
+on 
+    e.deptno = d.deptno 
+join 
+    salgrade sg 
+on 
+    e.sal between sg.losal and hisal
+left outer join
+    emp l
+on
+    e.mgr = l.empno;
+
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/3.%E5%A4%96%E8%BF%9E%E6%8E%A5/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/3.%E5%A4%96%E8%BF%9E%E6%8E%A5/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;外连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#外连接&#34;&gt;#&lt;/a&gt; 外连接&lt;/h1&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;外连接当中，两张表关联查询产生主次关系。
+左连接和右连接可以相互切换。（
+    1. 任何一个左连接都有一个右连接的写法。
+    2. 任何一个右连接都有一个左连接的写法。
+    ）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;右外连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#右外连接&#34;&gt;#&lt;/a&gt; 右外连接&lt;/h2&gt;
+&lt;p&gt;right 代表，将右边的表看作主表，主要是将这张主表的内容全部查出来，捎带着关联查询左边的表&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+                                          outer可以省略
+select e.ename, d.ename from emp e right [outer] join dept d on e.deptno = e.deptno;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;左外连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#左外连接&#34;&gt;#&lt;/a&gt; 左外连接&lt;/h2&gt;
+&lt;p&gt;left 代表，将左边的表看作主表，和右外连接相反。&lt;/p&gt;
+&lt;h2 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;外连接的查询结果条数一定是 &amp;gt;= 内连接的查询结果条数
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/2.%E5%86%85%E8%BF%9E%E6%8E%A5/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/2.%E5%86%85%E8%BF%9E%E6%8E%A5/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;内连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#内连接&#34;&gt;#&lt;/a&gt; 内连接&lt;/h1&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;完全能够匹配上这个条件的数据查询出来。
+A，B两张表连接查询，AB两张表没有主次关系，是平等的。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;等值连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#等值连接&#34;&gt;#&lt;/a&gt; 等值连接&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;
+SQL92语法：
+
+select up.id uId, qpd.id qId from user_profile up, question_practice_detail qpd where up.device_id = qpd.device_id;
+
+SQL99语法：
+                                                  [inner] 单词可以省略
+select up.id uId, qpd.id qId from user_profile up [inner] join question_practice_detail qpd on up.device_id = qpd.device_id;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SQL92 语法缺点：结构不清晰，表的连接条件和后期进一步的筛选条件，都放到了 where 后边。&lt;/p&gt;
+&lt;p&gt;SQL99 语法有点：表连接的条件是独立的，连接之后如果还需要进一步筛选，可以继续添加 where 条件。&lt;/p&gt;
+&lt;h2 id=&#34;非等值连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非等值连接&#34;&gt;#&lt;/a&gt; 非等值连接&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;条件不是一个等量关系，称为非等值连接
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+案例：找出每个员工的薪资等级，要求显示员工名，薪资，薪资等级
+
+    select 
+        e.ename, e.sal, s.grade 
+    from
+        emp e
+    inner join 
+        salgrade s
+    on 
+        e.sal between s.losal and s.hisal;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;自连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自连接&#34;&gt;#&lt;/a&gt; 自连接&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;一张表看作两张表
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+案例：查询员工的上级领导，要求显示员工名和对应的领导名
+    select 
+        a.ename as &#39;员工名&#39;, b.ename as &#39;领导名&#39;
+    from
+        emp a 
+    inner join
+        emp b
+    on
+        a.mgr = b.empno;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/1.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/1.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;什么是连接查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是连接查询&#34;&gt;#&lt;/a&gt; 什么是连接查询&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;从一张表中单独查询，称为单表查询。
+emp表和dept表联合起来查询数据，从emp表中取员工名字，从dept表中取部门名字。这种跨表查询，多张表联合起来查询数据，称为连接查询。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;连接查询分类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#连接查询分类&#34;&gt;#&lt;/a&gt; 连接查询分类&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;根据语法的年代分类：
+    1.  SQL92：1992年出现的语法。
+    2.  SQL99：1999年出现的语法。
+
+根据表连接的方式分类：
+    1. 内连接
+       1. 等值连接
+       2. 非等值连接
+       3. 自连接
+    2. 外连接
+       1. 左外连接（左连接）
+       2. 右外连接（右连接）
+    3. 全连接
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;笛卡尔积现象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#笛卡尔积现象&#34;&gt;#&lt;/a&gt; 笛卡尔积现象&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;当两张表进行连接查询，没有任何条件限制的时候，最终的查询结果条数，是两张表条数的乘积，这种现象被称为：笛卡尔积现象。（一个数学现象）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+     select up.id uId, qd.id qId from user_profile up, question_detail qd;
+
+    +-----+-----+
+    | uId | qId |
+    +-----+-----+
+    |   7 |   1 |
+    |   6 |   1 |
+    |   5 |   1 |
+    |   4 |   1 |
+    |   3 |   1 |
+    |   2 |   1 |
+    |   1 |   1 |
+    |   7 |   2 |
+    ...
+     112 rows in set (0.00 sec)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;避免笛卡尔积现象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#避免笛卡尔积现象&#34;&gt;#&lt;/a&gt; 避免笛卡尔积现象&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;增加表连接时的条件。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+    select up.id uId, qpd.id qId from user_profile up,  question_practice_detail qpd where up.device_id = qpd.device_id;
+
+    +-----+-----+
+    | uId | qId |
+    +-----+-----+
+    |   1 |   1 |
+    |   2 |   2 |
+    |   2 |   3 |
+    |   3 |   4 |
+    |   4 |   5 |
+    |   4 |   6 |
+    |   4 |   7 |
+    |   2 |   8 |
+    |   2 |   9 |
+    |   3 |  10 |
+    |   4 |  11 |
+    |   4 |  12 |
+    |   4 |  13 |
+    |   2 |  14 |
+    |   2 |  15 |
+    |   3 |  16 |
+    +-----+-----+
+    16 rows in set (0.00 sec)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;重点：最终查询结果是16条，但是在匹配中，匹配的次数没有减少，仍然是112次。只不过进行了筛除，匹配的次数并没有减少！！！
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：通过观察笛卡尔积现场得出，表的连接次数越多（连接的表越多）程序执行效率越低，应避免表的连接次数过多。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/11.distinct%E5%8E%BB%E9%87%8D/distinct/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/11.distinct%E5%8E%BB%E9%87%8D/distinct/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;distinct-去重&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#distinct-去重&#34;&gt;#&lt;/a&gt; Distinct 去重&lt;/h1&gt;
+&lt;p&gt;把查询结果去除重复记录&lt;/p&gt;
+&lt;h2 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;distinct 只能出现在所有字段的最前方。&lt;br&gt;
+select name, distinct job from emp;// 错误&lt;br&gt;
+ select distinct name, job from emp;// 正确&lt;br&gt;
+这样表示对 name 和 job 组合起来进行去重。&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/10.%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%80%BB%E7%BB%93/%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%80%BB%E7%BB%93/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/10.%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%80%BB%E7%BB%93/%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%80%BB%E7%BB%93/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;执行顺序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#执行顺序&#34;&gt;#&lt;/a&gt; 执行顺序&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;select
+    ...
+from 
+    ...
+where
+    ...
+group by
+    ...
+having
+    ...
+order by
+    ...
+
+执行顺序：
+1.  from
+2.  where
+3.  group by
+4.  having
+5.  select
+6.  order by
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从某张表查询数据，&lt;br&gt;
+先经过 where 条件筛选出有价值的数据，&lt;br&gt;
+对这些数据进行分组，&lt;br&gt;
+分组后可以使用 having 继续筛选数据&lt;br&gt;
+ select 查询出来&lt;br&gt;
+最后排序输出&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;数据库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库&#34;&gt;#&lt;/a&gt; 数据库&lt;/h1&gt;
+&lt;h2 id=&#34;关系型数据库是如何工作的&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关系型数据库是如何工作的&#34;&gt;#&lt;/a&gt; 关系型数据库是如何工作的&lt;/h2&gt;
+&lt;h3 id=&#34;从数据结构说起&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#从数据结构说起&#34;&gt;#&lt;/a&gt; 从数据结构说起&lt;/h3&gt;
+&lt;h4 id=&#34;时间复杂度&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#时间复杂度&#34;&gt;#&lt;/a&gt; 时间复杂度&lt;/h4&gt;
+&lt;p&gt;​	对于数据库而言，重要的不是数据量，而是当数据量增加时运算如何增加。&lt;/p&gt;
+&lt;p&gt;​	时间复杂度用来检验某个算法处理一定量的数据要花费多长时间，时间复杂度不会给出确切的运算次数，但是给出的是一种观念。 &lt;img data-src=&#34;https://pdai.tech/images/db/sb-sql-learn-1.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;归并排序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#归并排序&#34;&gt;#&lt;/a&gt; 归并排序&lt;/h4&gt;
+&lt;h4 id=&#34;二叉搜索树&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二叉搜索树&#34;&gt;#&lt;/a&gt; 二叉搜索树&lt;/h4&gt;
+&lt;p&gt;​	二叉搜索树只需要 Log (N) 次运算，而如果你直接使用阵列则需要 N 次运算。&lt;/p&gt;
+&lt;h4 id=&#34;b树索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#b树索引&#34;&gt;#&lt;/a&gt; B + 树索引&lt;/h4&gt;
+&lt;h4 id=&#34;哈希表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#哈希表&#34;&gt;#&lt;/a&gt; 哈希表&lt;/h4&gt;
+&lt;p&gt;​	为什么不使用阵列？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果有了更好的哈希函数，在哈希表里搜索的时间复杂度就是 O (1)。&lt;/li&gt;
+&lt;li&gt;一个哈希表可以只装载一半到内存，剩下的哈希捅可以留在硬盘上。&lt;/li&gt;
+&lt;li&gt;用列阵的话，你需要一个连续的内存空间，如果你加载一张大表，很难分配足够的连续的内存空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;关系型数据库设计理论&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关系型数据库设计理论&#34;&gt;#&lt;/a&gt; 关系型数据库设计理论&lt;/h2&gt;
+&lt;h3 id=&#34;重要术语&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重要术语&#34;&gt;#&lt;/a&gt; 重要术语&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;属性：列的名字。&lt;/li&gt;
+&lt;li&gt;依赖：列属性间存在的某种联系。&lt;/li&gt;
+&lt;li&gt;元组：每一个行（每一条数据）。&lt;/li&gt;
+&lt;li&gt;表：由多个属性，以及众多元组组成。&lt;/li&gt;
+&lt;li&gt;模式：这里我们指逻辑结构。&lt;/li&gt;
+&lt;li&gt;域：数据类型。&lt;/li&gt;
+&lt;li&gt;键：由关系的一个或多个属性组成，任意两个键相同的元组，所有属性都相同。需要保证表示键的属性最少。一个关系可以存在好几种键，一般从这些候选键中，选出一个作为主键（primary key）。&lt;/li&gt;
+&lt;li&gt;候选键：由关系的一个或多个属性组成，候选键都具备键的特性，都有资格成为主键。&lt;/li&gt;
+&lt;li&gt;超键：包含键的属性集合，无需保证属性集的最小化。每个键也是超键。可以认为是超键的超集。&lt;/li&gt;
+&lt;li&gt;外键：如果某一个关系 A 中的一个（组）属性是另一个关系 B 的键，则该（组）属性在 A 中成为外键。&lt;/li&gt;
+&lt;li&gt;主属性：所有候选键所包含的属性都是主属性。&lt;/li&gt;
+&lt;li&gt;投影：选取特定的列，如将关系学生信息投影为学号、姓名，即得到上表中仅包含学号、姓名的列。&lt;/li&gt;
+&lt;li&gt;选择：按照一定条件选取特定元组，如选择上表中分数 &amp;gt; 80 的元组。&lt;/li&gt;
+&lt;li&gt;笛卡尔积（交叉连接）：第一个关系每一行分别与第二个关系的每一行组合。&lt;/li&gt;
+&lt;li&gt;自然连接：第一个关系中每一行与第二个关系的每一行进行匹配，如果得到有交叉部分则合并，若无交叉部分则舍弃。&lt;/li&gt;
+&lt;li&gt;连接：即加上约束条件的笛卡尔积，先得到笛卡尔积，然后根据约束条件删除不满足的元组。&lt;/li&gt;
+&lt;li&gt;外连接：执行自然连接后，将舍弃的部分也加入，并且匹配失败处的属性用 Null 代替。&lt;/li&gt;
+&lt;li&gt;除法运算：关系 R 除以关系 S 的结果为 T，则 T 包含所有在 R 但不在 S 的属性，且 T 的元组与 S 的元组的所有组合在 R 中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;数据库系统核心知识点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库系统核心知识点&#34;&gt;#&lt;/a&gt; 数据库系统核心知识点&lt;/h2&gt;
+&lt;h3 id=&#34;事务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#事务&#34;&gt;#&lt;/a&gt; 事务&lt;/h3&gt;
+&lt;h4 id=&#34;概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概念&#34;&gt;#&lt;/a&gt; 概念&lt;/h4&gt;
+&lt;p&gt;​	事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以用 Rollback 进行回滚。 &lt;img data-src=&#34;https://pdai.tech/images/pics/185b9c49-4c13-4241-a848-fbff85c03a64.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;acid&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#acid&#34;&gt;#&lt;/a&gt; ACID&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;原子性 (Atomicity)&lt;/strong&gt;：事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。回滚可以用日志来实现，日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一致性 (Consistency)&lt;/strong&gt;：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对一个数据的读取结果都是相同的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隔离性 (lsolation)&lt;/strong&gt;：一个事务所做的修改在最终提交以前，对其他事务是不可见的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久性 (Durability)&lt;/strong&gt;：一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统崩溃，事务执行的结果也不能丢失。可以通过数据库备份和恢复来实现，在系统发生崩溃时，使用备份数据库进行数据恢复。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;事务的 ACID 特性概念简单，但不是很好理解，主要是因为这几个特性不是一种平级关系:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只有满足一致性，事务的执行结果才是正确的。&lt;/li&gt;
+&lt;li&gt;在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。&lt;/li&gt;
+&lt;li&gt;在并发的情况下，多个事务并行执行，事务不仅要满足原子性，还需要满足隔离性，才能满足一致性。&lt;/li&gt;
+&lt;li&gt;事务满足持久化是为了能应对数据库崩溃的情况。 &lt;img data-src=&#34;https://pdai.tech/images/pics/a58e294a-615d-4ea0-9fbf-064a6daec4b2.png&#34; alt=&#34;image&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;autocommit&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#autocommit&#34;&gt;#&lt;/a&gt; AUTOCOMMIT&lt;/h4&gt;
+&lt;p&gt;​	mysql 默认采用自动提交模式。如果不显示使用 start transaction 语句来开始一个事务，那么每个查询都会被当作一个事务自动提交。&lt;/p&gt;
+&lt;h3 id=&#34;并发一致性问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#并发一致性问题&#34;&gt;#&lt;/a&gt; 并发一致性问题&lt;/h3&gt;
+&lt;p&gt;​	在并发环境下，事务的隔离性很难保证，因此会出现很多并发一致性问题。&lt;/p&gt;
+&lt;h4 id=&#34;丢失修改&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#丢失修改&#34;&gt;#&lt;/a&gt; 丢失修改&lt;/h4&gt;
+&lt;p&gt;T1 和 T2 两个事务都对一个数据进行修改，T1 先修改，T2 随后修改，T2 的修改覆盖了 T1 的修改。&lt;/p&gt;
+&lt;h4 id=&#34;读脏数据&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#读脏数据&#34;&gt;#&lt;/a&gt; 读脏数据&lt;/h4&gt;
+&lt;p&gt;T1 修改了一个数据，T2 随后读取了这个数据。如果 T1 撤销了修改，那么 T2 读取的是脏数据。&lt;/p&gt;
+&lt;h4 id=&#34;不可重复读&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#不可重复读&#34;&gt;#&lt;/a&gt; 不可重复读&lt;/h4&gt;
+&lt;p&gt;T2 读取了一个数据，T1 对该数据做了修改。如果 T2 再次读取了这个数据，此时读取的数据和第一次读取的数据结果不同。&lt;/p&gt;
+&lt;h4 id=&#34;幻影读&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#幻影读&#34;&gt;#&lt;/a&gt; 幻影读&lt;/h4&gt;
+&lt;p&gt;T1 读取某个范围的数据，T2 在这个范围内插入新的数据，T1 再次读取这个范围的数据，此时读取的结果和第一次读取的结果不同。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;产生并发不一致问题的主要原因是破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性。并发控制可以通过封锁来实现，但是封锁操作需要用户自己操作，相当复杂。数据库管理系统提供了事务的隔离级别，让用户以一种更轻松的方式处理并发一致性问题。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;封锁&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁&#34;&gt;#&lt;/a&gt; 封锁&lt;/h3&gt;
+&lt;h4 id=&#34;封锁粒度&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁粒度&#34;&gt;#&lt;/a&gt; 封锁粒度&lt;/h4&gt;
+&lt;p&gt;Mysql 中提供了两种封锁粒度：行级锁以及表级锁。&lt;/p&gt;
+&lt;p&gt;应该尽量只锁定需要修改的那部分数据，而不是所有的资源。锁定的粒度越小，发生锁争用的可能性就越小，系统的并发程度就越高。&lt;/p&gt;
+&lt;p&gt;但是加锁需要消耗资源，锁的各种操作（包括获取锁、释放锁、以及检查锁状态）都会增加系统开销。因此封锁粒度越小，系统开销越大。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在选择锁粒度时，需要在锁开销和并发程度之间做一个权衡&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;封锁类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁类型&#34;&gt;#&lt;/a&gt; 封锁类型&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;##### 读写锁
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;排它锁（Exclusive）：简写为 X 锁，又称写锁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;共享锁（Shared）：简写为 S 锁，又称读锁。&lt;/p&gt;
+&lt;p&gt;有一下两个规定：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​	一个事务对数据对象 A 加了 X 锁，就可以对 A 进行读取和更新。加锁期间，其他事务不能对 A 加任何锁。&lt;/li&gt;
+&lt;li&gt;​    一个事务对数据对象 A 加了 S 锁，可以对 A 进行读取，但不能进行更新操作。加锁期间其他事务只能对 A 加 S 锁，但不能加 X 锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;意向锁&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#意向锁&#34;&gt;#&lt;/a&gt; 意向锁&lt;/h5&gt;
+&lt;p&gt;​	使用意向锁可以更容易地支持多粒度封锁。&lt;/p&gt;
+&lt;p&gt;​	存在行级锁和表级锁的情况下，事务 T 想要对表 A 加 X 锁，就需要先检测是否有其他事务对表 A 或者表 A 中的任意一行加了锁，那么就需要对表 A 的每一行都检测一次，这是非常耗时的。&lt;/p&gt;
+&lt;p&gt;​	意向锁在原来的 X/S 锁之上引入了 IX/IS，IX/IS 都是表锁，用来表示一个事务想要在表中某个数据行上加上 X 锁或 S 锁。有一下两个规定：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一个事务在获得某个数据行对象的 S 锁之前，必须先获得表的 IS 锁或者更强的锁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个事务在获取某个数据行对象的 X 锁之前，必须先获取表的 X 锁。&lt;/p&gt;
+&lt;p&gt;通过引入意向锁，事务 T 想要对表 A 加 X 锁，只需要先检测是否有其它事务对表 A 加了 X/IX/S/IS 锁，如果加了就表示有其他事务正在使用这个表或者表中的某一行的锁，因此事务 T 加锁失败。&lt;/p&gt;
+&lt;p&gt;各种锁的兼容关系如下:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;-&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;X&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;IX&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;S&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;IS&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;X&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;IX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;S&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;IS&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;解释如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​	任意 IS/IX 锁之间都是兼容的，因为他们只是表示想要对表加锁，而不是正真的加锁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​    S 锁只与 IS 锁兼容，也就是说事务 T 想要对数据行加 S 锁，其他事务可以已经获得对表或者对表中行的 S 锁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;封锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁协议&#34;&gt;#&lt;/a&gt; 封锁协议&lt;/h3&gt;
+&lt;h4 id=&#34;三级锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三级锁协议&#34;&gt;#&lt;/a&gt; 三级锁协议&lt;/h4&gt;
+&lt;h5 id=&#34;一级锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一级锁协议&#34;&gt;#&lt;/a&gt; 一级锁协议&lt;/h5&gt;
+&lt;p&gt;事务 T 要修改数据 A 时必须加 X 锁，直到 T 结束猜释放锁。&lt;/p&gt;
+&lt;p&gt;可以解决丢失修改问题，因为不能同时有两个事务对同一个数据进行修改，那么事务的修改就不会被覆盖。&lt;/p&gt;
+&lt;h5 id=&#34;二级锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二级锁协议&#34;&gt;#&lt;/a&gt; 二级锁协议&lt;/h5&gt;
+&lt;p&gt;在一级的基础上，要求读取数据 A 时，必须加上 S 锁，读取完马上释放 S 锁。&lt;/p&gt;
+&lt;p&gt;可以解决数据脏读问题。因为一个事务在对数据 A 进行修改，根据一级协议，必须加 X 锁，那么就不能再加 S 锁了，也就不会读入数据了。&lt;/p&gt;
+&lt;h5 id=&#34;三级封锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三级封锁协议&#34;&gt;#&lt;/a&gt; 三级封锁协议&lt;/h5&gt;
+&lt;p&gt;在二级的基础上，要求读取数据 A 时必须加上 S 锁，直到事务结束才释放 S 锁。&lt;/p&gt;
+&lt;p&gt;可以解决不可重复度问题，因为读 A 时，其他事务不能加 X 锁，从而避免了在读数据期间数据发生改变。&lt;/p&gt;
+&lt;h4 id=&#34;两段锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#两段锁协议&#34;&gt;#&lt;/a&gt; 两段锁协议&lt;/h4&gt;
+&lt;p&gt;​	加锁和解锁分两个阶段进行。&lt;/p&gt;
+&lt;p&gt;​	可串行化调度是指，通过并发控制，使得并发执行的事务结果与某个串行执行的事务结果相同。&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;事务遵循两段锁协议是保证可串行化调度的充分条件&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mysql-隐式与显式锁定&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mysql-隐式与显式锁定&#34;&gt;#&lt;/a&gt; Mysql 隐式与显式锁定&lt;/h3&gt;
+&lt;p&gt;Mysql 的 InnoDB 存储引擎采用的是两段锁协议，会根据隔离级别在需要的时候自动加锁，并且所有锁都是在同一时刻被释放，这被称为隐式锁定。&lt;/p&gt;
+&lt;p&gt;InnoDB 也可以使用特定的语句进行显示锁定。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mysql&#34;&gt;select ...... LOCK In SHARE MODE;
+select ...... FOR UPDATE;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;隔离级别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#隔离级别&#34;&gt;#&lt;/a&gt; 隔离级别&lt;/h3&gt;
+&lt;h4 id=&#34;未提交读read-uncommited&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#未提交读read-uncommited&#34;&gt;#&lt;/a&gt; 未提交读（READ UNCOMMITED)&lt;/h4&gt;
+&lt;p&gt;事务中的修改，即使没有提交，对其他事务也是可见的。&lt;/p&gt;
+&lt;h4 id=&#34;提交读read-commited&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#提交读read-commited&#34;&gt;#&lt;/a&gt; 提交读（READ COMMITED)&lt;/h4&gt;
+&lt;p&gt;一个事务只能读取已经提交的事务所作的修改。换个话说，一个事务所做的修改，在提交之前，对其他事务都是不可见的。&lt;/p&gt;
+&lt;h4 id=&#34;可重复读repeatable-read&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可重复读repeatable-read&#34;&gt;#&lt;/a&gt; 可重复读（REPEATABLE READ)&lt;/h4&gt;
+&lt;p&gt;保证在同一个事务中多次读取同样的数据结果是一样的。&lt;/p&gt;
+&lt;h4 id=&#34;可串行化serializable&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可串行化serializable&#34;&gt;#&lt;/a&gt; 可串行化（SERIALIZABLE)&lt;/h4&gt;
+&lt;p&gt;强制事务串行执行。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;隔离级别&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;脏读&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;不可重复读&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;幻影读&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;未提交读&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;提交读&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;可重复读&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;可串行化&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;多版本并发控制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#多版本并发控制&#34;&gt;#&lt;/a&gt; 多版本并发控制&lt;/h3&gt;
+&lt;p&gt;多版本并发控制 (Multi-Version Concurrency Control, MVCC) 是 MySQL 的 InnoDB 存储引擎实现隔离级别的一种具体方式，用于实现提交读和可重复读这两种隔离级别。而未提交读隔离级别总是读取最新的数据行，无需使用 MVCC。可串行化隔离级别需要对所有读取的行都加锁，单纯使用 MVCC 无法实现。&lt;/p&gt;
+&lt;h3 id=&#34;版本号&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#版本号&#34;&gt;#&lt;/a&gt; 版本号&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;系统版本号：是一个递增的数字，每开始一个新的事务，系统版本号就会自动递增。&lt;/li&gt;
+&lt;li&gt;事务版本号：事务开始时的系统版本号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;隐藏的列&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#隐藏的列&#34;&gt;#&lt;/a&gt; 隐藏的列&lt;/h3&gt;
+&lt;p&gt;MVCC 在每行记录后边都保存着两个隐藏的列，用来存储两个版本号。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建版本号：指示创建一个数据行的快照时的系统版本号。&lt;/li&gt;
+&lt;li&gt;删除版本号如果该快照的删除版本号大于当前事务版本号表示该快照有效，否则表示快照已经把欸删除了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;undo-日志&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#undo-日志&#34;&gt;#&lt;/a&gt; Undo 日志&lt;/h3&gt;
+&lt;p&gt;MVCC 使用到的快照存储在 Undo 日志中，该日志通过回滚指针把一个数据行 (Record) 的所有快照连接起来。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pdai.tech/images/pics/e41405a8-7c05-4f70-8092-e961e28d3112.jpg&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;实现过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实现过程&#34;&gt;#&lt;/a&gt; 实现过程&lt;/h3&gt;
+&lt;p&gt;以下实现过程针对可重复读隔离级别。&lt;/p&gt;
+&lt;p&gt;当开始新一个事务时，该事务的版本号肯定会大于当前所有数据行快照的创建版本号，理解这一点很关键。&lt;/p&gt;
+&lt;h4 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_1-select&#34;&gt;#&lt;/a&gt; 1. SELECT&lt;/h4&gt;
+&lt;p&gt;多个事务必须读取到同一个数据行的快照，并且这个快照是距离现在最近的一个有效快照。但是也有例外，如果有一个事务正在修改该数据行，那么它可以读取事务本身所做的修改，而不用和其它事务的读取结果一致。&lt;/p&gt;
+&lt;p&gt;把没有对一个数据行做修改的事务称为 T，T 所要读取的数据行快照的创建版本号必须小于 T 的版本号，因为如果大于或者等于 T 的版本号，那么表示该数据行快照是其它事务的最新修改，因此不能去读取它。除此之外，T 所要读取的数据行快照的删除版本号必须大于 T 的版本号，因为如果小于等于 T 的版本号，那么表示该数据行快照是已经被删除的，不应该去读取它。&lt;/p&gt;
+&lt;h4 id=&#34;-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-2&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_2-insert&#34;&gt;#&lt;/a&gt; 2. INSERT&lt;/h4&gt;
+&lt;p&gt;将当前系统版本号作为数据行快照的创建版本号。&lt;/p&gt;
+&lt;h4 id=&#34;-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-3&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_3-delete&#34;&gt;#&lt;/a&gt; 3. DELETE&lt;/h4&gt;
+&lt;p&gt;将当前系统版本号作为数据行快照的删除版本号。&lt;/p&gt;
+&lt;h4 id=&#34;-4&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-4&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_4-update&#34;&gt;#&lt;/a&gt; 4. UPDATE&lt;/h4&gt;
+&lt;p&gt;将当前系统版本号作为更新前的数据行快照的删除版本号，并将当前系统版本号作为更新后的数据行快照的创建版本号。可以理解为先执行 DELETE 后执行 INSERT。&lt;/p&gt;
+&lt;h3 id=&#34;-5&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-5&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#%E5%BF%AB%E7%85%A7%E8%AF%BB%E4%B8%8E%E5%BD%93%E5%89%8D%E8%AF%BB&#34;&gt;#&lt;/a&gt; 快照读与当前读&lt;/h3&gt;
+&lt;h4 id=&#34;-6&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-6&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_1-%E5%BF%AB%E7%85%A7%E8%AF%BB&#34;&gt;#&lt;/a&gt; 1. 快照读&lt;/h4&gt;
+&lt;p&gt;使用 MVCC 读取的是快照中的数据，这样可以减少加锁所带来的开销。&lt;/p&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;table&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;-7&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-7&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_2-%E5%BD%93%E5%89%8D%E8%AF%BB&#34;&gt;#&lt;/a&gt; 2. 当前读&lt;/h4&gt;
+&lt;p&gt;读取的是最新的数据，需要加锁。以下第一个语句需要加 S 锁，其它都需要加 X 锁。&lt;/p&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;table&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; ? &lt;span class=&#34;token keyword&#34;&gt;lock&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;share&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;mode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;table&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; ? &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;insert&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;delete&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;六-next-key-locks&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#六-next-key-locks&#34;&gt;#&lt;/a&gt; 六、Next-Key Locks&lt;/h3&gt;
+&lt;p&gt;Next-Key Locks 是 MySQL 的 InnoDB 存储引擎的一种锁实现。&lt;/p&gt;
+&lt;p&gt;MVCC 不能解决幻读的问题，Next-Key Locks 就是为了解决这个问题而存在的。在可重复读 (REPEATABLE READ) 隔离级别下，使用 MVCC + Next-Key Locks 可以解决幻读问题。&lt;/p&gt;
+&lt;h4 id=&#34;-8&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-8&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#record-locks&#34;&gt;#&lt;/a&gt; Record Locks&lt;/h4&gt;
+&lt;p&gt;锁定一个记录上的索引，而不是记录本身。&lt;/p&gt;
+&lt;p&gt;如果表没有设置索引，InnoDB 会自动在主键上创建隐藏的聚簇索引，因此 Record Locks 依然可以使用。&lt;/p&gt;
+&lt;h4 id=&#34;-9&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-9&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#gap-locks&#34;&gt;#&lt;/a&gt; Gap Locks&lt;/h4&gt;
+&lt;p&gt;锁定索引之间的间隙，但是不包含索引本身。例如当一个事务执行以下语句，其它事务就不能在 t.c 中插入 15。&lt;/p&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;SELECT&lt;/span&gt; c &lt;span class=&#34;token keyword&#34;&gt;FROM&lt;/span&gt; t &lt;span class=&#34;token keyword&#34;&gt;WHERE&lt;/span&gt; c &lt;span class=&#34;token operator&#34;&gt;BETWEEN&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;FOR&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;UPDATE&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;-10&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-10&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#next-key-locks&#34;&gt;#&lt;/a&gt; Next-Key Locks&lt;/h4&gt;
+&lt;p&gt;它是 Record Locks 和 Gap Locks 的结合，不仅锁定一个记录上的索引，也锁定索引之间的间隙。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/WebSocket/1.%E7%AE%80%E4%BB%8B/</guid>
+            <title></title>
+            <link>http://1405904364.github.io/2023/08/30/WebSocket/1.%E7%AE%80%E4%BB%8B/</link>
+            <pubDate>Wed, 30 Aug 2023 16:50:42 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;WebSocket协议在2008年诞生，2011年成为国际标准，所有游览器都已经支持了。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最大的特点就是，服务器可以主动向客户端推送消息，客户端也可以主动向服务器发送消息，是真正的实现双平等对话，属于服务器推送数据技术的一种。&lt;/p&gt;
+&lt;p&gt;其它特点有：&lt;br&gt;
+1. 建立在 TCP 协议之上，服务端实现比较容易。&lt;br&gt;
+2. 与 HTTP 协议有良好的兼容性，默认端口 80 和 443，并且握手阶段采用 HTTP 协议，因此不容易屏蔽，能通过各种 HTTP 代理服务器。&lt;br&gt;
+3. 数据格式比较轻量，性能开销较小，通信高效。&lt;br&gt;
+4. 可以发送二进制数据，也可以发送文本。&lt;br&gt;
+5. 没有同源限制，客户端可以与任意服务器通信。&lt;br&gt;
+6. 协议标识是：ws ，如果是加密，则为：wss ，服务器网址就是 URL。&lt;/p&gt;
+&lt;p&gt;JavaScript 客户端&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+      const ws = new WebSocket(&#39;ws://127.0.0.1:8080/webSocketTest/ws/ucy&#39;)
+
+      ws.onopen = function (evt) &amp;#123;
+        console.log(&amp;quot;Connection open ...&amp;quot;);
+        ws.send(&amp;quot;Hello WebSockets!&amp;quot;);
+      &amp;#125;;
+
+      ws.onmessage = function (evt) &amp;#123;
+        console.log(&amp;quot;Received Message: &amp;quot; + evt.data);
+        ws.close();
+      &amp;#125;;
+      
+      ws.onclose = function (evt) &amp;#123;
+        console.log(&amp;quot;Connection closed.&amp;quot;);
+      &amp;#125;;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Java 服务端&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Component;
+
+import javax.websocket.CloseReason;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.PathParam;
+import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
+
+/**
+ * @ClassName WebSocketEchoServer
+ * @Description TODO
+ * @Author JY
+ * @Date 2023/4/24
+ **/
+
+@Component
+@ServerEndpoint(&amp;quot;/ws/&amp;#123;username&amp;#125;&amp;quot;)
+public class WebSocketEchoServer &amp;#123;
+
+    @OnOpen
+    public void onOpen(Session session, @PathParam(&amp;quot;username&amp;quot;) String username) &amp;#123;
+        System.out.println(&amp;quot;username = &amp;quot; + username + &amp;quot; is online.&amp;quot;);
+
+    &amp;#125;
+
+    @OnClose
+    public void onClose(Session session, @PathParam(&amp;quot;username&amp;quot;) String username, CloseReason closeReason) &amp;#123;
+        System.out.println(&amp;quot;username = &amp;quot; + username + &amp;quot; is offline.&amp;quot;);
+        System.out.println(&amp;quot;Closing a WebSocket due to &amp;quot; + closeReason.getReasonPhrase());
+    &amp;#125;
+
+    // @OnMessage
+    // public String onMessage(String message, Session session) throws IOException &amp;#123;
+    //     System.out.println(&amp;quot;received message=&amp;quot; + message);
+    //     return &amp;quot;echo &amp;quot; + message;
+    // &amp;#125;
+
+    @OnMessage
+    public void onMessage(String message, Session session) throws IOException &amp;#123;
+        System.out.println(&amp;quot;received message=&amp;quot; + message);
+        session.getBasicRemote().sendText(&amp;quot;echo &amp;quot; + message);
+    &amp;#125;
+
+    @OnError
+    public void onError(Session session, Throwable throwable) &amp;#123;
+        System.out.println(&amp;quot;发生错误&amp;quot;);
+        throwable.printStackTrace();
+    &amp;#125;
+
+    public void boardCast(Message message) &amp;#123;
+        // todo: 遍历所有的session，给所有session发送消息
+
+    &amp;#125;
+
+&amp;#125;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+            <title>webService的使用</title>
+            <link>http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+            <category>webService</category>
+            <pubDate>Wed, 30 Aug 2023 16:50:18 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;什么是webservice&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是webservice&#34;&gt;#&lt;/a&gt; 什么是 webService&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;webService 也称为 web 服务，它是一种跨编程语言和操作系统平台的远程调用技术。&lt;br&gt;
+WebService 采用标准的 SOAP 协议传输 (SOAP Simple Object Access Protocol 简单对象访问协议)，soap 属于 w3c 标准，并且 soap 协议是基于 http 的应用层协议传输 xml 数据。WebService 采用 WSDL 作为描述语言，也就是 WebService 的使用说明书。并且 W3C 为 WebService 制定了一套传输数据类型，使用 xml 进行描述，即 XSD (XML Schema Datatypes), 任何语言写的 webService 接口在发送数据的时候都要转成 webService 标准的 XSD 发送。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;webservice的三要素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice的三要素&#34;&gt;#&lt;/a&gt; WebService 的三要素&lt;/h1&gt;
+&lt;h2 id=&#34;soap&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#soap&#34;&gt;#&lt;/a&gt; SOAP&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SOAP 也叫做简单对象访问协议，是一种简单的基于 xml 的协议，它使应用程序通过 HTTP 来交换数据，可以简单的理解为 SOAP = http + xml 。 SOAP 协议目前的主流版本为 SOAP1.1 和 SOAP1.2（SOAP1.2 是被纳入 w3c 标准后的版本）。SOAP 也不是 WebService 的专有协议，其他的应用程序也是用 SOAP 传输数据，例如：tr069 也是使用 SOAP 协议来传输数据&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;区分 http 请求和 SOAP (http + xml) 请求:&lt;br&gt;
+&lt;img data-src=&#34;/image/webService/20180320112817939.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;SOAP 协议格式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;必须有 Envelope 元素，此元素将整个 xml 文档表示为一条 SOAP 消息。&lt;/li&gt;
+&lt;li&gt;可选 Header 元素，包含头部信息。&lt;/li&gt;
+&lt;li&gt;必须有 Body 元素，包含所有的调用和响应信息。&lt;/li&gt;
+&lt;li&gt;可选的 Fault 元素，提供有关在处理此消息所发生的错误信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;SOAP1.1 和 SOAP1.2 的区别&lt;/p&gt;
+&lt;p&gt;相同点：&lt;br&gt;
+1. 请求方式都是采用 POST 方式&lt;br&gt;
+ 2. 协议内容相同，都有 Envelope 和 Body 标签&lt;/p&gt;
+&lt;p&gt;不同点：&lt;br&gt;
+1. 数据格式不同：content-type 不同&lt;br&gt;
+ - SOAP1.1:text/xml;charset=utf-8&lt;br&gt;
+- SOAP1.2:application/soap+xml;charset=utf-8&lt;br&gt;
+2. 命名空间不同&lt;br&gt;
+ - SOAP1.1：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8=&#34;&gt;http://schemas.xmlsoap.org/soap/envelope/&lt;/span&gt;&lt;br&gt;
+- SOAP1.2：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy53My5vcmcvMjAwMy8wNS9zb2FwLWVudmVsb3Bl&#34;&gt;http://www.w3.org/2003/05/soap-envelope&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;wsdl&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wsdl&#34;&gt;#&lt;/a&gt; WSDL&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;WSDL 是基于 XML 的用于描述 WebService 及其函数（方法）、参数和返回值。也就是说 wsdl 是对发布出来的服务中的方法和返回值以及参数的描述（也可以说是 WebService 的使用说明书）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;WSDL 文档结构：&lt;/p&gt;
+&lt;p&gt;WSDL 文档主要包括的 5 个标签&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;service&gt;: 服务视图，WebService 的服务节点，它包括服务端点&lt;/li&gt;
+&lt;li&gt;&lt;binding&gt;: 为每个服务端点定义消息格式和协议细节&lt;/li&gt;
+&lt;li&gt;&lt;portType&gt;: 服务端点，描述 WebService 可执行的操作方法，以及相关消息，通过 binging 指向 protType&lt;/li&gt;
+&lt;li&gt;&lt;message&gt;: 定义一个操作（方法）的数据参数（可有多个参数）&lt;/li&gt;
+&lt;li&gt;&lt;types&gt;: 定义 WebService 使用的全部数据类型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;uddi&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#uddi&#34;&gt;#&lt;/a&gt; UDDI&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UDDI 是一种目录服务，通过它，企业可注册并搜集 Web Service。企业将自己提供的 Web Service 注册在 UDDI，也可以使用别的企业在 UDDI 注册 Web Service 服务，从而达到资源共享。UDDI 旨在将全球的 Web Service 资源进行共享&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;webservice开发规范&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice开发规范&#34;&gt;#&lt;/a&gt; WebService 开发规范&lt;/h2&gt;
+&lt;h3 id=&#34;jax-ws&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#jax-ws&#34;&gt;#&lt;/a&gt; JAX-WS&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JAX-WS (Java API for XML-Based Web Service): 一个远程调用可以转换基于 XML 协议 (例如：SOAP 协议), 在使用 JAX-WS 过程中，开发者不需要使用任何代码来编写生成和处理 SAOP。JAX-WS 运行时会自动将这些 API 调用转换为 SOAP 协议的消息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在服务端，用户只需要通过 JAVA 语言定义远程调用所需要实现的接口 (SEI: Service EndPoit Interface), 并对其提供相关的实现，通过调用 JAX-WS 的服务来调用接口，这样就可以发布 Web Service 接口了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在客户端，用户可以通过 JAX-WS 的 API 创建一个代理来（用本地代理对象替代远程的服务对象）实现远程服务端调用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;从 Java5 开始就支持 JAX-WS2.0 版本，Java6 以后的版本支持 JAX-WS2.1 版本，Java1.7 支持 JAX-WS2.2 的版本。&lt;/p&gt;
+&lt;h3 id=&#34;jaxmsaaj&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#jaxmsaaj&#34;&gt;#&lt;/a&gt; JAXM&amp;amp;SAAJ&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JAXM（Java API for XML Message）：主要定义了包含接收信息和发送信息所需要的 API，SAAJ (SOAP With Attachment API For Java) 是与 JAXM 搭配使用的 API，为构建 SOAP 和解析 SOAP 包提供了重要的支持，支持附件传输等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;jax-rs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#jax-rs&#34;&gt;#&lt;/a&gt; JAX-RS&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JAX-RS 是 Java 针对 REST（Representtation state Transfer）风格制定的一套 Web 服务规范，由于该规范推出来的较晚，因此该规范（JAX-WS 的版本为 1.0）并未随 Java6 一起发行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;webservice应用场景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice应用场景&#34;&gt;#&lt;/a&gt; WebService 应用场景&lt;/h2&gt;
+&lt;p&gt;适用场景：&lt;br&gt;
+1. 用于软件集成和复用&lt;br&gt;
+ 2. 用于接口服务，不考虑客户端类型，不考虑性能&lt;br&gt;
+ 3. 服务端已经确定使用了 WebService，客户端只能选择 WebService 使用&lt;/p&gt;
+&lt;p&gt;不适用场景：&lt;br&gt;
+1. 对性能要求比较高 (因为 WebService 是采用 http 发送 soap 协议的数据，该协议迭代了太多标签，导致数据跟多，因此性能也有所降低)&lt;br&gt;
+ 2. 同构程序之间不建议使用&lt;/p&gt;
+&lt;h2 id=&#34;wsimport命令介绍&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wsimport命令介绍&#34;&gt;#&lt;/a&gt; wsimport 命令介绍&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wsimport 命令是 jdk 自带的 webService 客户端工具，可以根据 wsdl 文档生成对应服务代理类（客户端调用类），当然不管服务端用什么语言写的，都可以生成调用 WebService 的客户端代码，服务端通过客户端调用 WebService。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;wsimport 命令常用参数为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-d &amp;lt;目录&amp;gt;: 指定放置生成的输出文件的位置&lt;/li&gt;
+&lt;li&gt;-s &amp;lt;目录&amp;gt;: 指定放置生成的源文件的位置&lt;/li&gt;
+&lt;li&gt;-p &amp;lt;包名&amp;gt;: 指定目标程序包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：在 com-&amp;gt;test 文件夹中生成源文件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wsimport -p com.test -s . &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3dlYlNlcnZpY2Uud2VieG1sLmNvbS5jbi9XZWJTZXJ2aWNlL01vYmlsZUNPZGVXUy5hc214P3dzZGw=&#34;&gt;http://webService.webxml.com.cn/WebService/MobileCOdeWS.asmx?wsdl&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意：-s .  表示在 -p 指定的文件夹下生成源文件&lt;/p&gt;
+&lt;h2 id=&#34;发布jax-ws的web-service服务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#发布jax-ws的web-service服务&#34;&gt;#&lt;/a&gt; 发布 JAX-WS 的 Web Service 服务&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建 SEI 接口 (本质上就是 Java 接口)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public interface WeatherInterface &amp;#123;
+    public String querryWeather(String cityName);
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;创建接口实现类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;@WebService 注解：表示该实现类是一个 Web Service 服务。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;targetNamespace 属性：指定命名空间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;name 属性：指定 portType 的名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;serviceName 属性：服务名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@WebMethod 注解：定义公共方法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;operationName 属性：方法的名称。（也就是 WSDL 中的 operation 的名称）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;exclude 属性：如果设置为 true 表示该方法不是 Web Service 服务中的方法。反之则是 WebService 中的方法。默认也是 &amp;gt; false。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@WebResult 注解：定义返回值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;name 属性：返回结果值的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@WebParam 注解：定义参数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;name 属性：指定参数的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+@WebService(targetNamespace=&amp;quot;http://service.cn_lc&amp;quot;,name=&amp;quot;WeatherWSSoap&amp;quot;,portName=&amp;quot;WeatherWSSoapPort&amp;quot;,serviceName=&amp;quot;WeatherWS&amp;quot;
+)//只加这个注解就只能生成SAOP1.1的WSDL
+//@BindingType(SOAPBinding.SOAP12HTTP_BINDING)
+public class WeatherInterfaceImpl implements WeatherInterface &amp;#123;
+    @WebMethod(operationName=&amp;quot;getWeather&amp;quot;,exclude=false)
+    @Override
+    @WebResult(name=&amp;quot;resultWeather&amp;quot;)
+    public  String querryWeather(@WebParam(name=&amp;quot;cityName&amp;quot;)String cityName) &amp;#123;
+        System.out.println(&amp;quot;form client ...&amp;quot; + cityName);
+        String weather = &amp;quot;晴&amp;quot;;
+        return weather;
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;通过 EndPoint 发布 WebService 服务 (EndPoint 只能发布实现类，不能发布接口)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherServer &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        /*** 参数解释：* address：服务器地址* implementor:实现类*/
+        Endpoint.publish(&amp;quot;http://127.0.0.1:12345/weather&amp;quot;,new WeatherInterfaceImpl());
+        System.out.println(&amp;quot;http://127.0.0.1:12345/weather?wsdl&amp;quot;);
+        &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/webService/20180320145116683.png&#34; alt=&#34;图片&#34;&gt;&lt;br&gt;
+&lt;img data-src=&#34;/image/webService/20180320145359572.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;webservice的四种客户端调用方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice的四种客户端调用方式&#34;&gt;#&lt;/a&gt; WebService 的四种客户端调用方式&lt;/h2&gt;
+&lt;p&gt;第一种：通过 wsimport 生成客户端方式调用&lt;br&gt;
+ 1. 通过 wsimport 生成客户端代码&lt;br&gt;
+ wsimport -p com.test jaxws -s &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMToxMjM0NS93ZWF0aGVyP3dzZGw=&#34;&gt;http://127.0.0.1:12345/weather?wsdl&lt;/span&gt;&lt;br&gt;
+2. 阅读使用说明书 WSDL，使用生成客户端代码调用服务端&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherClient &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        //创建服务视图
+        WeatherWS weatherInterfaceImplService = new WeatherWS();
+        //通过服务视图对象获取服务实现类
+        WeatherWSSoap weatherInterfaceImpl = weatherInterfaceImplService.getPort(WeatherWSSoap.class);
+        //通过服务实现对象调用查询方法
+        System.out.println(weatherInterfaceImpl.getWeather(&amp;quot;北京&amp;quot;));
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;采用 wsimport 生成客户端代码方式的特点：这种方式使用简单，但是一些关键的元素 (比如 wsdl 地址、命名空间、服务类名等都写死在生成的客户端代码中) 不方便维护&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;第二种：通过 Service 编程调用方式&lt;br&gt;
+ 1. 通过 wsimport 生成客户端代码&lt;br&gt;
+ wsimport -p com.test jaxws -s &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMToxMjM0NS93ZWF0aGVyP3dzZGw=&#34;&gt;http://127.0.0.1:12345/weather?wsdl&lt;/span&gt;&lt;br&gt;
+2. 自己编写服务视图类，并通过该服务视图类来获取服务实现类实例&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherClient &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        //创建WSDL的URL，注意不是服务地址
+        URL url = new URL(&amp;quot;http://127.0.0.1:12345/weather?wsdl&amp;quot;);
+        // 创建服务名称//namespaceURI:命名空间地址。//localPart：服务视图名。
+        QName qname = new QName(&amp;quot;http://service.cn_lc&amp;quot;, &amp;quot;WeatherWS&amp;quot;);
+        //创建服务视图//1.wsdlDocumentLocation - wsdl地址//2.serviceName - 服务名称
+        Service service = Service.create(url, qname);
+        WeatherWSSoap weatherWSSoap = service.getPort(WeatherWSSoap.class);
+        String result = weatherWSSoap.getWeather(&amp;quot;成都&amp;quot;);
+        System.out.println(result);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;第三种：通过 HttpURLConnection 调用方式&lt;br&gt;
+ 1. 创建服务地址&lt;br&gt;
+ 2. 打开一个通向服务地址的连接&lt;br&gt;
+ 3. 设置参数（例如请求方式为 POST）&lt;br&gt;
+4. 组织 SOAP 数据发送数据&lt;br&gt;
+ 5. 接收服务端相应，并打印&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherClient &amp;#123;
+    public static void main(String[] args) throws IOException &amp;#123;
+        //第一步：创建服务地址
+        URL url = new URL(&amp;quot;http://127.0.0.1:54321/weather&amp;quot;);
+        // 第二步：打开一个通向服务端地址的连接
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        //设置参数
+        connection.setRequestMethod(&amp;quot;POST&amp;quot;);
+        connection.setRequestProperty(&amp;quot;content-type&amp;quot;, &amp;quot;text/xml;charset=utf-8&amp;quot;);
+        //设置输入输出
+        connection.setDoOutput(true);
+        connection.setDoInput(true);
+        //准备SOAP数据，发送请求
+        String soapxml = getXML(&amp;quot;成都&amp;quot;);
+        OutputStream out = connection.getOutputStream();
+        OutputStreamWriter writer = new OutputStreamWriter(out, &amp;quot;utf-8&amp;quot;);
+        writer.write(soapxml);
+        writer.close();
+        out.close();
+        //第五步接收服务端响应并打印
+        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &amp;#123;
+            InputStream input = connection.getInputStream();
+            InputStreamReader reader = new InputStreamReader(input, &amp;quot;utf-8&amp;quot;);
+            BufferedReader buffered = new BufferedReader(reader);
+            String temp = null;
+            StringBuilder sb = new StringBuilder();
+            while ((temp = buffered.readLine()) != null) &amp;#123;
+                sb.append(temp);
+            &amp;#125;
+            buffered.close();
+            reader.close();
+            input.close();
+            System.out.println(sb.toString());
+        &amp;#125;
+    &amp;#125;
+
+    public static String getXML(String cityName) &amp;#123;
+        return &amp;quot;&amp;lt;?xml version=\&amp;quot;1.0\&amp;quot; ?&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Envelope xmlns:S=\&amp;quot;http://schemas.xmlsoap.org/soap/envelope/\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;ns2:getWeather xmlns:ns2=\&amp;quot;http://service.cn_lc\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;cityName&amp;gt;&amp;quot; + cityName + &amp;quot;&amp;lt;/cityName&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/ns2:getWeather&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Envelope&amp;gt;&amp;quot;;
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;第四种：通过 ajax 方式调用服务端&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Html&#34;&gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;查询天气&amp;lt;/title&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;function querryWeather() &amp;#123;
+            var xhr = new XMLHttpRequest(); xhr.open(&amp;quot;post&amp;quot;, &amp;quot;http://127.0.0.1:12345/weather&amp;quot;, true);
+            //设置数据类型
+            xhr.setRequestHeader(&amp;quot;content-type&amp;quot;, &amp;quot;text/xml;charset=utf-8&amp;quot;);
+            //设置回调函数
+            if (4 == xhr.readState &amp;amp;&amp;amp; 200 == xhr.status) &amp;#123;
+                alert(xhr.responseText);
+            &amp;#125;
+            //组织数据
+            var soapXml = &amp;quot;&amp;lt;?xml version=\&amp;quot;1.0\&amp;quot; ?&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Envelope xmlns:S=\&amp;quot;http://schemas.xmlsoap.org/soap/envelope/\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;ns2:getWeather xmlns:ns2=\&amp;quot;http://service.cn_lc\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;cityName&amp;gt;&amp;quot; + document.getElementById(&amp;quot;cityName&amp;quot;).value + &amp;quot;&amp;lt;/cityName&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/ns2:getWeather&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Envelope&amp;gt;&amp;quot;; alert(soapXml);
+            //发送数据
+            xhr.send(soapXml);
+        &amp;#125;
+    &amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+    &amp;lt;center&amp;gt;天气查询：&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;cityName&amp;quot; /&amp;gt;&amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;查询&amp;quot;
+            οnclick=&amp;quot;javascript:querryWeather();&amp;quot; /&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;cxf&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cxf&#34;&gt;#&lt;/a&gt; CXF&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CXF 是一个开源的 WebService 框架，提供了很多完善的功能&lt;br&gt;
+ CXF 支持的协议有 SOAP1.1/SOAP1.2,REST&lt;br&gt;
+CXF 支持的数据格式有 XML，JSON (仅在 REST 方式下支持，不再 SOAP 方式下支持，因为 SOAP 使 http+xml)&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://1405904364.github.io/2023/08/18/maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/</guid>
             <title>常用元素标签</title>

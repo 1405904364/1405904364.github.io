@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="Live My Life" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="Live My Life" type="application/atom+xml"><link rel="alternate" type="application/json" title="Live My Life" href="http://1405904364.github.io/feed.json"/><link rel="preconnect" href="https://lf9-cdn-tos.bytecdntp.com"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/><link rel="dns-prefetch" href="https://unpkg.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.3.3"><script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.js"></script><meta name="keywords" content="webService"/><link rel="canonical" href="http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/"><title>webService的使用</title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">webService的使用</h1><div class="meta"><span class="item" title="创建时间：2023-08-30 16:50:18"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2023-08-30T16:50:18+08:00">2023-08-30</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>9.2k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>8 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Live My Life</a></li></ul><ul class="right" id="rightNav"><li class="item theme" @click="changeThemeByBtn"><i class="ic" :class="{'i-sun': !themeStatus,'i-moon': themeStatus}"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0iNK.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YQSYM.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0xvg.jpg"></li><li class="item" data-background-image="https://images.pexels.com/photos/15889175/pexels-photo-15889175.jpeg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0hOs.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0kTl.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpeg"/><meta itemprop="name" content="一念成余"/><meta itemprop="description" content="一念成余, 个人学习使用"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Live My Life"/></span><div class="body md" itemprop="articleBody"><h1 id="什么是webservice"><a class="markdownIt-Anchor" href="#什么是webservice">#</a> 什么是 webService</h1>
+<blockquote>
+<p>webService 也称为 web 服务，它是一种跨编程语言和操作系统平台的远程调用技术。<br>
+WebService 采用标准的 SOAP 协议传输 (SOAP Simple Object Access Protocol 简单对象访问协议)，soap 属于 w3c 标准，并且 soap 协议是基于 http 的应用层协议传输 xml 数据。WebService 采用 WSDL 作为描述语言，也就是 WebService 的使用说明书。并且 W3C 为 WebService 制定了一套传输数据类型，使用 xml 进行描述，即 XSD (XML Schema Datatypes), 任何语言写的 webService 接口在发送数据的时候都要转成 webService 标准的 XSD 发送。</p>
+</blockquote>
+<h1 id="webservice的三要素"><a class="markdownIt-Anchor" href="#webservice的三要素">#</a> WebService 的三要素</h1>
+<h2 id="soap"><a class="markdownIt-Anchor" href="#soap">#</a> SOAP</h2>
+<blockquote>
+<p>SOAP 也叫做简单对象访问协议，是一种简单的基于 xml 的协议，它使应用程序通过 HTTP 来交换数据，可以简单的理解为 SOAP = http + xml 。 SOAP 协议目前的主流版本为 SOAP1.1 和 SOAP1.2（SOAP1.2 是被纳入 w3c 标准后的版本）。SOAP 也不是 WebService 的专有协议，其他的应用程序也是用 SOAP 传输数据，例如：tr069 也是使用 SOAP 协议来传输数据</p>
+</blockquote>
+<p>区分 http 请求和 SOAP (http + xml) 请求:<br>
+<img data-src="/image/webService/20180320112817939.png" alt="图片"></p>
+<p>SOAP 协议格式</p>
+<ol>
+<li>必须有 Envelope 元素，此元素将整个 xml 文档表示为一条 SOAP 消息。</li>
+<li>可选 Header 元素，包含头部信息。</li>
+<li>必须有 Body 元素，包含所有的调用和响应信息。</li>
+<li>可选的 Fault 元素，提供有关在处理此消息所发生的错误信息。</li>
+</ol>
+<p>SOAP1.1 和 SOAP1.2 的区别</p>
+<p>相同点：<br>
+1. 请求方式都是采用 POST 方式<br>
+ 2. 协议内容相同，都有 Envelope 和 Body 标签</p>
+<p>不同点：<br>
+1. 数据格式不同：content-type 不同<br>
+ - SOAP1.1:text/xml;charset=utf-8<br>
+- SOAP1.2:application/soap+xml;charset=utf-8<br>
+2. 命名空间不同<br>
+ - SOAP1.1：<span class="exturl" data-url="aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8=">http://schemas.xmlsoap.org/soap/envelope/</span><br>
+- SOAP1.2：<span class="exturl" data-url="aHR0cDovL3d3dy53My5vcmcvMjAwMy8wNS9zb2FwLWVudmVsb3Bl">http://www.w3.org/2003/05/soap-envelope</span></p>
+<h2 id="wsdl"><a class="markdownIt-Anchor" href="#wsdl">#</a> WSDL</h2>
+<blockquote>
+<p>WSDL 是基于 XML 的用于描述 WebService 及其函数（方法）、参数和返回值。也就是说 wsdl 是对发布出来的服务中的方法和返回值以及参数的描述（也可以说是 WebService 的使用说明书）</p>
+</blockquote>
+<p>WSDL 文档结构：</p>
+<p>WSDL 文档主要包括的 5 个标签</p>
+<ol>
+<li><service>: 服务视图，WebService 的服务节点，它包括服务端点</li>
+<li><binding>: 为每个服务端点定义消息格式和协议细节</li>
+<li><portType>: 服务端点，描述 WebService 可执行的操作方法，以及相关消息，通过 binging 指向 protType</li>
+<li><message>: 定义一个操作（方法）的数据参数（可有多个参数）</li>
+<li><types>: 定义 WebService 使用的全部数据类型</li>
+</ol>
+<h2 id="uddi"><a class="markdownIt-Anchor" href="#uddi">#</a> UDDI</h2>
+<blockquote>
+<p>UDDI 是一种目录服务，通过它，企业可注册并搜集 Web Service。企业将自己提供的 Web Service 注册在 UDDI，也可以使用别的企业在 UDDI 注册 Web Service 服务，从而达到资源共享。UDDI 旨在将全球的 Web Service 资源进行共享</p>
+</blockquote>
+<h2 id="webservice开发规范"><a class="markdownIt-Anchor" href="#webservice开发规范">#</a> WebService 开发规范</h2>
+<h3 id="jax-ws"><a class="markdownIt-Anchor" href="#jax-ws">#</a> JAX-WS</h3>
+<blockquote>
+<p>JAX-WS (Java API for XML-Based Web Service): 一个远程调用可以转换基于 XML 协议 (例如：SOAP 协议), 在使用 JAX-WS 过程中，开发者不需要使用任何代码来编写生成和处理 SAOP。JAX-WS 运行时会自动将这些 API 调用转换为 SOAP 协议的消息。</p>
+</blockquote>
+<blockquote>
+<p>在服务端，用户只需要通过 JAVA 语言定义远程调用所需要实现的接口 (SEI: Service EndPoit Interface), 并对其提供相关的实现，通过调用 JAX-WS 的服务来调用接口，这样就可以发布 Web Service 接口了</p>
+</blockquote>
+<blockquote>
+<p>在客户端，用户可以通过 JAX-WS 的 API 创建一个代理来（用本地代理对象替代远程的服务对象）实现远程服务端调用。</p>
+</blockquote>
+<p>从 Java5 开始就支持 JAX-WS2.0 版本，Java6 以后的版本支持 JAX-WS2.1 版本，Java1.7 支持 JAX-WS2.2 的版本。</p>
+<h3 id="jaxmsaaj"><a class="markdownIt-Anchor" href="#jaxmsaaj">#</a> JAXM&amp;SAAJ</h3>
+<blockquote>
+<p>JAXM（Java API for XML Message）：主要定义了包含接收信息和发送信息所需要的 API，SAAJ (SOAP With Attachment API For Java) 是与 JAXM 搭配使用的 API，为构建 SOAP 和解析 SOAP 包提供了重要的支持，支持附件传输等。</p>
+</blockquote>
+<h3 id="jax-rs"><a class="markdownIt-Anchor" href="#jax-rs">#</a> JAX-RS</h3>
+<blockquote>
+<p>JAX-RS 是 Java 针对 REST（Representtation state Transfer）风格制定的一套 Web 服务规范，由于该规范推出来的较晚，因此该规范（JAX-WS 的版本为 1.0）并未随 Java6 一起发行。</p>
+</blockquote>
+<h2 id="webservice应用场景"><a class="markdownIt-Anchor" href="#webservice应用场景">#</a> WebService 应用场景</h2>
+<p>适用场景：<br>
+1. 用于软件集成和复用<br>
+ 2. 用于接口服务，不考虑客户端类型，不考虑性能<br>
+ 3. 服务端已经确定使用了 WebService，客户端只能选择 WebService 使用</p>
+<p>不适用场景：<br>
+1. 对性能要求比较高 (因为 WebService 是采用 http 发送 soap 协议的数据，该协议迭代了太多标签，导致数据跟多，因此性能也有所降低)<br>
+ 2. 同构程序之间不建议使用</p>
+<h2 id="wsimport命令介绍"><a class="markdownIt-Anchor" href="#wsimport命令介绍">#</a> wsimport 命令介绍</h2>
+<blockquote>
+<p>wsimport 命令是 jdk 自带的 webService 客户端工具，可以根据 wsdl 文档生成对应服务代理类（客户端调用类），当然不管服务端用什么语言写的，都可以生成调用 WebService 的客户端代码，服务端通过客户端调用 WebService。</p>
+</blockquote>
+<p>wsimport 命令常用参数为：</p>
+<ul>
+<li>-d &lt;目录&gt;: 指定放置生成的输出文件的位置</li>
+<li>-s &lt;目录&gt;: 指定放置生成的源文件的位置</li>
+<li>-p &lt;包名&gt;: 指定目标程序包</li>
+</ul>
+<p>例如：在 com-&gt;test 文件夹中生成源文件</p>
+<blockquote>
+<p>wsimport -p com.test -s . <span class="exturl" data-url="aHR0cDovL3dlYlNlcnZpY2Uud2VieG1sLmNvbS5jbi9XZWJTZXJ2aWNlL01vYmlsZUNPZGVXUy5hc214P3dzZGw=">http://webService.webxml.com.cn/WebService/MobileCOdeWS.asmx?wsdl</span></p>
+</blockquote>
+<p>注意：-s .  表示在 -p 指定的文件夹下生成源文件</p>
+<h2 id="发布jax-ws的web-service服务"><a class="markdownIt-Anchor" href="#发布jax-ws的web-service服务">#</a> 发布 JAX-WS 的 Web Service 服务</h2>
+<ol>
+<li>创建 SEI 接口 (本质上就是 Java 接口)</li>
+</ol>
+<pre><code class="language-Java">public interface WeatherInterface &#123;
+    public String querryWeather(String cityName);
+&#125;
+</code></pre>
+<ol start="2">
+<li>创建接口实现类</li>
+</ol>
+<blockquote>
+<ol>
+<li>
+<p>@WebService 注解：表示该实现类是一个 Web Service 服务。</p>
+<ul>
+<li>
+<p>targetNamespace 属性：指定命名空间。</p>
+</li>
+<li>
+<p>name 属性：指定 portType 的名称。</p>
+</li>
+<li>
+<p>serviceName 属性：服务名称。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>@WebMethod 注解：定义公共方法。</p>
+<ul>
+<li>
+<p>operationName 属性：方法的名称。（也就是 WSDL 中的 operation 的名称）</p>
+</li>
+<li>
+<p>exclude 属性：如果设置为 true 表示该方法不是 Web Service 服务中的方法。反之则是 WebService 中的方法。默认也是 &gt; false。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>@WebResult 注解：定义返回值。</p>
+<ul>
+<li>name 属性：返回结果值的名称</li>
+</ul>
+</li>
+<li>
+<p>@WebParam 注解：定义参数。</p>
+<ul>
+<li>name 属性：指定参数的名称</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<pre><code class="language-Java">
+@WebService(targetNamespace=&quot;http://service.cn_lc&quot;,name=&quot;WeatherWSSoap&quot;,portName=&quot;WeatherWSSoapPort&quot;,serviceName=&quot;WeatherWS&quot;
+)//只加这个注解就只能生成SAOP1.1的WSDL
+//@BindingType(SOAPBinding.SOAP12HTTP_BINDING)
+public class WeatherInterfaceImpl implements WeatherInterface &#123;
+    @WebMethod(operationName=&quot;getWeather&quot;,exclude=false)
+    @Override
+    @WebResult(name=&quot;resultWeather&quot;)
+    public  String querryWeather(@WebParam(name=&quot;cityName&quot;)String cityName) &#123;
+        System.out.println(&quot;form client ...&quot; + cityName);
+        String weather = &quot;晴&quot;;
+        return weather;
+    &#125;
+&#125;
+
+</code></pre>
+<ol start="3">
+<li>通过 EndPoint 发布 WebService 服务 (EndPoint 只能发布实现类，不能发布接口)</li>
+</ol>
+<pre><code class="language-Java">
+public class WeatherServer &#123;
+    public static void main(String[] args) &#123;
+        /*** 参数解释：* address：服务器地址* implementor:实现类*/
+        Endpoint.publish(&quot;http://127.0.0.1:12345/weather&quot;,new WeatherInterfaceImpl());
+        System.out.println(&quot;http://127.0.0.1:12345/weather?wsdl&quot;);
+        &#125;
+&#125;
+
+</code></pre>
+<p><img data-src="/image/webService/20180320145116683.png" alt="图片"><br>
+<img data-src="/image/webService/20180320145359572.png" alt="图片"></p>
+<h2 id="webservice的四种客户端调用方式"><a class="markdownIt-Anchor" href="#webservice的四种客户端调用方式">#</a> WebService 的四种客户端调用方式</h2>
+<p>第一种：通过 wsimport 生成客户端方式调用<br>
+ 1. 通过 wsimport 生成客户端代码<br>
+ wsimport -p com.test jaxws -s <span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMToxMjM0NS93ZWF0aGVyP3dzZGw=">http://127.0.0.1:12345/weather?wsdl</span><br>
+2. 阅读使用说明书 WSDL，使用生成客户端代码调用服务端</p>
+<pre><code class="language-Java">
+public class WeatherClient &#123;
+    public static void main(String[] args) &#123;
+        //创建服务视图
+        WeatherWS weatherInterfaceImplService = new WeatherWS();
+        //通过服务视图对象获取服务实现类
+        WeatherWSSoap weatherInterfaceImpl = weatherInterfaceImplService.getPort(WeatherWSSoap.class);
+        //通过服务实现对象调用查询方法
+        System.out.println(weatherInterfaceImpl.getWeather(&quot;北京&quot;));
+    &#125;
+&#125;
+
+</code></pre>
+<p>采用 wsimport 生成客户端代码方式的特点：这种方式使用简单，但是一些关键的元素 (比如 wsdl 地址、命名空间、服务类名等都写死在生成的客户端代码中) 不方便维护</p>
+<hr>
+<p>第二种：通过 Service 编程调用方式<br>
+ 1. 通过 wsimport 生成客户端代码<br>
+ wsimport -p com.test jaxws -s <span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMToxMjM0NS93ZWF0aGVyP3dzZGw=">http://127.0.0.1:12345/weather?wsdl</span><br>
+2. 自己编写服务视图类，并通过该服务视图类来获取服务实现类实例</p>
+<pre><code class="language-Java">
+public class WeatherClient &#123;
+    public static void main(String[] args) &#123;
+        //创建WSDL的URL，注意不是服务地址
+        URL url = new URL(&quot;http://127.0.0.1:12345/weather?wsdl&quot;);
+        // 创建服务名称//namespaceURI:命名空间地址。//localPart：服务视图名。
+        QName qname = new QName(&quot;http://service.cn_lc&quot;, &quot;WeatherWS&quot;);
+        //创建服务视图//1.wsdlDocumentLocation - wsdl地址//2.serviceName - 服务名称
+        Service service = Service.create(url, qname);
+        WeatherWSSoap weatherWSSoap = service.getPort(WeatherWSSoap.class);
+        String result = weatherWSSoap.getWeather(&quot;成都&quot;);
+        System.out.println(result);
+    &#125;
+&#125;
+
+</code></pre>
+<hr>
+<p>第三种：通过 HttpURLConnection 调用方式<br>
+ 1. 创建服务地址<br>
+ 2. 打开一个通向服务地址的连接<br>
+ 3. 设置参数（例如请求方式为 POST）<br>
+4. 组织 SOAP 数据发送数据<br>
+ 5. 接收服务端相应，并打印</p>
+<pre><code class="language-Java">
+public class WeatherClient &#123;
+    public static void main(String[] args) throws IOException &#123;
+        //第一步：创建服务地址
+        URL url = new URL(&quot;http://127.0.0.1:54321/weather&quot;);
+        // 第二步：打开一个通向服务端地址的连接
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        //设置参数
+        connection.setRequestMethod(&quot;POST&quot;);
+        connection.setRequestProperty(&quot;content-type&quot;, &quot;text/xml;charset=utf-8&quot;);
+        //设置输入输出
+        connection.setDoOutput(true);
+        connection.setDoInput(true);
+        //准备SOAP数据，发送请求
+        String soapxml = getXML(&quot;成都&quot;);
+        OutputStream out = connection.getOutputStream();
+        OutputStreamWriter writer = new OutputStreamWriter(out, &quot;utf-8&quot;);
+        writer.write(soapxml);
+        writer.close();
+        out.close();
+        //第五步接收服务端响应并打印
+        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &#123;
+            InputStream input = connection.getInputStream();
+            InputStreamReader reader = new InputStreamReader(input, &quot;utf-8&quot;);
+            BufferedReader buffered = new BufferedReader(reader);
+            String temp = null;
+            StringBuilder sb = new StringBuilder();
+            while ((temp = buffered.readLine()) != null) &#123;
+                sb.append(temp);
+            &#125;
+            buffered.close();
+            reader.close();
+            input.close();
+            System.out.println(sb.toString());
+        &#125;
+    &#125;
+
+    public static String getXML(String cityName) &#123;
+        return &quot;&lt;?xml version=\&quot;1.0\&quot; ?&gt;&quot; + &quot;&lt;S:Envelope xmlns:S=\&quot;http://schemas.xmlsoap.org/soap/envelope/\&quot;&gt;&quot; + &quot;&lt;S:Body&gt;&quot; + &quot;&lt;ns2:getWeather xmlns:ns2=\&quot;http://service.cn_lc\&quot;&gt;&quot; + &quot;&lt;cityName&gt;&quot; + cityName + &quot;&lt;/cityName&gt;&quot; + &quot;&lt;/ns2:getWeather&gt;&quot; + &quot;&lt;/S:Body&gt;&quot; + &quot;&lt;/S:Envelope&gt;&quot;;
+    &#125;
+&#125;
+
+</code></pre>
+<hr>
+<p>第四种：通过 ajax 方式调用服务端</p>
+<pre><code class="language-Html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;查询天气&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;function querryWeather() &#123;
+            var xhr = new XMLHttpRequest(); xhr.open(&quot;post&quot;, &quot;http://127.0.0.1:12345/weather&quot;, true);
+            //设置数据类型
+            xhr.setRequestHeader(&quot;content-type&quot;, &quot;text/xml;charset=utf-8&quot;);
+            //设置回调函数
+            if (4 == xhr.readState &amp;&amp; 200 == xhr.status) &#123;
+                alert(xhr.responseText);
+            &#125;
+            //组织数据
+            var soapXml = &quot;&lt;?xml version=\&quot;1.0\&quot; ?&gt;&quot; + &quot;&lt;S:Envelope xmlns:S=\&quot;http://schemas.xmlsoap.org/soap/envelope/\&quot;&gt;&quot; + &quot;&lt;S:Body&gt;&quot; + &quot;&lt;ns2:getWeather xmlns:ns2=\&quot;http://service.cn_lc\&quot;&gt;&quot; + &quot;&lt;cityName&gt;&quot; + document.getElementById(&quot;cityName&quot;).value + &quot;&lt;/cityName&gt;&quot; + &quot;&lt;/ns2:getWeather&gt;&quot; + &quot;&lt;/S:Body&gt;&quot; + &quot;&lt;/S:Envelope&gt;&quot;; alert(soapXml);
+            //发送数据
+            xhr.send(soapXml);
+        &#125;
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;center&gt;天气查询：&lt;input type=&quot;text&quot; id=&quot;cityName&quot; /&gt;&lt;input type=&quot;button&quot; value=&quot;查询&quot;
+            οnclick=&quot;javascript:querryWeather();&quot; /&gt;&lt;/center&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</code></pre>
+<h2 id="cxf"><a class="markdownIt-Anchor" href="#cxf">#</a> CXF</h2>
+<blockquote>
+<p>CXF 是一个开源的 WebService 框架，提供了很多完善的功能<br>
+ CXF 支持的协议有 SOAP1.1/SOAP1.2,REST<br>
+CXF 支持的数据格式有 XML，JSON (仅在 REST 方式下支持，不再 SOAP 方式下支持，因为 SOAP 使 http+xml)</p>
+</blockquote>
+<div class="tags"><a href="/tags/webService/" rel="tag"><i class="ic i-tag"></i>webService</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于</span><time title="修改时间：2023-08-30 16:41:22" itemprop="dateModified" datetime="2023-08-30T16:41:22+08:00">2023-08-30</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/assets/wechatpay.png" alt="一念成余 微信支付"/><p>微信支付</p></div><div><img data-src="/assets/alipay.png" alt="一念成余 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>一念成余<i class="ic i-at"><em>@</em></i>Live My Life</li><li class="link"><strong>本文链接：</strong><a href="http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/" title="webService的使用">http://1405904364.github.io/2023/08/30/webService/webService的使用/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2023/08/18/maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/" rel="prev" itemprop="url" data-background-image="https:&#x2F;&#x2F;images.pexels.com&#x2F;photos&#x2F;16022234&#x2F;pexels-photo-16022234.jpeg" title="常用元素标签"><span class="type">上一篇</span><h3>常用元素标签</h3></a></div><div class="item right"><a href="/2023/08/30/WebSocket/1.%E7%AE%80%E4%BB%8B/" rel="next" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;YS2LU.jpg" title="未命名"><span class="type">下一篇</span><h3>未命名</h3></a></div></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFwebservice"><span class="toc-number">1.</span> <span class="toc-text"> 什么是 webService</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webservice%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-number">2.</span> <span class="toc-text"> WebService 的三要素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#soap"><span class="toc-number">2.1.</span> <span class="toc-text"> SOAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wsdl"><span class="toc-number">2.2.</span> <span class="toc-text"> WSDL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uddi"><span class="toc-number">2.3.</span> <span class="toc-text"> UDDI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webservice%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="toc-number">2.4.</span> <span class="toc-text"> WebService 开发规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jax-ws"><span class="toc-number">2.4.1.</span> <span class="toc-text"> JAX-WS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jaxmsaaj"><span class="toc-number">2.4.2.</span> <span class="toc-text"> JAXM&amp;SAAJ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jax-rs"><span class="toc-number">2.4.3.</span> <span class="toc-text"> JAX-RS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webservice%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.5.</span> <span class="toc-text"> WebService 应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wsimport%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.6.</span> <span class="toc-text"> wsimport 命令介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83jax-ws%E7%9A%84web-service%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.7.</span> <span class="toc-text"> 发布 JAX-WS 的 Web Service 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webservice%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">2.8.</span> <span class="toc-text"> WebService 的四种客户端调用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cxf"><span class="toc-number">2.9.</span> <span class="toc-text"> CXF</span></a></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="一念成余" data-src="/assets/avatar.jpeg"/><p class="name" itemprop="name">一念成余</p><div class="description" itemprop="description">个人学习使用</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">35</span><span class="name">文章</span></a></div><div class="item tags"><a href="/tags/"><span class="count">5</span><span class="name">标签</span></a></div></nav><div class="social"><a href="https://github.com/name" class="item github" rel="noopener" title="https:&#x2F;&#x2F;github.com&#x2F;name" target="_blank"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-user"></i>关于</a><ul class="submenu"><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于本站</a></li><li class="item"><a href="/admiration/" rel="section"><i class="ic i-coffee"></i>赞赏博主</a></li></ul></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2023/08/30/WebSocket/1.%E7%AE%80%E4%BB%8B/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2023/08/18/maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/">webService的使用</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/2.%E5%86%85%E8%BF%9E%E6%8E%A5/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/8.%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E8%A1%8C%E6%95%B0/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/15.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/21.%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/20.%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/30/Mysql/18.%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">未命名</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2><ul class="leancloud-recent-comment" id="new-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2023</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">一念成余 @ Live My Life</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">66k 字</span><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">1:01</span></div><div class="powered-by">基于 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & Theme.<a href="https://github.com/theme-shoka-x/hexo-theme-shokaX/" rel="noopener" target="_blank">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+        path: `2023/08/30/webService/webService的使用/`,
+        favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,
+    chart: false,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: ``,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `&lt;div class=&quot;note warning&quot;&gt;&lt;p&gt;&lt;span class=&quot;label warning&quot;&gt;文章时效性提示&lt;/span&gt;&lt;br&gt;这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。&lt;/p&gt;&lt;/div&gt;`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://polyfill.io/v3/polyfill.min.js?features=default,fetch"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/pace/1.0.2/pace.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/algoliasearch/4.12.1/algoliasearch-lite.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/instantsearch.js/4.39.0/instantsearch.production.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/quicklink/2.2.0/quicklink.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/??jquery/3.5.1/jquery.min.js,fancybox/3.5.7/jquery.fancybox.min.js,justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" async></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/KaTeX/0.15.2/contrib/copy-tex.min.js" async></script><script src="/js/app.js?v=0.3.3"></script></body></html>

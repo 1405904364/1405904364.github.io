@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Live My Life • Posts by &#34;webservice&#34; tag</title>
+        <link>http://1405904364.github.io</link>
+        <description>个人学习使用</description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 30 Aug 2023 16:50:18 +0800</pubDate>
+        <lastBuildDate>Wed, 30 Aug 2023 16:50:18 +0800</lastBuildDate>
+        <category>Java8</category>
+        <category>Java</category>
+        <category>Html</category>
+        <category>maven</category>
+        <category>webService</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+            <title>webService的使用</title>
+            <link>http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+            <category>webService</category>
+            <pubDate>Wed, 30 Aug 2023 16:50:18 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;什么是webservice&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是webservice&#34;&gt;#&lt;/a&gt; 什么是 webService&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;webService 也称为 web 服务，它是一种跨编程语言和操作系统平台的远程调用技术。&lt;br&gt;
+WebService 采用标准的 SOAP 协议传输 (SOAP Simple Object Access Protocol 简单对象访问协议)，soap 属于 w3c 标准，并且 soap 协议是基于 http 的应用层协议传输 xml 数据。WebService 采用 WSDL 作为描述语言，也就是 WebService 的使用说明书。并且 W3C 为 WebService 制定了一套传输数据类型，使用 xml 进行描述，即 XSD (XML Schema Datatypes), 任何语言写的 webService 接口在发送数据的时候都要转成 webService 标准的 XSD 发送。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;webservice的三要素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice的三要素&#34;&gt;#&lt;/a&gt; WebService 的三要素&lt;/h1&gt;
+&lt;h2 id=&#34;soap&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#soap&#34;&gt;#&lt;/a&gt; SOAP&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SOAP 也叫做简单对象访问协议，是一种简单的基于 xml 的协议，它使应用程序通过 HTTP 来交换数据，可以简单的理解为 SOAP = http + xml 。 SOAP 协议目前的主流版本为 SOAP1.1 和 SOAP1.2（SOAP1.2 是被纳入 w3c 标准后的版本）。SOAP 也不是 WebService 的专有协议，其他的应用程序也是用 SOAP 传输数据，例如：tr069 也是使用 SOAP 协议来传输数据&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;区分 http 请求和 SOAP (http + xml) 请求:&lt;br&gt;
+&lt;img data-src=&#34;/image/webService/20180320112817939.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;SOAP 协议格式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;必须有 Envelope 元素，此元素将整个 xml 文档表示为一条 SOAP 消息。&lt;/li&gt;
+&lt;li&gt;可选 Header 元素，包含头部信息。&lt;/li&gt;
+&lt;li&gt;必须有 Body 元素，包含所有的调用和响应信息。&lt;/li&gt;
+&lt;li&gt;可选的 Fault 元素，提供有关在处理此消息所发生的错误信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;SOAP1.1 和 SOAP1.2 的区别&lt;/p&gt;
+&lt;p&gt;相同点：&lt;br&gt;
+1. 请求方式都是采用 POST 方式&lt;br&gt;
+ 2. 协议内容相同，都有 Envelope 和 Body 标签&lt;/p&gt;
+&lt;p&gt;不同点：&lt;br&gt;
+1. 数据格式不同：content-type 不同&lt;br&gt;
+ - SOAP1.1:text/xml;charset=utf-8&lt;br&gt;
+- SOAP1.2:application/soap+xml;charset=utf-8&lt;br&gt;
+2. 命名空间不同&lt;br&gt;
+ - SOAP1.1：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8=&#34;&gt;http://schemas.xmlsoap.org/soap/envelope/&lt;/span&gt;&lt;br&gt;
+- SOAP1.2：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy53My5vcmcvMjAwMy8wNS9zb2FwLWVudmVsb3Bl&#34;&gt;http://www.w3.org/2003/05/soap-envelope&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;wsdl&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wsdl&#34;&gt;#&lt;/a&gt; WSDL&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;WSDL 是基于 XML 的用于描述 WebService 及其函数（方法）、参数和返回值。也就是说 wsdl 是对发布出来的服务中的方法和返回值以及参数的描述（也可以说是 WebService 的使用说明书）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;WSDL 文档结构：&lt;/p&gt;
+&lt;p&gt;WSDL 文档主要包括的 5 个标签&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;service&gt;: 服务视图，WebService 的服务节点，它包括服务端点&lt;/li&gt;
+&lt;li&gt;&lt;binding&gt;: 为每个服务端点定义消息格式和协议细节&lt;/li&gt;
+&lt;li&gt;&lt;portType&gt;: 服务端点，描述 WebService 可执行的操作方法，以及相关消息，通过 binging 指向 protType&lt;/li&gt;
+&lt;li&gt;&lt;message&gt;: 定义一个操作（方法）的数据参数（可有多个参数）&lt;/li&gt;
+&lt;li&gt;&lt;types&gt;: 定义 WebService 使用的全部数据类型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;uddi&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#uddi&#34;&gt;#&lt;/a&gt; UDDI&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UDDI 是一种目录服务，通过它，企业可注册并搜集 Web Service。企业将自己提供的 Web Service 注册在 UDDI，也可以使用别的企业在 UDDI 注册 Web Service 服务，从而达到资源共享。UDDI 旨在将全球的 Web Service 资源进行共享&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;webservice开发规范&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice开发规范&#34;&gt;#&lt;/a&gt; WebService 开发规范&lt;/h2&gt;
+&lt;h3 id=&#34;jax-ws&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#jax-ws&#34;&gt;#&lt;/a&gt; JAX-WS&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JAX-WS (Java API for XML-Based Web Service): 一个远程调用可以转换基于 XML 协议 (例如：SOAP 协议), 在使用 JAX-WS 过程中，开发者不需要使用任何代码来编写生成和处理 SAOP。JAX-WS 运行时会自动将这些 API 调用转换为 SOAP 协议的消息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在服务端，用户只需要通过 JAVA 语言定义远程调用所需要实现的接口 (SEI: Service EndPoit Interface), 并对其提供相关的实现，通过调用 JAX-WS 的服务来调用接口，这样就可以发布 Web Service 接口了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在客户端，用户可以通过 JAX-WS 的 API 创建一个代理来（用本地代理对象替代远程的服务对象）实现远程服务端调用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;从 Java5 开始就支持 JAX-WS2.0 版本，Java6 以后的版本支持 JAX-WS2.1 版本，Java1.7 支持 JAX-WS2.2 的版本。&lt;/p&gt;
+&lt;h3 id=&#34;jaxmsaaj&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#jaxmsaaj&#34;&gt;#&lt;/a&gt; JAXM&amp;amp;SAAJ&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JAXM（Java API for XML Message）：主要定义了包含接收信息和发送信息所需要的 API，SAAJ (SOAP With Attachment API For Java) 是与 JAXM 搭配使用的 API，为构建 SOAP 和解析 SOAP 包提供了重要的支持，支持附件传输等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;jax-rs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#jax-rs&#34;&gt;#&lt;/a&gt; JAX-RS&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JAX-RS 是 Java 针对 REST（Representtation state Transfer）风格制定的一套 Web 服务规范，由于该规范推出来的较晚，因此该规范（JAX-WS 的版本为 1.0）并未随 Java6 一起发行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;webservice应用场景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice应用场景&#34;&gt;#&lt;/a&gt; WebService 应用场景&lt;/h2&gt;
+&lt;p&gt;适用场景：&lt;br&gt;
+1. 用于软件集成和复用&lt;br&gt;
+ 2. 用于接口服务，不考虑客户端类型，不考虑性能&lt;br&gt;
+ 3. 服务端已经确定使用了 WebService，客户端只能选择 WebService 使用&lt;/p&gt;
+&lt;p&gt;不适用场景：&lt;br&gt;
+1. 对性能要求比较高 (因为 WebService 是采用 http 发送 soap 协议的数据，该协议迭代了太多标签，导致数据跟多，因此性能也有所降低)&lt;br&gt;
+ 2. 同构程序之间不建议使用&lt;/p&gt;
+&lt;h2 id=&#34;wsimport命令介绍&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wsimport命令介绍&#34;&gt;#&lt;/a&gt; wsimport 命令介绍&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wsimport 命令是 jdk 自带的 webService 客户端工具，可以根据 wsdl 文档生成对应服务代理类（客户端调用类），当然不管服务端用什么语言写的，都可以生成调用 WebService 的客户端代码，服务端通过客户端调用 WebService。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;wsimport 命令常用参数为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-d &amp;lt;目录&amp;gt;: 指定放置生成的输出文件的位置&lt;/li&gt;
+&lt;li&gt;-s &amp;lt;目录&amp;gt;: 指定放置生成的源文件的位置&lt;/li&gt;
+&lt;li&gt;-p &amp;lt;包名&amp;gt;: 指定目标程序包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：在 com-&amp;gt;test 文件夹中生成源文件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wsimport -p com.test -s . &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3dlYlNlcnZpY2Uud2VieG1sLmNvbS5jbi9XZWJTZXJ2aWNlL01vYmlsZUNPZGVXUy5hc214P3dzZGw=&#34;&gt;http://webService.webxml.com.cn/WebService/MobileCOdeWS.asmx?wsdl&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意：-s .  表示在 -p 指定的文件夹下生成源文件&lt;/p&gt;
+&lt;h2 id=&#34;发布jax-ws的web-service服务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#发布jax-ws的web-service服务&#34;&gt;#&lt;/a&gt; 发布 JAX-WS 的 Web Service 服务&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建 SEI 接口 (本质上就是 Java 接口)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public interface WeatherInterface &amp;#123;
+    public String querryWeather(String cityName);
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;创建接口实现类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;@WebService 注解：表示该实现类是一个 Web Service 服务。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;targetNamespace 属性：指定命名空间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;name 属性：指定 portType 的名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;serviceName 属性：服务名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@WebMethod 注解：定义公共方法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;operationName 属性：方法的名称。（也就是 WSDL 中的 operation 的名称）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;exclude 属性：如果设置为 true 表示该方法不是 Web Service 服务中的方法。反之则是 WebService 中的方法。默认也是 &amp;gt; false。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@WebResult 注解：定义返回值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;name 属性：返回结果值的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@WebParam 注解：定义参数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;name 属性：指定参数的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+@WebService(targetNamespace=&amp;quot;http://service.cn_lc&amp;quot;,name=&amp;quot;WeatherWSSoap&amp;quot;,portName=&amp;quot;WeatherWSSoapPort&amp;quot;,serviceName=&amp;quot;WeatherWS&amp;quot;
+)//只加这个注解就只能生成SAOP1.1的WSDL
+//@BindingType(SOAPBinding.SOAP12HTTP_BINDING)
+public class WeatherInterfaceImpl implements WeatherInterface &amp;#123;
+    @WebMethod(operationName=&amp;quot;getWeather&amp;quot;,exclude=false)
+    @Override
+    @WebResult(name=&amp;quot;resultWeather&amp;quot;)
+    public  String querryWeather(@WebParam(name=&amp;quot;cityName&amp;quot;)String cityName) &amp;#123;
+        System.out.println(&amp;quot;form client ...&amp;quot; + cityName);
+        String weather = &amp;quot;晴&amp;quot;;
+        return weather;
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;通过 EndPoint 发布 WebService 服务 (EndPoint 只能发布实现类，不能发布接口)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherServer &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        /*** 参数解释：* address：服务器地址* implementor:实现类*/
+        Endpoint.publish(&amp;quot;http://127.0.0.1:12345/weather&amp;quot;,new WeatherInterfaceImpl());
+        System.out.println(&amp;quot;http://127.0.0.1:12345/weather?wsdl&amp;quot;);
+        &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/webService/20180320145116683.png&#34; alt=&#34;图片&#34;&gt;&lt;br&gt;
+&lt;img data-src=&#34;/image/webService/20180320145359572.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;webservice的四种客户端调用方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#webservice的四种客户端调用方式&#34;&gt;#&lt;/a&gt; WebService 的四种客户端调用方式&lt;/h2&gt;
+&lt;p&gt;第一种：通过 wsimport 生成客户端方式调用&lt;br&gt;
+ 1. 通过 wsimport 生成客户端代码&lt;br&gt;
+ wsimport -p com.test jaxws -s &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMToxMjM0NS93ZWF0aGVyP3dzZGw=&#34;&gt;http://127.0.0.1:12345/weather?wsdl&lt;/span&gt;&lt;br&gt;
+2. 阅读使用说明书 WSDL，使用生成客户端代码调用服务端&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherClient &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        //创建服务视图
+        WeatherWS weatherInterfaceImplService = new WeatherWS();
+        //通过服务视图对象获取服务实现类
+        WeatherWSSoap weatherInterfaceImpl = weatherInterfaceImplService.getPort(WeatherWSSoap.class);
+        //通过服务实现对象调用查询方法
+        System.out.println(weatherInterfaceImpl.getWeather(&amp;quot;北京&amp;quot;));
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;采用 wsimport 生成客户端代码方式的特点：这种方式使用简单，但是一些关键的元素 (比如 wsdl 地址、命名空间、服务类名等都写死在生成的客户端代码中) 不方便维护&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;第二种：通过 Service 编程调用方式&lt;br&gt;
+ 1. 通过 wsimport 生成客户端代码&lt;br&gt;
+ wsimport -p com.test jaxws -s &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMToxMjM0NS93ZWF0aGVyP3dzZGw=&#34;&gt;http://127.0.0.1:12345/weather?wsdl&lt;/span&gt;&lt;br&gt;
+2. 自己编写服务视图类，并通过该服务视图类来获取服务实现类实例&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherClient &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        //创建WSDL的URL，注意不是服务地址
+        URL url = new URL(&amp;quot;http://127.0.0.1:12345/weather?wsdl&amp;quot;);
+        // 创建服务名称//namespaceURI:命名空间地址。//localPart：服务视图名。
+        QName qname = new QName(&amp;quot;http://service.cn_lc&amp;quot;, &amp;quot;WeatherWS&amp;quot;);
+        //创建服务视图//1.wsdlDocumentLocation - wsdl地址//2.serviceName - 服务名称
+        Service service = Service.create(url, qname);
+        WeatherWSSoap weatherWSSoap = service.getPort(WeatherWSSoap.class);
+        String result = weatherWSSoap.getWeather(&amp;quot;成都&amp;quot;);
+        System.out.println(result);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;第三种：通过 HttpURLConnection 调用方式&lt;br&gt;
+ 1. 创建服务地址&lt;br&gt;
+ 2. 打开一个通向服务地址的连接&lt;br&gt;
+ 3. 设置参数（例如请求方式为 POST）&lt;br&gt;
+4. 组织 SOAP 数据发送数据&lt;br&gt;
+ 5. 接收服务端相应，并打印&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class WeatherClient &amp;#123;
+    public static void main(String[] args) throws IOException &amp;#123;
+        //第一步：创建服务地址
+        URL url = new URL(&amp;quot;http://127.0.0.1:54321/weather&amp;quot;);
+        // 第二步：打开一个通向服务端地址的连接
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        //设置参数
+        connection.setRequestMethod(&amp;quot;POST&amp;quot;);
+        connection.setRequestProperty(&amp;quot;content-type&amp;quot;, &amp;quot;text/xml;charset=utf-8&amp;quot;);
+        //设置输入输出
+        connection.setDoOutput(true);
+        connection.setDoInput(true);
+        //准备SOAP数据，发送请求
+        String soapxml = getXML(&amp;quot;成都&amp;quot;);
+        OutputStream out = connection.getOutputStream();
+        OutputStreamWriter writer = new OutputStreamWriter(out, &amp;quot;utf-8&amp;quot;);
+        writer.write(soapxml);
+        writer.close();
+        out.close();
+        //第五步接收服务端响应并打印
+        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &amp;#123;
+            InputStream input = connection.getInputStream();
+            InputStreamReader reader = new InputStreamReader(input, &amp;quot;utf-8&amp;quot;);
+            BufferedReader buffered = new BufferedReader(reader);
+            String temp = null;
+            StringBuilder sb = new StringBuilder();
+            while ((temp = buffered.readLine()) != null) &amp;#123;
+                sb.append(temp);
+            &amp;#125;
+            buffered.close();
+            reader.close();
+            input.close();
+            System.out.println(sb.toString());
+        &amp;#125;
+    &amp;#125;
+
+    public static String getXML(String cityName) &amp;#123;
+        return &amp;quot;&amp;lt;?xml version=\&amp;quot;1.0\&amp;quot; ?&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Envelope xmlns:S=\&amp;quot;http://schemas.xmlsoap.org/soap/envelope/\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;ns2:getWeather xmlns:ns2=\&amp;quot;http://service.cn_lc\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;cityName&amp;gt;&amp;quot; + cityName + &amp;quot;&amp;lt;/cityName&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/ns2:getWeather&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Envelope&amp;gt;&amp;quot;;
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;第四种：通过 ajax 方式调用服务端&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Html&#34;&gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;查询天气&amp;lt;/title&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;function querryWeather() &amp;#123;
+            var xhr = new XMLHttpRequest(); xhr.open(&amp;quot;post&amp;quot;, &amp;quot;http://127.0.0.1:12345/weather&amp;quot;, true);
+            //设置数据类型
+            xhr.setRequestHeader(&amp;quot;content-type&amp;quot;, &amp;quot;text/xml;charset=utf-8&amp;quot;);
+            //设置回调函数
+            if (4 == xhr.readState &amp;amp;&amp;amp; 200 == xhr.status) &amp;#123;
+                alert(xhr.responseText);
+            &amp;#125;
+            //组织数据
+            var soapXml = &amp;quot;&amp;lt;?xml version=\&amp;quot;1.0\&amp;quot; ?&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Envelope xmlns:S=\&amp;quot;http://schemas.xmlsoap.org/soap/envelope/\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;ns2:getWeather xmlns:ns2=\&amp;quot;http://service.cn_lc\&amp;quot;&amp;gt;&amp;quot; + &amp;quot;&amp;lt;cityName&amp;gt;&amp;quot; + document.getElementById(&amp;quot;cityName&amp;quot;).value + &amp;quot;&amp;lt;/cityName&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/ns2:getWeather&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Body&amp;gt;&amp;quot; + &amp;quot;&amp;lt;/S:Envelope&amp;gt;&amp;quot;; alert(soapXml);
+            //发送数据
+            xhr.send(soapXml);
+        &amp;#125;
+    &amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+    &amp;lt;center&amp;gt;天气查询：&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;cityName&amp;quot; /&amp;gt;&amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;查询&amp;quot;
+            οnclick=&amp;quot;javascript:querryWeather();&amp;quot; /&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;cxf&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cxf&#34;&gt;#&lt;/a&gt; CXF&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CXF 是一个开源的 WebService 框架，提供了很多完善的功能&lt;br&gt;
+ CXF 支持的协议有 SOAP1.1/SOAP1.2,REST&lt;br&gt;
+CXF 支持的数据格式有 XML，JSON (仅在 REST 方式下支持，不再 SOAP 方式下支持，因为 SOAP 使 http+xml)&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
