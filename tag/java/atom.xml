@@ -3,419 +3,1487 @@
     <id>http://1405904364.github.io</id>
     <title>Live My Life • Posts by &#34;java&#34; tag</title>
     <link href="http://1405904364.github.io" />
-    <updated>2023-08-10T08:29:50.064Z</updated>
+    <updated>2024-02-18T08:13:44.946Z</updated>
+    <category term="自控" />
+    <category term="linux" />
+    <category term="PowerDesigner" />
+    <category term="Vuex" />
+    <category term="npm" />
+    <category term="Gradle" />
     <category term="Java" />
-    <category term="Sql" />
     <category term="maven" />
     <category term="Mysql" />
+    <category term="Sql" />
+    <category term="SqlServer" />
+    <category term="Vue" />
     <category term="webService" />
+    <category term="Html" />
+    <category term="SpringCloud" />
     <entry>
-        <id>http://1405904364.github.io/2023/08/10/Java/Stream%E6%B5%81/</id>
-        <title>Stream流式编程</title>
-        <link rel="alternate" href="http://1405904364.github.io/2023/08/10/Java/Stream%E6%B5%81/"/>
-        <content type="html">&lt;h1 id=&#34;stream流式编程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream流式编程&#34;&gt;#&lt;/a&gt; Stream 流式编程&lt;/h1&gt;
-&lt;h2 id=&#34;分类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分类&#34;&gt;#&lt;/a&gt; 分类&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/Java/13170952_625693608975b29303.webp&#34; alt=&#34;分类图片&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;中间操作&lt;/strong&gt;可分为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;无状态：指元素的处理不受之前元素的影响&lt;/li&gt;
-&lt;li&gt;有状态：指该操作只有拿到所有元素之后才能继续下去&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;终结操作&lt;/strong&gt;可分为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;非短路操作：指必须处理所有元素才能得到最终结果&lt;/li&gt;
-&lt;li&gt;短路操作：指遇到某些符合条件的元素就可以得到最终结果&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;具体操作如图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/Java/20201218181011714.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;stream-api使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-api使用&#34;&gt;#&lt;/a&gt; Stream API 使用&lt;/h2&gt;
-&lt;h3 id=&#34;流的构成&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#流的构成&#34;&gt;#&lt;/a&gt; 流的构成&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;使用流的时候，通常包括三个步骤：&lt;/p&gt;
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E5%9B%BE%E8%B0%B1/</id>
+        <title>图谱</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E5%9B%BE%E8%B0%B1/"/>
+        <content type="html">&lt;h1 id=&#34;知识体系&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#知识体系&#34;&gt;#&lt;/a&gt; 知识体系&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/java_basic.png&#34; alt=&#34;Java基础知识体系&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;qa&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#qa&#34;&gt;#&lt;/a&gt; Q&amp;amp;A&lt;/h1&gt;
+&lt;h3 id=&#34;java中应该使用什么数据类型来代表价格&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中应该使用什么数据类型来代表价格&#34;&gt;#&lt;/a&gt; Java 中应该使用什么数据类型来代表价格&lt;/h3&gt;
+&lt;p&gt;如果不是特别关心内存和性能的话，使用 BigDecimal，否则使用预定义精度的 double 类型。&lt;/p&gt;
+&lt;h3 id=&#34;怎么将byte转换为string&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#怎么将byte转换为string&#34;&gt;#&lt;/a&gt; 怎么将 byte 转换为 String&lt;/h3&gt;
+&lt;p&gt;可以使用 String 接收 byte [] 参数的构造器来进行转换，需要注意的点是要使用的正确的编码，否则会使用平台默认编码，这个编码可能跟原来的编码相同，也可能不同&lt;/p&gt;
+&lt;h3 id=&#34;java中怎样将bytes转换为long类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中怎样将bytes转换为long类型&#34;&gt;#&lt;/a&gt; Java 中怎样将 Bytes 转换为 long 类型&lt;/h3&gt;
+&lt;p&gt;String 接收 bytes 的构造器转成 String，再 Long.parseLong&lt;/p&gt;
+&lt;h3 id=&#34;可以将int强制转换为byte类型的变量吗如果该值大于byte类型的范围将会出现什么现象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可以将int强制转换为byte类型的变量吗如果该值大于byte类型的范围将会出现什么现象&#34;&gt;#&lt;/a&gt; 可以将 int 强制转换为 byte 类型的变量吗？如果该值大于 byte 类型的范围，将会出现什么现象&lt;/h3&gt;
+&lt;p&gt;可以做强制转换，但是 java 中 int 是 32 位的，而 byte 是 8 位的，所以如果强制转换是，int 类型的高 24 位将会被丢弃，byte 类型的范围是从 - 128 到 127&lt;/p&gt;
+&lt;h3 id=&#34;存在两个类b继承ac继承b我们能将b转换位c么&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#存在两个类b继承ac继承b我们能将b转换位c么&#34;&gt;#&lt;/a&gt; 存在两个类，B 继承 A，C 继承 B，我们能将 B 转换位 C 么&lt;/h3&gt;
+&lt;p&gt;可以，向下转型，但是不建议使用，容易出现类型转换异常&lt;/p&gt;
+&lt;h3 id=&#34;那个类包含clone方法是cloneable还是object&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#那个类包含clone方法是cloneable还是object&#34;&gt;#&lt;/a&gt; 那个类包含 Clone 方法？是 Cloneable 还是 Object&lt;/h3&gt;
+&lt;p&gt;java.lang.Cloneable 是一个标识性接口，不包含任何方法，clone 方法在 Object 类中定义，并且需要知道 clone () 方法是一个本地方法，这意味着它是由 C 或 c++ 或其他本地语言实现的&lt;/p&gt;
+&lt;h3 id=&#34;java中-操作符是线程安全的吗&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中-操作符是线程安全的吗&#34;&gt;#&lt;/a&gt; Java 中 ++ 操作符是线程安全的吗？&lt;/h3&gt;
+&lt;p&gt;不是线程安全的操作，它设计到多个指令，如读取变量值，增加，然后存储回内存，这个过程可能会出现多个线程交叉，还会存在竞态条件 (读取 - 修改 - 写入)&lt;/p&gt;
+&lt;h3 id=&#34;a-a-b-和-a-b的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#a-a-b-和-a-b的区别&#34;&gt;#&lt;/a&gt; a = a + b 和 a += b 的区别&lt;/h3&gt;
+&lt;p&gt;+= 隐士的将加的操作结果类型强制转换位持有结果的类型，如果两个整形相加，如 byte、short、或者 int，首先会将它们提升到 int 类型，然后再执行加法的操作&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;byte a = 127;
+byte b = 127;
+b = a+b; // error: cannot conver from int to byte
+b += a; // ok
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;因为 a+b 的操作会将 a、b 提升位 int 类型，所有将 int 类型的值赋给 byte 就会编译报错&lt;/p&gt;
+&lt;h3 id=&#34;我能在不进行强制转换的情况下将一个double值赋给long类型的变量吗&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#我能在不进行强制转换的情况下将一个double值赋给long类型的变量吗&#34;&gt;#&lt;/a&gt; 我能在不进行强制转换的情况下，将一个 double 值赋给 long 类型的变量吗？&lt;/h3&gt;
+&lt;p&gt;不行，double 类型的精度比 long 更广，所以必须进行强制转换&lt;/p&gt;
+&lt;h3 id=&#34;301-03-将会返回true还是false&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#301-03-将会返回true还是false&#34;&gt;#&lt;/a&gt; 3*0.1 == 0.3 将会返回 true 还是 false？&lt;/h3&gt;
+&lt;p&gt;false，因为有些浮点数不能完全精确的表示出来&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;        System.out.println( 3*0.1);
+        System.out.println( 3*0.1 == 0.3);
+
+        结果：
+        0.30000000000000004
+        false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;int和integer那个会更占内存&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#int和integer那个会更占内存&#34;&gt;#&lt;/a&gt; int 和 Integer 那个会更占内存？&lt;/h3&gt;
+&lt;p&gt;Integer 对象会占用内存多一些，Integer 是一个对象，需要存储对象的元数据。但是 int 是一个原始数据类型，所以占用的空间更少&lt;/p&gt;
+&lt;h3 id=&#34;为什么java中string是不可变的immutable&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#为什么java中string是不可变的immutable&#34;&gt;#&lt;/a&gt; 为什么 Java 中 String 是不可变的 (immutable)?&lt;/h3&gt;
+&lt;p&gt;Java 中的 String 不可变是因为 Java 的设计者认为字符串的使用非常频繁，将字符设置位不可变可以允许多个客户端之间共享相同的字符串&lt;/p&gt;
+&lt;h3 id=&#34;能在switch中只用string吗&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#能在switch中只用string吗&#34;&gt;#&lt;/a&gt; 能在 switch 中只用 String 吗&lt;/h3&gt;
+&lt;p&gt;从 Java7 开始，可以在 switch case 中使用字符串，但是这仅仅是一个语法糖，内部实现是在 switch 中使用字符串的 hash code&lt;/p&gt;
+&lt;h3 id=&#34;java中的构造器链是什么&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中的构造器链是什么&#34;&gt;#&lt;/a&gt; Java 中的构造器链是什么？&lt;/h3&gt;
+&lt;p&gt;当你从一个构造器中调用另一个构造器，就是 Java 中的构造器链。这种情况只在重载了类的构造器的时候才会出现&lt;/p&gt;
+&lt;h3 id=&#34;枚举类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#枚举类&#34;&gt;#&lt;/a&gt; 枚举类&lt;/h3&gt;
+&lt;p&gt;Java1.5 出现，每个枚举类值都需要调用一次构造函数&lt;/p&gt;
+&lt;h3 id=&#34;什么是不可变对象immutable-objectjava中怎么创建一个不可变对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是不可变对象immutable-objectjava中怎么创建一个不可变对象&#34;&gt;#&lt;/a&gt; 什么是不可变对象 (immutable object)？Java 中怎么创建一个不可变对象？&lt;/h3&gt;
+&lt;p&gt;不可变对象指对象一旦被创建，状态不能再改变，任何修改都会创建一个新对象，如 String、Integer 及其他包装类。&lt;/p&gt;
+&lt;p&gt;如何再 Java 中写出 immutable 的类？&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;获取一个数据源&lt;/li&gt;
-&lt;li&gt;数据转换&lt;br&gt;
-执行操作获取想要的结果，每次转换原有的 Stream 对象不变，返回一个新的 Stream 对象，这就允许对其操作可以像链条一样排列&lt;/li&gt;
+&lt;li&gt;immutable 对象的状态在创建之后就不能发生改变，任何对它的改变都应该产生一个新的对象&lt;/li&gt;
+&lt;li&gt;immutable 类的所有属性都应该是 final 的&lt;/li&gt;
+&lt;li&gt;对象必须被正确的创建，比如：对象引用在对象创建的过程中不能泄露 (leak)&lt;/li&gt;
+&lt;li&gt;对象应该是 final 的，一次来限制子类继承父类，以免子类改变了父类的 immutable 特性&lt;/li&gt;
+&lt;li&gt;如果类中包含 mutable 类对象，那么返回给客户端的时候，返回该对象的一个拷贝对象，而不是该对象本身 (该条可以归纳位第一条的一个特例)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;流的创建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#流的创建&#34;&gt;#&lt;/a&gt; 流的创建&lt;/h3&gt;
-&lt;ul&gt;
+&lt;h3 id=&#34;我们能创建一个包含可变对象的不可变对象吗&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#我们能创建一个包含可变对象的不可变对象吗&#34;&gt;#&lt;/a&gt; 我们能创建一个包含可变对象的不可变对象吗？&lt;/h3&gt;
+&lt;p&gt;可以，但是需要注意，不能共享可变对象的引用，如果需要变化时，就返回原对象的一个拷贝，最常见的例子就是对象中包含一个日期对象的引用&lt;/p&gt;
+&lt;h3 id=&#34;有没有可能两个不相等的对象有相同的hashcode&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#有没有可能两个不相等的对象有相同的hashcode&#34;&gt;#&lt;/a&gt; 有没有可能两个不相等的对象有相同的 hashcode？&lt;/h3&gt;
+&lt;p&gt;有可能，两个不相等的对象可能有相同的 hashcode，这就是为什么在 hashMap 中会有冲突，相等 hashcode 值的规定只是说两个对象相等，必须有相同的 hashcode 值，但是没有关于不相等对象的任何规定&lt;/p&gt;
+&lt;h3 id=&#34;两个相同对象会有不同的hashcode吗&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#两个相同对象会有不同的hashcode吗&#34;&gt;#&lt;/a&gt; 两个相同对象会有不同的 hashcode 吗？&lt;/h3&gt;
+&lt;p&gt;不能，根据 hashcode 规定，这是不可能的&lt;/p&gt;
+&lt;h3 id=&#34;可以在hashcode方法中使用随机数字吗&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可以在hashcode方法中使用随机数字吗&#34;&gt;#&lt;/a&gt; 可以在 hashcode 方法中使用随机数字吗？&lt;/h3&gt;
+&lt;p&gt;不能，根据 hashcode 规定，对象的 hashcode 值必须时相同的&lt;/p&gt;
+&lt;h3 id=&#34;java中comparator-与-comparable有什么不同&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中comparator-与-comparable有什么不同&#34;&gt;#&lt;/a&gt; Java 中，Comparator 与 Comparable 有什么不同？&lt;/h3&gt;
+&lt;p&gt;Comparable 接口用于定义对象的自然顺序，而 Comparator 通常用于用户自定义顺序，Comparable 总是只有一个，但是可以有多个 comparator 来定义对象的顺序&lt;/p&gt;
+&lt;h3 id=&#34;为什么在重写equals方法的时候需要重写hashcode方法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#为什么在重写equals方法的时候需要重写hashcode方法&#34;&gt;#&lt;/a&gt; 为什么在重写 equals 方法的时候需要重写 hashcode 方法？&lt;/h3&gt;
+&lt;p&gt;因为有强制的规范指定需要同时重写 hashcode 与 equals 方法，许多容器类，如 HashMap、HashSet 都依赖与 hashcode 与 equals 的规定&lt;/p&gt;
+&lt;h3 id=&#34;ab-和-aequtalsb-有什么区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ab-和-aequtalsb-有什么区别&#34;&gt;#&lt;/a&gt; a==b 和 a.equtals (b) 有什么区别？&lt;/h3&gt;
+&lt;p&gt;如果 a 和 b 都是对象，则 a==b 是比较两个对象的引用，只有当 a 和 b 指向堆中同一个对象才会返回 true，而 a.equals (b) 是进行逻辑比较，所以通常需要重写该方法来提供逻辑一致性比较。例如 String 类重写 equals 方法，所以可以用于不同对象，但是包含的字母相同的比较&lt;/p&gt;
+&lt;h3 id=&#34;ahashcode有什么用aequalsb-有什么关系&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ahashcode有什么用aequalsb-有什么关系&#34;&gt;#&lt;/a&gt; a.hashcode () 有什么用，a.equals (b) 有什么关系？&lt;/h3&gt;
+&lt;p&gt;hashCode () 方法是相应对象整形的 hash 值，它常用于 hash 的集合类，如 Hashtable、HashMap、LinkedHashMap 等等。它与 equals () 方法关系特别亲密。根据 Java 规范，两个使用 equals () 方法来判断相等的对象，必须具有相同的 hashCode。&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;通过 java.util.Collection.stream () 方法用集合创建流&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-  List&amp;lt;String&amp;gt; list = Arrays.asList(&amp;quot;hello&amp;quot;,&amp;quot;world&amp;quot;,&amp;quot;stream&amp;quot;);
-  //创建顺序流
-  Stream&amp;lt;String&amp;gt; stream = list.stream();
-  //创建并行流
-  Stream&amp;lt;String&amp;gt; parallelStream = list.parallelStream();
-
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;hashCode 的作用&lt;br&gt;
+ List 和 Set 如何保证 Set 不重复呢？通过迭代使用 equals () 方法来判断，数量小还可以接收，数据量太大怎么解决？引入 HashCode，实际上 hashCode 扮演的角色就是寻址，大大减少查询匹配次数。&lt;/p&gt;
+&lt;p&gt;先判断对象的 hashCode 值是否相等，如果不相等，则说明两个对象不相等，如果相等再使用 equals () 方法进一步判断对象是否相等，只有当 hashCode 值相等，equals () 方法返回 true 时，确认两个对象是相等的。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;使用 java.util.Arrays.stream (T [] array) 方法用数组创建流&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-  String[] array = &amp;#123;&amp;quot;h&amp;quot;, &amp;quot;e&amp;quot;, &amp;quot;l&amp;quot;, &amp;quot;l&amp;quot;, &amp;quot;o&amp;quot;&amp;#125;;
-  Stream&amp;lt;String&amp;gt; arrayStream = Arrays.stream(array);
-
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;hashCode 重要吗&lt;br&gt;
+对于数组、List 集合就是一个累赘，而对于 HahsMap、HashSet、HashTable 就很重要了&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Stream 的静态方法：of ()、iterate ()、generate ()&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-  Stream&amp;lt;Integer&amp;gt; stream1 = Stream.of(1, 2, 3, 4, 5, 6);
-  
-  Stream&amp;lt;Integer&amp;gt; stream2 = Stream.iterate(0, (x) -&amp;gt; x + 2).limit(3);
-  
-  Stream&amp;lt;Double&amp;gt; stream3 = Stream.generate(Math::random).limit(3);
+&lt;p&gt;equals 方法遵循的原则&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对称性：若 x.equals (y) 为 true，则 y.equals (x)&lt;/li&gt;
+&lt;li&gt;自反性：x.equals (x) 必须 true&lt;/li&gt;
+&lt;li&gt;传递性：若 x.equals (y) 为 true，y.equals (z) 为 true，则 x.equals (z) 必为 true&lt;/li&gt;
+&lt;li&gt;一致性：只要 x，y 内容不变，无论调用多少次结果都不变&lt;/li&gt;
+&lt;li&gt;其他：x.equals (null) 永远为 false，x.equals (和 x 数据类型不同) 始终为 false&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;final-finalize-finally的不同之处&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#final-finalize-finally的不同之处&#34;&gt;#&lt;/a&gt; final、finalize、finally 的不同之处&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;final 是一个修饰符，可以修饰变量，方法，和类。如果 final 修饰变量，意味着变量的值在初始化后不能被改变。&lt;/li&gt;
+&lt;li&gt;Java 技术允许使用 finaliza () 方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是有垃圾收集器在确定这个对象没有引用时对这个对象调用的，但是什么时候执行 finaliza 没有保证&lt;/li&gt;
+&lt;li&gt;finally 是一个关键字，与 try 和 catch 一起用于异常的处理，finally 块一定会被执行，无论在 try 中是否发生异常&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;java中的编译期常量是什么使用它又有什么风险&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中的编译期常量是什么使用它又有什么风险&#34;&gt;#&lt;/a&gt; Java 中的编译期常量是什么？使用它又有什么风险？&lt;/h3&gt;
+&lt;p&gt;变量也就是我们所说的编译期常量，这里的 public 可选的。实际上这些变量在编译时会被替换掉，因为编译器知道这些变量的值，并且知道这些变量在运行时不能改变。这种方式存在的一个问题是你使用了一个内部的或第三方库中的公有编译时常量，但是这个值后面被其他人改变了，但是你的客户端仍然在使用老的值，甚至你已经部署了一个新的 jar。为了避免这种情况，当你在更新依赖 JAR 文件时，确保重新编译你的程序。&lt;/p&gt;
+&lt;h3 id=&#34;静态内部类与顶级类有什么区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#静态内部类与顶级类有什么区别&#34;&gt;#&lt;/a&gt; 静态内部类与顶级类有什么区别？&lt;/h3&gt;
+&lt;p&gt;一个公共的顶级类的源文件与类名相同，而嵌套静态类没有这个要求，一个嵌套类位于顶级类的内部，需要使用顶级类的名称来引用嵌套静态类，如 HashMap.Entry 是一个嵌套静态类，HashMap 是顶级类，Entry 是一个嵌套静态类&lt;/p&gt;
+&lt;h3 id=&#34;java中serializable与externalizable的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中serializable与externalizable的区别&#34;&gt;#&lt;/a&gt; Java 中，Serializable 与 Externalizable 的区别？&lt;/h3&gt;
+&lt;p&gt;Serializable 接口是一个序列化 Java 类的接口，以便于它们可以在网络上传输或者可以将它们的状态保存在磁盘上，是 JVM 内嵌的默认序列化方式，成本高，脆弱且不安全。Externalizable 允许你控制整个序列化过程，指定特定的二进制格式，增加安全机制&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;声明为 static 和 transient 类型的数据不能被序列化，反序列化需要一个无参构造函数&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;接口是什么为什么要使用接口而不是直接只用具体类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#接口是什么为什么要使用接口而不是直接只用具体类&#34;&gt;#&lt;/a&gt; 接口是什么？为什么要使用接口而不是直接只用具体类？&lt;/h3&gt;
+&lt;p&gt;接口用于定义 API，它定义了类必须遵守的规则，同时，它提供了一种抽象，因为客户端只使用接口，这样可以有多重实现，如 List 接口，你可以使用可随机访问的 ArrayList，也可以使用方便插入和删除的 LinkedList。接口不允许普通方法，以此来保证抽象，但是 Java8 中你可以在接口中声明静态方法和默认普通方法。&lt;/p&gt;
+&lt;h3 id=&#34;java中抽象类与接口之间有什么不同&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java中抽象类与接口之间有什么不同&#34;&gt;#&lt;/a&gt; Java 中，抽象类与接口之间有什么不同？&lt;/h3&gt;
+&lt;p&gt;Java 中，抽象类和接口有很多不同之处，但是最重要的一个是 Java 中限制一个类只能继承一个类，但是可以实现多个接口，抽象类可以很好的定义一个家族类的默认行为，而接口能更好的定义类型，有助于后面实现多态机制&lt;/p&gt;
+&lt;h3 id=&#34;接口与抽象类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#接口与抽象类&#34;&gt;#&lt;/a&gt; 接口与抽象类&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一个子类只能继承一个抽象类，但能实现多个接口&lt;/li&gt;
+&lt;li&gt;抽象类可以有构造方法，接口没有构造方法&lt;/li&gt;
+&lt;li&gt;抽象类可以有普通成员变量，接口没有普通成员变量&lt;/li&gt;
+&lt;li&gt;抽象类和接口都可有静态成员变量，抽象类中静态成员变量访问类型任意，接口只能 public static final (默认)&lt;/li&gt;
+&lt;li&gt;抽象类可以没有抽象方法，抽象类可以有普通方法；接口在 JDK8 之前都是抽象方法，在 JDK8 可以有 default 方法，在 JDK9 中允许有私有普通方法&lt;/li&gt;
+&lt;li&gt;抽象类可以有静态方法；接口在 JDK8 之前不能有静态方法，在 JDK8 中可以有静态方法，且只能被接口类直接调用（不能被实现类的对象调用）&lt;/li&gt;
+&lt;li&gt;抽象类中的方法可以是 public、protected; 接口方法在 JDK8 之前只有 public abstract，在 JDK8 可以有 default 方法，在 JDK9 中允许有 private 方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;抽象类和最终类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#抽象类和最终类&#34;&gt;#&lt;/a&gt; 抽象类和最终类&lt;/h3&gt;
+&lt;p&gt;抽象类可以没有抽象方法，最终类可以没有最终方法&lt;br&gt;
+最终类不能被继承，最终方法不能被重写&lt;/p&gt;
+&lt;h3 id=&#34;异常&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#异常&#34;&gt;#&lt;/a&gt; 异常&lt;/h3&gt;
+&lt;p&gt;相关的关键字：throw、throws、try…catch、finally&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;throws 用在方法标签上，以抛出的异常可以被调用者处理&lt;/li&gt;
+&lt;li&gt;throw 方法内部通过 throw 抛出异常&lt;/li&gt;
+&lt;li&gt;try 用于检测包住的语句块，若有异常，catch 子句捕获并执行 catch 块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;关于finally&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于finally&#34;&gt;#&lt;/a&gt; 关于 finally&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;finally 不管有没有异常都要处理&lt;/li&gt;
+&lt;li&gt;当 try 和 catch 中有 return 时，finally 仍会执行，finally 比 return 先执行&lt;/li&gt;
+&lt;li&gt;不管有没有异常抛出，finally 在 return 返回前执行&lt;/li&gt;
+&lt;li&gt;finally 是在 return 后面的表达式运算后执行的 (此时并没有返回运算后的值，二十先把要返回的值保存起来，不管 finally 中的代码怎么样，返回值都不会改变，仍然是之前保存的值)，所以函返回值是在 finally 执行前确定的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意：finally 中最好不要包含 return，否则程序会提前退出，返回值不是 try 或 catch 中保存的返回值&lt;br&gt;
+ finally 不执行的几种情况：程序提前终止了，如调用了 System.exit，病毒，断电&lt;/p&gt;
+&lt;h3 id=&#34;super出现在父类的子类中有三种存在方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#super出现在父类的子类中有三种存在方式&#34;&gt;#&lt;/a&gt; super 出现在父类的子类中，有三种存在方式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3N1cGVyLnh4eA==&#34;&gt;super.xxx&lt;/span&gt; 调用父类的中的 xxx 变量或引用&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3N1cGVyLnh4eA==&#34;&gt;super.xxx&lt;/span&gt; () 调用父类中的方法&lt;/li&gt;
+&lt;li&gt;super () 调用父类构造函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意：super 只能代其直接父类&lt;/p&gt;
+&lt;h3 id=&#34;this-super-在构造方法中的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#this-super-在构造方法中的区别&#34;&gt;#&lt;/a&gt; this () &amp;amp; super () 在构造方法中的区别&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;调用 super () 必须卸载子类构造方法的第一行，否则编译不通过&lt;/li&gt;
+&lt;li&gt;super 从子类调用父类构造，this 在同一类中调用其他构造器均需要放在第一行&lt;/li&gt;
+&lt;li&gt;尽管可以用 this 调用一个构造器，去不能调用 2 个&lt;/li&gt;
+&lt;li&gt;this 和 super 不能出现在同一个构造器中，否则编译不通过&lt;/li&gt;
+&lt;li&gt;this ()、super () 都指的对象，不可以在 static 环境中使用&lt;/li&gt;
+&lt;li&gt;本质 this 指向本对象的指针，super 是一个关键字&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;构造内部类和静态内部类对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#构造内部类和静态内部类对象&#34;&gt;#&lt;/a&gt; 构造内部类和静态内部类对象&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Enclosingone &amp;#123;
+	public class Insideone &amp;#123;&amp;#125;
+	public static class Insideone&amp;#123;&amp;#125;
+&amp;#125;
 
+public class Test &amp;#123;
+	public static void main(String[] args) &amp;#123;
+	// 构造内部类对象需要外部类的引用
+	Enclosingone.Insideone obj1 = new Enclosingone().new Insideone();
+	// 构造静态内部类的对象
+	Enclosingone.Insideone obj2 = new Enclosingone.Insideone();
+	&amp;#125;
+&amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;静态内部类不需要有外部类的引用，但非静态内部类需要持有对外部类的引用。非静态类能够访问外部类的静态和非静态成员。静态内部类不能访问外部类的非静态成员，只能访问外部类的静态成员&lt;/p&gt;
+&lt;h3 id=&#34;java位移运算符&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java位移运算符&#34;&gt;#&lt;/a&gt; Java 位移运算符&lt;/h3&gt;
+&lt;p&gt;Java 中有三种位移运算符&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lt;&amp;lt;左移运算符，x&amp;lt;&amp;lt;1 相当于 x 乘以 2 (不溢出的情况下)，地位补 0&lt;/li&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;右移运算符，x&amp;gt;&amp;gt;1 相当于 x 除以 2，正数高位补 0，负数高位补 1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;stream 和 parallelStream 的简单区分&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;无符号右移，忽略符号位，空位都以 0 补齐&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;stream 是顺序流，由主线程按顺序对流执行操作，而 parallelStream 是并行流，内部以多线程并行执行的方式对流进行操作，需要注意使用并行流的前提是流中的数据处理没有顺序要求（会乱序，即使用了 forEachOrdered）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;一-stream中间操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-stream中间操作&#34;&gt;#&lt;/a&gt; 一、Stream 中间操作&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;Stream流中间操作是指在流链当中，可以对数据进行处理操作，包括filter过滤、map映射转换、flatMap合并、distinct去重、sorted排序等操作，这些操作都会返回一个新的Stream流对象，可以通过链式调用多个中间操作进行复杂的数据处理。
-
-需要注意的是，中间操作需要具有终止操作才会触发。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;无状态stateless操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#无状态stateless操作&#34;&gt;#&lt;/a&gt; 无状态 (Stateless) 操作&lt;/h4&gt;
-&lt;h5 id=&#34;filter过滤出符合条件的元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#filter过滤出符合条件的元素&#34;&gt;#&lt;/a&gt; filter: 过滤出符合条件的元素&lt;/h5&gt;
-&lt;blockquote&gt;
-&lt;p&gt;filter () 方法常用于实现数据过滤，即可以对集合、数组等数据源筛选出符合指定条件的元素，并返回一个新的流&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;// 将数组转换为一个字符串列表
-List&amp;lt;String&amp;gt; numbers = Arrays.asList&amp;quot;13378520000&amp;quot;,&amp;quot;13278520000&amp;quot;,&amp;quot;13178520000&amp;quot;,&amp;quot;13358520000&amp;quot;);
-// 通过stream()方法创建一个流，接着使用filter方法过滤出前缀为&amp;quot;133&amp;quot;的元素，最终通过collect()方法将结果收集到一个新的列表中
-List&amp;lt;String&amp;gt; filterNumbers = numbers.stream().filter(s -&amp;gt; s.startWith(&amp;quot;133&amp;quot;)).collect(Collectors.toList());
-System.out.println(filterNumbers);
-
-打印结果：[13378520000, 13358520000]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;map映射转换元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#map映射转换元素&#34;&gt;#&lt;/a&gt; map: 映射转换元素&lt;/h5&gt;
-&lt;blockquote&gt;
-&lt;p&gt;map 方法用于对流中的每个元素进行映射操作，将其转换为另一个元素或者提取其中的信息，并返回一个新的流&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;1.2.1 转换元素&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;获取每个手机号的前七位子字符串&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;List&amp;lt;String&amp;gt; numbers = Arrays.asList(&amp;quot;13378520000&amp;quot;,&amp;quot;13278520000&amp;quot;,&amp;quot;13178520000&amp;quot;,&amp;quot;13558520000&amp;quot;);
-//通过stream()方法创建一个流，使用map()方法将每个字符串转换为截取前7位的字符，最后使用collect()方法将结果收集到一个新列表中
-List&amp;lt;String&amp;gt; filterdNumbers = numbers.stream().map(s -&amp;gt; s.substring(0,7)).collect(Collectors.toList());
-System.out.println(filterdNumbers);
-
-
-打印结果：[1337852, 1327852, 1317852, 1355852]
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;p&gt;1.2.2 提取元素信息&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;获取每个对象的手机号&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;List&amp;lt;People&amp;gt; peopleList = Arrays.asList(
-        new People(&amp;quot;王二&amp;quot;,&amp;quot;13378520000&amp;quot;),
-        new People(&amp;quot;李二&amp;quot;,&amp;quot;13278520000&amp;quot;),
-        new People(&amp;quot;张四&amp;quot;,&amp;quot;13178520000&amp;quot;)
-);
-//通过stream()方法创建一个流，使用map()方法提取每个用户的手机号，最后使用collect()方法将结果收集到一个新列表中
-List&amp;lt;String&amp;gt; tel = peopleList.stream().map(People::getTel).collect(Collectors.toList());
-System.out.println(tel);
-
-
-打印结果：[13378520000, 13278520000, 13178520000]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;flatmap将多个流合并为一个流&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#flatmap将多个流合并为一个流&#34;&gt;#&lt;/a&gt; flatMap: 将多个流合并为一个流&lt;/h5&gt;
-&lt;p&gt;1.3.1 实现多对多的映射&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;将 A 组数据和 B 组数据一次进行相加&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-List&amp;lt;Integer&amp;gt; listA = Arrays.asList(1,2,3);
-List&amp;lt;Integer&amp;gt; listB = Arrays.asList(4, 5, 6);
-List&amp;lt;Integer&amp;gt; list = listA.stream().flatMap(a -&amp;gt; listB.stream().map(b -&amp;gt; a +b)).collect(Collectors.toList());
-System.out.println(list);
-
-
-打印结果:  [5, 6, 7, 6, 7, 8, 7, 8, 9]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;p&gt;1.3.2 将多个列表合并成一个列表&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; listOfLists = Arrays.asList(
-        Arrays.asList(&amp;quot;13378520000&amp;quot;, &amp;quot;13278520000&amp;quot;),
-        Arrays.asList(&amp;quot;13178520000&amp;quot;, &amp;quot;13558520000&amp;quot;),
-        Arrays.asList(&amp;quot;15138510000&amp;quot;, &amp;quot;15228310000&amp;quot;)
-);
-List&amp;lt;String&amp;gt; flatMapList = listOfLists.stream().flatMap(Collection::stream).collect(Collectors.toList());
-System.out.println(flatMapList);
-
-
-打印结果：[13378520000, 13278520000, 13178520000, 13558520000, 15138510000, 15228310000]
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;peek查看每个元素的信息但不改变流中元素的状态&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#peek查看每个元素的信息但不改变流中元素的状态&#34;&gt;#&lt;/a&gt; peek: 查看每个元素的信息，但不改变流中元素的状态&lt;/h5&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-List&amp;lt;String&amp;gt; telList = Arrays.asList(&amp;quot;13378520000&amp;quot;,&amp;quot;13278520000&amp;quot;,&amp;quot;13178520000&amp;quot;,&amp;quot;13558520000&amp;quot;);
-telList.stream().peek(t -&amp;gt; System.out.println(t))
-        .map(t -&amp;gt; t.substring(0,3))
-        .peek(t -&amp;gt; System.out.println(t))
-        .collect(Collectors.toList());
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;重点:&lt;/strong&gt; peek VS map&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;peek 操作一般用于 不想改变流中元素本身的类型或者只想元素的内部状态改变时&lt;br&gt;
- map 则用于改变流中元素本身，即从元素中派生出另一种类型的操作&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;maptoint-maptolong-maptodouble-flatmaptodouble-flatmaptoint-flatmaptolong&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#maptoint-maptolong-maptodouble-flatmaptodouble-flatmaptoint-flatmaptolong&#34;&gt;#&lt;/a&gt; mapToInt、mapToLong、mapToDouble、flatMapToDouble、flatMapToInt、flatMapToLong&lt;/h5&gt;
-&lt;blockquote&gt;
-&lt;p&gt;以上操作是 map 和 flatMap 的特别版，也就是针对特定的数据类型进行映射处理&lt;/p&gt;
-&lt;p&gt;其对应方法如下：&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-IntStream mapToInt(ToIntFunction&amp;lt;? super T&amp;gt; mapper);
- 
-LongStream mapToLong(ToLongFunction&amp;lt;? super T&amp;gt; mapper); 
- 
-DoubleStream mapToDouble(ToDoubleFunction&amp;lt;? super T&amp;gt; mapper);
- 
-IntStream flatMapToInt(Function&amp;lt;? super T, ? extends IntStream&amp;gt; mapper);
- 
-LongStream flatMapToLong(Function&amp;lt;? super T, ? extends LongStream&amp;gt; mapper);
- 
-DoubleStream flatMapToDouble(Function&amp;lt;? super T, ? extends DoubleStream&amp;gt; mapper);
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;有状态stateful操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#有状态stateful操作&#34;&gt;#&lt;/a&gt; 有状态 (Stateful) 操作&lt;/h4&gt;
-&lt;h5 id=&#34;distinct去除重复的元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#distinct去除重复的元素&#34;&gt;#&lt;/a&gt; distinct: 去除重复的元素&lt;/h5&gt;
-&lt;blockquote&gt;
-&lt;p&gt;distinct () 方法可以用来去除流中的重复元素，生成无重复的列表&lt;br&gt;
-需要注意的是：distinct 用于针对流元素去重操作时，需要确定流中的元素实现了 equals () 和 hasCode () 方法&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-List&amp;lt;String&amp;gt; numbers = Arrays.asList(&amp;quot;13378520000&amp;quot;, &amp;quot;15138510000&amp;quot;,&amp;quot;13178520000&amp;quot;, &amp;quot;15138510000&amp;quot;);
-List&amp;lt;String&amp;gt; disNumbers = numbers.stream().distinct().collect(Collectors.toList());
-System.out.println(disNumbers);		
-
-
-打印结果：[13378520000, 15138510000, 13178520000]
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;15-sorted排序元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#15-sorted排序元素&#34;&gt;#&lt;/a&gt; 1.5 sorted: 排序元素&lt;/h5&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sorted 方法用于对流中元素进行排序&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;1.5.1 升序排序&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-List&amp;lt;People&amp;gt; peopleList = Arrays.asList(
-        new People(&amp;quot;王二&amp;quot;,20),
-        new People(&amp;quot;李二&amp;quot;,30),
-        new People(&amp;quot;张四&amp;quot;,31)
-);
-List&amp;lt;People&amp;gt; newpeopleList=peopleList.stream().sorted(Comparator.comparing(People::getAge)).collect(Collectors.toList());
-//打印结果
-newpeopleList.stream().forEach(System.out::println);
-
-
-打印结果：
-People&amp;#123;name=&#39;王二&#39;, age=20&amp;#125;
-People&amp;#123;name=&#39;李二&#39;, age=30&amp;#125;
-People&amp;#123;name=&#39;张四&#39;, age=31&amp;#125;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;1.5.2 降序排序&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;通过 reversed () 方法进行逆序排序&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-List&amp;lt;People&amp;gt; peopleList = Arrays.asList(
-        new People(&amp;quot;王二&amp;quot;,20),
-        new People(&amp;quot;李二&amp;quot;,30),
-        new People(&amp;quot;张四&amp;quot;,31)
-);
-List&amp;lt;People&amp;gt; newpeopleList = peopleList.stream().sorted(Comparator.comparing(People::getAge).reversed()).collect(Collectors.toList());
-//打印结果
-newpeopleList.stream().forEach(System.out::println);
-
-打印结果：
-People&amp;#123;name=&#39;张四&#39;, age=31&amp;#125;
-People&amp;#123;name=&#39;李二&#39;, age=30&amp;#125;
-People&amp;#123;name=&#39;王二&#39;, age=20&amp;#125;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;17-limit和skip截取流中的部分元素&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#17-limit和skip截取流中的部分元素&#34;&gt;#&lt;/a&gt; 1.7 limit 和 skip: 截取流中的部分元素&lt;/h5&gt;
-&lt;blockquote&gt;
-&lt;p&gt;limit 返回一个包含前 n 个元素的新流&lt;br&gt;
- skip 返回一个丢弃前 n 个元素后剩余元素组成的新流&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
-int[] arr = &amp;#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10&amp;#125;;
-System.out.print(&amp;quot;取数组前5个元素:&amp;quot;);
-Arrays.stream(arr).limit(5).forEach(n -&amp;gt; System.out.print(n + &amp;quot; &amp;quot;)); // 输出结果为：1 2 3 4 5
-
-System.out.print(&amp;quot;跳过前3个元素，取剩余数组元素:&amp;quot;);
-Arrays.stream(arr).skip(3).forEach(n -&amp;gt; System.out.print(n + &amp;quot; &amp;quot;)); // 输出结果为：4 5 6 7 8 9 10
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;终结操作terminal-operation&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#终结操作terminal-operation&#34;&gt;#&lt;/a&gt; 终结操作 (Terminal Operation)&lt;/h3&gt;
-&lt;h4 id=&#34;短路short-circuiting操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#短路short-circuiting操作&#34;&gt;#&lt;/a&gt; 短路 (Short-circuiting) 操作&lt;/h4&gt;
+&lt;h3 id=&#34;形参实参&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#形参实参&#34;&gt;#&lt;/a&gt; 形参 &amp;amp; 实参&lt;/h3&gt;
+&lt;p&gt;形式参数可被视为 local variable, 形参和局部变量一样不能离开方法，只有在方法中使用，不会在方法外可见。形式参数只能用 final 修饰符，其他任何修饰符都会引起编译器错误。但是用这个修饰符也有一定的限制，就是在方法中不能对参数做任何修改。不过一般情况下，一个方法的形参不用 final 修饰，只有特殊情况下，那就是：方法内部类。一个方法内部类如果使用了这个方法的参数或者局部变量的话，这个参数或局部变量应该是 final。形参的值在调用时根据调用者更改。实参则用自身的值更改形参的值 (指针、引用皆在此列)，也就是说真正被传递的是实参。&lt;/p&gt;
+&lt;h3 id=&#34;局部变量为什么要初始化&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#局部变量为什么要初始化&#34;&gt;#&lt;/a&gt; 局部变量为什么要初始化&lt;/h3&gt;
+&lt;p&gt;局部变量是指类方法中的变量，必须初始化。局部变量运行时被分配在栈中，量大，生命周期短，如果虚拟机给每个局部变量都初始化一下，是一笔很大的开销，但变量不初始化为默认值就使用是不安全的。出于速度和安全性两个方面的综合考虑，解决方案就是虚拟机不初始化，但要求编写者在使用前给变量赋值。&lt;/p&gt;
+</content>
+        <category term="Java" />
+        <updated>2024-02-18T08:13:44.946Z</updated>
+    </entry>
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/</id>
+        <title>泛型机制详解</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/"/>
+        <content type="html">&lt;p&gt;Java 泛型是从 jdk1.5 开始加入的，Java 泛型的实现采取了 “伪泛型” 的策略，即 Java 在语法上支持泛型，但是在编译阶段会进行所谓的 “类型擦除”，将所有的泛型表示 (尖括号中的内容) 都替换为具体的类型 (其对应的原生态类型)，就像完全没有泛型一样。&lt;/p&gt;
+&lt;p&gt;引入泛型的意义在于：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;anyMatch: Stream 中只要有一个元素符合传入的 predicate, 返回 true&lt;/li&gt;
+&lt;li&gt;适用于多种数据类型执行相同的代码 (代码复用)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;boolean anyMatch(Predicate&amp;lt;? super T&amp;gt; predicate);&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;allMatch: Stream 中全部元素符合传入的 predicate, 返回 true&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;boolean allMatch(Predicate&amp;lt;? super T&amp;gt; predicate);&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;noneMatch: Stream 中没有一个元素符合传入的 predicate, 返回 true&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;boolean noneMatch(Predicate&amp;lt;? super T&amp;gt; predicate);&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;findFirst: 用于返回满足条件的第一个元素 (凡是该元素是封装在 Optional 类中)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Optional&lt;T&gt; findFirst();&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;findAny: 返回流中的任意元素 (但是该元素也是封装在 Optional 类中)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Optional&lt;T&gt; findAny();&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;非短路操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非短路操作&#34;&gt;#&lt;/a&gt; 非短路操作&lt;/h4&gt;
-&lt;h5 id=&#34;foreach&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#foreach&#34;&gt;#&lt;/a&gt; forEach()&lt;/h5&gt;
-&lt;p&gt;该方法接收一个 lambda 表达式，然后在 Stream 的每一个元素上执行该表达式&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;void forEach(Consumer&amp;lt;? super T&amp;gt; action);&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;foreachordered&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#foreachordered&#34;&gt;#&lt;/a&gt; forEachOrdered()&lt;/h5&gt;
-&lt;p&gt;该方法接收一个 Lambda 表达式，然后按顺序在 Stream 中的每一个元素上执行该表达式&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;void forEachOrdered(Consumer&amp;lt;? super T&amp;gt; action);&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;该功能其实和 forEach 是很相似的，也是循环操作！那唯一的区别，就在于 forEachOrdered 是可以保证循环时元素是按原来的顺序逐个循环的！&lt;/p&gt;
-&lt;hr&gt;
-&lt;h5 id=&#34;toarray&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#toarray&#34;&gt;#&lt;/a&gt; toArray()&lt;/h5&gt;
-&lt;p&gt;返回包含此流元素的数组，当有参数时，&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Object [] toArray();&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;A&gt; A[] toArray(IntFunction&amp;lt;A[]&amp;gt; generator);&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;举例：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;private static int add(int a, int b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
+    return a + b;
+&amp;#125;
 
-List&amp;lt;String&amp;gt; strList = Arrays.asList( &amp;quot;Jhonny&amp;quot;, &amp;quot;David&amp;quot;, &amp;quot;Jack&amp;quot;, &amp;quot;Duke&amp;quot;, &amp;quot;Jill&amp;quot;,&amp;quot;Dany&amp;quot;,&amp;quot;Julia&amp;quot;,&amp;quot;Jenish&amp;quot;,&amp;quot;Divya&amp;quot;);
- 
-Object [] strAryNoArg = strList.stream().toArray();
-String [] strAry = strList.stream().toArray(String[]::new);
+private static float add(float a, float b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
+    return a + b;
+&amp;#125;
+
+private static double add(double a, double b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
+    return a + b;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果没有泛型，要实现不同类型的方法，每种类型都需要重载一个 add 方法，通过泛型，我们可以复用为一个方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;private static &amp;lt;T extends Number&amp;gt; double add(T a, T b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a.doubleValue() + b.doubleValue()));
+    return a.doubleValue() + b.doubleValue();
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;泛型中的类型在使用时指定，不需要强制类型转换 (类型安全，编译器会检查类型)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;泛型的基本使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型的基本使用&#34;&gt;#&lt;/a&gt; 泛型的基本使用&lt;/h2&gt;
+&lt;h3 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;从一个简单的泛型类看起：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class Point&amp;lt;T&amp;gt;&amp;#123;         // 此处可以随便写标识符号，T是type的简称  
+    private T var ;     // var的类型由T指定，即：由外部指定  
+    public T getVar()&amp;#123;  // 返回值的类型由外部决定  
+        return var ;  
+    &amp;#125;  
+    public void setVar(T var)&amp;#123;  // 设置的类型也由外部决定  
+        this.var = var ;  
+    &amp;#125;  
+&amp;#125;  
+public class GenericsDemo06&amp;#123;  
+    public static void main(String args[])&amp;#123;  
+        Point&amp;lt;String&amp;gt; p = new Point&amp;lt;String&amp;gt;() ;     // 里面的var类型为String类型  
+        p.setVar(&amp;quot;it&amp;quot;) ;                            // 设置字符串  
+        System.out.println(p.getVar().length()) ;   // 取得字符串的长度  
+    &amp;#125;  
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;多元泛型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class Notepad&amp;lt;K,V&amp;gt;&amp;#123;       // 此处指定了两个泛型类型  
+    private K key ;     // 此变量的类型由外部决定  
+    private V value ;   // 此变量的类型由外部决定  
+    public K getKey()&amp;#123;  
+        return this.key ;  
+    &amp;#125;  
+    public V getValue()&amp;#123;  
+        return this.value ;  
+    &amp;#125;  
+    public void setKey(K key)&amp;#123;  
+        this.key = key ;  
+    &amp;#125;  
+    public void setValue(V value)&amp;#123;  
+        this.value = value ;  
+    &amp;#125;  
+&amp;#125; 
+public class GenericsDemo09&amp;#123;  
+    public static void main(String args[])&amp;#123;  
+        Notepad&amp;lt;String,Integer&amp;gt; t = null ;        // 定义两个泛型类型的对象  
+        t = new Notepad&amp;lt;String,Integer&amp;gt;() ;       // 里面的key为String，value为Integer  
+        t.setKey(&amp;quot;汤姆&amp;quot;) ;        // 设置第一个内容  
+        t.setValue(20) ;            // 设置第二个内容  
+        System.out.print(&amp;quot;姓名；&amp;quot; + t.getKey()) ;      // 取得信息  
+        System.out.print(&amp;quot;，年龄；&amp;quot; + t.getValue()) ;       // 取得信息  
+    &amp;#125;  
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;泛型接口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型接口&#34;&gt;#&lt;/a&gt; 泛型接口&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;简单的泛型接口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;interface Info&amp;lt;T&amp;gt;&amp;#123;        // 在接口上定义泛型  
+    public T getVar() ; // 定义抽象方法，抽象方法的返回值就是泛型类型  
+&amp;#125;  
+class InfoImpl&amp;lt;T&amp;gt; implements Info&amp;lt;T&amp;gt;&amp;#123;   // 定义泛型接口的子类  
+    private T var ;             // 定义属性  
+    public InfoImpl(T var)&amp;#123;     // 通过构造方法设置属性内容  
+        this.setVar(var) ;    
+    &amp;#125;  
+    public void setVar(T var)&amp;#123;  
+        this.var = var ;  
+    &amp;#125;  
+    public T getVar()&amp;#123;  
+        return this.var ;  
+    &amp;#125;  
+&amp;#125; 
+public class GenericsDemo24&amp;#123;  
+    public static void main(String arsg[])&amp;#123;  
+        Info&amp;lt;String&amp;gt; i = null;        // 声明接口对象  
+        i = new InfoImpl&amp;lt;String&amp;gt;(&amp;quot;汤姆&amp;quot;) ;  // 通过子类实例化对象  
+        System.out.println(&amp;quot;内容：&amp;quot; + i.getVar()) ;  
+    &amp;#125;  
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;泛型方法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型方法&#34;&gt;#&lt;/a&gt; 泛型方法&lt;/h3&gt;
+&lt;p&gt;泛型方法，是在调用方法的时候指明泛型的具体类型。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义泛型方法的语法格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Sace &amp;#123;
+
+    // &amp;lt;T&amp;gt; 声明此方法持有一个类型T，也可以理解为声明此方法为泛型方法
+    // T 指明该方法返回对象为T类型
+    // Class&amp;lt;T&amp;gt; 指明泛型的具体类型
+    public &amp;lt;T&amp;gt; T getObject(Class&amp;lt;T&amp;gt; c) throws InstantiationException, IllegalAccessException &amp;#123;
+        T t = c.newInstance();
+        return t;
+    &amp;#125;
+
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException &amp;#123;
+        Sace sace = new Sace();
+        Class&amp;lt;Date&amp;gt; aClass = Date.class;
+        Date object = sace.getObject(aClass);
+        System.out.println(object);
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;泛型的上下限&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型的上下限&#34;&gt;#&lt;/a&gt; 泛型的上下限&lt;/h3&gt;
+&lt;p&gt;以下代码会报错&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class A&amp;#123;&amp;#125;
+class B extends A &amp;#123;&amp;#125;
+
+// 如下两个方法不会报错
+public static void funA(A a) &amp;#123;
+    // ...          
+&amp;#125;
+public static void funB(B b) &amp;#123;
+    funA(b);
+    // ...             
+&amp;#125;
+
+// 如下funD方法会报错
+public static void funC(List&amp;lt;A&amp;gt; listA) &amp;#123;
+    // ...          
+&amp;#125;
+public static void funD(List&amp;lt;B&amp;gt; listB) &amp;#123;
+    funC(listB); // Unresolved compilation problem: The method doPrint(List&amp;lt;A&amp;gt;) in the type test is not applicable for the arguments (List&amp;lt;B&amp;gt;)
+    // ...             
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;为了解决泛型中隐含的转换问题，Java 泛型加入了类型参数的上下边界机制。&amp;lt;? extends A&amp;gt; 表示该类型参数可以是 A (上边界) 或者 A 的子类类型。编译时擦除到类型 A，即用 A 类型代替类型参数。这种方法可以解决开始遇到的问题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public static void funC(List&amp;lt;? extends A&amp;gt; listA) &amp;#123;
+    // ...          
+&amp;#125;
+public static void funD(List&amp;lt;B&amp;gt; listB) &amp;#123;
+    funC(listB); // OK
+    // ...             
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;泛型上下限的引入&lt;br&gt;
+在使用泛型的时候，我们可以为传入的泛型类型实参进行上下边界的限制，比如：类型实参只准传入某种类型的夫类型或某种类型的子类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上限&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Info&amp;lt;T extends Number&amp;gt; &amp;#123;
+    T val;
+
+    public T getVal() &amp;#123;
+        return val;
+    &amp;#125;
+
+    public void setVal(T val) &amp;#123;
+        this.val = val;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        Info info = new Info&amp;lt;Double&amp;gt;();
+        Info info2 = new Info&amp;lt;Integer&amp;gt;();
+        info.val = 10;
+        info2.val = 10f;
+        System.out.println(info.val);
+        System.out.println(info2.val);
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下限&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Info&amp;lt;T&amp;gt; &amp;#123;
+    T val;
+
+    public T getVal() &amp;#123;
+        return val;
+    &amp;#125;
+
+    public void setVal(T val) &amp;#123;
+        this.val = val;
+    &amp;#125;
+
+    public static void fun(Info&amp;lt;? super String&amp;gt; temp) &amp;#123;    // 只能接收String或Object类型的泛型，String类的父类只有Object类
+        System.out.print(temp + &amp;quot;, &amp;quot;);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        Info&amp;lt;String&amp;gt; info = new Info&amp;lt;String&amp;gt;();
+        Info&amp;lt;Object&amp;gt; info2 = new Info&amp;lt;Object&amp;gt;();
+        Info&amp;lt;Integer&amp;gt; info3 = new Info&amp;lt;Integer&amp;gt;();
+        fun(info);
+        fun(info2);
+        fun(info3); // info3不允许作为fun的形参，info3是Integer泛型对象，需要一个String的父类，包括String类
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;?&gt; 无限制通配符
+&lt;/li&gt;
+&lt;li&gt;
+&lt;? extends E&gt; extends 关键字声明了类型的上界，表示参数化的类型可能是所指定的类型，或者是此类型的子类
+&lt;/li&gt;
+&lt;li&gt;
+&lt;? super E&gt; super 关键字声明了类型的下界，表示了参数化的类型可能是指定类型，或者是次类型的父类&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="Java" />
+        <updated>2024-02-18T08:13:44.946Z</updated>
+    </entry>
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</id>
+        <title>面向对象</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+        <content type="html">&lt;h1 id=&#34;java基础-面向对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java基础-面向对象&#34;&gt;#&lt;/a&gt; Java 基础 - 面向对象&lt;/h1&gt;
+&lt;h2 id=&#34;三大特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三大特性&#34;&gt;#&lt;/a&gt; 三大特性&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;封装&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;利用抽象数据类型将&lt;em&gt;数据&lt;/em&gt;和&lt;em&gt;基于数据的操作&lt;/em&gt;封装在一起，使其构成一个不可分割的独立实体。数据被保护在抽象数据类型的内部，尽可能地隐藏内部的细节，只保留一些对外接口使之与外部发生关系。用户无需知道对象内部的细节，但可以通过对象对外提供的接口来访问该对象。&lt;/p&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;减少耦合：可以独立地开发、测试、优化、使用、理解和修改&lt;/li&gt;
+&lt;li&gt;减轻维护的负担：可以更容易地被程序员所理解，并且在调试的时候可以不影响其他模块&lt;/li&gt;
+&lt;li&gt;有效地调节性能：可以通过剖析确定哪些模块影响了系统的性能&lt;/li&gt;
+&lt;li&gt;提供软件的可重用性&lt;/li&gt;
+&lt;li&gt;降低了构建大型系统的风险：即使整个系统不可用，但是这些独立的模块却有可能是可用的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;继承&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;继承实现了 &lt;strong&gt;IS-A&lt;/strong&gt; 关系，例如 Cat 和 Animal 就是一种 IS-A 关系，因此 Cat 可以继承自 Animal，从而获得 Animal 非 private 的属性和方法。&lt;/p&gt;
+&lt;p&gt;继承应该遵守里氏替换原则，子类对象必须能够替换掉所有父类对象。&lt;/p&gt;
+&lt;p&gt;Cat 可以当作 Animal 来使用，也就是说可以使用 Animal 引用 Cat 对象。父类引用指向子类对象 (&lt;em&gt;父类引用指向子类的实现&lt;/em&gt;) 称为 &lt;strong&gt;向上转型&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Animal animal = new Cat();&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;多态&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;多态分为编译时多态和运行时多态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编译时多态主要指方法的重载&lt;/li&gt;
+&lt;li&gt;运行时多态指程序中定义的对象引用所指向的具体类型在运行期间才确定&lt;br&gt;
+运行时多态有三个条件
+&lt;ul&gt;
+&lt;li&gt;继承&lt;/li&gt;
+&lt;li&gt;覆盖 (重写)&lt;/li&gt;
+&lt;li&gt;向上转型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#类&#34;&gt;#&lt;/a&gt; 类&lt;/h2&gt;
+&lt;h3 id=&#34;泛化关系generalization&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛化关系generalization&#34;&gt;#&lt;/a&gt; 泛化关系 (Generalization)&lt;/h3&gt;
+&lt;p&gt;用于描述继承关系，在 Java 中使用 extends 关键字&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmJyrBBKh.png&#34; alt=&#34;泛型关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Vehical
+class Car
+class Truck
+
+Vehical &amp;lt;| -- Car
+Vehical &amp;lt;| -- Truck
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;实现关系realization&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实现关系realization&#34;&gt;#&lt;/a&gt; 实现关系 (Realization)&lt;/h3&gt;
+&lt;p&gt;用来实现一个接口，在 Java 中使用 implements 关键字&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILK8IatCoQn.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+interface MoveBehavior
+class Fly
+class Run
+
+MoveBehavior &amp;lt;| -- Fly
+MoveBehivior &amp;lt;| -- Run
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;聚合关系aggregation&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#聚合关系aggregation&#34;&gt;#&lt;/a&gt; 聚合关系 (Aggregation)&lt;/h3&gt;
+&lt;p&gt;表示整体由部分组成，但是整体和部分不是强依赖的，整体不存在了但部分还是会存在&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmJ4ylIar.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Computer
+class Keyboard
+class Mouse
+class Screen
+
+Computer o -- Keyboard
+Computer o -- Mouse
+Computer o -- Screen
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;组合关系composition&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#组合关系composition&#34;&gt;#&lt;/a&gt; 组合关系 (Composition)&lt;/h3&gt;
+&lt;p&gt;和聚合不同，组合中整体和部分是强依赖的，整体不存在了，部分也就不存在了&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmpiyjo2_.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Company
+class DepartmentA
+class DepartmentB
+
+Company * -- DepartmentA
+Company * -- DepartmentB
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;关联关系association&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关联关系association&#34;&gt;#&lt;/a&gt; 关联关系 (Association)&lt;/h3&gt;
+&lt;p&gt;表示不同对象之间有关联，这是一种静态关系，与运行过程的状态无关，在最开始就可以确定。因此可以用 1 对 1、多对 1、多对多这种关联关系来表示&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmB2xEJyv.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class School
+class Student
+
+School &amp;quot;1&amp;quot; - &amp;quot;n&amp;quot; Student
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;依赖关系dependency&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#依赖关系dependency&#34;&gt;#&lt;/a&gt; 依赖关系 (Dependency)&lt;/h3&gt;
+&lt;p&gt;和关联关系不同的是，依赖关系是在运行过程中起作用的。A 类和 B 类是依赖关系主要有三种形式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A 类是 B 类中的 (某种方法的) 局部变量&lt;/li&gt;
+&lt;li&gt;A 类是 B 类方法当中的一个参数&lt;/li&gt;
+&lt;li&gt;A 类向 B 类发送消息，从而影响 B 类发生变化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/LOun2W9134NxVugmbJPp15d4LalxC4O.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Vehicle &amp;#123;
+    move(MoveBehavior)
+&amp;#125;
+
+interface MoveBehavior &amp;#123;
+    move()
+&amp;#125;
+
+note &amp;quot;MoveBehavior.move()&amp;quot; as N
+
+Vehicle ..&amp;gt; MoveBehavior
+
+Vehicle .. N
 
 &lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="Java" />
-        <updated>2023-08-10T08:29:50.064Z</updated>
+        <updated>2024-02-18T08:13:44.946Z</updated>
     </entry>
     <entry>
-        <id>http://1405904364.github.io/2023/08/10/Java/Apache-poi/</id>
-        <title>Apache-Poi</title>
-        <link rel="alternate" href="http://1405904364.github.io/2023/08/10/Java/Apache-poi/"/>
-        <content type="html">&lt;h1 id=&#34;apache-poi&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#apache-poi&#34;&gt;#&lt;/a&gt; Apache-Poi&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wb2kuYXBhY2hlLm9yZy8=&#34;&gt;官网&lt;/span&gt;&lt;br&gt;
-&lt;br/&gt; &lt;br/&gt;&lt;br&gt;
-&lt;img data-src=&#34;/image/Java/project-header.png&#34; alt=&#34;官网&#34;&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h2&gt;
-&lt;h3 id=&#34;hssf-sxxf-sxssf的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hssf-sxxf-sxssf的区别&#34;&gt;#&lt;/a&gt; HSSF SXXF SXSSF 的区别&lt;/h3&gt;
-&lt;blockquote&gt;
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
+        <title>知识点</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+        <content type="html">&lt;h1 id=&#34;java基础-知识点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java基础-知识点&#34;&gt;#&lt;/a&gt; Java 基础 - 知识点&lt;/h1&gt;
+&lt;h2 id=&#34;数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据类型&#34;&gt;#&lt;/a&gt; 数据类型&lt;/h2&gt;
+&lt;p&gt;八个基本类型：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;HSSF:Excel97-2003 版本，扩展名为.xls。一个 sheet 最大行数 65536，最大列数 256。&lt;/li&gt;
-&lt;li&gt;XSSF:Excel2007 版本开始，扩展名为.xlsx。一个 sheet 最大行数 1048576，最大列数 16384。&lt;/li&gt;
-&lt;li&gt;SXSSF: 是在 XSSF 基础上，POI3.8 版本开始提供的支持低内存占用的操作方式，扩展名为.xlsx。&lt;/li&gt;
+&lt;li&gt;boolean/1&lt;/li&gt;
+&lt;li&gt;byte/8&lt;/li&gt;
+&lt;li&gt;char/16&lt;/li&gt;
+&lt;li&gt;short/16&lt;/li&gt;
+&lt;li&gt;int/32&lt;/li&gt;
+&lt;li&gt;float/32&lt;/li&gt;
+&lt;li&gt;double/64&lt;/li&gt;
+&lt;li&gt;long/64&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;HSSF 用于 Excel03 版本：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  缺点：最多只能处理65536行，否则会报异常，
+&lt;p&gt;基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+Integer x = 2; // 装箱
+int y = x; // 拆箱
 
-  优点：过程中写入缓存，不操作磁盘，最后一次性写入磁盘，速度快
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;XSSF 用于 Excel07 版本：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  缺点：写数据时速度非常慢，非常耗内存，也会发生内存溢出，如100万条数据
-  优点：可以写较大的数据量，如20万条数据
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;SXSSF 可以理解为 SXXF 超大量数据升级版：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  优点：可以写非常大量的数据库，如100万条甚至更多条，写数据速度快，占用更少的内存
-  注意：
-      - 过程中会产生临时文件，需要清理临时文件
-      - 默认由100条记录被保存在内存中，如果超出这数量，则最前面的数据被写入临时文件
-      - 如果想自定义内存中数据的数量，可以使用new SXSSFWorkbook（数量）
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;其他常见名称含义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#其他常见名称含义&#34;&gt;#&lt;/a&gt; 其他常见名称含义&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;其他常见名称含义：&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;缓存池&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#缓存池&#34;&gt;#&lt;/a&gt; 缓存池&lt;/h2&gt;
+&lt;p&gt;new Integer (123) 与 Integer.valueOf (123) 的区别在于：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;XSSF (XML SpreadSheet Format) – Used to reading and writting Open Office XML (XLSX) format files.&lt;/li&gt;
-&lt;li&gt;HSSF (Horrible SpreadSheet Format) – Use to read and write Microsoft Excel (XLS) format files.&lt;/li&gt;
-&lt;li&gt;HWPF (Horrible Word Processor Format) – to read and write Microsoft Word 97 (DOC) format files.&lt;/li&gt;
-&lt;li&gt;HSMF (Horrible Stupid Mail Format) – pure Java implementation for Microsoft Outlook MSG files&lt;/li&gt;
-&lt;li&gt;HDGF (Horrible DiaGram Format) – One of the first pure Java implementation for Microsoft Visio binary files.&lt;/li&gt;
-&lt;li&gt;HPSF (Horrible Property Set Format) – For reading “Document Summary” information from Microsoft Office files.&lt;/li&gt;
-&lt;li&gt;HSLF (Horrible Slide Layout Format) – a pure Java implementation for Microsoft PowerPoint files.&lt;/li&gt;
-&lt;li&gt;HPBF (Horrible PuBlisher Format) – Apache’s pure Java implementation for Microsoft Publisher files.&lt;/li&gt;
-&lt;li&gt;DDF (Dreadful Drawing Format) – Apache POI package for decoding the Microsoft Office Drawing format.&lt;/li&gt;
+&lt;li&gt;new Integer (123) 每次都会创建一个新对象&lt;/li&gt;
+&lt;li&gt;Integer.valueOf (123) 会使用缓存池中的对象，多次调用会获得同一个对象的引用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用&#34;&gt;#&lt;/a&gt; 使用&lt;/h2&gt;
-&lt;h3 id=&#34;步骤一导入依赖&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#步骤一导入依赖&#34;&gt;#&lt;/a&gt; 步骤一：导入依赖&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;org.apache.poi&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;poi&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;4.1.1&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+Integer x = new Integer(123);
+Integer y = new Integer(123);
+System.out.println(x == y); // false
+Integer j = Integer.valueOf(123);
+Integer k = Integer.valueOf(123);
+System.out.println(j == k); // true
 
-&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;org.apache.poi&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;poi-ooxml&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;4.1.1&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;valueOf 方法的实现比较简单，就是先判断值是否在缓存池中，如果在的话就返回缓存池中的内容&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public static Integer valueOf(int i) &amp;#123;
+    if (i &amp;gt;= IntegerCache.low &amp;amp;&amp;amp; i &amp;lt;= IntegerCache.high)
+         return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在 Java8 中，Integer 的缓存池大小默认为 -128 ~ 127&lt;/p&gt;
+&lt;p&gt;编译器会在缓存池范围内的基本类型自动装箱过程中调用 valueOf () 方法，因此多个 Integer 实例使用自动装箱来创建并且值相同，那么就会引用相同的对象&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+Integer m = 123;
+Integer n = 123;
+System.out.println(m == n); // true
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;基本类型对应缓存池如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;boolean values true and false&lt;/li&gt;
+&lt;li&gt;all byte values&lt;/li&gt;
+&lt;li&gt;short values between -128 and 127&lt;/li&gt;
+&lt;li&gt;int values between -128 and 127&lt;/li&gt;
+&lt;li&gt;char in the range \u0000 to \u007F&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在使用这些基本类型对应的包装类型时，就可以直接使用缓冲池中的对象。&lt;/p&gt;
+&lt;p&gt;如果在缓存池之外：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+Integer m = 323;
+Integer n = 323;
+System.out.println(m == n); // false
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;string&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#string&#34;&gt;#&lt;/a&gt; String&lt;/h2&gt;
+&lt;h3 id=&#34;概览&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概览&#34;&gt;#&lt;/a&gt; 概览&lt;/h3&gt;
+&lt;p&gt;String 被声明为 final，因此它是不可继承的&lt;/p&gt;
+&lt;p&gt;内部使用 char 存储数据，该数组被声明为 final，这意味着 value 数组初始化之后，就不能再引用其他数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public final class String
+    implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence &amp;#123;
+    /** The value is used for character storage. */
+    private final char value[];
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;不可变的好处&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#不可变的好处&#34;&gt;#&lt;/a&gt; 不可变的好处&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;可以使用 hash 值&lt;br&gt;
+因为 String hash 值经常被使用，例如 String 用作 HashMap 的 Key，不可变的特性使得 HashMap 的值也不可变，因此只需要做一次计算就够了&lt;/li&gt;
+&lt;li&gt;String pool 的需要&lt;br&gt;
+如果一个 String 对象以及被创建过了，那么就会从 String pool 中取得引用。只有 String 是不可变的，才能使用 String pool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/f76067a5-7d5f-4135-9549-8199c77d8f1c.jpg&#34; alt=&#34;String 缓存池&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;安全性&lt;br&gt;
+ String 经常被作为参数，String 的不可变性保证参数不可变&lt;/li&gt;
+&lt;li&gt;线性安全&lt;br&gt;
+ String 不可变天生具备线性安全特性，可以在多个线程中安全使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;string-stringbuffer-stringbuilder&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#string-stringbuffer-stringbuilder&#34;&gt;#&lt;/a&gt; String、StringBuffer、StringBuilder&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;可变性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;String 不可变&lt;/li&gt;
+&lt;li&gt;StringBuffer 和 StringBuilder 可变&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;线程安全&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;String 不可变，因此是线程安全的&lt;/li&gt;
+&lt;li&gt;StringBuffer 是线程安全的，因为内部是使用 synchronized 进行同步&lt;/li&gt;
+&lt;li&gt;StringBuilder 不是线程安全的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;stringintern&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stringintern&#34;&gt;#&lt;/a&gt; String.intern()&lt;/h3&gt;
+&lt;p&gt;使用 String.intern () 可以保证相同内容的字符串变量引用同一个内存对象&lt;/p&gt;
+&lt;p&gt;s1 和 s2 采用 new String () 的方式创建了两个不同的对象，而 s3 是通过 s1.intern () 方式获取一个对象的引用。intern 首先把 s1 的引用对象方式 String pool (字符串常量池) 中，然后返回这个对象的引用，因此 s3 和 s4 引用的是同一个字符串常量池中的对象，所以 s3 == s4&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+    String s1 = new String(&amp;quot;aaa&amp;quot;);
+    String s2 = new String(&amp;quot;aaa&amp;quot;);
+    System.out.println(s1 == s2);
+    String s3 = s1.intern();
+    System.out.println(s3 == s1);
+    String s4 = s1.intern();
+    System.out.println(s3 == s4);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果是采用 “bbb” 这种使用双引号的形式创建字符串实例，会自动地将新建的对象放入 String Pool 中。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+String s4 = &amp;quot;bbb&amp;quot;;
+String s5 = &amp;quot;bbb&amp;quot;;
+System.out.println(s4 == s5);  // true
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;HotSpot 中的字符串常量池保存在哪里？永久代？方法区还是堆区？&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;运行时常量池 (Runntime Constant Pool) 是虚拟机规范中是方法区的一部分，在加载类和结构到虚拟机以后，就会创建对应的运行时常量是；而字符串常量池是这个过程中常量字符串存放的位置。所以从这个角度，字符串常量池属于虚拟机规范中的方法区，它是一个逻辑上的概念；而堆区，永久代以及原空间是实际的存放位置&lt;/li&gt;
+&lt;li&gt;不同虚拟机对虚拟机的规范 (比如方法区) 是不一样的，只有 HotSpot 才有永久代的概念&lt;/li&gt;
+&lt;li&gt;HotSpot 也是发展的，由于一些问题的存在 HotSpot 考虑主键去永久代，对于不同版本的 JDK，实际的存储位置是有差异的，具体如下&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;JDK 版本&lt;/th&gt;
+&lt;th&gt;是否有永久代，字符串常量池放在哪里？&lt;/th&gt;
+&lt;th&gt;方法区逻辑上规范，由哪些实际的部分实现的？&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;jdk1.6 及之前&lt;/td&gt;
+&lt;td&gt;有永久代，运行时常量池（包括字符串常量池），静态变量存放在永久代上&lt;/td&gt;
+&lt;td&gt;这个时期方法区在 HotSpot 中是由永久代来实现的，以至于这个时期说方法区就是指永久代&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;jdk1.7&lt;/td&gt;
+&lt;td&gt;有永久代，但已经逐步 “去永久代”，字符串常量池、静态变量移除，保存在堆中；&lt;/td&gt;
+&lt;td&gt;这个时期方法区在 HotSpot 中由永久代（类型信息、字段、方法、常量）和堆（字符串常量池、静态变量）共同实现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;jdk1.8 及之后&lt;/td&gt;
+&lt;td&gt;取消永久代，类型信息、字段、方法、常量保存在本地内存的元空间，但字符串常量池、静态变量仍在堆中&lt;/td&gt;
+&lt;td&gt;这个时期方法区在 HotSpot 中由本地内存的元空间（类型信息、字段、方法、常量）和堆（字符串常量池、静态变量）共同实现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;运算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#运算&#34;&gt;#&lt;/a&gt; 运算&lt;/h2&gt;
+&lt;h3 id=&#34;参数传递&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参数传递&#34;&gt;#&lt;/a&gt; 参数传递&lt;/h3&gt;
+&lt;p&gt;Java 的参数是以值得形式传入方法中，而不是引用传递&lt;/p&gt;
+&lt;p&gt;以下代码中 Dog dog 的 dog 是一个指针，存储的是对象的地址。在将一个参数传入一个方法是，本质上是将对象的地址以值得形式传递到形参中，因此在方法中改变指针引用对象，那么这两个指针此时指向得是完全不同得对象，一方对象得改变，对另一方没什么影响&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class Dog &amp;#123;
+    String name;
+
+    Dog(String name) &amp;#123;
+        this.name = name;
+    &amp;#125;
+
+    String getName() &amp;#123;
+        return this.name;
+    &amp;#125;
+
+    void setName(String name) &amp;#123;
+        this.name = name;
+    &amp;#125;
+
+    String getObjectAddress() &amp;#123;
+        return super.toString();
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class PassByValueExample &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        Dog dog = new Dog(&amp;quot;A&amp;quot;);
+        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+        func(dog);
+        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+        System.out.println(dog.getName());          // A
+    &amp;#125;
+
+    private static void func(Dog dog) &amp;#123;
+        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+        dog = new Dog(&amp;quot;B&amp;quot;);
+        System.out.println(dog.getObjectAddress()); // Dog@74a14482
+        System.out.println(dog.getName());          // B
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是如果在方法中改变对象得字段值，会改变原对象的该字段值，因为改变的是同一个地址指向的内容&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+class PassByValueExample &amp;#123;
+    public static void main(String[] args) &amp;#123;
+        Dog dog = new Dog(&amp;quot;A&amp;quot;);
+        func(dog);
+        System.out.println(dog.getName());          // B
+    &amp;#125;
+
+    private static void func(Dog dog) &amp;#123;
+        dog.setName(&amp;quot;B&amp;quot;);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;float-与-double&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#float-与-double&#34;&gt;#&lt;/a&gt; float 与 double&lt;/h2&gt;
+&lt;p&gt;1.1 字面属于 double 类型，不能直接将 1.1 赋值给 float 变量，因为这是向下转型。Java 不能隐士执行向下转型，因为这样会使精度变低&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+// float f = 1.1; // 会报错
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1.1f 字面量才是 float 类型&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+float f = 1.1f;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;隐式类型转换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#隐式类型转换&#34;&gt;#&lt;/a&gt; 隐式类型转换&lt;/h2&gt;
+&lt;p&gt;因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式的将 int 类型转为 short 类型&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+short s1 = 1;
+// s1 = s1 + 1; // s1 + 1 被隐式的转换为int类型，因为int类型不能隐式转换为short，因此报错
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是使用 += 运算符可以执行隐式类型转换&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+short s1 = 1;
+s1 += 1;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面的语句相当于 s1 + 1 的计算结果进行了向下转型&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+s1 = (short) (s1 + 1);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;switch&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#switch&#34;&gt;#&lt;/a&gt; switch&lt;/h2&gt;
+&lt;p&gt;从 java7 开始，可以在 switch 条件判断语句中使用 String 对象&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+   String str = &amp;quot;ccc&amp;quot;;
+   switch (str) &amp;#123;
+       case &amp;quot;aaa&amp;quot;: &amp;#123;
+           System.out.println(&amp;quot;aaa&amp;quot;);
+           break;
+       &amp;#125;
+       case &amp;quot;bbb&amp;quot;: &amp;#123;
+           System.out.println(&amp;quot;bbb&amp;quot;);
+           break;
+       &amp;#125;
+       default:
+           System.out.println(&amp;quot;没有啊&amp;quot;);
+   &amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意：switch-case 语句中，break 尤为重要，如果不加 break 作为结束标志，switch 会从匹配到的第一个值之后，无视后来的所有 case 和 default 关键字，执行到结束&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;switch 不支持 long，是因为 switch 的设计初衷是对那些只有少数几个值进行等值判断，如果值过于复杂，那么还是用 if 合适&lt;/p&gt;
+&lt;p&gt;jdk8 中，switch 支持 char, byte, short, int, Character, Byte, Short, Integer, String, or an enum&lt;/p&gt;
+&lt;h2 id=&#34;继承&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#继承&#34;&gt;#&lt;/a&gt; 继承&lt;/h2&gt;
+&lt;h3 id=&#34;访问权限&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#访问权限&#34;&gt;#&lt;/a&gt; 访问权限&lt;/h3&gt;
+&lt;p&gt;java 中有三个访问权限修饰符:private、protected 以及 public，如果不加访问修饰符，表示包级可见&lt;/p&gt;
+&lt;p&gt;可以对类或类中的成员 (字段以及方法) 添加修饰符&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类可见表示其他类可以用这个类创建实例对象&lt;/li&gt;
+&lt;li&gt;成员可见表示其他类可以用这个类的实例对象访问到该成员&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;protected 用于修饰成员，表示在继承体系中成员对于子类可见，但是这个访问修饰符对于类没有意义。&lt;/p&gt;
+&lt;p&gt;设计良好的模块会隐藏所有的实现细节，把它的 API 与它的内部实现清晰的隔离开来。模块之间只通过它们的 API 进行通信，一个模块不需要知道其他模块的内部工作情况，这个概念被称为信息的隐藏或者封装。因此访问权限应当尽可能的使每个类或者成员不被外界访问。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果字类重写了父类的方法，那么子类中该方法的访问权限不允许低于父类的访问级别，这是为了确保使用父类的地方都可以使用字类实例，也就确保满足里氏替换原则&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;抽象类与接口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#抽象类与接口&#34;&gt;#&lt;/a&gt; 抽象类与接口&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;抽象类&lt;/p&gt;
+&lt;p&gt;抽象类和抽象方法都是用 abstract 关键字进行声明，抽象类一般会包含抽象方法，抽象方法一定在抽象类中 (换句话说，有抽象方法的类，一定是抽象类)&lt;/p&gt;
+&lt;p&gt;抽象类和普通类最大的区别就是，抽象类不能实例化，需要继承抽象类才能实例化子类&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public abstract class AbstractClassExample &amp;#123;
+
+    protected int x;
+    private int y;
+
+    public abstract void func1();
+
+    public void func2() &amp;#123;
+        System.out.println(&amp;quot;func2&amp;quot;);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class AbstractExtendClassExample extends AbstractClassExample &amp;#123;
+    @Override
+    public void func1() &amp;#123;
+        System.out.println(&amp;quot;func1&amp;quot;);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+// AbstractClassExample ac1 = new AbstractClassExample(); // &#39;AbstractClassExample&#39; is abstract; cannot be instantiated
+AbstractClassExample ac2 = new AbstractExtendClassExample();
+ac2.func1();
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;接口&lt;/p&gt;
+&lt;p&gt;接口是抽象类的延申，在 Java8 之前，它可以看成一个完全抽象的类，也就是说他不能有任何的方法实现&lt;/p&gt;
+&lt;p&gt;在 java8 开始，接口也可以拥有默认的方法实现，这是因为不支持默认方法的接口维护成本太高了，在 Java8 之前，如果一个接口想要添加新方法，那么就要修改所有实现了该接口的类&lt;/p&gt;
+&lt;p&gt;接口的成员 (字段 + 方法) 默认都是 public，并且不允许自定义为 private 或者 protected&lt;/p&gt;
+&lt;p&gt;接口的字段默认都是 static 和 final 的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public interface InterfaceExample &amp;#123;
+    void func1();
+
+    default void func2()&amp;#123;
+        System.out.println(&amp;quot;func2&amp;quot;);
+    &amp;#125;
+
+    int x = 123;
+    // int y;               // Variable &#39;y&#39; might not have been initialized
+    public int z = 0;       // Modifier &#39;public&#39; is redundant for interface fields
+    // private int k = 0;   // Modifier &#39;private&#39; not allowed here
+    // protected int l = 0; // Modifier &#39;protected&#39; not allowed here
+    // private void fun3(); // Modifier &#39;private&#39; not allowed here
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class InterfaceImplementExample implements InterfaceExample &amp;#123;
+    @Override
+    public void func1() &amp;#123;
+        System.out.println(&amp;quot;func1&amp;quot;);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+// InterfaceExample ie1 = new InterfaceExample(); // &#39;InterfaceExample&#39; is abstract; cannot be instantiated
+InterfaceExample ie2 = new InterfaceImplementExample();
+ie2.func1();
+System.out.println(InterfaceExample.x);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;比较&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;从设计层面上看，抽象类提供了一种 IS-A 关系，那么就必须满足里氏替换原则，即字类对象必须能够替换掉所有父类对象。而接口更像一个 Like-A 关系，他只是提供一种方法实现契约，并不要求接口和实现接口的类具有 IS-A 关系&lt;/li&gt;
+&lt;li&gt;从使用上来看，一个类可以实现多个接口，但不能继承多个类&lt;/li&gt;
+&lt;li&gt;接口的字段只能是 static 和 final 类型的，而抽象类的字段没有这种限制&lt;/li&gt;
+&lt;li&gt;接口的成员只能是 public 的，而抽象类的成员可以有多种访问权限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;使用选择&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;使用接口：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要让不相关的类都实现一个方法例如不相关的类都可以实现 Compareable 接口中的 compareTo () 方法&lt;/li&gt;
+&lt;li&gt;需要使用多重继承&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用抽象类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要在几个相关的类中共享代码&lt;/li&gt;
+&lt;li&gt;需要能控制继承的成员访问权限，而不是都为 public&lt;/li&gt;
+&lt;li&gt;需要继承非静态字段和非常量字段&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在很多情况下，接口优先于抽象类，因为接口没有抽象类严格的类层次结构要求，可以灵活的为一个类添加行为，并且从 Java8 开始，接口也可以有默认的方法实现，使得修改接口的成本也变得很低&lt;/p&gt;
+&lt;h3 id=&#34;super&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#super&#34;&gt;#&lt;/a&gt; super&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;访问父类的构造函数，可以使用 super () 函数访问父类的构造函数，从而委托父类完成一些初始化工作&lt;/li&gt;
+&lt;li&gt;访问父类的成员，如果子类重写了父类中的某个方法的实现，可以通过 super 关键字来引用父类的方法实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class SuperExample &amp;#123;
+    protected int x;
+    protected int y;
+
+    public SuperExample(int x, int y) &amp;#123;
+        this.x = x;
+        this.y = y;
+    &amp;#125;
+
+    public void func() &amp;#123;
+        System.out.println(&amp;quot;SuperExample.func()&amp;quot;);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class SuperExtendExample extends SuperExample &amp;#123;
+    private int z;
+
+    public SuperExtendExample(int x, int y, int z) &amp;#123;
+        super(x, y);
+        this.z = z;
+    &amp;#125;
+
+    @Override
+    public void func() &amp;#123;
+        super.func();
+        System.out.println(&amp;quot;SuperExtendExample.func()&amp;quot;);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+SuperExample e = new SuperExtendExample(1, 2, 3);
+e.func();
+
+// SuperExample.func()
+// SuperExtendExample.func()
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;重写与重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重写与重载&#34;&gt;#&lt;/a&gt; 重写与重载&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;重写 (Override)&lt;br&gt;
+ 存在于继承体系中，指字类实现了一个与父类在方法声明上完全相同的方法&lt;br&gt;
+为了满足里氏替换原则，重写有以下两个限制&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字类方法的访问权限必须大于等于父类方法&lt;/li&gt;
+&lt;li&gt;字类方法的返回类型必须是父类方法的放回类型或为其子类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重载 (Overload)&lt;br&gt;
+ 存在于同一个类中，指一个方法已经存在的方法名称上相同，但是&lt;strong&gt;参数类型&lt;/strong&gt;、&lt;strong&gt;个数&lt;/strong&gt;、&lt;strong&gt;顺序&lt;/strong&gt;至少有一个不同&lt;br&gt;
+注意： 返回值不同，其他都相同不算是重载 (所以这种非重载方法会报错)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;object通用方法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#object通用方法&#34;&gt;#&lt;/a&gt; Object 通用方法&lt;/h2&gt;
+&lt;h3 id=&#34;概览-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概览-2&#34;&gt;#&lt;/a&gt; 概览&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public final native Class&amp;lt;?&amp;gt; getClass()
+
+public native int hashCode()
+
+public boolean equals(Object obj)
+
+protected native Object clone() throws CloneNotSupportedException
+
+public String toString()
+
+public final native void notify()
+
+public final native void notifyAll()
+
+public final native void wait(long timeout) throws InterruptedException
+
+public final void wait(long timeout, int nanos) throws InterruptedException
+
+public final void wait() throws InterruptedException
+
+protected void finalize() throws Throwable &amp;#123;&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;equals&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#equals&#34;&gt;#&lt;/a&gt; equals()&lt;/h3&gt;
+&lt;h4 id=&#34;等价关系&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#等价关系&#34;&gt;#&lt;/a&gt; 等价关系&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;自反性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+x.equals(x); // true
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;对称性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+x.equals(y) == y.equals(x); // true
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;传递性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+if(x.equals(y) &amp;amp;&amp;amp; y.equals(z))
+     x.equals(z); // true
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;一致性&lt;br&gt;
+多次调用 equals 方法的结果不变&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+x.equals(y) == x.equals(y); // true
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;与 NULL 的比较&lt;br&gt;
+对于任何不是 NULL 的对象 x 调用 x.equals (null) 结果都为 false&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+x.equals(null); // false
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;equals与&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#equals与&#34;&gt;#&lt;/a&gt; equals 与 ==&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;对于基本类型，== 判断连个值是否相等，基本类型没有 equals&lt;/li&gt;
+&lt;li&gt;对于引用类型，== 判断两个变量是否引用同一个对象，而 equals 判断引用对象的对象是否等价&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+Integer x = new Integer(1);
+Integer y = new Integer(1);
+System.out.println(x.equals(y)); // true
+System.out.println(x == y);      // false
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;实现&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实现&#34;&gt;#&lt;/a&gt; 实现&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;检查是否为同一个对象的引用，如果是直接返回 true；&lt;/li&gt;
+&lt;li&gt;检查是否是同一个类型，如果不是，直接返回 false；&lt;/li&gt;
+&lt;li&gt;将 Object 对象进行转型；&lt;/li&gt;
+&lt;li&gt;判断每个关键域是否相等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class EqualExample &amp;#123;
+    private int x;
+    private int y;
+    private int z;
+
+    public EqualExample(int x, int y, int z) &amp;#123;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    &amp;#125;
+
+    @Override
+    public boolean equals(Object o) &amp;#123;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        EqualExample that = (EqualExample) o;
+
+        if (x != that.x) return false;
+        if (y != that.y) return false;
+        return z == that.z;
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;hashcode&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hashcode&#34;&gt;#&lt;/a&gt; hashCode()&lt;/h3&gt;
+&lt;p&gt;hashCode 返回散列值，而 Equals 是用来判断两个对象是否等价。等价的两个对象的散列值一定相同，但散列值相同的两个对象不一定等价&lt;/p&gt;
+&lt;p&gt;在重写 equals 方法的同时应当也重写 hashCode 方法，保证等价的两个对象散列值也相等&lt;/p&gt;
+&lt;p&gt;下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中。我们希望将这两个对象当成一样的，只在集合中添加一个对象，但是因为 EqualExample 没有实现 hasCode () 方法，因此这两个对象的散列值是不同的，最终导致集合添加了两个等价的对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+EqualExample e1 = new EqualExample(1, 1, 1);
+EqualExample e2 = new EqualExample(1, 1, 1);
+System.out.println(e1.equals(e2)); // true
+HashSet&amp;lt;EqualExample&amp;gt; set = new HashSet&amp;lt;&amp;gt;();
+set.add(e1);
+set.add(e2);
+System.out.println(set.size());   // 2
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;tostring&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tostring&#34;&gt;#&lt;/a&gt; toString()&lt;/h3&gt;
+&lt;p&gt;默认返回 ToStringExample@455617c 这种形式，其中 @后面的数值为散列码的无符号十六进制表示&lt;/p&gt;
+&lt;h3 id=&#34;clone&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#clone&#34;&gt;#&lt;/a&gt; clone()&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;cloneable&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;clone () 是 Object 的 protected 方法，他不是 public，一个类不去显示的重写 clone，其他类就不能直接去调用该类实例的 clone 方法&lt;/p&gt;
+&lt;p&gt;重写 clone&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class CloneExample &amp;#123;
+    private int a;
+    private int b;
+
+    @Override
+    protected CloneExample clone() throws CloneNotSupportedException &amp;#123;
+        return (CloneExample)super.clone();
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是此时调用该 clone 方法，还是会报错&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;java.lang.CloneNotSupportedException: CloneExample&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;尽管 clone 并不是 Cloneable 接口的方法，但 Cloneable 规定，如果一个类没有实现 Cloneable 接口又调用了 clone 方法，就会报 CloneNotSupportedException&lt;/p&gt;
+&lt;h4 id=&#34;浅拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浅拷贝&#34;&gt;#&lt;/a&gt; 浅拷贝&lt;/h4&gt;
+&lt;p&gt;拷贝对象和原始对象的引用类型引用同一个对象&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class ShallowCloneExample implements Cloneable &amp;#123;
+    private int[] arr;
+
+    public ShallowCloneExample() &amp;#123;
+        arr = new int[10];
+        for (int i = 0; i &amp;lt; arr.length; i++) &amp;#123;
+            arr[i] = i;
+        &amp;#125;
+    &amp;#125;
+
+    public void set(int index, int value) &amp;#123;
+        arr[index] = value;
+    &amp;#125;
+
+    public int get(int index) &amp;#123;
+        return arr[index];
+    &amp;#125;
+
+    @Override
+    protected ShallowCloneExample clone() throws CloneNotSupportedException &amp;#123;
+        return (ShallowCloneExample) super.clone();
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+ShallowCloneExample e1 = new ShallowCloneExample();
+ShallowCloneExample e2 = null;
+try &amp;#123;
+    e2 = e1.clone();
+&amp;#125; catch (CloneNotSupportedException e) &amp;#123;
+    e.printStackTrace();
+&amp;#125;
+e1.set(2, 222);
+System.out.println(e2.get(2)); // 222
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;深拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#深拷贝&#34;&gt;#&lt;/a&gt; 深拷贝&lt;/h4&gt;
+&lt;p&gt;拷贝对象和原始对象的引用类型引用不同对象&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class DeepCloneExample implements Cloneable &amp;#123;
+    private int[] arr;
+
+    public DeepCloneExample() &amp;#123;
+        arr = new int[10];
+        for (int i = 0; i &amp;lt; arr.length; i++) &amp;#123;
+            arr[i] = i;
+        &amp;#125;
+    &amp;#125;
+
+    public void set(int index, int value) &amp;#123;
+        arr[index] = value;
+    &amp;#125;
+
+    public int get(int index) &amp;#123;
+        return arr[index];
+    &amp;#125;
+
+    @Override
+    protected DeepCloneExample clone() throws CloneNotSupportedException &amp;#123;
+        DeepCloneExample result = (DeepCloneExample) super.clone();
+        result.arr = new int[arr.length];
+        for (int i = 0; i &amp;lt; arr.length; i++) &amp;#123;
+            result.arr[i] = arr[i];
+        &amp;#125;
+        return result;
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+DeepCloneExample e1 = new DeepCloneExample();
+DeepCloneExample e2 = null;
+try &amp;#123;
+    e2 = e1.clone();
+&amp;#125; catch (CloneNotSupportedException e) &amp;#123;
+    e.printStackTrace();
+&amp;#125;
+e1.set(2, 222);
+System.out.println(e2.get(2)); // 2
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;关键字&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关键字&#34;&gt;#&lt;/a&gt; 关键字&lt;/h2&gt;
+&lt;h3 id=&#34;final&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#final&#34;&gt;#&lt;/a&gt; final&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;数据&lt;br&gt;
+声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能改变的常量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于基本类型，final 使数据值不变&lt;/li&gt;
+&lt;li&gt;对于引用类型，final 使引用不变，也就不能引用其他对象，但是引用的对象本身使可以修改的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方法&lt;br&gt;
+声明方法不能被字类重写&lt;br&gt;
+ Private 方法隐式的被指定为 final，如果子类中定义的方法基类中的一个 private 方法名相同，此时子类的方法不是重写方法，而是在子类中定义了一个新方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;类&lt;br&gt;
+声明该类不允许被继承&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;static&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#static&#34;&gt;#&lt;/a&gt; static&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;静态变量
+&lt;ul&gt;
+&lt;li&gt;静态变量：又称为类变量，也就是说这个变量是属于类的，类所有的额实例都共享静态变量，可以直接通过类名来访问它；静态变量在内存中只存在一份&lt;/li&gt;
+&lt;li&gt;实例变量：没创建一个实例，就会产生一个实例变量，它与该实例同生共死&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class A &amp;#123;
+    private int x;         // 实例变量
+    private static int y;  // 静态变量
+
+    public static void main(String[] args) &amp;#123;
+        // int x = A.x;  // Non-static field &#39;x&#39; cannot be referenced from a static context
+        int yy = A.y;
+        A a = new A();
+        int x = a.x;
+        int y = A.y;
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;静态方法&lt;br&gt;
+静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法 (abstract)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public abstract class A &amp;#123;
+    public static void func1()&amp;#123;
+    &amp;#125;
+    // public abstract static void func2();  // Illegal combination of modifiers: &#39;abstract&#39; and &#39;static&#39;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;只能访问所属类的静态字段和静态方法，方法中不能有 this 和 supper 关键字&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class Demo11 &amp;#123;
+
+    private int a = 10;
+    private static int b = 20;
+
+    public static void main(String[] args) &amp;#123;
+        // int aa = a; // Non-static field &#39;a&#39; cannot be referenced from a static context
+        // this.fun(); // this&#39; cannot be referenced from a static context
+        int bb = b;
+    &amp;#125;
+
+    public void fun()&amp;#123;
+        System.out.println(&amp;quot;Demo11.fun&amp;quot;);
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;静态语句块&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;静态语句块在类初始化时运行一次&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class A &amp;#123;
+    static &amp;#123;
+        System.out.println(&amp;quot;123&amp;quot;);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        A a1 = new A();
+        A a2 = new A();
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Html&#34;&gt;
+123
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;非静态内部类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;非静态内部类依赖于外部类的实例，而静态内部类不需要&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class OuterClass &amp;#123;
+
+    class InnerClass &amp;#123;
+
+    &amp;#125;
+
+    static class StaticInnerClass&amp;#123;
+
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        OuterClass outerClass = new OuterClass();
+        // InnerClass innerClass = new InnerClass(); // OuterClass.this&#39; cannot be referenced from a static context
+        InnerClass innerClass = outerClass.new InnerClass();
+        StaticInnerClass staticInnerClass = new StaticInnerClass();
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意：静态内部类不能访问外部类的非静态变量和方法&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;静态导包&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在使用静态变量和方法时不用再指明 ClassName，从而简化代码，但可读性大大降低&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+import static com.xxx.ClassName.*
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;初始化顺序&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序，取决于它们在代码中的顺序&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class StaticDemo12 &amp;#123;
+
+    private static String str = &amp;quot;static str变量&amp;quot;;
+
+    static &amp;#123;
+        System.out.println(&amp;quot;static 块&amp;quot;);
+    &amp;#125;
+
+    public String field = &amp;quot;实例变量&amp;quot;;
+
+
+    public StaticDemo12() &amp;#123;
+        System.out.println(&amp;quot;StaticDemo12.StaticDemo12&amp;quot;);
+    &amp;#125;
+
+    &amp;#123;
+        System.out.println(&amp;quot;普通语句块&amp;quot;);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        StaticDemo12 staticDemo12 = new StaticDemo12();
+    &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Html&#34;&gt;
+static 块
+普通语句块
+StaticDemo12.StaticDemo12
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;存在继承的情况下，初始化的顺序如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;父类 (静态变量、静态语句块)&lt;/li&gt;
+&lt;li&gt;子类 (静态变量、静态语句块)&lt;/li&gt;
+&lt;li&gt;父类 (实例变量、普通语句块)&lt;/li&gt;
+&lt;li&gt;父类 (构造函数)&lt;/li&gt;
+&lt;li&gt;子类 (实例变量、普通语句块)&lt;/li&gt;
+&lt;li&gt;子类 (构造函数)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;反射&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#反射&#34;&gt;#&lt;/a&gt; 反射&lt;/h2&gt;
+&lt;p&gt;每个类都有一个 Class 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的.class 文件，该文件内容保存着 Class 对象&lt;/p&gt;
+&lt;p&gt;类加载相当于 Class 对象的加载，类在第一次使用时在动态加载到 JVM 中，可以使用 Class.forName (“com.mysql.jdbc.Driver”) 这种方式来控制类的加载，该方法会返回一个 Class 对象。&lt;/p&gt;
+&lt;p&gt;反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的.class 不存在也可以加载进来&lt;/p&gt;
+&lt;p&gt;Class 和 java.lang.reflect 一起对反射提供了支持，java.lang.reflect 类库主要包含以下三个类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Field：可以使用 get () 和 set () 方法读取和修改 Field 对象关联的字段&lt;/li&gt;
+&lt;li&gt;Method：可以使用 invoke () 方法调用与 Method 对象关联的方法&lt;/li&gt;
+&lt;li&gt;Constructor：可以用 Constructor 创建新的对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;异常&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#异常&#34;&gt;#&lt;/a&gt; 异常&lt;/h2&gt;
+&lt;p&gt;Thorwable 可以用来表示任何可以作为异常抛出的类，分为两种：Error 和 Exception。其中 Error 表示 JVM 无法处理的错误，Exception 分为两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;受检异常：需要用 try…catch 语句捕获并进行处理，并且可以从一场中恢复&lt;/li&gt;
+&lt;li&gt;非受检异常：是程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/PPjwP.png&#34; alt=&#34;异常&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;泛型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型&#34;&gt;#&lt;/a&gt; 泛型&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;
+public class Box&amp;lt;T&amp;gt; &amp;#123;
+    // T stands for &amp;quot;Type&amp;quot;
+    private T t;
+    public void set(T t) &amp;#123; this.t = t; &amp;#125;
+    public T get() &amp;#123; return t; &amp;#125;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;注解&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注解&#34;&gt;#&lt;/a&gt; 注解&lt;/h2&gt;
+&lt;p&gt;Java 注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用。&lt;/p&gt;
 </content>
         <category term="Java" />
-        <updated>2023-08-10T08:29:50.063Z</updated>
+        <updated>2024-02-18T08:13:44.946Z</updated>
     </entry>
     <entry>
-        <id>http://1405904364.github.io/2023/08/10/Java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</id>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</id>
         <title>函数式编程</title>
-        <link rel="alternate" href="http://1405904364.github.io/2023/08/10/Java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
         <content type="html">&lt;h1 id=&#34;函数式编程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数式编程&#34;&gt;#&lt;/a&gt; 函数式编程&lt;/h1&gt;
 &lt;p&gt;一种 语法优雅、简洁健壮、高并发、易于测试和调试 的编程方式，这就是函数式编程 (FP) 的意义所在。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -612,6 +1680,6 @@ interface InterfaceExample&amp;#123;
 &lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="Java" />
-        <updated>2023-08-10T08:29:50.061Z</updated>
+        <updated>2024-02-18T08:13:44.938Z</updated>
     </entry>
 </feed>

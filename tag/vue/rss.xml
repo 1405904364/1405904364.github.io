@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Live My Life • Posts by &#34;vue&#34; tag</title>
+        <link>http://1405904364.github.io</link>
+        <description>个人学习使用</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+        <lastBuildDate>Sun, 18 Feb 2024 16:13:45 +0800</lastBuildDate>
+        <category>自控</category>
+        <category>linux</category>
+        <category>PowerDesigner</category>
+        <category>Vuex</category>
+        <category>npm</category>
+        <category>Gradle</category>
+        <category>Java</category>
+        <category>maven</category>
+        <category>Mysql</category>
+        <category>Sql</category>
+        <category>SqlServer</category>
+        <category>Vue</category>
+        <category>webService</category>
+        <category>Html</category>
+        <category>SpringCloud</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/3.%E9%A1%B9%E7%9B%AE/%E8%B8%A9%E5%9D%91%E7%BB%8F%E5%8E%86/</guid>
+            <title>Vue项目踩坑经历</title>
+            <link>http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/3.%E9%A1%B9%E7%9B%AE/%E8%B8%A9%E5%9D%91%E7%BB%8F%E5%8E%86/</link>
+            <category>Vue</category>
+            <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+            <description><![CDATA[ &lt;blockquote&gt;
+&lt;h3 id=&#34;vue前端获取数据做动态路由&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vue前端获取数据做动态路由&#34;&gt;#&lt;/a&gt; Vue 前端获取数据，做动态路由&lt;/h3&gt;
+&lt;p&gt;数据结构符合 router 结构，path、name、meta 等属性，&lt;/p&gt;
+&lt;p&gt;其中 path 不要以反斜杠 / 开头，会造成浏览器 url 错误&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;父级菜单权限未绑定导致前端菜单项缺失&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#父级菜单权限未绑定导致前端菜单项缺失&#34;&gt;#&lt;/a&gt; 父级菜单权限未绑定，导致前端菜单项缺失&lt;/h3&gt;
+&lt;p&gt;从子节点，递归向父节点查询，补全丢失的父节点数据&lt;/p&gt;
+&lt;p&gt;（在项目中，有的子节点权限绑定完好，但是其父节点未绑定权限，导致前端菜单项缺失该菜单，所以需要递归，将其父节点至根节点数据补充完整）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;动态路由后页面缓存失效&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#动态路由后页面缓存失效&#34;&gt;#&lt;/a&gt; 动态路由后，页面缓存失效&lt;/h3&gt;
+&lt;p&gt;组件 name 属性与缓存页面数据项对应不上&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

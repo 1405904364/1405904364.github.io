@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Live My Life • Posts by &#34;npm&#34; tag</title>
+        <link>http://1405904364.github.io</link>
+        <description>个人学习使用</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+        <lastBuildDate>Sun, 18 Feb 2024 16:13:45 +0800</lastBuildDate>
+        <category>自控</category>
+        <category>linux</category>
+        <category>PowerDesigner</category>
+        <category>Vuex</category>
+        <category>npm</category>
+        <category>Gradle</category>
+        <category>Java</category>
+        <category>maven</category>
+        <category>Mysql</category>
+        <category>Sql</category>
+        <category>SqlServer</category>
+        <category>Vue</category>
+        <category>webService</category>
+        <category>Html</category>
+        <category>SpringCloud</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+            <title>npm更换镜像</title>
+            <link>http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE/%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+            <category>npm</category>
+            <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;20240130解决npm更换镜像无效问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#20240130解决npm更换镜像无效问题&#34;&gt;#&lt;/a&gt; 20240130 解决 npm 更换镜像无效问题&lt;/h2&gt;
+&lt;p&gt;最近公司 gitlab 服务器经常崩溃，需要重整代码，跑前端代码发现 npm install 一直是失败的情况，&lt;br&gt;
+&lt;img data-src=&#34;/image/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE/20d507fe797343079e85234931964629.png&#34; alt=&#34;npm install失败&#34;&gt;&lt;br&gt;
+意思是证书失效了&lt;/p&gt;
+&lt;p&gt;网上看了才知道，之前用的淘宝镜像源 (&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3JlZ2lzdHJ5Lm5wbS50YW9iYW8ub3Jn&#34;&gt;http://registry.npm.taobao.org&lt;/span&gt;) 失效了，所以不管安装什么都会报错&lt;/p&gt;
+&lt;p&gt;重新设置 npm 镜像为&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWdpc3RyeS5ucG1taXJyb3IuY29t&#34;&gt; https://registry.npmmirror.com&lt;/span&gt;&lt;br&gt;
+npm config set registry &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWdpc3RyeS5ucG1taXJyb3IuY29t&#34;&gt;https://registry.npmmirror.com&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;设置好了之后，在项目以外的地方使用 npm install 命令没有问题，但是在项目中使用依旧报错，这里就需要使用命令查看一下 npm 的镜像了&lt;br&gt;
+ npm config get registry&lt;/p&gt;
+&lt;p&gt;结果得到的依旧是淘宝镜像源 (&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3JlZ2lzdHJ5Lm5wbS50YW9iYW8ub3Jn&#34;&gt;http://registry.npm.taobao.org&lt;/span&gt;)，为什么呢？&lt;/p&gt;
+&lt;p&gt;因为在项目中有一个.npmrc 的文件，该文件的优先级比 npm 配置的镜像更高，进入到该文件可以看到&lt;br&gt;
+ registry=&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWdpc3RyeS5ucG0udGFvYmFvLm9yZy8=&#34;&gt;https://registry.npm.taobao.org/&lt;/span&gt;&lt;br&gt;
+&lt;img data-src=&#34;/image/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240130150059.png&#34; alt=&#34;.npmrc 淘宝镜像&#34;&gt;&lt;/p&gt;
+&lt;p&gt;修改该文件的 registry 配置为&lt;br&gt;
+ registry=&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWdpc3RyeS5ucG1taXJyb3IuY29tLw==&#34;&gt;https://registry.npmmirror.com/&lt;/span&gt;&lt;br&gt;
+&lt;img data-src=&#34;/image/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240130150204.png&#34; alt=&#34;.npmrc mirror镜像&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这时再次执行 npm config get registry 就能看到镜像改为我们想要的镜像了&lt;br&gt;
+再次执行 npm install&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

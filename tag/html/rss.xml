@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Live My Life • Posts by &#34;html&#34; tag</title>
+        <link>http://1405904364.github.io</link>
+        <description>个人学习使用</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+        <lastBuildDate>Sun, 18 Feb 2024 16:13:45 +0800</lastBuildDate>
+        <category>自控</category>
+        <category>linux</category>
+        <category>PowerDesigner</category>
+        <category>Vuex</category>
+        <category>npm</category>
+        <category>Gradle</category>
+        <category>Java</category>
+        <category>maven</category>
+        <category>Mysql</category>
+        <category>Sql</category>
+        <category>SqlServer</category>
+        <category>Vue</category>
+        <category>webService</category>
+        <category>Html</category>
+        <category>SpringCloud</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/%E4%B8%89%E4%BB%B6%E5%A5%97/HTML/Canvas%E6%A0%87%E7%AD%BE/</guid>
+            <title>Canvas画布</title>
+            <link>http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/%E4%B8%89%E4%BB%B6%E5%A5%97/HTML/Canvas%E6%A0%87%E7%AD%BE/</link>
+            <category>Html</category>
+            <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;HTML &lt;canvas&gt;标签通常用于通过脚本动态绘制图形&lt;/p&gt;
+&lt;h2 id=&#34;颜色-样式和阴影&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#颜色-样式和阴影&#34;&gt;#&lt;/a&gt; 颜色、样式和阴影&lt;/h2&gt;
+&lt;h3 id=&#34;属性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#属性&#34;&gt;#&lt;/a&gt; 属性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;fillStyle 设置或返回用于填充绘画的颜色、渐变或模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;实例 1&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Html&#34;&gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;body&amp;gt;
+
+&amp;lt;canvas id=&amp;quot;myCanvas&amp;quot; width=&amp;quot;300&amp;quot; height=&amp;quot;150&amp;quot; style=&amp;quot;border:1px solid #d3d3d3;&amp;quot;&amp;gt;
+Your browser does not support the HTML5 canvas tag.&amp;lt;/canvas&amp;gt;
+
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+// 通过 id 获取canvas容器
+var c=document.getElementById(&amp;quot;myCanvas&amp;quot;);
+// 设置2d
+var ctx=c.getContext(&amp;quot;2d&amp;quot;);
+// 设置填充的颜色
+ctx.fillStyle=&amp;quot;#0000ff&amp;quot;;
+// 设置颜色显示的矩形位置
+ctx.fillRect(20,20,150,100);
+
+&amp;lt;/script&amp;gt;
+
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;实例 2&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;strokeStyle 设置或返回用于笔触的颜色、渐变或模式&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

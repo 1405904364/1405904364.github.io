@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Live My Life • Posts by &#34;sqlserver&#34; tag</title>
+        <link>http://1405904364.github.io</link>
+        <description>个人学习使用</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+        <lastBuildDate>Sun, 18 Feb 2024 16:13:45 +0800</lastBuildDate>
+        <category>自控</category>
+        <category>linux</category>
+        <category>PowerDesigner</category>
+        <category>Vuex</category>
+        <category>npm</category>
+        <category>Gradle</category>
+        <category>Java</category>
+        <category>maven</category>
+        <category>Mysql</category>
+        <category>Sql</category>
+        <category>SqlServer</category>
+        <category>Vue</category>
+        <category>webService</category>
+        <category>Html</category>
+        <category>SpringCloud</category>
+        <item>
+            <guid isPermalink="true">http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/SqlServer/%E4%BB%8B%E7%BB%8D/</guid>
+            <title>SqlServer介绍</title>
+            <link>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/SqlServer/%E4%BB%8B%E7%BB%8D/</link>
+            <category>SqlServer</category>
+            <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;microsoft-sql-server-介绍&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#microsoft-sql-server-介绍&#34;&gt;#&lt;/a&gt; Microsoft SQL Server 介绍&lt;/h1&gt;
+&lt;p&gt;Sql Server 是 Microsoft 开发的一个关系数据库管理系统（RDBMS）, 现在是世界上最常用的数据库。&lt;/p&gt;
+&lt;p&gt;Sql Server 是一个高度可扩展的产品，可以从一个单一笔记本上运行的任何东西或以高倍云服务器网络，或在两者之间任何东西。&lt;/p&gt;
+&lt;p&gt;Sql Server 1.0 在 1989 年发布，至今 Sql Server 已称为一个真正的企业信息化平台。Sql Server 2014 包括内置的商务智能工具，以及一系列的分析报告工具，可以创建数据库、备份、复制、安全性更好以及更多。&lt;/p&gt;
+&lt;h1 id=&#34;server-数据库系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#server-数据库系统&#34;&gt;#&lt;/a&gt; Server 数据库系统&lt;/h1&gt;
+&lt;p&gt;Sql Server 是一个作为服务器的数据库系统使用的，并非桌面系统，比如 MS Access。&lt;/p&gt;
+&lt;p&gt;Sql Server 被设计为在中央服务器上运行（或服务器），使多个使用者可以同时访问相同的数据，用户通常通过应用程序访问数据库。&lt;/p&gt;
+&lt;h1 id=&#34;数据库管理工具&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库管理工具&#34;&gt;#&lt;/a&gt; 数据库管理工具&lt;/h1&gt;
+&lt;p&gt;Sql Server 通过一些工具来管理数据库和编程任务。&lt;/p&gt;
+&lt;p&gt;以下是一些典型的数据库管理和编程任务，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建和维护数据库&lt;/li&gt;
+&lt;li&gt;创建和维护表&lt;/li&gt;
+&lt;li&gt;创建和维护其他数据库对象，如存储过程，视图等&lt;/li&gt;
+&lt;li&gt;创建和维护和调度数据备份&lt;/li&gt;
+&lt;li&gt;复制（例如，创建数据库副本）&lt;/li&gt;
+&lt;li&gt;创建和维护用户，角色等&lt;/li&gt;
+&lt;li&gt;优化任务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;sql-server版本&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sql-server版本&#34;&gt;#&lt;/a&gt; Sql Server 版本&lt;/h1&gt;
+&lt;p&gt;SQL Server 有很多版本。下面来看几个版本的新增功能：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SQL SERVER 2000&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;日志传送&lt;/li&gt;
+&lt;li&gt;索引视图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SQL SERVER 2005&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分区&lt;/li&gt;
+&lt;li&gt;数据库镜像（只有 SQL Server 2005 Enterprise Edition SP1 和更高版本支持异步数据库镜 - 像。）&lt;/li&gt;
+&lt;li&gt;联机索引&lt;/li&gt;
+&lt;li&gt;数据库快照&lt;/li&gt;
+&lt;li&gt;复制&lt;/li&gt;
+&lt;li&gt;故障转移群集&lt;/li&gt;
+&lt;li&gt;SQL SERVER 2008&lt;/li&gt;
+&lt;li&gt;数据压缩&lt;/li&gt;
+&lt;li&gt;资源调控器&lt;/li&gt;
+&lt;li&gt;备份压缩&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SQL SERVER 2008 R2&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;R2 标志表示这是 SQL Server 的一个中间版本，而不是一个主版本。此版本目前我的客户中，使用还是非常多，性能稳定，虽然新增功能比较少：&lt;/li&gt;
+&lt;li&gt;新增数据中心版，最大支持 256 核&lt;/li&gt;
+&lt;li&gt;Unicode 压缩&lt;/li&gt;
+&lt;li&gt;(为 Unicode 存储提供一个简单的压缩方案，通过 Unicode 压缩，可以减少 Unicode 字符对空间的占用)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SQL SERVER 2012&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AlwaysOn&lt;/li&gt;
+&lt;li&gt;Columnstore&lt;/li&gt;
+&lt;li&gt;索引增强的审计功能&lt;/li&gt;
+&lt;li&gt;大数据支持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SQL SERVER 2014&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个版本的新特效特别多，和非常有用，可以多了解下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内存优化表&lt;/li&gt;
+&lt;li&gt;备份加密&lt;/li&gt;
+&lt;li&gt;针对基数估计的新设计&lt;/li&gt;
+&lt;li&gt;AlwaysOn 增强功能&lt;/li&gt;
+&lt;li&gt;延迟持续性 （将部分或所有事务指定为延迟持久事务，从而能够缩短延迟）&lt;/li&gt;
+&lt;li&gt;分区切换和索引生成 (官网写得 Partition Switching and Indexing，感觉是有问题的，其实就是分区表的单个分区可以重建)&lt;/li&gt;
+&lt;li&gt;列存储索引缓冲池扩展 就是使用 SSD 扩展缓冲池&lt;/li&gt;
+&lt;li&gt;增量统计信息&lt;/li&gt;
+&lt;li&gt;资源调控器增强功能（–之前只能控制 CPU 和内存，2014 开始可以控制 IO）&lt;/li&gt;
+&lt;li&gt;DBCC CHECK 支持 maxdop 提示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SQL SERVER 2016&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全程加密技术 (Always Encrypted)&lt;/li&gt;
+&lt;li&gt;JSON 支持&lt;/li&gt;
+&lt;li&gt;多 TempDB 数据库文件（以前也是支持的，在 2014 开始就在 error log 提示，2016 中，在安装时就可以设置。）&lt;/li&gt;
+&lt;li&gt;Query Store （前几天去参加微软的培训还讲到的，挺不错的功能。可以帮助解决参数嗅探的问 - 题，数据库升级的时候也可以用到它）&lt;/li&gt;
+&lt;li&gt;支持 R 语言&lt;/li&gt;
+&lt;li&gt;Live Quer y St at ist ics（可以更清晰的看到执行计划的开销（水流式）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;172.22.1.36&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://1405904364.github.io</id>
+    <title>Live My Life • Posts by &#34;springcloud&#34; tag</title>
+    <link href="http://1405904364.github.io" />
+    <updated>2024-02-18T08:13:45.096Z</updated>
+    <category term="自控" />
+    <category term="linux" />
+    <category term="PowerDesigner" />
+    <category term="Vuex" />
+    <category term="npm" />
+    <category term="Gradle" />
+    <category term="Java" />
+    <category term="maven" />
+    <category term="Mysql" />
+    <category term="Sql" />
+    <category term="SqlServer" />
+    <category term="Vue" />
+    <category term="webService" />
+    <category term="Html" />
+    <category term="SpringCloud" />
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Spring/SpringCloud/SpringCloud/</id>
+        <title>SpringCloud</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Spring/SpringCloud/SpringCloud/"/>
+        <content type="html">&lt;h1 id=&#34;springcloud简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#springcloud简介&#34;&gt;#&lt;/a&gt; SpringCloud 简介&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Cloud 是一个基于 Spring Boot 实现的云应用开发工具，它为基于 JVM 的云应用开发中的配置管理、服务发现、断路由、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pring Cloud 中包含了 spring-cloud-config、spring-cloud-bus 等近 20 个子项目&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Spring Cloud 本身并不是一个拿来即可用的框架，他是一套微服务规范，共有两代实现&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Spring Cloud Netflix 是 Spring Cloud 的第一代实现，主要由 Eureka、Ribbon、Feign、Hystrix 等组件组成&lt;/li&gt;
+&lt;li&gt;Spring Cloud Alibaba 是 Spring Cloud 的第二代实现，主要由 Nacos、Sentinel、Seata 等组件组成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里介绍的 Spring Cloud 特指 Spring Cloud 的第一代实现&lt;/p&gt;
+&lt;h2 id=&#34;spring-cloud常用组件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#spring-cloud常用组件&#34;&gt;#&lt;/a&gt; Spring Cloud 常用组件&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Spring Cloud 组件&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Netflix Eureka&lt;/td&gt;
+&lt;td&gt;Spring Cloud Netflix 中的服务治理组件，包含服务注册中心、服务注册与发现机制的实现。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Netflix Ribbon&lt;/td&gt;
+&lt;td&gt;Spring Cloud  Netflix 中的服务调用和客户端负载均衡组件。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Netflix Hystrix&lt;/td&gt;
+&lt;td&gt;人称 “豪猪哥”，Spring Cloud Netflix 的容错管理组件，为服务中出现的延迟和故障提供强大的容错能力。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Netflix Feign&lt;/td&gt;
+&lt;td&gt;基于 Ribbon 和 Hystrix 的声明式服务调用组件。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Netflix Zuul&lt;/td&gt;
+&lt;td&gt;Spring Cloud Netflix 中的网关组件，提供了智能路由、访问过滤等功能。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Gateway&lt;/td&gt;
+&lt;td&gt;一个基于 Spring 5.0，Spring Boot 2.0 和 Project Reactor 等技术开发的网关框架，它使用 Filter 链的方式提供了网关的基本功能，例如安全、监控 / 指标和限流等。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Config&lt;/td&gt;
+&lt;td&gt;Spring Cloud 的配置管理工具，支持使用 Git 存储配置内容，实现应用配置的外部化存储，并支持在客户端对配置进行刷新、加密、解密等操作。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Bus&lt;/td&gt;
+&lt;td&gt;Spring Cloud 的事件和消息总线，主要用于在集群中传播事件或状态变化，以触发后续的处理，例如动态刷新配置。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Stream&lt;/td&gt;
+&lt;td&gt;Spring Cloud 的消息中间件组件，它集成了 Apache Kafka 和 RabbitMQ 等消息中间件，并通过定义绑定器作为中间层，完美地实现了应用程序与消息中间件之间的隔离。通过向应用程序暴露统一的 Channel 通道，使得应用程序不需要再考虑各种不同的消息中间件实现，就能轻松地发送和接收消息。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Spring Cloud Sleuth&lt;/td&gt;
+&lt;td&gt;Spring Cloud 分布式链路跟踪组件，能够完美的整合 Twitter 的 Zipkin。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;spring-cloud-erueka&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#spring-cloud-erueka&#34;&gt;#&lt;/a&gt; Spring Cloud Erueka&lt;/h1&gt;
+&lt;h2 id=&#34;eureka注册中心&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#eureka注册中心&#34;&gt;#&lt;/a&gt; Eureka 注册中心&lt;/h2&gt;
+&lt;p&gt;Eureka 采用 C/S 架构，它包括两大组件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;EurekaServer：服务端，注册中心&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当微服务启动时，会将自己注册到 Eureka Server，Eureka Server 维护一个可用服务列表，存储所有注册到其中的可用的服务信息，这些信息可以在 Eureka Server 的管理界面中看到&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;记录服务信息&lt;/li&gt;
+&lt;li&gt;心跳监控&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;EurkaClient：客户端&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Provider：服务提供者。
+&lt;ul&gt;
+&lt;li&gt;注册自己的信息到 EurekaServer。&lt;/li&gt;
+&lt;li&gt;每隔 30 秒内想 EurekaServer 发送心跳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;consumer：服务消费者。
+&lt;ul&gt;
+&lt;li&gt;根据服务名称从 EurekaServer 中拉去服务列表。&lt;/li&gt;
+&lt;li&gt;基于服务列表做负载均衡，选中一个微服务后发起远程调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：“心跳” 指的是一段定时发送的自定义信息，让对方知道自己 “存活”，以确保连接的有效性。大部分 CS 架构的应用程序都采用了心跳机制，服务端和客户端都可以发心跳。通常情况下是客户端向服务器端发送心跳包，服务端用于判断客户端是否在线。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;eureka服务注册与发现&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#eureka服务注册与发现&#34;&gt;#&lt;/a&gt; Eureka 服务注册与发现&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Spring/SpringCloud/1010305209-0.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;图 1：Eureka 原理图&lt;/p&gt;
+&lt;p&gt;三个角色：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务注册中心 (Register Server): 它是一个 Erueka Server，用于提供服务注册和发现功能。&lt;/li&gt;
+&lt;li&gt;服务提供者 (Provider Service): 它是一个 Erueka Client，用于提供服务，它将自己提供的服务注册到服务注册中心，以供服务消费者发现。&lt;/li&gt;
+&lt;li&gt;服务消费者 (Consumer Service): 他是一个 Erueka Client，用于服务消费，它可以从服务注册中心获取服务列表，调用所需的服务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Eureka 实现服务注册与发现的流程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;搭建一个 Eureka Server 作为服务注册中心；&lt;/li&gt;
+&lt;li&gt;服务提供者 Eureka Client 启动时，会把当前服务器的信息以服务名（&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3NwcmluZy5hcHBsaWNhdGlvbi5uYW1l&#34;&gt;spring.application.name&lt;/span&gt;）的方式注册到服务注册中心；&lt;/li&gt;
+&lt;li&gt;服务消费者 Eureka Client 启动时，也会向服务注册中心注册；&lt;/li&gt;
+&lt;li&gt;服务消费者还会获取一份可用服务列表，该列表中包含了所有注册到服务注册中心的服务信息（包括服务提供者和自身的信息）；&lt;/li&gt;
+&lt;li&gt;在获得了可用服务列表后，服务消费者通过 HTTP 或消息中间件远程调用服务提供者提供的服务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;服务注册中心（Eureka Server）所扮演的角色十分重要，它是服务提供者和服务消费者之间的桥梁。服务提供者只有将自己的服务注册到服务注册中心才可能被服务消费者调用，而服务消费者也只有通过服务注册中心获取可用服务列表后，才能调用所需的服务。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="SpringCloud" />
+        <updated>2024-02-18T08:13:45.096Z</updated>
+    </entry>
+</feed>

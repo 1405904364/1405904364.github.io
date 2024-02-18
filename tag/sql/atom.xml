@@ -3,16 +3,26 @@
     <id>http://1405904364.github.io</id>
     <title>Live My Life • Posts by &#34;sql&#34; tag</title>
     <link href="http://1405904364.github.io" />
-    <updated>2023-08-31T01:26:47.678Z</updated>
+    <updated>2024-02-18T08:13:44.962Z</updated>
+    <category term="自控" />
+    <category term="linux" />
+    <category term="PowerDesigner" />
+    <category term="Vuex" />
+    <category term="npm" />
+    <category term="Gradle" />
     <category term="Java" />
-    <category term="Sql" />
     <category term="maven" />
     <category term="Mysql" />
+    <category term="Sql" />
+    <category term="SqlServer" />
+    <category term="Vue" />
     <category term="webService" />
+    <category term="Html" />
+    <category term="SpringCloud" />
     <entry>
-        <id>http://1405904364.github.io/2023/08/31/Mysql/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
         <title>数据库概念</title>
-        <link rel="alternate" href="http://1405904364.github.io/2023/08/31/Mysql/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
         <content type="html">&lt;h1 id=&#34;数据库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库&#34;&gt;#&lt;/a&gt; 数据库&lt;/h1&gt;
 &lt;h2 id=&#34;关系型数据库是如何工作的&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关系型数据库是如何工作的&#34;&gt;#&lt;/a&gt; 关系型数据库是如何工作的&lt;/h2&gt;
 &lt;h3 id=&#34;从数据结构说起&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#从数据结构说起&#34;&gt;#&lt;/a&gt; 从数据结构说起&lt;/h3&gt;
@@ -280,279 +290,6 @@ select ...... FOR UPDATE;
 &lt;p&gt;它是 Record Locks 和 Gap Locks 的结合，不仅锁定一个记录上的索引，也锁定索引之间的间隙。&lt;/p&gt;
 </content>
         <category term="Sql" />
-        <updated>2023-08-31T01:26:47.678Z</updated>
-    </entry>
-    <entry>
-        <id>http://1405904364.github.io/2023/08/31/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
-        <title>数据库概念</title>
-        <link rel="alternate" href="http://1405904364.github.io/2023/08/31/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-        <content type="html">&lt;h1 id=&#34;数据库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库&#34;&gt;#&lt;/a&gt; 数据库&lt;/h1&gt;
-&lt;h2 id=&#34;关系型数据库是如何工作的&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关系型数据库是如何工作的&#34;&gt;#&lt;/a&gt; 关系型数据库是如何工作的&lt;/h2&gt;
-&lt;h3 id=&#34;从数据结构说起&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#从数据结构说起&#34;&gt;#&lt;/a&gt; 从数据结构说起&lt;/h3&gt;
-&lt;h4 id=&#34;时间复杂度&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#时间复杂度&#34;&gt;#&lt;/a&gt; 时间复杂度&lt;/h4&gt;
-&lt;p&gt;​	对于数据库而言，重要的不是数据量，而是当数据量增加时运算如何增加。&lt;/p&gt;
-&lt;p&gt;​	时间复杂度用来检验某个算法处理一定量的数据要花费多长时间，时间复杂度不会给出确切的运算次数，但是给出的是一种观念。 &lt;img data-src=&#34;https://pdai.tech/images/db/sb-sql-learn-1.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;归并排序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#归并排序&#34;&gt;#&lt;/a&gt; 归并排序&lt;/h4&gt;
-&lt;h4 id=&#34;二叉搜索树&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二叉搜索树&#34;&gt;#&lt;/a&gt; 二叉搜索树&lt;/h4&gt;
-&lt;p&gt;​	二叉搜索树只需要 Log (N) 次运算，而如果你直接使用阵列则需要 N 次运算。&lt;/p&gt;
-&lt;h4 id=&#34;b树索引&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#b树索引&#34;&gt;#&lt;/a&gt; B + 树索引&lt;/h4&gt;
-&lt;h4 id=&#34;哈希表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#哈希表&#34;&gt;#&lt;/a&gt; 哈希表&lt;/h4&gt;
-&lt;p&gt;​	为什么不使用阵列？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果有了更好的哈希函数，在哈希表里搜索的时间复杂度就是 O (1)。&lt;/li&gt;
-&lt;li&gt;一个哈希表可以只装载一半到内存，剩下的哈希捅可以留在硬盘上。&lt;/li&gt;
-&lt;li&gt;用列阵的话，你需要一个连续的内存空间，如果你加载一张大表，很难分配足够的连续的内存空间。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;关系型数据库设计理论&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关系型数据库设计理论&#34;&gt;#&lt;/a&gt; 关系型数据库设计理论&lt;/h2&gt;
-&lt;h3 id=&#34;重要术语&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重要术语&#34;&gt;#&lt;/a&gt; 重要术语&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;属性：列的名字。&lt;/li&gt;
-&lt;li&gt;依赖：列属性间存在的某种联系。&lt;/li&gt;
-&lt;li&gt;元组：每一个行（每一条数据）。&lt;/li&gt;
-&lt;li&gt;表：由多个属性，以及众多元组组成。&lt;/li&gt;
-&lt;li&gt;模式：这里我们指逻辑结构。&lt;/li&gt;
-&lt;li&gt;域：数据类型。&lt;/li&gt;
-&lt;li&gt;键：由关系的一个或多个属性组成，任意两个键相同的元组，所有属性都相同。需要保证表示键的属性最少。一个关系可以存在好几种键，一般从这些候选键中，选出一个作为主键（primary key）。&lt;/li&gt;
-&lt;li&gt;候选键：由关系的一个或多个属性组成，候选键都具备键的特性，都有资格成为主键。&lt;/li&gt;
-&lt;li&gt;超键：包含键的属性集合，无需保证属性集的最小化。每个键也是超键。可以认为是超键的超集。&lt;/li&gt;
-&lt;li&gt;外键：如果某一个关系 A 中的一个（组）属性是另一个关系 B 的键，则该（组）属性在 A 中成为外键。&lt;/li&gt;
-&lt;li&gt;主属性：所有候选键所包含的属性都是主属性。&lt;/li&gt;
-&lt;li&gt;投影：选取特定的列，如将关系学生信息投影为学号、姓名，即得到上表中仅包含学号、姓名的列。&lt;/li&gt;
-&lt;li&gt;选择：按照一定条件选取特定元组，如选择上表中分数 &amp;gt; 80 的元组。&lt;/li&gt;
-&lt;li&gt;笛卡尔积（交叉连接）：第一个关系每一行分别与第二个关系的每一行组合。&lt;/li&gt;
-&lt;li&gt;自然连接：第一个关系中每一行与第二个关系的每一行进行匹配，如果得到有交叉部分则合并，若无交叉部分则舍弃。&lt;/li&gt;
-&lt;li&gt;连接：即加上约束条件的笛卡尔积，先得到笛卡尔积，然后根据约束条件删除不满足的元组。&lt;/li&gt;
-&lt;li&gt;外连接：执行自然连接后，将舍弃的部分也加入，并且匹配失败处的属性用 Null 代替。&lt;/li&gt;
-&lt;li&gt;除法运算：关系 R 除以关系 S 的结果为 T，则 T 包含所有在 R 但不在 S 的属性，且 T 的元组与 S 的元组的所有组合在 R 中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;数据库系统核心知识点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库系统核心知识点&#34;&gt;#&lt;/a&gt; 数据库系统核心知识点&lt;/h2&gt;
-&lt;h3 id=&#34;事务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#事务&#34;&gt;#&lt;/a&gt; 事务&lt;/h3&gt;
-&lt;h4 id=&#34;概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#概念&#34;&gt;#&lt;/a&gt; 概念&lt;/h4&gt;
-&lt;p&gt;​	事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以用 Rollback 进行回滚。 &lt;img data-src=&#34;https://pdai.tech/images/pics/185b9c49-4c13-4241-a848-fbff85c03a64.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;acid&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#acid&#34;&gt;#&lt;/a&gt; ACID&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;原子性 (Atomicity)&lt;/strong&gt;：事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。回滚可以用日志来实现，日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一致性 (Consistency)&lt;/strong&gt;：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对一个数据的读取结果都是相同的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;隔离性 (lsolation)&lt;/strong&gt;：一个事务所做的修改在最终提交以前，对其他事务是不可见的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;持久性 (Durability)&lt;/strong&gt;：一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统崩溃，事务执行的结果也不能丢失。可以通过数据库备份和恢复来实现，在系统发生崩溃时，使用备份数据库进行数据恢复。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;事务的 ACID 特性概念简单，但不是很好理解，主要是因为这几个特性不是一种平级关系:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;只有满足一致性，事务的执行结果才是正确的。&lt;/li&gt;
-&lt;li&gt;在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。&lt;/li&gt;
-&lt;li&gt;在并发的情况下，多个事务并行执行，事务不仅要满足原子性，还需要满足隔离性，才能满足一致性。&lt;/li&gt;
-&lt;li&gt;事务满足持久化是为了能应对数据库崩溃的情况。 &lt;img data-src=&#34;https://pdai.tech/images/pics/a58e294a-615d-4ea0-9fbf-064a6daec4b2.png&#34; alt=&#34;image&#34;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;autocommit&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#autocommit&#34;&gt;#&lt;/a&gt; AUTOCOMMIT&lt;/h4&gt;
-&lt;p&gt;​	mysql 默认采用自动提交模式。如果不显示使用 start transaction 语句来开始一个事务，那么每个查询都会被当作一个事务自动提交。&lt;/p&gt;
-&lt;h3 id=&#34;并发一致性问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#并发一致性问题&#34;&gt;#&lt;/a&gt; 并发一致性问题&lt;/h3&gt;
-&lt;p&gt;​	在并发环境下，事务的隔离性很难保证，因此会出现很多并发一致性问题。&lt;/p&gt;
-&lt;h4 id=&#34;丢失修改&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#丢失修改&#34;&gt;#&lt;/a&gt; 丢失修改&lt;/h4&gt;
-&lt;p&gt;T1 和 T2 两个事务都对一个数据进行修改，T1 先修改，T2 随后修改，T2 的修改覆盖了 T1 的修改。&lt;/p&gt;
-&lt;h4 id=&#34;读脏数据&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#读脏数据&#34;&gt;#&lt;/a&gt; 读脏数据&lt;/h4&gt;
-&lt;p&gt;T1 修改了一个数据，T2 随后读取了这个数据。如果 T1 撤销了修改，那么 T2 读取的是脏数据。&lt;/p&gt;
-&lt;h4 id=&#34;不可重复读&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#不可重复读&#34;&gt;#&lt;/a&gt; 不可重复读&lt;/h4&gt;
-&lt;p&gt;T2 读取了一个数据，T1 对该数据做了修改。如果 T2 再次读取了这个数据，此时读取的数据和第一次读取的数据结果不同。&lt;/p&gt;
-&lt;h4 id=&#34;幻影读&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#幻影读&#34;&gt;#&lt;/a&gt; 幻影读&lt;/h4&gt;
-&lt;p&gt;T1 读取某个范围的数据，T2 在这个范围内插入新的数据，T1 再次读取这个范围的数据，此时读取的结果和第一次读取的结果不同。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;产生并发不一致问题的主要原因是破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性。并发控制可以通过封锁来实现，但是封锁操作需要用户自己操作，相当复杂。数据库管理系统提供了事务的隔离级别，让用户以一种更轻松的方式处理并发一致性问题。&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;封锁&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁&#34;&gt;#&lt;/a&gt; 封锁&lt;/h3&gt;
-&lt;h4 id=&#34;封锁粒度&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁粒度&#34;&gt;#&lt;/a&gt; 封锁粒度&lt;/h4&gt;
-&lt;p&gt;Mysql 中提供了两种封锁粒度：行级锁以及表级锁。&lt;/p&gt;
-&lt;p&gt;应该尽量只锁定需要修改的那部分数据，而不是所有的资源。锁定的粒度越小，发生锁争用的可能性就越小，系统的并发程度就越高。&lt;/p&gt;
-&lt;p&gt;但是加锁需要消耗资源，锁的各种操作（包括获取锁、释放锁、以及检查锁状态）都会增加系统开销。因此封锁粒度越小，系统开销越大。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在选择锁粒度时，需要在锁开销和并发程度之间做一个权衡&lt;/strong&gt;&lt;/p&gt;
-&lt;h4 id=&#34;封锁类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁类型&#34;&gt;#&lt;/a&gt; 封锁类型&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;##### 读写锁
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;排它锁（Exclusive）：简写为 X 锁，又称写锁。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;共享锁（Shared）：简写为 S 锁，又称读锁。&lt;/p&gt;
-&lt;p&gt;有一下两个规定：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;​	一个事务对数据对象 A 加了 X 锁，就可以对 A 进行读取和更新。加锁期间，其他事务不能对 A 加任何锁。&lt;/li&gt;
-&lt;li&gt;​    一个事务对数据对象 A 加了 S 锁，可以对 A 进行读取，但不能进行更新操作。加锁期间其他事务只能对 A 加 S 锁，但不能加 X 锁。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&#34;意向锁&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#意向锁&#34;&gt;#&lt;/a&gt; 意向锁&lt;/h5&gt;
-&lt;p&gt;​	使用意向锁可以更容易地支持多粒度封锁。&lt;/p&gt;
-&lt;p&gt;​	存在行级锁和表级锁的情况下，事务 T 想要对表 A 加 X 锁，就需要先检测是否有其他事务对表 A 或者表 A 中的任意一行加了锁，那么就需要对表 A 的每一行都检测一次，这是非常耗时的。&lt;/p&gt;
-&lt;p&gt;​	意向锁在原来的 X/S 锁之上引入了 IX/IS，IX/IS 都是表锁，用来表示一个事务想要在表中某个数据行上加上 X 锁或 S 锁。有一下两个规定：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;一个事务在获得某个数据行对象的 S 锁之前，必须先获得表的 IS 锁或者更强的锁。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一个事务在获取某个数据行对象的 X 锁之前，必须先获取表的 X 锁。&lt;/p&gt;
-&lt;p&gt;通过引入意向锁，事务 T 想要对表 A 加 X 锁，只需要先检测是否有其它事务对表 A 加了 X/IX/S/IS 锁，如果加了就表示有其他事务正在使用这个表或者表中的某一行的锁，因此事务 T 加锁失败。&lt;/p&gt;
-&lt;p&gt;各种锁的兼容关系如下:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;-&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;X&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;IX&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;S&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;IS&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;X&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;IX&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;S&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;IS&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;解释如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;​	任意 IS/IX 锁之间都是兼容的，因为他们只是表示想要对表加锁，而不是正真的加锁。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;​    S 锁只与 IS 锁兼容，也就是说事务 T 想要对数据行加 S 锁，其他事务可以已经获得对表或者对表中行的 S 锁。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;封锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#封锁协议&#34;&gt;#&lt;/a&gt; 封锁协议&lt;/h3&gt;
-&lt;h4 id=&#34;三级锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三级锁协议&#34;&gt;#&lt;/a&gt; 三级锁协议&lt;/h4&gt;
-&lt;h5 id=&#34;一级锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一级锁协议&#34;&gt;#&lt;/a&gt; 一级锁协议&lt;/h5&gt;
-&lt;p&gt;事务 T 要修改数据 A 时必须加 X 锁，直到 T 结束猜释放锁。&lt;/p&gt;
-&lt;p&gt;可以解决丢失修改问题，因为不能同时有两个事务对同一个数据进行修改，那么事务的修改就不会被覆盖。&lt;/p&gt;
-&lt;h5 id=&#34;二级锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二级锁协议&#34;&gt;#&lt;/a&gt; 二级锁协议&lt;/h5&gt;
-&lt;p&gt;在一级的基础上，要求读取数据 A 时，必须加上 S 锁，读取完马上释放 S 锁。&lt;/p&gt;
-&lt;p&gt;可以解决数据脏读问题。因为一个事务在对数据 A 进行修改，根据一级协议，必须加 X 锁，那么就不能再加 S 锁了，也就不会读入数据了。&lt;/p&gt;
-&lt;h5 id=&#34;三级封锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三级封锁协议&#34;&gt;#&lt;/a&gt; 三级封锁协议&lt;/h5&gt;
-&lt;p&gt;在二级的基础上，要求读取数据 A 时必须加上 S 锁，直到事务结束才释放 S 锁。&lt;/p&gt;
-&lt;p&gt;可以解决不可重复度问题，因为读 A 时，其他事务不能加 X 锁，从而避免了在读数据期间数据发生改变。&lt;/p&gt;
-&lt;h4 id=&#34;两段锁协议&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#两段锁协议&#34;&gt;#&lt;/a&gt; 两段锁协议&lt;/h4&gt;
-&lt;p&gt;​	加锁和解锁分两个阶段进行。&lt;/p&gt;
-&lt;p&gt;​	可串行化调度是指，通过并发控制，使得并发执行的事务结果与某个串行执行的事务结果相同。&lt;/p&gt;
-&lt;p&gt;​	&lt;strong&gt;事务遵循两段锁协议是保证可串行化调度的充分条件&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;mysql-隐式与显式锁定&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mysql-隐式与显式锁定&#34;&gt;#&lt;/a&gt; Mysql 隐式与显式锁定&lt;/h3&gt;
-&lt;p&gt;Mysql 的 InnoDB 存储引擎采用的是两段锁协议，会根据隔离级别在需要的时候自动加锁，并且所有锁都是在同一时刻被释放，这被称为隐式锁定。&lt;/p&gt;
-&lt;p&gt;InnoDB 也可以使用特定的语句进行显示锁定。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mysql&#34;&gt;select ...... LOCK In SHARE MODE;
-select ...... FOR UPDATE;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;隔离级别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#隔离级别&#34;&gt;#&lt;/a&gt; 隔离级别&lt;/h3&gt;
-&lt;h4 id=&#34;未提交读read-uncommited&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#未提交读read-uncommited&#34;&gt;#&lt;/a&gt; 未提交读（READ UNCOMMITED)&lt;/h4&gt;
-&lt;p&gt;事务中的修改，即使没有提交，对其他事务也是可见的。&lt;/p&gt;
-&lt;h4 id=&#34;提交读read-commited&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#提交读read-commited&#34;&gt;#&lt;/a&gt; 提交读（READ COMMITED)&lt;/h4&gt;
-&lt;p&gt;一个事务只能读取已经提交的事务所作的修改。换个话说，一个事务所做的修改，在提交之前，对其他事务都是不可见的。&lt;/p&gt;
-&lt;h4 id=&#34;可重复读repeatable-read&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可重复读repeatable-read&#34;&gt;#&lt;/a&gt; 可重复读（REPEATABLE READ)&lt;/h4&gt;
-&lt;p&gt;保证在同一个事务中多次读取同样的数据结果是一样的。&lt;/p&gt;
-&lt;h4 id=&#34;可串行化serializable&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可串行化serializable&#34;&gt;#&lt;/a&gt; 可串行化（SERIALIZABLE)&lt;/h4&gt;
-&lt;p&gt;强制事务串行执行。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;隔离级别&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;脏读&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;不可重复读&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;幻影读&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;未提交读&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;提交读&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;可重复读&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;√&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;可串行化&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;×&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;多版本并发控制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#多版本并发控制&#34;&gt;#&lt;/a&gt; 多版本并发控制&lt;/h3&gt;
-&lt;p&gt;多版本并发控制 (Multi-Version Concurrency Control, MVCC) 是 MySQL 的 InnoDB 存储引擎实现隔离级别的一种具体方式，用于实现提交读和可重复读这两种隔离级别。而未提交读隔离级别总是读取最新的数据行，无需使用 MVCC。可串行化隔离级别需要对所有读取的行都加锁，单纯使用 MVCC 无法实现。&lt;/p&gt;
-&lt;h3 id=&#34;版本号&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#版本号&#34;&gt;#&lt;/a&gt; 版本号&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;系统版本号：是一个递增的数字，每开始一个新的事务，系统版本号就会自动递增。&lt;/li&gt;
-&lt;li&gt;事务版本号：事务开始时的系统版本号。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;隐藏的列&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#隐藏的列&#34;&gt;#&lt;/a&gt; 隐藏的列&lt;/h3&gt;
-&lt;p&gt;MVCC 在每行记录后边都保存着两个隐藏的列，用来存储两个版本号。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;创建版本号：指示创建一个数据行的快照时的系统版本号。&lt;/li&gt;
-&lt;li&gt;删除版本号如果该快照的删除版本号大于当前事务版本号表示该快照有效，否则表示快照已经把欸删除了。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;undo-日志&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#undo-日志&#34;&gt;#&lt;/a&gt; Undo 日志&lt;/h3&gt;
-&lt;p&gt;MVCC 使用到的快照存储在 Undo 日志中，该日志通过回滚指针把一个数据行 (Record) 的所有快照连接起来。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pdai.tech/images/pics/e41405a8-7c05-4f70-8092-e961e28d3112.jpg&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;实现过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实现过程&#34;&gt;#&lt;/a&gt; 实现过程&lt;/h3&gt;
-&lt;p&gt;以下实现过程针对可重复读隔离级别。&lt;/p&gt;
-&lt;p&gt;当开始新一个事务时，该事务的版本号肯定会大于当前所有数据行快照的创建版本号，理解这一点很关键。&lt;/p&gt;
-&lt;h4 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_1-select&#34;&gt;#&lt;/a&gt; 1. SELECT&lt;/h4&gt;
-&lt;p&gt;多个事务必须读取到同一个数据行的快照，并且这个快照是距离现在最近的一个有效快照。但是也有例外，如果有一个事务正在修改该数据行，那么它可以读取事务本身所做的修改，而不用和其它事务的读取结果一致。&lt;/p&gt;
-&lt;p&gt;把没有对一个数据行做修改的事务称为 T，T 所要读取的数据行快照的创建版本号必须小于 T 的版本号，因为如果大于或者等于 T 的版本号，那么表示该数据行快照是其它事务的最新修改，因此不能去读取它。除此之外，T 所要读取的数据行快照的删除版本号必须大于 T 的版本号，因为如果小于等于 T 的版本号，那么表示该数据行快照是已经被删除的，不应该去读取它。&lt;/p&gt;
-&lt;h4 id=&#34;-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-2&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_2-insert&#34;&gt;#&lt;/a&gt; 2. INSERT&lt;/h4&gt;
-&lt;p&gt;将当前系统版本号作为数据行快照的创建版本号。&lt;/p&gt;
-&lt;h4 id=&#34;-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-3&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_3-delete&#34;&gt;#&lt;/a&gt; 3. DELETE&lt;/h4&gt;
-&lt;p&gt;将当前系统版本号作为数据行快照的删除版本号。&lt;/p&gt;
-&lt;h4 id=&#34;-4&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-4&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_4-update&#34;&gt;#&lt;/a&gt; 4. UPDATE&lt;/h4&gt;
-&lt;p&gt;将当前系统版本号作为更新前的数据行快照的删除版本号，并将当前系统版本号作为更新后的数据行快照的创建版本号。可以理解为先执行 DELETE 后执行 INSERT。&lt;/p&gt;
-&lt;h3 id=&#34;-5&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-5&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#%E5%BF%AB%E7%85%A7%E8%AF%BB%E4%B8%8E%E5%BD%93%E5%89%8D%E8%AF%BB&#34;&gt;#&lt;/a&gt; 快照读与当前读&lt;/h3&gt;
-&lt;h4 id=&#34;-6&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-6&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_1-%E5%BF%AB%E7%85%A7%E8%AF%BB&#34;&gt;#&lt;/a&gt; 1. 快照读&lt;/h4&gt;
-&lt;p&gt;使用 MVCC 读取的是快照中的数据，这样可以减少加锁所带来的开销。&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;table&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;-7&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-7&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#_2-%E5%BD%93%E5%89%8D%E8%AF%BB&#34;&gt;#&lt;/a&gt; 2. 当前读&lt;/h4&gt;
-&lt;p&gt;读取的是最新的数据，需要加锁。以下第一个语句需要加 S 锁，其它都需要加 X 锁。&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;table&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; ? &lt;span class=&#34;token keyword&#34;&gt;lock&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;share&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;mode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;table&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; ? &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;insert&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;delete&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;六-next-key-locks&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#六-next-key-locks&#34;&gt;#&lt;/a&gt; 六、Next-Key Locks&lt;/h3&gt;
-&lt;p&gt;Next-Key Locks 是 MySQL 的 InnoDB 存储引擎的一种锁实现。&lt;/p&gt;
-&lt;p&gt;MVCC 不能解决幻读的问题，Next-Key Locks 就是为了解决这个问题而存在的。在可重复读 (REPEATABLE READ) 隔离级别下，使用 MVCC + Next-Key Locks 可以解决幻读问题。&lt;/p&gt;
-&lt;h4 id=&#34;-8&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-8&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#record-locks&#34;&gt;#&lt;/a&gt; Record Locks&lt;/h4&gt;
-&lt;p&gt;锁定一个记录上的索引，而不是记录本身。&lt;/p&gt;
-&lt;p&gt;如果表没有设置索引，InnoDB 会自动在主键上创建隐藏的聚簇索引，因此 Record Locks 依然可以使用。&lt;/p&gt;
-&lt;h4 id=&#34;-9&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-9&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#gap-locks&#34;&gt;#&lt;/a&gt; Gap Locks&lt;/h4&gt;
-&lt;p&gt;锁定索引之间的间隙，但是不包含索引本身。例如当一个事务执行以下语句，其它事务就不能在 t.c 中插入 15。&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;SELECT&lt;/span&gt; c &lt;span class=&#34;token keyword&#34;&gt;FROM&lt;/span&gt; t &lt;span class=&#34;token keyword&#34;&gt;WHERE&lt;/span&gt; c &lt;span class=&#34;token operator&#34;&gt;BETWEEN&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;FOR&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;UPDATE&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;-10&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-10&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;#next-key-locks&#34;&gt;#&lt;/a&gt; Next-Key Locks&lt;/h4&gt;
-&lt;p&gt;它是 Record Locks 和 Gap Locks 的结合，不仅锁定一个记录上的索引，也锁定索引之间的间隙。&lt;/p&gt;
-</content>
-        <category term="Sql" />
-        <updated>2023-08-31T01:26:47.590Z</updated>
+        <updated>2024-02-18T08:13:44.962Z</updated>
     </entry>
 </feed>

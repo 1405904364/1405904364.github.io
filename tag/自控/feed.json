@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Live My Life • All posts by \"自控\" tag",
+    "description": "个人学习使用",
+    "home_page_url": "http://1405904364.github.io",
+    "items": [
+        {
+            "id": "http://1405904364.github.io/2024/02/18/%E8%87%AA%E6%8E%A7/%E6%96%87%E6%A1%A3/",
+            "url": "http://1405904364.github.io/2024/02/18/%E8%87%AA%E6%8E%A7/%E6%96%87%E6%A1%A3/",
+            "title": "自控",
+            "date_published": "2024-02-18T08:13:45.179Z",
+            "content_html": "<h2 id=\"数据类型\"><a class=\"markdownIt-Anchor\" href=\"#数据类型\">#</a> 数据类型</h2>\n",
+            "tags": [
+                "自控"
+            ]
+        }
+    ]
+}

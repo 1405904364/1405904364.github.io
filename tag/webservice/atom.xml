@@ -3,16 +3,26 @@
     <id>http://1405904364.github.io</id>
     <title>Live My Life • Posts by &#34;webservice&#34; tag</title>
     <link href="http://1405904364.github.io" />
-    <updated>2023-08-30T08:50:18.092Z</updated>
+    <updated>2024-02-18T08:13:45.104Z</updated>
+    <category term="自控" />
+    <category term="linux" />
+    <category term="PowerDesigner" />
+    <category term="Vuex" />
+    <category term="npm" />
+    <category term="Gradle" />
     <category term="Java" />
-    <category term="Sql" />
     <category term="maven" />
     <category term="Mysql" />
+    <category term="Sql" />
+    <category term="SqlServer" />
+    <category term="Vue" />
     <category term="webService" />
+    <category term="Html" />
+    <category term="SpringCloud" />
     <entry>
-        <id>http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/webService/%E7%AE%80%E4%BB%8B/</id>
         <title>webService的使用</title>
-        <link rel="alternate" href="http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/webService/%E7%AE%80%E4%BB%8B/"/>
         <content type="html">&lt;h1 id=&#34;什么是webservice&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是webservice&#34;&gt;#&lt;/a&gt; 什么是 webService&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;webService 也称为 web 服务，它是一种跨编程语言和操作系统平台的远程调用技术。&lt;br&gt;
@@ -317,6 +327,6 @@ CXF 支持的数据格式有 XML，JSON (仅在 REST 方式下支持，不再 SO
 &lt;/blockquote&gt;
 </content>
         <category term="webService" />
-        <updated>2023-08-30T08:50:18.092Z</updated>
+        <updated>2024-02-18T08:13:45.104Z</updated>
     </entry>
 </feed>

@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Live My Life • All posts by \"vue\" tag",
+    "description": "个人学习使用",
+    "home_page_url": "http://1405904364.github.io",
+    "items": [
+        {
+            "id": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/3.%E9%A1%B9%E7%9B%AE/%E8%B8%A9%E5%9D%91%E7%BB%8F%E5%8E%86/",
+            "url": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/3.%E9%A1%B9%E7%9B%AE/%E8%B8%A9%E5%9D%91%E7%BB%8F%E5%8E%86/",
+            "title": "Vue项目踩坑经历",
+            "date_published": "2024-02-18T08:13:45.146Z",
+            "content_html": "<blockquote>\n<h3 id=\"vue前端获取数据做动态路由\"><a class=\"markdownIt-Anchor\" href=\"#vue前端获取数据做动态路由\">#</a> Vue 前端获取数据，做动态路由</h3>\n<p>数据结构符合 router 结构，path、name、meta 等属性，</p>\n<p>其中 path 不要以反斜杠 / 开头，会造成浏览器 url 错误</p>\n</blockquote>\n<blockquote>\n<h3 id=\"父级菜单权限未绑定导致前端菜单项缺失\"><a class=\"markdownIt-Anchor\" href=\"#父级菜单权限未绑定导致前端菜单项缺失\">#</a> 父级菜单权限未绑定，导致前端菜单项缺失</h3>\n<p>从子节点，递归向父节点查询，补全丢失的父节点数据</p>\n<p>（在项目中，有的子节点权限绑定完好，但是其父节点未绑定权限，导致前端菜单项缺失该菜单，所以需要递归，将其父节点至根节点数据补充完整）</p>\n</blockquote>\n<blockquote>\n<h3 id=\"动态路由后页面缓存失效\"><a class=\"markdownIt-Anchor\" href=\"#动态路由后页面缓存失效\">#</a> 动态路由后，页面缓存失效</h3>\n<p>组件 name 属性与缓存页面数据项对应不上</p>\n</blockquote>\n",
+            "tags": [
+                "Vue"
+            ]
+        }
+    ]
+}

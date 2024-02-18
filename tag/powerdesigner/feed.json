@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Live My Life • All posts by \"powerdesigner\" tag",
+    "description": "个人学习使用",
+    "home_page_url": "http://1405904364.github.io",
+    "items": [
+        {
+            "id": "http://1405904364.github.io/2024/02/18/%E4%B8%AA%E4%BA%BA/PowerDesigner/%E4%BD%BF%E7%94%A8/",
+            "url": "http://1405904364.github.io/2024/02/18/%E4%B8%AA%E4%BA%BA/PowerDesigner/%E4%BD%BF%E7%94%A8/",
+            "title": "PowerDesigner工具的使用",
+            "date_published": "2024-02-18T08:13:44.904Z",
+            "content_html": "",
+            "tags": [
+                "PowerDesigner"
+            ]
+        }
+    ]
+}

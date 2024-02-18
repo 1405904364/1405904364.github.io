@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://1405904364.github.io</id>
+    <title>Live My Life • Posts by &#34;linux&#34; tag</title>
+    <link href="http://1405904364.github.io" />
+    <updated>2024-02-18T08:13:44.888Z</updated>
+    <category term="自控" />
+    <category term="linux" />
+    <category term="PowerDesigner" />
+    <category term="Vuex" />
+    <category term="npm" />
+    <category term="Gradle" />
+    <category term="Java" />
+    <category term="maven" />
+    <category term="Mysql" />
+    <category term="Sql" />
+    <category term="SqlServer" />
+    <category term="Vue" />
+    <category term="webService" />
+    <category term="Html" />
+    <category term="SpringCloud" />
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E6%9C%8D%E5%8A%A1%E5%99%A8/1.top%E5%91%BD%E4%BB%A4/</id>
+        <title>top命令</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E6%9C%8D%E5%8A%A1%E5%99%A8/1.top%E5%91%BD%E4%BB%A4/"/>
+        <content type="html">&lt;h1 id=&#34;linux中top命令的使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux中top命令的使用&#34;&gt;#&lt;/a&gt; Linux 中 top 命令的使用&lt;/h1&gt;
+&lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h2&gt;
+&lt;p&gt;top 命令是 Linux 中常用的性能分析工具，能够实时显示系统中各进程的资源占用状况，类似于 Windows 的任务管理器，显示系统当前的进程和其他状况&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;top 是一个动态显示过程，即可以通过用户案件来不断刷新当前状态，如果在前台执行该命令，它将一直占用前台，知道用户终结该程序为止&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;使用方法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用方法&#34;&gt;#&lt;/a&gt; 使用方法&lt;/h2&gt;
+&lt;h3 id=&#34;使用格式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用格式&#34;&gt;#&lt;/a&gt; 使用格式&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;top [-] [选项 ]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;参数说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参数说明&#34;&gt;#&lt;/a&gt; 参数说明&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;b：以批处理模式操作；&lt;/li&gt;
+&lt;li&gt;c：显示完整的治命令；&lt;/li&gt;
+&lt;li&gt;d：屏幕刷新间隔时间；&lt;/li&gt;
+&lt;li&gt;I：忽略失效过程；&lt;/li&gt;
+&lt;li&gt;s：保密模式；&lt;/li&gt;
+&lt;li&gt;S：累积模式；&lt;/li&gt;
+&lt;li&gt;i &amp;lt;时间&amp;gt;：设置间隔时间；&lt;/li&gt;
+&lt;li&gt;u &amp;lt;用户名&amp;gt;：指定用户名；&lt;/li&gt;
+&lt;li&gt;p &amp;lt;进程号&amp;gt;：指定进程；&lt;/li&gt;
+&lt;li&gt;n &amp;lt;次数&amp;gt;：循环显示的次数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;交互命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#交互命令&#34;&gt;#&lt;/a&gt; 交互命令&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;h：显示帮助画面，给出一些简短的命令总结说明；&lt;/li&gt;
+&lt;li&gt;k：终止一个进程；&lt;/li&gt;
+&lt;li&gt;i：忽略闲置和僵死进程，这是一个开关式命令；&lt;/li&gt;
+&lt;li&gt;q：退出程序；&lt;/li&gt;
+&lt;li&gt;r：重新安排一个进程的优先级别；&lt;/li&gt;
+&lt;li&gt;S：切换到累计模式；&lt;/li&gt;
+&lt;li&gt;s：改变两次刷新之间的延迟时间（单位为 s），如果有小数，就换算成 ms。输入 0 值则系 - 统将不断刷新，默认值是 5s；&lt;/li&gt;
+&lt;li&gt;f 或者 F：从当前显示中添加或者删除项目；&lt;/li&gt;
+&lt;li&gt;o 或者 O：改变显示项目的顺序；&lt;/li&gt;
+&lt;li&gt;l：切换显示平均负载和启动时间信息；&lt;/li&gt;
+&lt;li&gt;m：切换显示内存信息；&lt;/li&gt;
+&lt;li&gt;t：切换显示进程和 CPU 状态信息；&lt;/li&gt;
+&lt;li&gt;c：切换显示命令名称和完整命令行；&lt;/li&gt;
+&lt;li&gt;M：根据驻留内存大小进行排序；&lt;/li&gt;
+&lt;li&gt;P：根据 CPU 使用百分比大小进行排序；&lt;/li&gt;
+&lt;li&gt;T：根据时间 / 累计时间进行排序；&lt;/li&gt;
+&lt;li&gt;w：将当前设置写入～/.toprc 文件中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;进程区信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#进程区信息&#34;&gt;#&lt;/a&gt; 进程区信息&lt;/h3&gt;
+&lt;p&gt;序号  列名  含义&lt;br&gt;
+ a  PID    进程 id&lt;br&gt;
+b  PPID    父进程 id&lt;br&gt;
+c  RUSER  Real user name&lt;br&gt;
+d  UID    进程所有者的用户 id&lt;br&gt;
+e  USER    进程所有者的用户名&lt;br&gt;
+ f  GROUP  进程所有者的组名&lt;br&gt;
+ g  TTY    启动进程的终端名。不是从终端启动的进程则显示为？&lt;br&gt;
+h  PR      优先级&lt;br&gt;
+ i  NI      nice 值。负值表示高优先级，正值表示低优先级&lt;br&gt;
+ j  P      最后使用的 CPU，仅在多 CPU 环境下有意义&lt;br&gt;
+ k  % CPU    上次更新到现在的 CPU 时间占用百分比&lt;br&gt;
+ l  TIME    进程使用的 CPU 时间总计，单位秒&lt;br&gt;
+ m  TIME+  进程使用的 CPU 时间总计，单位 1/100 秒&lt;br&gt;
+ n  % MEM    进程使用的物理内存百分比&lt;br&gt;
+ o  VIRT    进程使用的虚拟内存总量，单位 kb。VIRT=SWAP+RES&lt;br&gt;
+p  SWAP    进程使用的虚拟内存中，被换出的大小，单位 kb。&lt;br&gt;
+q  RES    进程使用的、未被换出的物理内存大小，单位 kb。RES=CODE+DATA&lt;br&gt;
+r  CODE    可执行代码占用的物理内存大小，单位 kb&lt;br&gt;
+s  DATA    可执行代码以外的部分 (数据段 + 栈) 占用的物理内存大小，单位 kb&lt;br&gt;
+t  SHR    共享内存大小，单位 kb&lt;br&gt;
+u  nFLT    页面错误次数&lt;br&gt;
+ v  nDRT    最后一次写入到现在，被修改过的页面数。&lt;br&gt;
+w  S      进程状态。&lt;br&gt;
+D = 不可中断的睡眠状态&lt;br&gt;
+ R = 运行&lt;br&gt;
+ S = 睡眠&lt;br&gt;
+ T = 跟踪 / 停止&lt;br&gt;
+ Z = 僵尸进程&lt;br&gt;
+ x  COMMAND 命令名 / 命令行&lt;br&gt;
+ y  WCHAN  若该进程在睡眠，则显示睡眠中的系统函数名&lt;br&gt;
+ z  Flags  任务标志，参考 sched.h&lt;br&gt;
+ 默认情况下仅显示比较重要的 PID、USER、PR、NI、VIRT、RES、SHR、S、% CPU、% MEM、TIME+、COMMAND 列。可以通过下面的快捷键来更改显示内容。&lt;/p&gt;
+&lt;p&gt;更改显示内容&lt;/p&gt;
+&lt;p&gt;通过 f 键可以选择显示的内容。按 f 键之后会显示列的列表，按 a-z 即可显示或隐藏对应的列，最后按回车键确定。&lt;br&gt;
+按 o 键可以改变列的显示顺序。按小写的 a-z 可以将相应的列向右移动，而大写的 A-Z 可以将相应的列向左移动。最后按回车键确定。&lt;br&gt;
+按大写的 F 或 O 键，然后按 a-z 可以将进程按照相应的列进行排序。而大写的 R 键可以将当前的排序倒转。&lt;/p&gt;
+</content>
+        <category term="linux" />
+        <updated>2024-02-18T08:13:44.888Z</updated>
+    </entry>
+</feed>

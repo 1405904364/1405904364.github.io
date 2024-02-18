@@ -5,19 +5,29 @@
         <link>http://1405904364.github.io</link>
         <description>个人学习使用</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 30 Aug 2023 16:50:18 +0800</pubDate>
-        <lastBuildDate>Wed, 30 Aug 2023 16:50:18 +0800</lastBuildDate>
+        <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
+        <lastBuildDate>Sun, 18 Feb 2024 16:13:45 +0800</lastBuildDate>
+        <category>自控</category>
+        <category>linux</category>
+        <category>PowerDesigner</category>
+        <category>Vuex</category>
+        <category>npm</category>
+        <category>Gradle</category>
         <category>Java</category>
-        <category>Sql</category>
         <category>maven</category>
         <category>Mysql</category>
+        <category>Sql</category>
+        <category>SqlServer</category>
+        <category>Vue</category>
         <category>webService</category>
+        <category>Html</category>
+        <category>SpringCloud</category>
         <item>
-            <guid isPermalink="true">http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+            <guid isPermalink="true">http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/webService/%E7%AE%80%E4%BB%8B/</guid>
             <title>webService的使用</title>
-            <link>http://1405904364.github.io/2023/08/30/webService/webService%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+            <link>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/webService/%E7%AE%80%E4%BB%8B/</link>
             <category>webService</category>
-            <pubDate>Wed, 30 Aug 2023 16:50:18 +0800</pubDate>
+            <pubDate>Sun, 18 Feb 2024 16:13:45 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;什么是webservice&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是webservice&#34;&gt;#&lt;/a&gt; 什么是 webService&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;webService 也称为 web 服务，它是一种跨编程语言和操作系统平台的远程调用技术。&lt;br&gt;

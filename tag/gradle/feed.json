@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Live My Life • All posts by \"gradle\" tag",
+    "description": "个人学习使用",
+    "home_page_url": "http://1405904364.github.io",
+    "items": [
+        {
+            "id": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Gradle/gradle%E4%BB%8B%E7%BB%8D/",
+            "url": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Gradle/gradle%E4%BB%8B%E7%BB%8D/",
+            "title": "Gradle介绍",
+            "date_published": "2024-02-18T08:13:44.929Z",
+            "content_html": "<h1 id=\"目录结构\"><a class=\"markdownIt-Anchor\" href=\"#目录结构\">#</a> 目录结构</h1>\n<p>src/main/java 放置正式代码目录<br>\n src/main/resource 放置正式配置文件目录<br>\n src/main/webapp 放置页面原色，比如 js,css,img,jsp,html 等等</p>\n<p>src/test/java 放置单元测试代码目录<br>\n src/test/resource 放置单元测试配置文件目录</p>\n<h1 id=\"介绍grovvy-编程语言\"><a class=\"markdownIt-Anchor\" href=\"#介绍grovvy-编程语言\">#</a> 介绍 grovvy 编程语言</h1>\n<p><strong>grovvy 基础</strong></p>\n<pre><code class=\"language-Grovvy\">\nprintln(&quot;hello grovvy&quot;);\n\n// grovvy 可以省略末尾的分号\nprinln(&quot;hello grovvy&quot;)\n\n// grovvy 可以省略括号\nprinln &quot;hello grovvy&quot;\n\n</code></pre>\n<p><strong>grovvy 变量</strong></p>\n<pre><code class=\"language-Grovvy\">\ndef i = 18\nprintln i\n\n</code></pre>\n<p><strong>复杂变量类型</strong></p>\n<pre><code class=\"language-Grovvy\">\n// List\ndef list = ['a', 'b']\nlist &lt;&lt; 'c'\nlist &lt;&lt; 10\nprintln list\nprintln list.get(0)\nprintln list.size()\n\n// Map\ndef map = ['key1': 'vlaue1', 'key2': 'value2']\nmap.key3 = 'value3'\nprintln map\nprintln map.get('key2')\n\n</code></pre>\n<p><strong>闭包</strong><br>\n闭包就是一段代码块，在 gradle 中我们主要把闭包当作参数来使用</p>\n<pre><code class=\"language-Grovvy\">\n// 闭包\ndef fun = &#123;\n    println 'hello fun'\n&#125;\n\ndef method1(Closure closure) &#123;\n    closure()\n&#125;\n\nmethod1(fun);\n\n\n// 闭包（带参数）\ndef fun2 = &#123;\n    v -&gt; println &quot;hello $&#123;v&#125;&quot;\n&#125;\n\ndef method2(Closure closure)&#123;\n    closure &quot;小马&quot;\n&#125;\n\nmethod2(fun2)\n\n</code></pre>\n<pre><code class=\"language-Grovvy\">\nplugins &#123;\n    id 'java'\n&#125;\n\ngroup = 'org.example'\nversion = '1.0-SNAPSHOT'\n\n/**\n * 指定所使用的仓库，mavenCenteral()表示使用中央仓库，此刻项目中所需要的jar包都会默认从仓库下载到本地指定目录\n * mavenLocal()\n * mavenCentral()\n * 以上配置表示先从本地仓库寻找依赖，如果没有再从中央仓库下载\n *\n * mavenCentral()\n * 如果只配置中央仓库，表示直接从中央仓库下载，但是如果指定的下载位置已经有了，就不会再次下载\n *\n */\nrepositories &#123;\n    mavenLocal()\n    mavenCentral()\n&#125;\n/**\n * gradel 所有的jar包的坐标都在dependencies属性内放置\n *\n * 每一个jar包的坐标都有三个基本元素组成\n * group name version\n *\n * testCompile 表示该jar包在测试的时候起作用，该属性为jar包的作用域\n *\n * 我们在gradle里面添加坐标的时候，都要添加作用域\n */\ndependencies &#123;\n//    testImplementation platform('org.junit:junit-bom:5.9.1')\n//    testImplementation 'org.junit.jupiter:junit-jupiter'\n    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.29'\n&#125;\n\njar &#123;\n    manifest &#123;\n        attributes 'Main-Class': 'org.example.Main'\n    &#125;\n&#125;\n\ntest &#123;\n    useJUnitPlatform()\n&#125;\n\n</code></pre>\n",
+            "tags": [
+                "Gradle"
+            ]
+        }
+    ]
+}
