@@ -4,8 +4,8 @@
     <title>Live My Life • Posts by &#34;mysql&#34; tag</title>
     <link href="http://1405904364.github.io" />
     <updated>2024-02-18T08:13:45.079Z</updated>
-    <category term="自控" />
     <category term="linux" />
+    <category term="自控" />
     <category term="PowerDesigner" />
     <category term="Vuex" />
     <category term="npm" />
@@ -15,8 +15,8 @@
     <category term="Mysql" />
     <category term="Sql" />
     <category term="SqlServer" />
-    <category term="Vue" />
     <category term="webService" />
+    <category term="Vue" />
     <category term="Html" />
     <category term="SpringCloud" />
     <entry>
@@ -224,6 +224,20 @@ yyyy-MM-dd HH:mm:ss SSS&lt;/p&gt;
         <updated>2024-02-18T08:13:45.062Z</updated>
     </entry>
     <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/4.%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/</id>
+        <title>Mysql条件查询</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/4.%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/"/>
+        <content type="html">&lt;h2 id=&#34;条件查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#条件查询&#34;&gt;#&lt;/a&gt; 条件查询&lt;/h2&gt;
+&lt;p&gt;什么是条件查询？&lt;/p&gt;
+&lt;p&gt;不是将表中所有数据都查出来。是查询出来符合条件的。&lt;/p&gt;
+&lt;p&gt;语法格式：&lt;/p&gt;
+&lt;p&gt;​	select 字段 1，字段 2，字段 3 from 表名 where 条件；&lt;/p&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&gt;&lt;/span&gt;或&lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; 不等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; 小于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;=&lt;/span&gt; 小于等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; 大于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;=&lt;/span&gt; 大于等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt; 两个值之间，等同于 &lt;span class=&#34;token operator&#34;&gt;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	注意：&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		在使用&lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; 时，必须要遵循左小右大。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; 是闭区间，包括两端的值。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	例如： &lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; sal &lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2450&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	错误写法：&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; sal &lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3000&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2450&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt; 为 &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt; （&lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt; 不为空）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;查询那些员工的津贴&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;补助为&lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;错误查询：&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; comm &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;正确写法：&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; comm &lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; 并且&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;查询工作岗位是MANAGER并且工资大于&lt;span class=&#34;token number&#34;&gt;2500&lt;/span&gt;的员工信息？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;job&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; job &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;MANAGER&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; sal&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2500&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt; 或者&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;查询工作岗位是MANAGER或SALESMAN的员工信息？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;job&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emo &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; job &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;MANAGER&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt; job &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;SALESMAN&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; 包含，相当于多个 &lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt; （&lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; 不在这个范围中）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;注意：&lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt;不是一个区间。&lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt;后面跟的是具体的值。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt;可以取非，主要用在&lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; 或 &lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; 中&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;相当于多个 &lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt;称为模糊匹配查询，支持&lt;span class=&#34;token operator&#34;&gt;%&lt;/span&gt; 或下划线匹配&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;%&lt;/span&gt; 匹配任意个字符&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;41&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;下划线，一个下划线只匹配一个字符&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;42&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;找出名字中有下划线的&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;43&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; name &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; t_student &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; name &lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%\_%&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 使用 \ 转义字符&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意： 在数据库中 null 不能使用等号进行衡量。需要使用 is null。因为数据库中的 null 代表什么也没有，它不是一个值，所以不能用等号衡量。&lt;/p&gt;
+</content>
+        <category term="Mysql" />
+        <updated>2024-02-18T08:13:45.054Z</updated>
+    </entry>
+    <entry>
         <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/4.%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/</id>
         <title>简单的查询语句</title>
         <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/4.%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/"/>
@@ -294,20 +308,6 @@ yyyy-MM-dd HH:mm:ss SSS&lt;/p&gt;
 &lt;p&gt;select ename, sal * 12 as ‘年薪’ from emp;// 别名是中文，用单引号括起来。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-</content>
-        <category term="Mysql" />
-        <updated>2024-02-18T08:13:45.054Z</updated>
-    </entry>
-    <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/4.%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/</id>
-        <title>Mysql条件查询</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/4.%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/"/>
-        <content type="html">&lt;h2 id=&#34;条件查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#条件查询&#34;&gt;#&lt;/a&gt; 条件查询&lt;/h2&gt;
-&lt;p&gt;什么是条件查询？&lt;/p&gt;
-&lt;p&gt;不是将表中所有数据都查出来。是查询出来符合条件的。&lt;/p&gt;
-&lt;p&gt;语法格式：&lt;/p&gt;
-&lt;p&gt;​	select 字段 1，字段 2，字段 3 from 表名 where 条件；&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&gt;&lt;/span&gt;或&lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; 不等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; 小于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;=&lt;/span&gt; 小于等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; 大于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;=&lt;/span&gt; 大于等于&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt; 两个值之间，等同于 &lt;span class=&#34;token operator&#34;&gt;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	注意：&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		在使用&lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; 时，必须要遵循左小右大。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; 是闭区间，包括两端的值。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	例如： &lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; sal &lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2450&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	错误写法：&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; sal &lt;span class=&#34;token operator&#34;&gt;between&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3000&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2450&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt; 为 &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt; （&lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt; 不为空）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;查询那些员工的津贴&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;补助为&lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;错误查询：&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; comm &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;正确写法：&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; comm &lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; 并且&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;查询工作岗位是MANAGER并且工资大于&lt;span class=&#34;token number&#34;&gt;2500&lt;/span&gt;的员工信息？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;job&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emp &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; job &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;MANAGER&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;and&lt;/span&gt; sal&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2500&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt; 或者&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;查询工作岗位是MANAGER或SALESMAN的员工信息？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; empno&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;job&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;sal &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; emo &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; job &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;MANAGER&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt; job &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;SALESMAN&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; 包含，相当于多个 &lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt; （&lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; 不在这个范围中）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;注意：&lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt;不是一个区间。&lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt;后面跟的是具体的值。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt;可以取非，主要用在&lt;span class=&#34;token operator&#34;&gt;is&lt;/span&gt; 或 &lt;span class=&#34;token operator&#34;&gt;in&lt;/span&gt; 中&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;相当于多个 &lt;span class=&#34;token operator&#34;&gt;or&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt;称为模糊匹配查询，支持&lt;span class=&#34;token operator&#34;&gt;%&lt;/span&gt; 或下划线匹配&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;%&lt;/span&gt; 匹配任意个字符&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;41&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;下划线，一个下划线只匹配一个字符&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;42&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;找出名字中有下划线的&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;43&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; name &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; t_student &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; name &lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%\_%&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 使用 \ 转义字符&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意： 在数据库中 null 不能使用等号进行衡量。需要使用 is null。因为数据库中的 null 代表什么也没有，它不是一个值，所以不能用等号衡量。&lt;/p&gt;
 </content>
         <category term="Mysql" />
         <updated>2024-02-18T08:13:45.054Z</updated>
@@ -410,6 +410,22 @@ yyyy-MM-dd HH:mm:ss SSS&lt;/p&gt;
 </content>
         <category term="Mysql" />
         <updated>2024-02-18T08:13:45.046Z</updated>
+    </entry>
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/</id>
+        <title>主从同步机制</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/"/>
+        <content type="html">&lt;h1 id=&#34;主从同步机制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#主从同步机制&#34;&gt;#&lt;/a&gt; 主从同步机制&lt;/h1&gt;
+&lt;p&gt;作用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以用作一种备份机制，相当于热备份&lt;/li&gt;
+&lt;li&gt;可以用做读写分离，均衡数据库负载&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;概述&lt;/p&gt;
+&lt;p&gt;MySQL 主从复制也能够称为 MySQL 主从同步，它是构建数据库高可用集群架构的基础。它经过将一台主机的数据复制到其余一台或多台主机上，并从新应用 relay log 中的 SQL 语句来实现复制功能。MySQL 支持单向、双向、链式级联、异步复制，5.5 版本以后加入的半同步复制，5.6 版本以后的 GTID 复制，MySQL5.7 的多源复制、并行复制、loss-less 复制。&lt;/p&gt;
+</content>
+        <category term="Mysql" />
+        <updated>2024-02-18T08:13:45.038Z</updated>
     </entry>
     <entry>
         <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/23.%E6%95%B0%E6%8D%AE%E5%BA%93%E8%8C%83%E5%BC%8F/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%8C%83%E5%BC%8F/</id>
@@ -534,22 +550,6 @@ id(pk)      学生编号(fk)   教师编号(fk)
 最终的目的都是为了满足客户的需求，有的时候会拿数据冗余换速度。因为Sql中，表和表之间的连接次数过多，效率越低（笛卡尔积）
 有的时候可能会存在冗余，但是为了减少表的连接次数，这样做也是合理的。
 &lt;/code&gt;&lt;/pre&gt;
-</content>
-        <category term="Mysql" />
-        <updated>2024-02-18T08:13:45.038Z</updated>
-    </entry>
-    <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/</id>
-        <title>主从同步机制</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/"/>
-        <content type="html">&lt;h1 id=&#34;主从同步机制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#主从同步机制&#34;&gt;#&lt;/a&gt; 主从同步机制&lt;/h1&gt;
-&lt;p&gt;作用&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;可以用作一种备份机制，相当于热备份&lt;/li&gt;
-&lt;li&gt;可以用做读写分离，均衡数据库负载&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;概述&lt;/p&gt;
-&lt;p&gt;MySQL 主从复制也能够称为 MySQL 主从同步，它是构建数据库高可用集群架构的基础。它经过将一台主机的数据复制到其余一台或多台主机上，并从新应用 relay log 中的 SQL 语句来实现复制功能。MySQL 支持单向、双向、链式级联、异步复制，5.5 版本以后加入的半同步复制，5.6 版本以后的 GTID 复制，MySQL5.7 的多源复制、并行复制、loss-less 复制。&lt;/p&gt;
 </content>
         <category term="Mysql" />
         <updated>2024-02-18T08:13:45.038Z</updated>
@@ -695,40 +695,6 @@ DEALLOCATE PREPARE statement_name -- 使用 DEALLOCATE PREPARE 语句释放已�
         <updated>2024-02-18T08:13:45.038Z</updated>
     </entry>
     <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/21.%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/</id>
-        <title>视图</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/21.%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/"/>
-        <content type="html">&lt;h1 id=&#34;视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图&#34;&gt;#&lt;/a&gt; 视图&lt;/h1&gt;
-&lt;p&gt;什么是视图？&lt;br&gt;
-view：站在不同的角度，去看待同一份数据&lt;/p&gt;
-&lt;h2 id=&#34;创建视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建视图&#34;&gt;#&lt;/a&gt; 创建视图&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;create view 视图名 as DQL语句;
-
-create view emp_view as select * from emp;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;注意：只有 DQL 语句才能以 view 的形式创建&lt;/p&gt;
-&lt;h2 id=&#34;删除视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#删除视图&#34;&gt;#&lt;/a&gt; 删除视图&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;drop view emp_view;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;视图作用可以干什么方便-简化开发-利于维护&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图作用可以干什么方便-简化开发-利于维护&#34;&gt;#&lt;/a&gt; 视图作用（可以干什么）–方便、简化开发、利于维护&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;可以面向视图对象进行增删改查，对视图对象的增删改查，会导致原表被操作
-
-特点：对视图的操作，会影响到原表数据
-
-select * from dept2_view;
-
-insert into dept2_view(deptno, dname, loc) vlaues(60, &#39;SALES&#39;, &#39;BJ&#39;);// （insert、delete、update）操作会影响到原表
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;视图对象在实际开发中，到底有什么作用？&lt;br&gt;
-假设有一条 SQL 语句，需要在不同位置反复使用，每次使用需要重新编写，可以把这条复杂的 SQL 语句以视图对象的形式创建出来&lt;br&gt;
-在需要编写这条 SQL 语句的位置直接使用视图对象。可以简化开发，并且利于后期维护。因为只需要修改一个位置就行了，只需要修改视图对象所映射的 SQL 语句&lt;/p&gt;
-&lt;p&gt;使用视图开发的时候，可以像使用 table 一样，可以对视图进行增删改查等操作。&lt;br&gt;
-视图对象是存储在硬盘上的，不会消失&lt;/p&gt;
-</content>
-        <category term="Mysql" />
-        <updated>2024-02-18T08:13:45.029Z</updated>
-    </entry>
-    <entry>
         <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/22.DBA%E5%91%BD%E4%BB%A4/DBA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
         <title>DBA命令</title>
         <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/22.DBA%E5%91%BD%E4%BB%A4/DBA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
@@ -767,6 +733,40 @@ create USER &#39;username&#39;@&#39;host&#39; IDENTIFIED by &#39;password&#39;;
     然后导入sql文件
     source D:\nk.sql
 &lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Mysql" />
+        <updated>2024-02-18T08:13:45.029Z</updated>
+    </entry>
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/21.%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/</id>
+        <title>视图</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/21.%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/"/>
+        <content type="html">&lt;h1 id=&#34;视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图&#34;&gt;#&lt;/a&gt; 视图&lt;/h1&gt;
+&lt;p&gt;什么是视图？&lt;br&gt;
+view：站在不同的角度，去看待同一份数据&lt;/p&gt;
+&lt;h2 id=&#34;创建视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建视图&#34;&gt;#&lt;/a&gt; 创建视图&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;create view 视图名 as DQL语句;
+
+create view emp_view as select * from emp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：只有 DQL 语句才能以 view 的形式创建&lt;/p&gt;
+&lt;h2 id=&#34;删除视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#删除视图&#34;&gt;#&lt;/a&gt; 删除视图&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;drop view emp_view;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;视图作用可以干什么方便-简化开发-利于维护&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图作用可以干什么方便-简化开发-利于维护&#34;&gt;#&lt;/a&gt; 视图作用（可以干什么）–方便、简化开发、利于维护&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;可以面向视图对象进行增删改查，对视图对象的增删改查，会导致原表被操作
+
+特点：对视图的操作，会影响到原表数据
+
+select * from dept2_view;
+
+insert into dept2_view(deptno, dname, loc) vlaues(60, &#39;SALES&#39;, &#39;BJ&#39;);// （insert、delete、update）操作会影响到原表
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;视图对象在实际开发中，到底有什么作用？&lt;br&gt;
+假设有一条 SQL 语句，需要在不同位置反复使用，每次使用需要重新编写，可以把这条复杂的 SQL 语句以视图对象的形式创建出来&lt;br&gt;
+在需要编写这条 SQL 语句的位置直接使用视图对象。可以简化开发，并且利于后期维护。因为只需要修改一个位置就行了，只需要修改视图对象所映射的 SQL 语句&lt;/p&gt;
+&lt;p&gt;使用视图开发的时候，可以像使用 table 一样，可以对视图进行增删改查等操作。&lt;br&gt;
+视图对象是存储在硬盘上的，不会消失&lt;/p&gt;
 </content>
         <category term="Mysql" />
         <updated>2024-02-18T08:13:45.029Z</updated>
@@ -1472,52 +1472,6 @@ datetime
         <updated>2024-02-18T08:13:44.996Z</updated>
     </entry>
     <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/16.DML/DML/</id>
-        <title>DML</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/16.DML/DML/"/>
-        <content type="html">&lt;h1 id=&#34;insert&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#insert&#34;&gt;#&lt;/a&gt; insert&lt;/h1&gt;
-&lt;pre&gt;&lt;code&gt;// 根据字段名，插入数据
-// 注意： 字段名和值要一一对应
-insert into 表名(字段名1,字段名2...) values(值1,值2...);
-
-
-//表示插入所有字段
-insert into 表名 values(值1,值2...);
-
-// 一次插入多条数据，用逗号隔开
-insert into test values(1, &#39;张三&#39;, &#39;1999-12-13&#39;), (2, &#39;李四&#39;, &#39;2000-01-02&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;将查询结果插入到一张表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#将查询结果插入到一张表&#34;&gt;#&lt;/a&gt; 将查询结果插入到一张表&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;快速创建dept_bak表，同时数据也存入了dept_bak表中。
-create table dept_bak as select * from dept;
-
-将查询到的结果insert into到dept_bak表中
-insert into dept_bak select * from dept;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&#34;update&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#update&#34;&gt;#&lt;/a&gt; update&lt;/h1&gt;
-&lt;pre&gt;&lt;code&gt;update 表名 set 字段名1 = 值1, 字段名2 = 值2 where 条件;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&#34;delete&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#delete&#34;&gt;#&lt;/a&gt; delete&lt;/h1&gt;
-&lt;pre&gt;&lt;code&gt;delete from 表名 where 条件;
-
-原理：
-表中的数据被删除了，但是这个数据在硬盘上的真实存储空间不会被释放
-
-优点：支持回滚，可以恢复
-缺点：删除效率低
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;快速删除表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#快速删除表&#34;&gt;#&lt;/a&gt; 快速删除表&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;truncate 语句删除数据（属于DDL）
-    删除效率高，表被一次截断，物理删除
-
-    优点：效率高，快
-    缺点：不支持回滚
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-        <category term="Mysql" />
-        <updated>2024-02-18T08:13:44.996Z</updated>
-    </entry>
-    <entry>
         <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/</id>
         <title>约束</title>
         <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/"/>
@@ -1650,6 +1604,52 @@ create table student(
         <updated>2024-02-18T08:13:44.996Z</updated>
     </entry>
     <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/16.DML/DML/</id>
+        <title>DML</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/16.DML/DML/"/>
+        <content type="html">&lt;h1 id=&#34;insert&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#insert&#34;&gt;#&lt;/a&gt; insert&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;// 根据字段名，插入数据
+// 注意： 字段名和值要一一对应
+insert into 表名(字段名1,字段名2...) values(值1,值2...);
+
+
+//表示插入所有字段
+insert into 表名 values(值1,值2...);
+
+// 一次插入多条数据，用逗号隔开
+insert into test values(1, &#39;张三&#39;, &#39;1999-12-13&#39;), (2, &#39;李四&#39;, &#39;2000-01-02&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;将查询结果插入到一张表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#将查询结果插入到一张表&#34;&gt;#&lt;/a&gt; 将查询结果插入到一张表&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;快速创建dept_bak表，同时数据也存入了dept_bak表中。
+create table dept_bak as select * from dept;
+
+将查询到的结果insert into到dept_bak表中
+insert into dept_bak select * from dept;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;update&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#update&#34;&gt;#&lt;/a&gt; update&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;update 表名 set 字段名1 = 值1, 字段名2 = 值2 where 条件;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;delete&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#delete&#34;&gt;#&lt;/a&gt; delete&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;delete from 表名 where 条件;
+
+原理：
+表中的数据被删除了，但是这个数据在硬盘上的真实存储空间不会被释放
+
+优点：支持回滚，可以恢复
+缺点：删除效率低
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;快速删除表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#快速删除表&#34;&gt;#&lt;/a&gt; 快速删除表&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;truncate 语句删除数据（属于DDL）
+    删除效率高，表被一次截断，物理删除
+
+    优点：效率高，快
+    缺点：不支持回滚
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Mysql" />
+        <updated>2024-02-18T08:13:44.996Z</updated>
+    </entry>
+    <entry>
         <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/13.%E5%88%86%E9%A1%B5/limit/</id>
         <title>Mysql中limit</title>
         <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/13.%E5%88%86%E9%A1%B5/limit/"/>
@@ -1737,64 +1737,6 @@ drop table if exists 表名;  // 当表存在的话，删除
 </content>
         <category term="Mysql" />
         <updated>2024-02-18T08:13:44.988Z</updated>
-    </entry>
-    <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/5.%E5%AD%90%E6%9F%A5%E8%AF%A2/</id>
-        <title>Mysql子查询</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/5.%E5%AD%90%E6%9F%A5%E8%AF%A2/"/>
-        <content type="html">&lt;h1 id=&#34;子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子查询&#34;&gt;#&lt;/a&gt; 子查询&lt;/h1&gt;
-&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;select语句中嵌套select语句，被嵌套的select语句被称为子查询。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;子查询可以出现的位置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子查询可以出现的位置&#34;&gt;#&lt;/a&gt; 子查询可以出现的位置&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;select
-    ..(select子).
-from
-    ..(select子).
-where
-    ..(select子).
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;where子句中的子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#where子句中的子查询&#34;&gt;#&lt;/a&gt; where 子句中的子查询&lt;/h2&gt;
-&lt;p&gt;案例：找出比最低工资高的员工的姓名和薪资。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-select 
-    ename, sal
-from
-    emp
-where
-    sal &amp;gt; (select min(sal) from emp);
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;from-子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#from-子查询&#34;&gt;#&lt;/a&gt; from 子查询&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;from后边的子查询，可以当作一张临时的表。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;案例：找出每个岗位的平均工资的薪资等级&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-select
-    t.*, sg.grade
-from
-    (select job, avg(sal) as avgsal from emp group job) t
-join
-    salgrade
-on
-    t.avgsal between sg.losal and hisal;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;select-子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#select-子查询&#34;&gt;#&lt;/a&gt; select 子查询&lt;/h2&gt;
-&lt;p&gt;案例：找出每个员工的部门名称，要求显示员工姓名，部门名称。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-select
-    e.ename, (select d.ename from dept e where e.deptno = d.deptno) as dname
-from
-    emp e;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;在select语句中的子查询，这个子查询语句只能一次返回一条结果，多于一条，就报错了。
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-        <category term="Mysql" />
-        <updated>2024-02-18T08:13:44.979Z</updated>
     </entry>
     <entry>
         <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/3.%E5%A4%96%E8%BF%9E%E6%8E%A5/</id>
@@ -1890,6 +1832,64 @@ on
         <updated>2024-02-18T08:13:44.979Z</updated>
     </entry>
     <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/5.%E5%AD%90%E6%9F%A5%E8%AF%A2/</id>
+        <title>Mysql子查询</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/5.%E5%AD%90%E6%9F%A5%E8%AF%A2/"/>
+        <content type="html">&lt;h1 id=&#34;子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子查询&#34;&gt;#&lt;/a&gt; 子查询&lt;/h1&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;select语句中嵌套select语句，被嵌套的select语句被称为子查询。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;子查询可以出现的位置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子查询可以出现的位置&#34;&gt;#&lt;/a&gt; 子查询可以出现的位置&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;select
+    ..(select子).
+from
+    ..(select子).
+where
+    ..(select子).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;where子句中的子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#where子句中的子查询&#34;&gt;#&lt;/a&gt; where 子句中的子查询&lt;/h2&gt;
+&lt;p&gt;案例：找出比最低工资高的员工的姓名和薪资。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select 
+    ename, sal
+from
+    emp
+where
+    sal &amp;gt; (select min(sal) from emp);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;from-子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#from-子查询&#34;&gt;#&lt;/a&gt; from 子查询&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;from后边的子查询，可以当作一张临时的表。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;案例：找出每个岗位的平均工资的薪资等级&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select
+    t.*, sg.grade
+from
+    (select job, avg(sal) as avgsal from emp group job) t
+join
+    salgrade
+on
+    t.avgsal between sg.losal and hisal;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;select-子查询&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#select-子查询&#34;&gt;#&lt;/a&gt; select 子查询&lt;/h2&gt;
+&lt;p&gt;案例：找出每个员工的部门名称，要求显示员工姓名，部门名称。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+select
+    e.ename, (select d.ename from dept e where e.deptno = d.deptno) as dname
+from
+    emp e;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;注意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注意&#34;&gt;#&lt;/a&gt; 注意&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;在select语句中的子查询，这个子查询语句只能一次返回一条结果，多于一条，就报错了。
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Mysql" />
+        <updated>2024-02-18T08:13:44.979Z</updated>
+    </entry>
+    <entry>
         <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/6.union/</id>
         <title>Mysql中union</title>
         <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/6.union/"/>
@@ -1944,6 +1944,64 @@ select name, distinct job from emp;// 错误&lt;br&gt;
  select distinct name, job from emp;// 正确&lt;br&gt;
 这样表示对 name 和 job 组合起来进行去重。&lt;/li&gt;
 &lt;/ol&gt;
+</content>
+        <category term="Mysql" />
+        <updated>2024-02-18T08:13:44.971Z</updated>
+    </entry>
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/2.%E5%86%85%E8%BF%9E%E6%8E%A5/</id>
+        <title>Mysql内连接</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/2.%E5%86%85%E8%BF%9E%E6%8E%A5/"/>
+        <content type="html">&lt;h1 id=&#34;内连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#内连接&#34;&gt;#&lt;/a&gt; 内连接&lt;/h1&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;完全能够匹配上这个条件的数据查询出来。
+A，B两张表连接查询，AB两张表没有主次关系，是平等的。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;等值连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#等值连接&#34;&gt;#&lt;/a&gt; 等值连接&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;
+SQL92语法：
+
+select up.id uId, qpd.id qId from user_profile up, question_practice_detail qpd where up.device_id = qpd.device_id;
+
+SQL99语法：
+                                                  [inner] 单词可以省略
+select up.id uId, qpd.id qId from user_profile up [inner] join question_practice_detail qpd on up.device_id = qpd.device_id;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SQL92 语法缺点：结构不清晰，表的连接条件和后期进一步的筛选条件，都放到了 where 后边。&lt;/p&gt;
+&lt;p&gt;SQL99 语法有点：表连接的条件是独立的，连接之后如果还需要进一步筛选，可以继续添加 where 条件。&lt;/p&gt;
+&lt;h2 id=&#34;非等值连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非等值连接&#34;&gt;#&lt;/a&gt; 非等值连接&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;条件不是一个等量关系，称为非等值连接
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+案例：找出每个员工的薪资等级，要求显示员工名，薪资，薪资等级
+
+    select 
+        e.ename, e.sal, s.grade 
+    from
+        emp e
+    inner join 
+        salgrade s
+    on 
+        e.sal between s.losal and s.hisal;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;自连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自连接&#34;&gt;#&lt;/a&gt; 自连接&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;一张表看作两张表
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+案例：查询员工的上级领导，要求显示员工名和对应的领导名
+    select 
+        a.ename as &#39;员工名&#39;, b.ename as &#39;领导名&#39;
+    from
+        emp a 
+    inner join
+        emp b
+    on
+        a.mgr = b.empno;
+
+
+&lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="Mysql" />
         <updated>2024-02-18T08:13:44.971Z</updated>
@@ -2024,64 +2082,6 @@ emp表和dept表联合起来查询数据，从emp表中取员工名字，从dept
 &lt;pre&gt;&lt;code&gt;重点：最终查询结果是16条，但是在匹配中，匹配的次数没有减少，仍然是112次。只不过进行了筛除，匹配的次数并没有减少！！！
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;注意：通过观察笛卡尔积现场得出，表的连接次数越多（连接的表越多）程序执行效率越低，应避免表的连接次数过多。&lt;/p&gt;
-</content>
-        <category term="Mysql" />
-        <updated>2024-02-18T08:13:44.971Z</updated>
-    </entry>
-    <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/2.%E5%86%85%E8%BF%9E%E6%8E%A5/</id>
-        <title>Mysql内连接</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/2.%E5%86%85%E8%BF%9E%E6%8E%A5/"/>
-        <content type="html">&lt;h1 id=&#34;内连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#内连接&#34;&gt;#&lt;/a&gt; 内连接&lt;/h1&gt;
-&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;完全能够匹配上这个条件的数据查询出来。
-A，B两张表连接查询，AB两张表没有主次关系，是平等的。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;等值连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#等值连接&#34;&gt;#&lt;/a&gt; 等值连接&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;
-SQL92语法：
-
-select up.id uId, qpd.id qId from user_profile up, question_practice_detail qpd where up.device_id = qpd.device_id;
-
-SQL99语法：
-                                                  [inner] 单词可以省略
-select up.id uId, qpd.id qId from user_profile up [inner] join question_practice_detail qpd on up.device_id = qpd.device_id;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;SQL92 语法缺点：结构不清晰，表的连接条件和后期进一步的筛选条件，都放到了 where 后边。&lt;/p&gt;
-&lt;p&gt;SQL99 语法有点：表连接的条件是独立的，连接之后如果还需要进一步筛选，可以继续添加 where 条件。&lt;/p&gt;
-&lt;h2 id=&#34;非等值连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非等值连接&#34;&gt;#&lt;/a&gt; 非等值连接&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;条件不是一个等量关系，称为非等值连接
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;
-案例：找出每个员工的薪资等级，要求显示员工名，薪资，薪资等级
-
-    select 
-        e.ename, e.sal, s.grade 
-    from
-        emp e
-    inner join 
-        salgrade s
-    on 
-        e.sal between s.losal and s.hisal;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;自连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自连接&#34;&gt;#&lt;/a&gt; 自连接&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;一张表看作两张表
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;
-案例：查询员工的上级领导，要求显示员工名和对应的领导名
-    select 
-        a.ename as &#39;员工名&#39;, b.ename as &#39;领导名&#39;
-    from
-        emp a 
-    inner join
-        emp b
-    on
-        a.mgr = b.empno;
-
-
-&lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="Mysql" />
         <updated>2024-02-18T08:13:44.971Z</updated>

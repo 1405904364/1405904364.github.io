@@ -5,21 +5,21 @@
     "home_page_url": "http://1405904364.github.io",
     "items": [
         {
-            "id": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E4%BB%8B%E7%BB%8DVuex/",
-            "url": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E4%BB%8B%E7%BB%8DVuex/",
-            "title": "Vuex介绍",
-            "date_published": "2024-02-18T08:13:45.154Z",
-            "content_html": "<h1 id=\"什么是vuex\"><a class=\"markdownIt-Anchor\" href=\"#什么是vuex\">#</a> 什么是 Vuex</h1>\n<p>Vuex 是一 i 个专门为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extensnio ，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>\n<h2 id=\"什么是状态管理模式\"><a class=\"markdownIt-Anchor\" href=\"#什么是状态管理模式\">#</a> 什么是 “状态管理模式”?</h2>\n<pre><code class=\"language-JavaScript\">\nnew Vue(&#123;\n  // state\n  data () &#123;\n    return &#123;\n      count: 0\n    &#125;\n  &#125;,\n  // view\n  template: `\n    &lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;\n  `,\n  // actions\n  methods: &#123;\n    increment () &#123;\n      this.count++\n    &#125;\n  &#125;\n&#125;)\n\n</code></pre>\n<p>这个状态自管理应用包含一下几个部分：</p>\n<ul>\n<li>state，驱动应用的数据源</li>\n<li>view，以声明方式将 state 映射到视图</li>\n<li>actions，相应在 view 上的用户输入导致的状态变化</li>\n</ul>\n<p>以下表示 “单向数据流” 理念的简单示意图</p>\n<p><img data-src=\"./image/../../../image/%E5%89%8D%E7%AB%AF/Vuex/flow.png\" alt=\"图片\"></p>\n<p>但是，当我们的应用遇到<strong>多个组件共享状态</strong>时，单向数据流的简洁性很容易遭到破坏：</p>\n<ul>\n<li>多个视图依赖于同一个状态</li>\n<li>来自不同视图的行为需要变更同一个状态</li>\n</ul>\n<p>对于问题一，传参的方法对于多层嵌套的组件将会非常繁琐，并且对于兄弟组件间的状态传递无能为力。对于问题二，我们经常会采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝。以上的这些模式非常脆弱，通常会导致无法维护的代码。</p>\n<p>因此，我们为什么不把组件的共享状态抽取出来，以一个全局单例模式管理呢？在这种模式下，我们的组件树构成了一个巨大的 “视图”，不管在树的哪个位置，任何组件都能获取状态或者触发行为！</p>\n<p>通过定义和隔离状态管理中的各种概念并通过强制规则维持视图和状态间的独立性，我们的代码将会变得更结构化且易维护。</p>\n<p><img data-src=\"./image/../../../image/%E5%89%8D%E7%AB%AF/Vuex/vuex.png\" alt=\"图片\"></p>\n",
-            "tags": [
-                "Vuex"
-            ]
-        },
-        {
             "id": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/",
             "url": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/",
             "title": "Vuex核心概念",
             "date_published": "2024-02-18T08:13:45.154Z",
             "content_html": "",
+            "tags": [
+                "Vuex"
+            ]
+        },
+        {
+            "id": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E4%BB%8B%E7%BB%8DVuex/",
+            "url": "http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E4%BB%8B%E7%BB%8DVuex/",
+            "title": "Vuex介绍",
+            "date_published": "2024-02-18T08:13:45.154Z",
+            "content_html": "<h1 id=\"什么是vuex\"><a class=\"markdownIt-Anchor\" href=\"#什么是vuex\">#</a> 什么是 Vuex</h1>\n<p>Vuex 是一 i 个专门为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extensnio ，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>\n<h2 id=\"什么是状态管理模式\"><a class=\"markdownIt-Anchor\" href=\"#什么是状态管理模式\">#</a> 什么是 “状态管理模式”?</h2>\n<pre><code class=\"language-JavaScript\">\nnew Vue(&#123;\n  // state\n  data () &#123;\n    return &#123;\n      count: 0\n    &#125;\n  &#125;,\n  // view\n  template: `\n    &lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;\n  `,\n  // actions\n  methods: &#123;\n    increment () &#123;\n      this.count++\n    &#125;\n  &#125;\n&#125;)\n\n</code></pre>\n<p>这个状态自管理应用包含一下几个部分：</p>\n<ul>\n<li>state，驱动应用的数据源</li>\n<li>view，以声明方式将 state 映射到视图</li>\n<li>actions，相应在 view 上的用户输入导致的状态变化</li>\n</ul>\n<p>以下表示 “单向数据流” 理念的简单示意图</p>\n<p><img data-src=\"./image/../../../image/%E5%89%8D%E7%AB%AF/Vuex/flow.png\" alt=\"图片\"></p>\n<p>但是，当我们的应用遇到<strong>多个组件共享状态</strong>时，单向数据流的简洁性很容易遭到破坏：</p>\n<ul>\n<li>多个视图依赖于同一个状态</li>\n<li>来自不同视图的行为需要变更同一个状态</li>\n</ul>\n<p>对于问题一，传参的方法对于多层嵌套的组件将会非常繁琐，并且对于兄弟组件间的状态传递无能为力。对于问题二，我们经常会采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝。以上的这些模式非常脆弱，通常会导致无法维护的代码。</p>\n<p>因此，我们为什么不把组件的共享状态抽取出来，以一个全局单例模式管理呢？在这种模式下，我们的组件树构成了一个巨大的 “视图”，不管在树的哪个位置，任何组件都能获取状态或者触发行为！</p>\n<p>通过定义和隔离状态管理中的各种概念并通过强制规则维持视图和状态间的独立性，我们的代码将会变得更结构化且易维护。</p>\n<p><img data-src=\"./image/../../../image/%E5%89%8D%E7%AB%AF/Vuex/vuex.png\" alt=\"图片\"></p>\n",
             "tags": [
                 "Vuex"
             ]

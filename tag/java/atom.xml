@@ -4,8 +4,8 @@
     <title>Live My Life • Posts by &#34;java&#34; tag</title>
     <link href="http://1405904364.github.io" />
     <updated>2024-02-18T08:13:44.946Z</updated>
-    <category term="自控" />
     <category term="linux" />
+    <category term="自控" />
     <category term="PowerDesigner" />
     <category term="Vuex" />
     <category term="npm" />
@@ -15,8 +15,8 @@
     <category term="Mysql" />
     <category term="Sql" />
     <category term="SqlServer" />
-    <category term="Vue" />
     <category term="webService" />
+    <category term="Vue" />
     <category term="Html" />
     <category term="SpringCloud" />
     <entry>
@@ -219,365 +219,6 @@ public class Test &amp;#123;
 &lt;p&gt;形式参数可被视为 local variable, 形参和局部变量一样不能离开方法，只有在方法中使用，不会在方法外可见。形式参数只能用 final 修饰符，其他任何修饰符都会引起编译器错误。但是用这个修饰符也有一定的限制，就是在方法中不能对参数做任何修改。不过一般情况下，一个方法的形参不用 final 修饰，只有特殊情况下，那就是：方法内部类。一个方法内部类如果使用了这个方法的参数或者局部变量的话，这个参数或局部变量应该是 final。形参的值在调用时根据调用者更改。实参则用自身的值更改形参的值 (指针、引用皆在此列)，也就是说真正被传递的是实参。&lt;/p&gt;
 &lt;h3 id=&#34;局部变量为什么要初始化&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#局部变量为什么要初始化&#34;&gt;#&lt;/a&gt; 局部变量为什么要初始化&lt;/h3&gt;
 &lt;p&gt;局部变量是指类方法中的变量，必须初始化。局部变量运行时被分配在栈中，量大，生命周期短，如果虚拟机给每个局部变量都初始化一下，是一笔很大的开销，但变量不初始化为默认值就使用是不安全的。出于速度和安全性两个方面的综合考虑，解决方案就是虚拟机不初始化，但要求编写者在使用前给变量赋值。&lt;/p&gt;
-</content>
-        <category term="Java" />
-        <updated>2024-02-18T08:13:44.946Z</updated>
-    </entry>
-    <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/</id>
-        <title>泛型机制详解</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/"/>
-        <content type="html">&lt;p&gt;Java 泛型是从 jdk1.5 开始加入的，Java 泛型的实现采取了 “伪泛型” 的策略，即 Java 在语法上支持泛型，但是在编译阶段会进行所谓的 “类型擦除”，将所有的泛型表示 (尖括号中的内容) 都替换为具体的类型 (其对应的原生态类型)，就像完全没有泛型一样。&lt;/p&gt;
-&lt;p&gt;引入泛型的意义在于：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;适用于多种数据类型执行相同的代码 (代码复用)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;private static int add(int a, int b) &amp;#123;
-    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
-    return a + b;
-&amp;#125;
-
-private static float add(float a, float b) &amp;#123;
-    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
-    return a + b;
-&amp;#125;
-
-private static double add(double a, double b) &amp;#123;
-    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
-    return a + b;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;如果没有泛型，要实现不同类型的方法，每种类型都需要重载一个 add 方法，通过泛型，我们可以复用为一个方法：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;private static &amp;lt;T extends Number&amp;gt; double add(T a, T b) &amp;#123;
-    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a.doubleValue() + b.doubleValue()));
-    return a.doubleValue() + b.doubleValue();
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;泛型中的类型在使用时指定，不需要强制类型转换 (类型安全，编译器会检查类型)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;泛型的基本使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型的基本使用&#34;&gt;#&lt;/a&gt; 泛型的基本使用&lt;/h2&gt;
-&lt;h3 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;从一个简单的泛型类看起：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class Point&amp;lt;T&amp;gt;&amp;#123;         // 此处可以随便写标识符号，T是type的简称  
-    private T var ;     // var的类型由T指定，即：由外部指定  
-    public T getVar()&amp;#123;  // 返回值的类型由外部决定  
-        return var ;  
-    &amp;#125;  
-    public void setVar(T var)&amp;#123;  // 设置的类型也由外部决定  
-        this.var = var ;  
-    &amp;#125;  
-&amp;#125;  
-public class GenericsDemo06&amp;#123;  
-    public static void main(String args[])&amp;#123;  
-        Point&amp;lt;String&amp;gt; p = new Point&amp;lt;String&amp;gt;() ;     // 里面的var类型为String类型  
-        p.setVar(&amp;quot;it&amp;quot;) ;                            // 设置字符串  
-        System.out.println(p.getVar().length()) ;   // 取得字符串的长度  
-    &amp;#125;  
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;多元泛型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class Notepad&amp;lt;K,V&amp;gt;&amp;#123;       // 此处指定了两个泛型类型  
-    private K key ;     // 此变量的类型由外部决定  
-    private V value ;   // 此变量的类型由外部决定  
-    public K getKey()&amp;#123;  
-        return this.key ;  
-    &amp;#125;  
-    public V getValue()&amp;#123;  
-        return this.value ;  
-    &amp;#125;  
-    public void setKey(K key)&amp;#123;  
-        this.key = key ;  
-    &amp;#125;  
-    public void setValue(V value)&amp;#123;  
-        this.value = value ;  
-    &amp;#125;  
-&amp;#125; 
-public class GenericsDemo09&amp;#123;  
-    public static void main(String args[])&amp;#123;  
-        Notepad&amp;lt;String,Integer&amp;gt; t = null ;        // 定义两个泛型类型的对象  
-        t = new Notepad&amp;lt;String,Integer&amp;gt;() ;       // 里面的key为String，value为Integer  
-        t.setKey(&amp;quot;汤姆&amp;quot;) ;        // 设置第一个内容  
-        t.setValue(20) ;            // 设置第二个内容  
-        System.out.print(&amp;quot;姓名；&amp;quot; + t.getKey()) ;      // 取得信息  
-        System.out.print(&amp;quot;，年龄；&amp;quot; + t.getValue()) ;       // 取得信息  
-    &amp;#125;  
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;泛型接口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型接口&#34;&gt;#&lt;/a&gt; 泛型接口&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;简单的泛型接口&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;interface Info&amp;lt;T&amp;gt;&amp;#123;        // 在接口上定义泛型  
-    public T getVar() ; // 定义抽象方法，抽象方法的返回值就是泛型类型  
-&amp;#125;  
-class InfoImpl&amp;lt;T&amp;gt; implements Info&amp;lt;T&amp;gt;&amp;#123;   // 定义泛型接口的子类  
-    private T var ;             // 定义属性  
-    public InfoImpl(T var)&amp;#123;     // 通过构造方法设置属性内容  
-        this.setVar(var) ;    
-    &amp;#125;  
-    public void setVar(T var)&amp;#123;  
-        this.var = var ;  
-    &amp;#125;  
-    public T getVar()&amp;#123;  
-        return this.var ;  
-    &amp;#125;  
-&amp;#125; 
-public class GenericsDemo24&amp;#123;  
-    public static void main(String arsg[])&amp;#123;  
-        Info&amp;lt;String&amp;gt; i = null;        // 声明接口对象  
-        i = new InfoImpl&amp;lt;String&amp;gt;(&amp;quot;汤姆&amp;quot;) ;  // 通过子类实例化对象  
-        System.out.println(&amp;quot;内容：&amp;quot; + i.getVar()) ;  
-    &amp;#125;  
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;泛型方法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型方法&#34;&gt;#&lt;/a&gt; 泛型方法&lt;/h3&gt;
-&lt;p&gt;泛型方法，是在调用方法的时候指明泛型的具体类型。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;定义泛型方法的语法格式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Sace &amp;#123;
-
-    // &amp;lt;T&amp;gt; 声明此方法持有一个类型T，也可以理解为声明此方法为泛型方法
-    // T 指明该方法返回对象为T类型
-    // Class&amp;lt;T&amp;gt; 指明泛型的具体类型
-    public &amp;lt;T&amp;gt; T getObject(Class&amp;lt;T&amp;gt; c) throws InstantiationException, IllegalAccessException &amp;#123;
-        T t = c.newInstance();
-        return t;
-    &amp;#125;
-
-    public static void main(String[] args) throws InstantiationException, IllegalAccessException &amp;#123;
-        Sace sace = new Sace();
-        Class&amp;lt;Date&amp;gt; aClass = Date.class;
-        Date object = sace.getObject(aClass);
-        System.out.println(object);
-    &amp;#125;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;泛型的上下限&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型的上下限&#34;&gt;#&lt;/a&gt; 泛型的上下限&lt;/h3&gt;
-&lt;p&gt;以下代码会报错&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class A&amp;#123;&amp;#125;
-class B extends A &amp;#123;&amp;#125;
-
-// 如下两个方法不会报错
-public static void funA(A a) &amp;#123;
-    // ...          
-&amp;#125;
-public static void funB(B b) &amp;#123;
-    funA(b);
-    // ...             
-&amp;#125;
-
-// 如下funD方法会报错
-public static void funC(List&amp;lt;A&amp;gt; listA) &amp;#123;
-    // ...          
-&amp;#125;
-public static void funD(List&amp;lt;B&amp;gt; listB) &amp;#123;
-    funC(listB); // Unresolved compilation problem: The method doPrint(List&amp;lt;A&amp;gt;) in the type test is not applicable for the arguments (List&amp;lt;B&amp;gt;)
-    // ...             
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;为了解决泛型中隐含的转换问题，Java 泛型加入了类型参数的上下边界机制。&amp;lt;? extends A&amp;gt; 表示该类型参数可以是 A (上边界) 或者 A 的子类类型。编译时擦除到类型 A，即用 A 类型代替类型参数。这种方法可以解决开始遇到的问题。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public static void funC(List&amp;lt;? extends A&amp;gt; listA) &amp;#123;
-    // ...          
-&amp;#125;
-public static void funD(List&amp;lt;B&amp;gt; listB) &amp;#123;
-    funC(listB); // OK
-    // ...             
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;泛型上下限的引入&lt;br&gt;
-在使用泛型的时候，我们可以为传入的泛型类型实参进行上下边界的限制，比如：类型实参只准传入某种类型的夫类型或某种类型的子类&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上限&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Info&amp;lt;T extends Number&amp;gt; &amp;#123;
-    T val;
-
-    public T getVal() &amp;#123;
-        return val;
-    &amp;#125;
-
-    public void setVal(T val) &amp;#123;
-        this.val = val;
-    &amp;#125;
-
-    public static void main(String[] args) &amp;#123;
-        Info info = new Info&amp;lt;Double&amp;gt;();
-        Info info2 = new Info&amp;lt;Integer&amp;gt;();
-        info.val = 10;
-        info2.val = 10f;
-        System.out.println(info.val);
-        System.out.println(info2.val);
-    &amp;#125;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;下限&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Info&amp;lt;T&amp;gt; &amp;#123;
-    T val;
-
-    public T getVal() &amp;#123;
-        return val;
-    &amp;#125;
-
-    public void setVal(T val) &amp;#123;
-        this.val = val;
-    &amp;#125;
-
-    public static void fun(Info&amp;lt;? super String&amp;gt; temp) &amp;#123;    // 只能接收String或Object类型的泛型，String类的父类只有Object类
-        System.out.print(temp + &amp;quot;, &amp;quot;);
-    &amp;#125;
-
-    public static void main(String[] args) &amp;#123;
-        Info&amp;lt;String&amp;gt; info = new Info&amp;lt;String&amp;gt;();
-        Info&amp;lt;Object&amp;gt; info2 = new Info&amp;lt;Object&amp;gt;();
-        Info&amp;lt;Integer&amp;gt; info3 = new Info&amp;lt;Integer&amp;gt;();
-        fun(info);
-        fun(info2);
-        fun(info3); // info3不允许作为fun的形参，info3是Integer泛型对象，需要一个String的父类，包括String类
-    &amp;#125;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;总结：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;?&gt; 无限制通配符
-&lt;/li&gt;
-&lt;li&gt;
-&lt;? extends E&gt; extends 关键字声明了类型的上界，表示参数化的类型可能是所指定的类型，或者是此类型的子类
-&lt;/li&gt;
-&lt;li&gt;
-&lt;? super E&gt; super 关键字声明了类型的下界，表示了参数化的类型可能是指定类型，或者是次类型的父类&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-        <category term="Java" />
-        <updated>2024-02-18T08:13:44.946Z</updated>
-    </entry>
-    <entry>
-        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</id>
-        <title>面向对象</title>
-        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-        <content type="html">&lt;h1 id=&#34;java基础-面向对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java基础-面向对象&#34;&gt;#&lt;/a&gt; Java 基础 - 面向对象&lt;/h1&gt;
-&lt;h2 id=&#34;三大特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三大特性&#34;&gt;#&lt;/a&gt; 三大特性&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;封装&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;利用抽象数据类型将&lt;em&gt;数据&lt;/em&gt;和&lt;em&gt;基于数据的操作&lt;/em&gt;封装在一起，使其构成一个不可分割的独立实体。数据被保护在抽象数据类型的内部，尽可能地隐藏内部的细节，只保留一些对外接口使之与外部发生关系。用户无需知道对象内部的细节，但可以通过对象对外提供的接口来访问该对象。&lt;/p&gt;
-&lt;p&gt;优点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;减少耦合：可以独立地开发、测试、优化、使用、理解和修改&lt;/li&gt;
-&lt;li&gt;减轻维护的负担：可以更容易地被程序员所理解，并且在调试的时候可以不影响其他模块&lt;/li&gt;
-&lt;li&gt;有效地调节性能：可以通过剖析确定哪些模块影响了系统的性能&lt;/li&gt;
-&lt;li&gt;提供软件的可重用性&lt;/li&gt;
-&lt;li&gt;降低了构建大型系统的风险：即使整个系统不可用，但是这些独立的模块却有可能是可用的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;继承&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;继承实现了 &lt;strong&gt;IS-A&lt;/strong&gt; 关系，例如 Cat 和 Animal 就是一种 IS-A 关系，因此 Cat 可以继承自 Animal，从而获得 Animal 非 private 的属性和方法。&lt;/p&gt;
-&lt;p&gt;继承应该遵守里氏替换原则，子类对象必须能够替换掉所有父类对象。&lt;/p&gt;
-&lt;p&gt;Cat 可以当作 Animal 来使用，也就是说可以使用 Animal 引用 Cat 对象。父类引用指向子类对象 (&lt;em&gt;父类引用指向子类的实现&lt;/em&gt;) 称为 &lt;strong&gt;向上转型&lt;/strong&gt;。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Animal animal = new Cat();&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;多态&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;多态分为编译时多态和运行时多态：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;编译时多态主要指方法的重载&lt;/li&gt;
-&lt;li&gt;运行时多态指程序中定义的对象引用所指向的具体类型在运行期间才确定&lt;br&gt;
-运行时多态有三个条件
-&lt;ul&gt;
-&lt;li&gt;继承&lt;/li&gt;
-&lt;li&gt;覆盖 (重写)&lt;/li&gt;
-&lt;li&gt;向上转型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#类&#34;&gt;#&lt;/a&gt; 类&lt;/h2&gt;
-&lt;h3 id=&#34;泛化关系generalization&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛化关系generalization&#34;&gt;#&lt;/a&gt; 泛化关系 (Generalization)&lt;/h3&gt;
-&lt;p&gt;用于描述继承关系，在 Java 中使用 extends 关键字&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmJyrBBKh.png&#34; alt=&#34;泛型关系&#34;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class Vehical
-class Car
-class Truck
-
-Vehical &amp;lt;| -- Car
-Vehical &amp;lt;| -- Truck
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;实现关系realization&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实现关系realization&#34;&gt;#&lt;/a&gt; 实现关系 (Realization)&lt;/h3&gt;
-&lt;p&gt;用来实现一个接口，在 Java 中使用 implements 关键字&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILK8IatCoQn.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-interface MoveBehavior
-class Fly
-class Run
-
-MoveBehavior &amp;lt;| -- Fly
-MoveBehivior &amp;lt;| -- Run
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;聚合关系aggregation&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#聚合关系aggregation&#34;&gt;#&lt;/a&gt; 聚合关系 (Aggregation)&lt;/h3&gt;
-&lt;p&gt;表示整体由部分组成，但是整体和部分不是强依赖的，整体不存在了但部分还是会存在&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmJ4ylIar.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class Computer
-class Keyboard
-class Mouse
-class Screen
-
-Computer o -- Keyboard
-Computer o -- Mouse
-Computer o -- Screen
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;组合关系composition&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#组合关系composition&#34;&gt;#&lt;/a&gt; 组合关系 (Composition)&lt;/h3&gt;
-&lt;p&gt;和聚合不同，组合中整体和部分是强依赖的，整体不存在了，部分也就不存在了&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmpiyjo2_.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class Company
-class DepartmentA
-class DepartmentB
-
-Company * -- DepartmentA
-Company * -- DepartmentB
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;关联关系association&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关联关系association&#34;&gt;#&lt;/a&gt; 关联关系 (Association)&lt;/h3&gt;
-&lt;p&gt;表示不同对象之间有关联，这是一种静态关系，与运行过程的状态无关，在最开始就可以确定。因此可以用 1 对 1、多对 1、多对多这种关联关系来表示&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmB2xEJyv.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class School
-class Student
-
-School &amp;quot;1&amp;quot; - &amp;quot;n&amp;quot; Student
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;依赖关系dependency&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#依赖关系dependency&#34;&gt;#&lt;/a&gt; 依赖关系 (Dependency)&lt;/h3&gt;
-&lt;p&gt;和关联关系不同的是，依赖关系是在运行过程中起作用的。A 类和 B 类是依赖关系主要有三种形式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A 类是 B 类中的 (某种方法的) 局部变量&lt;/li&gt;
-&lt;li&gt;A 类是 B 类方法当中的一个参数&lt;/li&gt;
-&lt;li&gt;A 类向 B 类发送消息，从而影响 B 类发生变化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/LOun2W9134NxVugmbJPp15d4LalxC4O.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class Vehicle &amp;#123;
-    move(MoveBehavior)
-&amp;#125;
-
-interface MoveBehavior &amp;#123;
-    move()
-&amp;#125;
-
-note &amp;quot;MoveBehavior.move()&amp;quot; as N
-
-Vehicle ..&amp;gt; MoveBehavior
-
-Vehicle .. N
-
-&lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="Java" />
         <updated>2024-02-18T08:13:44.946Z</updated>
@@ -1476,6 +1117,365 @@ public class Box&amp;lt;T&amp;gt; &amp;#123;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;注解&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注解&#34;&gt;#&lt;/a&gt; 注解&lt;/h2&gt;
 &lt;p&gt;Java 注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用。&lt;/p&gt;
+</content>
+        <category term="Java" />
+        <updated>2024-02-18T08:13:44.946Z</updated>
+    </entry>
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</id>
+        <title>面向对象</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+        <content type="html">&lt;h1 id=&#34;java基础-面向对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java基础-面向对象&#34;&gt;#&lt;/a&gt; Java 基础 - 面向对象&lt;/h1&gt;
+&lt;h2 id=&#34;三大特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三大特性&#34;&gt;#&lt;/a&gt; 三大特性&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;封装&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;利用抽象数据类型将&lt;em&gt;数据&lt;/em&gt;和&lt;em&gt;基于数据的操作&lt;/em&gt;封装在一起，使其构成一个不可分割的独立实体。数据被保护在抽象数据类型的内部，尽可能地隐藏内部的细节，只保留一些对外接口使之与外部发生关系。用户无需知道对象内部的细节，但可以通过对象对外提供的接口来访问该对象。&lt;/p&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;减少耦合：可以独立地开发、测试、优化、使用、理解和修改&lt;/li&gt;
+&lt;li&gt;减轻维护的负担：可以更容易地被程序员所理解，并且在调试的时候可以不影响其他模块&lt;/li&gt;
+&lt;li&gt;有效地调节性能：可以通过剖析确定哪些模块影响了系统的性能&lt;/li&gt;
+&lt;li&gt;提供软件的可重用性&lt;/li&gt;
+&lt;li&gt;降低了构建大型系统的风险：即使整个系统不可用，但是这些独立的模块却有可能是可用的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;继承&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;继承实现了 &lt;strong&gt;IS-A&lt;/strong&gt; 关系，例如 Cat 和 Animal 就是一种 IS-A 关系，因此 Cat 可以继承自 Animal，从而获得 Animal 非 private 的属性和方法。&lt;/p&gt;
+&lt;p&gt;继承应该遵守里氏替换原则，子类对象必须能够替换掉所有父类对象。&lt;/p&gt;
+&lt;p&gt;Cat 可以当作 Animal 来使用，也就是说可以使用 Animal 引用 Cat 对象。父类引用指向子类对象 (&lt;em&gt;父类引用指向子类的实现&lt;/em&gt;) 称为 &lt;strong&gt;向上转型&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Animal animal = new Cat();&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;多态&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;多态分为编译时多态和运行时多态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编译时多态主要指方法的重载&lt;/li&gt;
+&lt;li&gt;运行时多态指程序中定义的对象引用所指向的具体类型在运行期间才确定&lt;br&gt;
+运行时多态有三个条件
+&lt;ul&gt;
+&lt;li&gt;继承&lt;/li&gt;
+&lt;li&gt;覆盖 (重写)&lt;/li&gt;
+&lt;li&gt;向上转型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#类&#34;&gt;#&lt;/a&gt; 类&lt;/h2&gt;
+&lt;h3 id=&#34;泛化关系generalization&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛化关系generalization&#34;&gt;#&lt;/a&gt; 泛化关系 (Generalization)&lt;/h3&gt;
+&lt;p&gt;用于描述继承关系，在 Java 中使用 extends 关键字&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmJyrBBKh.png&#34; alt=&#34;泛型关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Vehical
+class Car
+class Truck
+
+Vehical &amp;lt;| -- Car
+Vehical &amp;lt;| -- Truck
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;实现关系realization&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实现关系realization&#34;&gt;#&lt;/a&gt; 实现关系 (Realization)&lt;/h3&gt;
+&lt;p&gt;用来实现一个接口，在 Java 中使用 implements 关键字&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILK8IatCoQn.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+interface MoveBehavior
+class Fly
+class Run
+
+MoveBehavior &amp;lt;| -- Fly
+MoveBehivior &amp;lt;| -- Run
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;聚合关系aggregation&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#聚合关系aggregation&#34;&gt;#&lt;/a&gt; 聚合关系 (Aggregation)&lt;/h3&gt;
+&lt;p&gt;表示整体由部分组成，但是整体和部分不是强依赖的，整体不存在了但部分还是会存在&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmJ4ylIar.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Computer
+class Keyboard
+class Mouse
+class Screen
+
+Computer o -- Keyboard
+Computer o -- Mouse
+Computer o -- Screen
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;组合关系composition&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#组合关系composition&#34;&gt;#&lt;/a&gt; 组合关系 (Composition)&lt;/h3&gt;
+&lt;p&gt;和聚合不同，组合中整体和部分是强依赖的，整体不存在了，部分也就不存在了&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmpiyjo2_.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Company
+class DepartmentA
+class DepartmentB
+
+Company * -- DepartmentA
+Company * -- DepartmentB
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;关联关系association&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关联关系association&#34;&gt;#&lt;/a&gt; 关联关系 (Association)&lt;/h3&gt;
+&lt;p&gt;表示不同对象之间有关联，这是一种静态关系，与运行过程的状态无关，在最开始就可以确定。因此可以用 1 对 1、多对 1、多对多这种关联关系来表示&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/SoWkIImgAStDuU8goIp9ILLmB2xEJyv.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class School
+class Student
+
+School &amp;quot;1&amp;quot; - &amp;quot;n&amp;quot; Student
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;依赖关系dependency&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#依赖关系dependency&#34;&gt;#&lt;/a&gt; 依赖关系 (Dependency)&lt;/h3&gt;
+&lt;p&gt;和关联关系不同的是，依赖关系是在运行过程中起作用的。A 类和 B 类是依赖关系主要有三种形式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A 类是 B 类中的 (某种方法的) 局部变量&lt;/li&gt;
+&lt;li&gt;A 类是 B 类方法当中的一个参数&lt;/li&gt;
+&lt;li&gt;A 类向 B 类发送消息，从而影响 B 类发生变化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/LOun2W9134NxVugmbJPp15d4LalxC4O.png&#34; alt=&#34;实现关系&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Vehicle &amp;#123;
+    move(MoveBehavior)
+&amp;#125;
+
+interface MoveBehavior &amp;#123;
+    move()
+&amp;#125;
+
+note &amp;quot;MoveBehavior.move()&amp;quot; as N
+
+Vehicle ..&amp;gt; MoveBehavior
+
+Vehicle .. N
+
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Java" />
+        <updated>2024-02-18T08:13:44.946Z</updated>
+    </entry>
+    <entry>
+        <id>http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/</id>
+        <title>泛型机制详解</title>
+        <link rel="alternate" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/"/>
+        <content type="html">&lt;p&gt;Java 泛型是从 jdk1.5 开始加入的，Java 泛型的实现采取了 “伪泛型” 的策略，即 Java 在语法上支持泛型，但是在编译阶段会进行所谓的 “类型擦除”，将所有的泛型表示 (尖括号中的内容) 都替换为具体的类型 (其对应的原生态类型)，就像完全没有泛型一样。&lt;/p&gt;
+&lt;p&gt;引入泛型的意义在于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;适用于多种数据类型执行相同的代码 (代码复用)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;private static int add(int a, int b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
+    return a + b;
+&amp;#125;
+
+private static float add(float a, float b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
+    return a + b;
+&amp;#125;
+
+private static double add(double a, double b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a + b));
+    return a + b;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果没有泛型，要实现不同类型的方法，每种类型都需要重载一个 add 方法，通过泛型，我们可以复用为一个方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;private static &amp;lt;T extends Number&amp;gt; double add(T a, T b) &amp;#123;
+    System.out.println(a + &amp;quot;+&amp;quot; + b + &amp;quot;=&amp;quot; + (a.doubleValue() + b.doubleValue()));
+    return a.doubleValue() + b.doubleValue();
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;泛型中的类型在使用时指定，不需要强制类型转换 (类型安全，编译器会检查类型)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;泛型的基本使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型的基本使用&#34;&gt;#&lt;/a&gt; 泛型的基本使用&lt;/h2&gt;
+&lt;h3 id=&#34;&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;从一个简单的泛型类看起：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class Point&amp;lt;T&amp;gt;&amp;#123;         // 此处可以随便写标识符号，T是type的简称  
+    private T var ;     // var的类型由T指定，即：由外部指定  
+    public T getVar()&amp;#123;  // 返回值的类型由外部决定  
+        return var ;  
+    &amp;#125;  
+    public void setVar(T var)&amp;#123;  // 设置的类型也由外部决定  
+        this.var = var ;  
+    &amp;#125;  
+&amp;#125;  
+public class GenericsDemo06&amp;#123;  
+    public static void main(String args[])&amp;#123;  
+        Point&amp;lt;String&amp;gt; p = new Point&amp;lt;String&amp;gt;() ;     // 里面的var类型为String类型  
+        p.setVar(&amp;quot;it&amp;quot;) ;                            // 设置字符串  
+        System.out.println(p.getVar().length()) ;   // 取得字符串的长度  
+    &amp;#125;  
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;多元泛型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class Notepad&amp;lt;K,V&amp;gt;&amp;#123;       // 此处指定了两个泛型类型  
+    private K key ;     // 此变量的类型由外部决定  
+    private V value ;   // 此变量的类型由外部决定  
+    public K getKey()&amp;#123;  
+        return this.key ;  
+    &amp;#125;  
+    public V getValue()&amp;#123;  
+        return this.value ;  
+    &amp;#125;  
+    public void setKey(K key)&amp;#123;  
+        this.key = key ;  
+    &amp;#125;  
+    public void setValue(V value)&amp;#123;  
+        this.value = value ;  
+    &amp;#125;  
+&amp;#125; 
+public class GenericsDemo09&amp;#123;  
+    public static void main(String args[])&amp;#123;  
+        Notepad&amp;lt;String,Integer&amp;gt; t = null ;        // 定义两个泛型类型的对象  
+        t = new Notepad&amp;lt;String,Integer&amp;gt;() ;       // 里面的key为String，value为Integer  
+        t.setKey(&amp;quot;汤姆&amp;quot;) ;        // 设置第一个内容  
+        t.setValue(20) ;            // 设置第二个内容  
+        System.out.print(&amp;quot;姓名；&amp;quot; + t.getKey()) ;      // 取得信息  
+        System.out.print(&amp;quot;，年龄；&amp;quot; + t.getValue()) ;       // 取得信息  
+    &amp;#125;  
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;泛型接口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型接口&#34;&gt;#&lt;/a&gt; 泛型接口&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;简单的泛型接口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;interface Info&amp;lt;T&amp;gt;&amp;#123;        // 在接口上定义泛型  
+    public T getVar() ; // 定义抽象方法，抽象方法的返回值就是泛型类型  
+&amp;#125;  
+class InfoImpl&amp;lt;T&amp;gt; implements Info&amp;lt;T&amp;gt;&amp;#123;   // 定义泛型接口的子类  
+    private T var ;             // 定义属性  
+    public InfoImpl(T var)&amp;#123;     // 通过构造方法设置属性内容  
+        this.setVar(var) ;    
+    &amp;#125;  
+    public void setVar(T var)&amp;#123;  
+        this.var = var ;  
+    &amp;#125;  
+    public T getVar()&amp;#123;  
+        return this.var ;  
+    &amp;#125;  
+&amp;#125; 
+public class GenericsDemo24&amp;#123;  
+    public static void main(String arsg[])&amp;#123;  
+        Info&amp;lt;String&amp;gt; i = null;        // 声明接口对象  
+        i = new InfoImpl&amp;lt;String&amp;gt;(&amp;quot;汤姆&amp;quot;) ;  // 通过子类实例化对象  
+        System.out.println(&amp;quot;内容：&amp;quot; + i.getVar()) ;  
+    &amp;#125;  
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;泛型方法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型方法&#34;&gt;#&lt;/a&gt; 泛型方法&lt;/h3&gt;
+&lt;p&gt;泛型方法，是在调用方法的时候指明泛型的具体类型。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义泛型方法的语法格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Sace &amp;#123;
+
+    // &amp;lt;T&amp;gt; 声明此方法持有一个类型T，也可以理解为声明此方法为泛型方法
+    // T 指明该方法返回对象为T类型
+    // Class&amp;lt;T&amp;gt; 指明泛型的具体类型
+    public &amp;lt;T&amp;gt; T getObject(Class&amp;lt;T&amp;gt; c) throws InstantiationException, IllegalAccessException &amp;#123;
+        T t = c.newInstance();
+        return t;
+    &amp;#125;
+
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException &amp;#123;
+        Sace sace = new Sace();
+        Class&amp;lt;Date&amp;gt; aClass = Date.class;
+        Date object = sace.getObject(aClass);
+        System.out.println(object);
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;泛型的上下限&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泛型的上下限&#34;&gt;#&lt;/a&gt; 泛型的上下限&lt;/h3&gt;
+&lt;p&gt;以下代码会报错&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;class A&amp;#123;&amp;#125;
+class B extends A &amp;#123;&amp;#125;
+
+// 如下两个方法不会报错
+public static void funA(A a) &amp;#123;
+    // ...          
+&amp;#125;
+public static void funB(B b) &amp;#123;
+    funA(b);
+    // ...             
+&amp;#125;
+
+// 如下funD方法会报错
+public static void funC(List&amp;lt;A&amp;gt; listA) &amp;#123;
+    // ...          
+&amp;#125;
+public static void funD(List&amp;lt;B&amp;gt; listB) &amp;#123;
+    funC(listB); // Unresolved compilation problem: The method doPrint(List&amp;lt;A&amp;gt;) in the type test is not applicable for the arguments (List&amp;lt;B&amp;gt;)
+    // ...             
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;为了解决泛型中隐含的转换问题，Java 泛型加入了类型参数的上下边界机制。&amp;lt;? extends A&amp;gt; 表示该类型参数可以是 A (上边界) 或者 A 的子类类型。编译时擦除到类型 A，即用 A 类型代替类型参数。这种方法可以解决开始遇到的问题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public static void funC(List&amp;lt;? extends A&amp;gt; listA) &amp;#123;
+    // ...          
+&amp;#125;
+public static void funD(List&amp;lt;B&amp;gt; listB) &amp;#123;
+    funC(listB); // OK
+    // ...             
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;泛型上下限的引入&lt;br&gt;
+在使用泛型的时候，我们可以为传入的泛型类型实参进行上下边界的限制，比如：类型实参只准传入某种类型的夫类型或某种类型的子类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上限&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Info&amp;lt;T extends Number&amp;gt; &amp;#123;
+    T val;
+
+    public T getVal() &amp;#123;
+        return val;
+    &amp;#125;
+
+    public void setVal(T val) &amp;#123;
+        this.val = val;
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        Info info = new Info&amp;lt;Double&amp;gt;();
+        Info info2 = new Info&amp;lt;Integer&amp;gt;();
+        info.val = 10;
+        info2.val = 10f;
+        System.out.println(info.val);
+        System.out.println(info2.val);
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下限&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class Info&amp;lt;T&amp;gt; &amp;#123;
+    T val;
+
+    public T getVal() &amp;#123;
+        return val;
+    &amp;#125;
+
+    public void setVal(T val) &amp;#123;
+        this.val = val;
+    &amp;#125;
+
+    public static void fun(Info&amp;lt;? super String&amp;gt; temp) &amp;#123;    // 只能接收String或Object类型的泛型，String类的父类只有Object类
+        System.out.print(temp + &amp;quot;, &amp;quot;);
+    &amp;#125;
+
+    public static void main(String[] args) &amp;#123;
+        Info&amp;lt;String&amp;gt; info = new Info&amp;lt;String&amp;gt;();
+        Info&amp;lt;Object&amp;gt; info2 = new Info&amp;lt;Object&amp;gt;();
+        Info&amp;lt;Integer&amp;gt; info3 = new Info&amp;lt;Integer&amp;gt;();
+        fun(info);
+        fun(info2);
+        fun(info3); // info3不允许作为fun的形参，info3是Integer泛型对象，需要一个String的父类，包括String类
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;?&gt; 无限制通配符
+&lt;/li&gt;
+&lt;li&gt;
+&lt;? extends E&gt; extends 关键字声明了类型的上界，表示参数化的类型可能是所指定的类型，或者是此类型的子类
+&lt;/li&gt;
+&lt;li&gt;
+&lt;? super E&gt; super 关键字声明了类型的下界，表示了参数化的类型可能是指定类型，或者是次类型的父类&lt;/li&gt;
+&lt;/ol&gt;
 </content>
         <category term="Java" />
         <updated>2024-02-18T08:13:44.946Z</updated>

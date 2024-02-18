@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="Live My Life" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="Live My Life" type="application/atom+xml"><link rel="alternate" type="application/json" title="Live My Life" href="http://1405904364.github.io/feed.json"/><link rel="preconnect" href="https://lf9-cdn-tos.bytecdntp.com"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/><link rel="dns-prefetch" href="https://unpkg.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.3.3"><script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.js"></script><link rel="canonical" href="http://1405904364.github.io/page/15/"><title>testName = Live My Life = 一念成余</title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><a class="logo" href="/" rel="start"><p class="artboard">testName</p><h1 class="title" itemprop="name headline">Live My Life</h1></a><p class="meta" itemprop="description">= 一念成余 =</p></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">testName</a></li></ul><ul class="right" id="rightNav"><li class="item theme" @click="changeThemeByBtn"><i class="ic" :class="{'i-sun': !themeStatus,'i-moon': themeStatus}"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0iNK.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0zdB.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0xvg.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0hOs.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YS6XY.jpg"></li><li class="item" data-background-image="https://images.pexels.com/photos/12635428/pexels-photo-12635428.jpeg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="index wrap"><div class="segments posts"><article class="item"><div class="cover"><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1/" itemprop="url" title="事务"><img data-src="https://i.imgtg.com/2023/03/09/YS6XY.jpg" alt="article cover"></a></div><div class="info"><div class="meta"><span class="item" title="创建时间：2024-02-18 16:13:45"><span class="icon"><i class="ic i-calendar"></i></span><time itemprop="dateCreated datePublished" datetime="2024-02-18T16:13:45+08:00">2024-02-18</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span>847</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span>1 分钟</span></span></div><h3><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1/" itemprop="url" title="事务">事务</a></h3><div class="excerpt"># 事务
+什么是事务？
+一个事务就是一个完整的业务逻辑。
+是一个最小的工作单元。
+例如转账的业务逻辑，就是一个最小的工作单元，要么同时成功，要么同时失败，不可再分。
+
+本质：就是多条 DML 语句同时成功或者同时失败
+只有 DML 语句和事务有关系，其他语句无关。
+insert
+update
+delete
+ 因为以上三个语句是操作数据库中数据的
+事务是怎么做到同时成功或者同时失败的？
+InnoDB：提供一组用于记录事务特性活动的日志文件
+
+在事务执行的过程中，每一条DML的操作都会被记录到“事务特性活动的日志文件”中
+
+在事务执行的过程中，可以提交事务，也可以回滚事务
+提交事务： 清空事务性活</div><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/19.%E4%BA%8B%E5%8A%A1/%E4%BA%8B%E5%8A%A1/" class="btn" itemprop="url" title="事务">more...</a></div></article><article class="item"><div class="cover"><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/15.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" itemprop="url" title="数据类型"><img data-src="https://i.imgtg.com/2023/03/09/Y0xvg.jpg" alt="article cover"></a></div><div class="info"><div class="meta"><span class="item" title="创建时间：2024-02-18 16:13:44"><span class="icon"><i class="ic i-calendar"></i></span><time itemprop="dateCreated datePublished" datetime="2024-02-18T16:13:44+08:00">2024-02-18</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span>786</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span>1 分钟</span></span></div><h3><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/15.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" itemprop="url" title="数据类型">数据类型</a></h3><div class="excerpt"># Mysql 数据类型
+varchar
+    可变长度的字符串
+    比较智能，节省空间
+    会根据实际长度，动态的分配空间
+
+    缺点：需要动态分配空间，速度慢
+    优点：节省空间
+
+char
+    定长字符串
+    不管实际长度是多少
+    分配固定长度的空间去存储数据
+    使用不恰当的时候，可能导致空间浪费
+
+    缺点：使用不当，可能导致空间浪费
+    优点：不需要动态分配空间，速度快
+
+int
+
+bigint
+
+float
+
+double
+
+date
+    短日期类型
+
+datetime
+    长日期类型
+
+clob
+    字符大对象
+    最</div><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/15.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="btn" itemprop="url" title="数据类型">more...</a></div></article><article class="item"><div class="cover"><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" itemprop="url" title="约束"><img data-src="https://images.pexels.com/photos/15889175/pexels-photo-15889175.jpeg" alt="article cover"></a></div><div class="info"><div class="meta"><span class="item" title="创建时间：2024-02-18 16:13:44"><span class="icon"><i class="ic i-calendar"></i></span><time itemprop="dateCreated datePublished" datetime="2024-02-18T16:13:44+08:00">2024-02-18</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span>2.6k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span>2 分钟</span></span></div><h3><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" itemprop="url" title="约束">约束</a></h3><div class="excerpt"># 约束
+# 概念
+constraint，在创建表的时候，创建一些约束，保证表中数据的完整性、有效性
+
+# 作用
+保证表中的数据有效。
+
+# 非空约束
+not null：字段值不能为NULL
+
+create table student(
+    id int,
+    name varchar(50) not null   &#x2F;&#x2F; 只有列级 &#39;非空约束&#39;，没有表级 &#39;非空约束&#39;
+);
+
+# 唯一性约束
+unique:字段值不能重复，但可以为NULL（可以有多条NULL值）
+
+create table student(
+    id int,
+ </div><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" class="btn" itemprop="url" title="约束">more...</a></div></article></div></div><nav class="pagination"><div class="inner"><a class="extend prev" rel="prev" href="/page/14/"><i class="ic i-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/16/"><i class="ic i-angle-right" aria-label="下一页"></i></a></div></nav></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="一念成余" data-src="/assets/avatar.jpg"/><p class="name" itemprop="name">一念成余</p><div class="description" itemprop="description">个人学习使用</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">97</span><span class="name">文章</span></a></div><div class="item tags"><a href="/tags/"><span class="count">15</span><span class="name">标签</span></a></div></nav><div class="social"><a href="https://github.com/name" class="item github" rel="noopener" title="https:&#x2F;&#x2F;github.com&#x2F;name" target="_blank"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-user"></i>关于</a><ul class="submenu"><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于本站</a></li><li class="item"><a href="/admiration/" rel="section"><i class="ic i-coffee"></i>赞赏博主</a></li></ul></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/page/14/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/page/16/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/17.%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/">约束</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/24.%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/">主从同步机制</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E8%87%AA%E6%8E%A7/%E6%96%87%E6%A1%A3/">自控</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/RabbitMq/3.%E4%BA%A4%E6%8D%A2%E5%99%A8%E7%B1%BB%E5%9E%8B/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E4%B8%AA%E4%BA%BA/PhotoShop/1.%E4%BA%86%E8%A7%A3%E5%9B%BE%E5%B1%82/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">函数式编程</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E4%BB%8B%E7%BB%8DVuex/">Vuex介绍</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/25.%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/RabbitMq/2.%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/">未命名</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2><ul class="leancloud-recent-comment" id="new-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">一念成余 @ testName</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">184k 字</span><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:47</span></div><div class="powered-by">基于 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & Theme.<a href="https://github.com/theme-shoka-x/hexo-theme-shokaX/" rel="noopener" target="_blank">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+        path: `page/15/`,
+        favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,
+    chart: false,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: ``,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `&lt;div class=&quot;note warning&quot;&gt;&lt;p&gt;&lt;span class=&quot;label warning&quot;&gt;文章时效性提示&lt;/span&gt;&lt;br&gt;这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。&lt;/p&gt;&lt;/div&gt;`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://polyfill.io/v3/polyfill.min.js?features=default,fetch"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/pace/1.0.2/pace.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/algoliasearch/4.12.1/algoliasearch-lite.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/instantsearch.js/4.39.0/instantsearch.production.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/quicklink/2.2.0/quicklink.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/??jquery/3.5.1/jquery.min.js,fancybox/3.5.7/jquery.fancybox.min.js,justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" async></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/KaTeX/0.15.2/contrib/copy-tex.min.js" async></script><script src="/js/app.js?v=0.3.3"></script></body></html>

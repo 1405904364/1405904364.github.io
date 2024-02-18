@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="Live My Life" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="Live My Life" type="application/atom+xml"><link rel="alternate" type="application/json" title="Live My Life" href="http://1405904364.github.io/feed.json"/><link rel="preconnect" href="https://lf9-cdn-tos.bytecdntp.com"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/><link rel="dns-prefetch" href="https://unpkg.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.3.3"><script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.js"></script><link rel="canonical" href="http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/2.Vue%E5%9F%BA%E7%A1%80/2.%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/"><title></title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline"></h1><div class="meta"><span class="item" title="创建时间：2024-02-18 16:13:45"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2024-02-18T16:13:45+08:00">2024-02-18</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>4.2k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>4 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">testName</a></li></ul><ul class="right" id="rightNav"><li class="item theme" @click="changeThemeByBtn"><i class="ic" :class="{'i-sun': !themeStatus,'i-moon': themeStatus}"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YS6XY.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0hOs.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0zdB.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YS2LU.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YQSYM.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0iNK.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/2.Vue%E5%9F%BA%E7%A1%80/2.%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="一念成余"/><meta itemprop="description" content="一念成余, 个人学习使用"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Live My Life"/></span><div class="body md" itemprop="articleBody"><h1 id="模板语法"><a class="markdownIt-Anchor" href="#模板语法">#</a> 模板语法</h1>
+<p>Vue 使用一种基于 HTML 的模板语法，使我们能够声明式地将其组件实例的数据绑定到呈现的 DOM 上。<br>
+在底层机制中，Vue 会将模板编译成高度优化的 JavaScript 代码。结合响应式系统，当应用状态变更时，Vue 能够智能地推导出需要重新渲染的组件的最少数量，并应用最少的 DOM 操作。</p>
+<h2 id="文本插值"><a class="markdownIt-Anchor" href="#文本插值">#</a> 文本插值</h2>
+<p>最基本的数据绑定形式是文本插值，它使用的是 ”Mustache“ 语法（即双大括号）：</p>
+<pre><code>    &lt;span&gt;Message: &#123;&#123; msg &#125;&#125;&lt;/span&gt;
+</code></pre>
+<p>双大括号标签会被替换为相应组件实例中 msg 属性的值。同时每次 msg 属性更改时它也会同步更新。</p>
+<h2 id="原始htmnl"><a class="markdownIt-Anchor" href="#原始htmnl">#</a> 原始 HTMNL</h2>
+<p>双大括号会将数据解释为纯文本，而不是 HTML。若想插入 HTML，你需要使用 v-html 指令：</p>
+<pre><code>&lt;p&gt;Using text interpolation: &#123;&#123; rawHtml &#125;&#125;&lt;/p&gt;
+&lt;p&gt;Using v-html directive: &lt;span v-html=&quot;rawHtml&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+</code></pre>
+<p>Using text interpolation: <span style="color: red">This should be red.</span></p>
+<p>Using v-html directive: This should be red.</p>
+<p>作用是：在当前组件实例上，将此元素的 innerHTML 与 rawHtml 属性保持同步。<br>
+span 标签中的内容会被替换为 rawHTML 属性的值，插入的值为纯 HTML— 数据绑定将被忽略。</p>
+<p><strong>注意：不能使用 v-html 来拼接组合模板。</strong></p>
+<h2 id="attribute-绑定"><a class="markdownIt-Anchor" href="#attribute-绑定">#</a> Attribute 绑定</h2>
+<p>双括号不能在 HTML attribute 中使用。想要响应式的绑定一个 attribute，应该使用 <strong>v-bind</strong> 指令。</p>
+<pre><code>  &lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>v-bind 指令 指示 Vue 将元素的 id attribute 与组件的 dynamicId 属性保持一致。如果绑定的值是 null 或者 undefined，那么该 attribute 将从渲染的元素上移除。</p>
+<h3 id="简写"><a class="markdownIt-Anchor" href="#简写">#</a> 简写</h3>
+<p>因为 v-bind 非常常用，提供了特定的简写语法</p>
+<pre><code>   &lt;div :id=&quot;dynamicId&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="布尔型-attribute"><a class="markdownIt-Anchor" href="#布尔型-attribute">#</a> 布尔型 attribute</h3>
+<p>布尔型依据 true/false 值来决定 attribute 是否应该存在于元素上。disabled 就是最常见的例子之一。</p>
+<pre><code>    &lt;button :disabled=&quot;isButtonDisabled&quot;&gt;Button&lt;/button&gt;
+</code></pre>
+<p>当 <strong>isButtonDisabled</strong> 为真值，或者一个空字符串 (即 disabled=“”) 时，元素会包含这个 disabled attribute。而当其为其他假值时 attribute 将被忽略。</p>
+<h3 id="动态绑定多个值"><a class="markdownIt-Anchor" href="#动态绑定多个值">#</a> 动态绑定多个值</h3>
+<p>如果你有像这样的一个包含多个 attribute 的 JavaScript 对象：</p>
+<pre><code>    const objectOfAttrs = &#123;
+    id: 'container',
+    class: 'wrapper'
+    &#125;
+</code></pre>
+<p>通过不带参数的 v-bind，你可以将它们绑定到单个元素上：</p>
+<pre><code>    &lt;div v-bind=&quot;objectOfAttrs&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="使用-javascript-表达式"><a class="markdownIt-Anchor" href="#使用-javascript-表达式">#</a> 使用 JavaScript 表达式</h3>
+<p>在 Vue 中，所有的数据绑定都支持完整的 JavaScript 表达式。</p>
+<p>例如</p>
+<pre><code>  &#123;&#123; number + 1 &#125;&#125;
+
+  &#123;&#123; ok ? 'YES' : 'NO' &#125;&#125;
+
+  &#123;&#123; message.split('').reverse().join('') &#125;&#125;
+
+  &lt;div :id=&quot;`list-$&#123;id&#125;`&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>这些表达式都会被作为 JavaScript，以当前组件实例为作用域解析执行。</p>
+<p>在 Vue 模板中，JavaScript 表达式可以使用在如下场景：</p>
+<ol>
+<li>在文本插值中（双大括号）。</li>
+<li>在任何 Vue 指令（以 v - 开头的特殊 attribute) attribute 的值中。</li>
+</ol>
+<h3 id="仅支持表达式"><a class="markdownIt-Anchor" href="#仅支持表达式">#</a> 仅支持表达式</h3>
+<p>每个绑定仅支持单一表达式，也就是一段能够被求值的 JavaScript 代码。一个简单的判断方法是是否可以合法地写在 return 后面。</p>
+<p>因此，下面的例子都是无效的：</p>
+<pre><code>    &lt;!-- 这是一个语句，而非表达式 --&gt;
+  &#123;&#123; var a = 1 &#125;&#125;
+
+  &lt;!-- 条件控制也不支持，请使用三元表达式 --&gt;
+  &#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;
+</code></pre>
+<h3 id="调用函数"><a class="markdownIt-Anchor" href="#调用函数">#</a> 调用函数</h3>
+<p>可以在绑定的表达式中使用一个组件暴露的方法。</p>
+<pre><code>  &lt;span :title=&quot;toTitleDate(date)&quot;&gt;
+    &#123;&#123; formatDate(date) &#125;&#125;
+  &lt;/span&gt;
+</code></pre>
+<h3 id="受限的全局访问"><a class="markdownIt-Anchor" href="#受限的全局访问">#</a> 受限的全局访问</h3>
+<p>模板中的表达式将被沙盒化，仅能够访问到<strong>有限的全局对象列表</strong>。该列表中会暴露常用的内置全局对象，比如 Math 和 Date。</p>
+<p>没有显式包含在列表中的全局对象将不能在模板内表达式中访问，例如用户附加在 window 上的属性。然而，你也可以自行在 app.config.globalProperties 上显式地添加它们，供所有的 Vue 表达式使用。</p>
+<h3 id="指令-directives"><a class="markdownIt-Anchor" href="#指令-directives">#</a> 指令 Directives</h3>
+<p>指令是带有 v- 前缀的特殊 attribute。Vue 提供了许多内置指令，包括上面我们所介绍的 v-bind 和 v-html。</p>
+<p>指令 attribute 的期望值为一个 JavaScript 表达式 (除了少数几个例外，即之后要讨论到的 v-for、v-on 和 v-slot)。一个指令的任务是在其表达式的值变化时响应式地更新 DOM。</p>
+<p>以 v-if 为例</p>
+<pre><code>  &lt;p v-if=&quot;seen&quot;&gt;Now you see me&lt;/p&gt;
+</code></pre>
+<h3 id="参数-arguments"><a class="markdownIt-Anchor" href="#参数-arguments">#</a> 参数 arguments</h3>
+<p>某些指令会需要一个 “参数”，在指令名后通过一个冒号隔开做标识。例如用 v-bind 指令来响应式地更新一个 HTML attribute：</p>
+<pre><code>  &lt;a v-bind:href=&quot;url&quot;&gt; ... &lt;/a&gt;
+
+  &lt;!-- 简写 --&gt;
+  &lt;a :href=&quot;url&quot;&gt; ... &lt;/a&gt;
+</code></pre>
+<p>另一个例子是 v-on 指令，它将监听 DOM 事件：</p>
+<pre><code>  &lt;a v-on:click=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
+
+  &lt;!-- 简写 --&gt;
+  &lt;a @click=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
+</code></pre>
+<h3 id="动态参数"><a class="markdownIt-Anchor" href="#动态参数">#</a> 动态参数</h3>
+<p>同样在指令参数上也可以使用一个 JavaScript 表达式，需要包含在一对方括号内：</p>
+<pre><code>  &lt;!--
+  注意，参数表达式有一些约束，
+  参见下面“动态参数值的限制”与“动态参数语法的限制”章节的解释
+  --&gt;
+  &lt;a v-bind:[attributeName]=&quot;url&quot;&gt; ... &lt;/a&gt;
+
+  &lt;!-- 简写 --&gt;
+  &lt;a :[attributeName]=&quot;url&quot;&gt; ... &lt;/a&gt;
+</code></pre>
+<p>这里的 attributeName 会作为一个 JavaScript 表达式被动态执行，计算得到的值会被用作最终的参数。举例来说，如果你的组件实例有一个数据属性 attributeName，其值为 “href”，那么这个绑定就等价于 v-bind:href。</p>
+<p>相似地，你还可以将一个函数绑定到动态的事件名称上：</p>
+<pre><code>  &lt;a v-on:[eventName]=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
+
+  &lt;!-- 简写 --&gt;
+  &lt;a @[eventName]=&quot;doSomething&quot;&gt;
+</code></pre>
+<h3 id="动态参数值的限制"><a class="markdownIt-Anchor" href="#动态参数值的限制">#</a> 动态参数值的限制</h3>
+<p>动态参数中表达式的值应当是一个字符串，或者是 null。特殊值 null 意为显式移除该绑定。其他非字符串的值会触发警告。</p>
+<h3 id="动态参数语法的限制"><a class="markdownIt-Anchor" href="#动态参数语法的限制">#</a> 动态参数语法的限制</h3>
+<p>动态参数表达式因为某些字符的缘故有一些语法限制，比如空格和引号，在 HTML attribute 名称中都是不合法的。例如下面的示例：</p>
+<pre><code>  &lt;!-- 这会触发一个编译器警告 --&gt;
+  &lt;a :['foo' + bar]=&quot;value&quot;&gt; ... &lt;/a&gt;
+</code></pre>
+<p><strong>如果你需要传入一个复杂的动态参数，我们推荐使用计算属性替换复杂的表达式，</strong></p>
+<p>当使用 DOM 内嵌模板（直接写在 HTML 文件里的模板）时，我们需要避免在名称中使用大写字母，因为浏览器会强制将其转换为小写：</p>
+<pre><code>  &lt;a :[someAttr]=&quot;value&quot;&gt; ... &lt;/a&gt;
+</code></pre>
+<p>上面例子将会在 DOM 内嵌模板中被转换为 ‘:[someattr]’ 。如果你的组件拥有属性 ‘someAttr’ 属性而非 ‘someattr’，那么这段代码将不会工作。单文件组件内的模板<strong>不受此限制</strong>。</p>
+<h3 id="修饰符-modifiers"><a class="markdownIt-Anchor" href="#修饰符-modifiers">#</a> 修饰符 MOdifiers</h3>
+<p>修饰符是以点开头的特殊后缀，表明指令需要一些特殊方式被绑定。例如   ‘.prevent’ 修饰符会告知 v-on 指令对触发的事件调用 event.preventDefault ():</p>
+<pre><code>  &lt;form @submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;
+</code></pre>
+</div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于</span><time title="修改时间：2023-02-15 09:05:38" itemprop="dateModified" datetime="2023-02-15T09:05:38+08:00">2023-02-15</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/assets/wechatpay.png" alt="一念成余 微信支付"/><p>微信支付</p></div><div><img data-src="/assets/alipay.png" alt="一念成余 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>一念成余<i class="ic i-at"><em>@</em></i>Live My Life</li><li class="link"><strong>本文链接：</strong><a href="http://1405904364.github.io/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/2.Vue%E5%9F%BA%E7%A1%80/2.%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/" title="">http://1405904364.github.io/2024/02/18/前端/VUE/2.Vue基础/2.模板语法/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/2.Vue%E5%9F%BA%E7%A1%80/3.%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80/" rel="prev" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;Y0zdB.jpg" title="未命名"><span class="type">上一篇</span><h3>未命名</h3></a></div><div class="item right"><a href="/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E4%BB%8B%E7%BB%8DVuex/" rel="next" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;YS2LU.jpg" title="Vuex介绍"><span class="type">下一篇</span><h3>Vuex介绍</h3></a></div></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> 模板语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%8F%92%E5%80%BC"><span class="toc-number">1.1.</span> <span class="toc-text"> 文本插值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8Bhtmnl"><span class="toc-number">1.2.</span> <span class="toc-text"> 原始 HTMNL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attribute-%E7%BB%91%E5%AE%9A"><span class="toc-number">1.3.</span> <span class="toc-text"> Attribute 绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%86%99"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B-attribute"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 布尔型 attribute</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E5%A4%9A%E4%B8%AA%E5%80%BC"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 动态绑定多个值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-javascript-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 使用 JavaScript 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85%E6%94%AF%E6%8C%81%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.3.5.</span> <span class="toc-text"> 仅支持表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.6.</span> <span class="toc-text"> 调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%97%E9%99%90%E7%9A%84%E5%85%A8%E5%B1%80%E8%AE%BF%E9%97%AE"><span class="toc-number">1.3.7.</span> <span class="toc-text"> 受限的全局访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4-directives"><span class="toc-number">1.3.8.</span> <span class="toc-text"> 指令 Directives</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-arguments"><span class="toc-number">1.3.9.</span> <span class="toc-text"> 参数 arguments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0"><span class="toc-number">1.3.10.</span> <span class="toc-text"> 动态参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0%E5%80%BC%E7%9A%84%E9%99%90%E5%88%B6"><span class="toc-number">1.3.11.</span> <span class="toc-text"> 动态参数值的限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0%E8%AF%AD%E6%B3%95%E7%9A%84%E9%99%90%E5%88%B6"><span class="toc-number">1.3.12.</span> <span class="toc-text"> 动态参数语法的限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6-modifiers"><span class="toc-number">1.3.13.</span> <span class="toc-text"> 修饰符 MOdifiers</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="一念成余" data-src="/assets/avatar.jpg"/><p class="name" itemprop="name">一念成余</p><div class="description" itemprop="description">个人学习使用</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">97</span><span class="name">文章</span></a></div><div class="item tags"><a href="/tags/"><span class="count">15</span><span class="name">标签</span></a></div></nav><div class="social"><a href="https://github.com/name" class="item github" rel="noopener" title="https:&#x2F;&#x2F;github.com&#x2F;name" target="_blank"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-user"></i>关于</a><ul class="submenu"><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于本站</a></li><li class="item"><a href="/admiration/" rel="section"><i class="ic i-coffee"></i>赞赏博主</a></li></ul></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2024/02/18/%E5%89%8D%E7%AB%AF/Vuex/%E4%BB%8B%E7%BB%8DVuex/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2024/02/18/%E5%89%8D%E7%AB%AF/VUE/2.Vue%E5%9F%BA%E7%A1%80/3.%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%AC%94%E8%AE%B0/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/Git/1.Git%E5%9F%BA%E7%A1%80/7.Git%E5%88%AB%E5%90%8D/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/Apache-poi/">Apache-Poi</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/Git/1.Git%E5%9F%BA%E7%A1%80/6.%E6%89%93%E6%A0%87%E7%AD%BE/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/Git/2.Git%E5%88%86%E6%94%AF/3.%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E8%87%AA%E6%8E%A7/%E6%96%87%E6%A1%A3/">自控</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/Git/1.Git%E5%9F%BA%E7%A1%80/3.%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/08/10/hello-world/">Hello World</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/C#/3.%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/12.%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/3.%E5%A4%96%E8%BF%9E%E6%8E%A5/">Mysql外连接</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2><ul class="leancloud-recent-comment" id="new-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">一念成余 @ testName</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">184k 字</span><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:47</span></div><div class="powered-by">基于 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & Theme.<a href="https://github.com/theme-shoka-x/hexo-theme-shokaX/" rel="noopener" target="_blank">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+        path: `2024/02/18/前端/VUE/2.Vue基础/2.模板语法/`,
+        favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,
+    chart: false,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: ``,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `&lt;div class=&quot;note warning&quot;&gt;&lt;p&gt;&lt;span class=&quot;label warning&quot;&gt;文章时效性提示&lt;/span&gt;&lt;br&gt;这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。&lt;/p&gt;&lt;/div&gt;`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://polyfill.io/v3/polyfill.min.js?features=default,fetch"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/pace/1.0.2/pace.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/algoliasearch/4.12.1/algoliasearch-lite.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/instantsearch.js/4.39.0/instantsearch.production.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/quicklink/2.2.0/quicklink.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/??jquery/3.5.1/jquery.min.js,fancybox/3.5.7/jquery.fancybox.min.js,justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" async></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/KaTeX/0.15.2/contrib/copy-tex.min.js" async></script><script src="/js/app.js?v=0.3.3"></script></body></html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/><link rel="alternate" href="/rss.xml" title="Live My Life" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="Live My Life" type="application/atom+xml"><link rel="alternate" type="application/json" title="Live My Life" href="http://1405904364.github.io/feed.json"/><link rel="preconnect" href="https://lf9-cdn-tos.bytecdntp.com"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/><link rel="dns-prefetch" href="https://unpkg.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.3.3"><script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.js"></script><meta name="keywords" content="Java"/><link rel="canonical" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%9F%A5%E8%AF%86%E7%82%B9/"><title>知识点</title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">知识点</h1><div class="meta"><span class="item" title="创建时间：2024-02-18 16:13:44"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2024-02-18T16:13:44+08:00">2024-02-18</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>18k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>17 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">testName</a></li></ul><ul class="right" id="rightNav"><li class="item theme" @click="changeThemeByBtn"><i class="ic" :class="{'i-sun': !themeStatus,'i-moon': themeStatus}"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0hOs.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0iNK.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YQSYM.jpg"></li><li class="item" data-background-image="https://images.pexels.com/photos/12635428/pexels-photo-12635428.jpeg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YSj7p.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0zdB.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%9F%A5%E8%AF%86%E7%82%B9/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="一念成余"/><meta itemprop="description" content="一念成余, 个人学习使用"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Live My Life"/></span><div class="body md" itemprop="articleBody"><h1 id="java基础-知识点"><a class="markdownIt-Anchor" href="#java基础-知识点">#</a> Java 基础 - 知识点</h1>
+<h2 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型">#</a> 数据类型</h2>
+<p>八个基本类型：</p>
+<ul>
+<li>boolean/1</li>
+<li>byte/8</li>
+<li>char/16</li>
+<li>short/16</li>
+<li>int/32</li>
+<li>float/32</li>
+<li>double/64</li>
+<li>long/64</li>
+</ul>
+<p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。</p>
+<pre><code class="language-Java">
+Integer x = 2; // 装箱
+int y = x; // 拆箱
+
+</code></pre>
+<h2 id="缓存池"><a class="markdownIt-Anchor" href="#缓存池">#</a> 缓存池</h2>
+<p>new Integer (123) 与 Integer.valueOf (123) 的区别在于：</p>
+<ul>
+<li>new Integer (123) 每次都会创建一个新对象</li>
+<li>Integer.valueOf (123) 会使用缓存池中的对象，多次调用会获得同一个对象的引用</li>
+</ul>
+<pre><code class="language-Java">
+Integer x = new Integer(123);
+Integer y = new Integer(123);
+System.out.println(x == y); // false
+Integer j = Integer.valueOf(123);
+Integer k = Integer.valueOf(123);
+System.out.println(j == k); // true
+
+</code></pre>
+<p>valueOf 方法的实现比较简单，就是先判断值是否在缓存池中，如果在的话就返回缓存池中的内容</p>
+<pre><code class="language-Java">
+public static Integer valueOf(int i) &#123;
+    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
+         return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+&#125;
+
+</code></pre>
+<p>在 Java8 中，Integer 的缓存池大小默认为 -128 ~ 127</p>
+<p>编译器会在缓存池范围内的基本类型自动装箱过程中调用 valueOf () 方法，因此多个 Integer 实例使用自动装箱来创建并且值相同，那么就会引用相同的对象</p>
+<pre><code class="language-Java">
+Integer m = 123;
+Integer n = 123;
+System.out.println(m == n); // true
+
+</code></pre>
+<p>基本类型对应缓存池如下：</p>
+<ul>
+<li>boolean values true and false</li>
+<li>all byte values</li>
+<li>short values between -128 and 127</li>
+<li>int values between -128 and 127</li>
+<li>char in the range \u0000 to \u007F</li>
+</ul>
+<p>在使用这些基本类型对应的包装类型时，就可以直接使用缓冲池中的对象。</p>
+<p>如果在缓存池之外：</p>
+<pre><code class="language-Java">
+Integer m = 323;
+Integer n = 323;
+System.out.println(m == n); // false
+
+</code></pre>
+<h2 id="string"><a class="markdownIt-Anchor" href="#string">#</a> String</h2>
+<h3 id="概览"><a class="markdownIt-Anchor" href="#概览">#</a> 概览</h3>
+<p>String 被声明为 final，因此它是不可继承的</p>
+<p>内部使用 char 存储数据，该数组被声明为 final，这意味着 value 数组初始化之后，就不能再引用其他数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变</p>
+<pre><code class="language-Java">
+public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence &#123;
+    /** The value is used for character storage. */
+    private final char value[];
+
+</code></pre>
+<h3 id="不可变的好处"><a class="markdownIt-Anchor" href="#不可变的好处">#</a> 不可变的好处</h3>
+<ol>
+<li>可以使用 hash 值<br>
+因为 String hash 值经常被使用，例如 String 用作 HashMap 的 Key，不可变的特性使得 HashMap 的值也不可变，因此只需要做一次计算就够了</li>
+<li>String pool 的需要<br>
+如果一个 String 对象以及被创建过了，那么就会从 String pool 中取得引用。只有 String 是不可变的，才能使用 String pool</li>
+</ol>
+<p><img data-src="/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/f76067a5-7d5f-4135-9549-8199c77d8f1c.jpg" alt="String 缓存池"></p>
+<ol start="3">
+<li>安全性<br>
+ String 经常被作为参数，String 的不可变性保证参数不可变</li>
+<li>线性安全<br>
+ String 不可变天生具备线性安全特性，可以在多个线程中安全使用</li>
+</ol>
+<h3 id="string-stringbuffer-stringbuilder"><a class="markdownIt-Anchor" href="#string-stringbuffer-stringbuilder">#</a> String、StringBuffer、StringBuilder</h3>
+<ol>
+<li>
+<p>可变性</p>
+<ul>
+<li>String 不可变</li>
+<li>StringBuffer 和 StringBuilder 可变</li>
+</ul>
+</li>
+<li>
+<p>线程安全</p>
+<ul>
+<li>String 不可变，因此是线程安全的</li>
+<li>StringBuffer 是线程安全的，因为内部是使用 synchronized 进行同步</li>
+<li>StringBuilder 不是线程安全的</li>
+</ul>
+</li>
+</ol>
+<h3 id="stringintern"><a class="markdownIt-Anchor" href="#stringintern">#</a> String.intern()</h3>
+<p>使用 String.intern () 可以保证相同内容的字符串变量引用同一个内存对象</p>
+<p>s1 和 s2 采用 new String () 的方式创建了两个不同的对象，而 s3 是通过 s1.intern () 方式获取一个对象的引用。intern 首先把 s1 的引用对象方式 String pool (字符串常量池) 中，然后返回这个对象的引用，因此 s3 和 s4 引用的是同一个字符串常量池中的对象，所以 s3 == s4</p>
+<pre><code class="language-Java">
+    String s1 = new String(&quot;aaa&quot;);
+    String s2 = new String(&quot;aaa&quot;);
+    System.out.println(s1 == s2);
+    String s3 = s1.intern();
+    System.out.println(s3 == s1);
+    String s4 = s1.intern();
+    System.out.println(s3 == s4);
+
+</code></pre>
+<p>如果是采用 “bbb” 这种使用双引号的形式创建字符串实例，会自动地将新建的对象放入 String Pool 中。</p>
+<pre><code class="language-Java">
+String s4 = &quot;bbb&quot;;
+String s5 = &quot;bbb&quot;;
+System.out.println(s4 == s5);  // true
+
+</code></pre>
+<p><strong>HotSpot 中的字符串常量池保存在哪里？永久代？方法区还是堆区？</strong></p>
+<ol>
+<li>运行时常量池 (Runntime Constant Pool) 是虚拟机规范中是方法区的一部分，在加载类和结构到虚拟机以后，就会创建对应的运行时常量是；而字符串常量池是这个过程中常量字符串存放的位置。所以从这个角度，字符串常量池属于虚拟机规范中的方法区，它是一个逻辑上的概念；而堆区，永久代以及原空间是实际的存放位置</li>
+<li>不同虚拟机对虚拟机的规范 (比如方法区) 是不一样的，只有 HotSpot 才有永久代的概念</li>
+<li>HotSpot 也是发展的，由于一些问题的存在 HotSpot 考虑主键去永久代，对于不同版本的 JDK，实际的存储位置是有差异的，具体如下</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">JDK 版本</th>
+<th>是否有永久代，字符串常量池放在哪里？</th>
+<th>方法区逻辑上规范，由哪些实际的部分实现的？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">jdk1.6 及之前</td>
+<td>有永久代，运行时常量池（包括字符串常量池），静态变量存放在永久代上</td>
+<td>这个时期方法区在 HotSpot 中是由永久代来实现的，以至于这个时期说方法区就是指永久代</td>
+</tr>
+<tr>
+<td style="text-align:center">jdk1.7</td>
+<td>有永久代，但已经逐步 “去永久代”，字符串常量池、静态变量移除，保存在堆中；</td>
+<td>这个时期方法区在 HotSpot 中由永久代（类型信息、字段、方法、常量）和堆（字符串常量池、静态变量）共同实现</td>
+</tr>
+<tr>
+<td style="text-align:center">jdk1.8 及之后</td>
+<td>取消永久代，类型信息、字段、方法、常量保存在本地内存的元空间，但字符串常量池、静态变量仍在堆中</td>
+<td>这个时期方法区在 HotSpot 中由本地内存的元空间（类型信息、字段、方法、常量）和堆（字符串常量池、静态变量）共同实现</td>
+</tr>
+</tbody>
+</table>
+<h2 id="运算"><a class="markdownIt-Anchor" href="#运算">#</a> 运算</h2>
+<h3 id="参数传递"><a class="markdownIt-Anchor" href="#参数传递">#</a> 参数传递</h3>
+<p>Java 的参数是以值得形式传入方法中，而不是引用传递</p>
+<p>以下代码中 Dog dog 的 dog 是一个指针，存储的是对象的地址。在将一个参数传入一个方法是，本质上是将对象的地址以值得形式传递到形参中，因此在方法中改变指针引用对象，那么这两个指针此时指向得是完全不同得对象，一方对象得改变，对另一方没什么影响</p>
+<pre><code class="language-Java">
+public class Dog &#123;
+    String name;
+
+    Dog(String name) &#123;
+        this.name = name;
+    &#125;
+
+    String getName() &#123;
+        return this.name;
+    &#125;
+
+    void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    String getObjectAddress() &#123;
+        return super.toString();
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+public class PassByValueExample &#123;
+    public static void main(String[] args) &#123;
+        Dog dog = new Dog(&quot;A&quot;);
+        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+        func(dog);
+        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+        System.out.println(dog.getName());          // A
+    &#125;
+
+    private static void func(Dog dog) &#123;
+        System.out.println(dog.getObjectAddress()); // Dog@4554617c
+        dog = new Dog(&quot;B&quot;);
+        System.out.println(dog.getObjectAddress()); // Dog@74a14482
+        System.out.println(dog.getName());          // B
+    &#125;
+&#125;
+
+</code></pre>
+<p>但是如果在方法中改变对象得字段值，会改变原对象的该字段值，因为改变的是同一个地址指向的内容</p>
+<pre><code class="language-Java">
+class PassByValueExample &#123;
+    public static void main(String[] args) &#123;
+        Dog dog = new Dog(&quot;A&quot;);
+        func(dog);
+        System.out.println(dog.getName());          // B
+    &#125;
+
+    private static void func(Dog dog) &#123;
+        dog.setName(&quot;B&quot;);
+    &#125;
+&#125;
+
+</code></pre>
+<h2 id="float-与-double"><a class="markdownIt-Anchor" href="#float-与-double">#</a> float 与 double</h2>
+<p>1.1 字面属于 double 类型，不能直接将 1.1 赋值给 float 变量，因为这是向下转型。Java 不能隐士执行向下转型，因为这样会使精度变低</p>
+<pre><code class="language-Java">
+// float f = 1.1; // 会报错
+
+</code></pre>
+<p>1.1f 字面量才是 float 类型</p>
+<pre><code class="language-Java">
+float f = 1.1f;
+
+</code></pre>
+<h2 id="隐式类型转换"><a class="markdownIt-Anchor" href="#隐式类型转换">#</a> 隐式类型转换</h2>
+<p>因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式的将 int 类型转为 short 类型</p>
+<pre><code class="language-Java">
+short s1 = 1;
+// s1 = s1 + 1; // s1 + 1 被隐式的转换为int类型，因为int类型不能隐式转换为short，因此报错
+
+</code></pre>
+<p>但是使用 += 运算符可以执行隐式类型转换</p>
+<pre><code class="language-Java">
+short s1 = 1;
+s1 += 1;
+
+</code></pre>
+<p>上面的语句相当于 s1 + 1 的计算结果进行了向下转型</p>
+<pre><code class="language-Java">
+s1 = (short) (s1 + 1);
+
+</code></pre>
+<h2 id="switch"><a class="markdownIt-Anchor" href="#switch">#</a> switch</h2>
+<p>从 java7 开始，可以在 switch 条件判断语句中使用 String 对象</p>
+<pre><code class="language-Java">
+   String str = &quot;ccc&quot;;
+   switch (str) &#123;
+       case &quot;aaa&quot;: &#123;
+           System.out.println(&quot;aaa&quot;);
+           break;
+       &#125;
+       case &quot;bbb&quot;: &#123;
+           System.out.println(&quot;bbb&quot;);
+           break;
+       &#125;
+       default:
+           System.out.println(&quot;没有啊&quot;);
+   &#125;
+
+</code></pre>
+<p><strong>注意：switch-case 语句中，break 尤为重要，如果不加 break 作为结束标志，switch 会从匹配到的第一个值之后，无视后来的所有 case 和 default 关键字，执行到结束</strong></p>
+<p>switch 不支持 long，是因为 switch 的设计初衷是对那些只有少数几个值进行等值判断，如果值过于复杂，那么还是用 if 合适</p>
+<p>jdk8 中，switch 支持 char, byte, short, int, Character, Byte, Short, Integer, String, or an enum</p>
+<h2 id="继承"><a class="markdownIt-Anchor" href="#继承">#</a> 继承</h2>
+<h3 id="访问权限"><a class="markdownIt-Anchor" href="#访问权限">#</a> 访问权限</h3>
+<p>java 中有三个访问权限修饰符:private、protected 以及 public，如果不加访问修饰符，表示包级可见</p>
+<p>可以对类或类中的成员 (字段以及方法) 添加修饰符</p>
+<ul>
+<li>类可见表示其他类可以用这个类创建实例对象</li>
+<li>成员可见表示其他类可以用这个类的实例对象访问到该成员</li>
+</ul>
+<p>protected 用于修饰成员，表示在继承体系中成员对于子类可见，但是这个访问修饰符对于类没有意义。</p>
+<p>设计良好的模块会隐藏所有的实现细节，把它的 API 与它的内部实现清晰的隔离开来。模块之间只通过它们的 API 进行通信，一个模块不需要知道其他模块的内部工作情况，这个概念被称为信息的隐藏或者封装。因此访问权限应当尽可能的使每个类或者成员不被外界访问。</p>
+<blockquote>
+<p>如果字类重写了父类的方法，那么子类中该方法的访问权限不允许低于父类的访问级别，这是为了确保使用父类的地方都可以使用字类实例，也就确保满足里氏替换原则</p>
+</blockquote>
+<h3 id="抽象类与接口"><a class="markdownIt-Anchor" href="#抽象类与接口">#</a> 抽象类与接口</h3>
+<ol>
+<li>
+<p>抽象类</p>
+<p>抽象类和抽象方法都是用 abstract 关键字进行声明，抽象类一般会包含抽象方法，抽象方法一定在抽象类中 (换句话说，有抽象方法的类，一定是抽象类)</p>
+<p>抽象类和普通类最大的区别就是，抽象类不能实例化，需要继承抽象类才能实例化子类</p>
+</li>
+</ol>
+<pre><code class="language-Java">
+public abstract class AbstractClassExample &#123;
+
+    protected int x;
+    private int y;
+
+    public abstract void func1();
+
+    public void func2() &#123;
+        System.out.println(&quot;func2&quot;);
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+public class AbstractExtendClassExample extends AbstractClassExample &#123;
+    @Override
+    public void func1() &#123;
+        System.out.println(&quot;func1&quot;);
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+// AbstractClassExample ac1 = new AbstractClassExample(); // 'AbstractClassExample' is abstract; cannot be instantiated
+AbstractClassExample ac2 = new AbstractExtendClassExample();
+ac2.func1();
+
+</code></pre>
+<ol>
+<li>
+<p>接口</p>
+<p>接口是抽象类的延申，在 Java8 之前，它可以看成一个完全抽象的类，也就是说他不能有任何的方法实现</p>
+<p>在 java8 开始，接口也可以拥有默认的方法实现，这是因为不支持默认方法的接口维护成本太高了，在 Java8 之前，如果一个接口想要添加新方法，那么就要修改所有实现了该接口的类</p>
+<p>接口的成员 (字段 + 方法) 默认都是 public，并且不允许自定义为 private 或者 protected</p>
+<p>接口的字段默认都是 static 和 final 的</p>
+</li>
+</ol>
+<pre><code class="language-Java">
+public interface InterfaceExample &#123;
+    void func1();
+
+    default void func2()&#123;
+        System.out.println(&quot;func2&quot;);
+    &#125;
+
+    int x = 123;
+    // int y;               // Variable 'y' might not have been initialized
+    public int z = 0;       // Modifier 'public' is redundant for interface fields
+    // private int k = 0;   // Modifier 'private' not allowed here
+    // protected int l = 0; // Modifier 'protected' not allowed here
+    // private void fun3(); // Modifier 'private' not allowed here
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+public class InterfaceImplementExample implements InterfaceExample &#123;
+    @Override
+    public void func1() &#123;
+        System.out.println(&quot;func1&quot;);
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+// InterfaceExample ie1 = new InterfaceExample(); // 'InterfaceExample' is abstract; cannot be instantiated
+InterfaceExample ie2 = new InterfaceImplementExample();
+ie2.func1();
+System.out.println(InterfaceExample.x);
+
+</code></pre>
+<ol>
+<li>比较</li>
+</ol>
+<ul>
+<li>从设计层面上看，抽象类提供了一种 IS-A 关系，那么就必须满足里氏替换原则，即字类对象必须能够替换掉所有父类对象。而接口更像一个 Like-A 关系，他只是提供一种方法实现契约，并不要求接口和实现接口的类具有 IS-A 关系</li>
+<li>从使用上来看，一个类可以实现多个接口，但不能继承多个类</li>
+<li>接口的字段只能是 static 和 final 类型的，而抽象类的字段没有这种限制</li>
+<li>接口的成员只能是 public 的，而抽象类的成员可以有多种访问权限</li>
+</ul>
+<ol start="4">
+<li>使用选择</li>
+</ol>
+<p>使用接口：</p>
+<ul>
+<li>需要让不相关的类都实现一个方法例如不相关的类都可以实现 Compareable 接口中的 compareTo () 方法</li>
+<li>需要使用多重继承</li>
+</ul>
+<p>使用抽象类</p>
+<ul>
+<li>需要在几个相关的类中共享代码</li>
+<li>需要能控制继承的成员访问权限，而不是都为 public</li>
+<li>需要继承非静态字段和非常量字段</li>
+</ul>
+<p>在很多情况下，接口优先于抽象类，因为接口没有抽象类严格的类层次结构要求，可以灵活的为一个类添加行为，并且从 Java8 开始，接口也可以有默认的方法实现，使得修改接口的成本也变得很低</p>
+<h3 id="super"><a class="markdownIt-Anchor" href="#super">#</a> super</h3>
+<ul>
+<li>访问父类的构造函数，可以使用 super () 函数访问父类的构造函数，从而委托父类完成一些初始化工作</li>
+<li>访问父类的成员，如果子类重写了父类中的某个方法的实现，可以通过 super 关键字来引用父类的方法实现</li>
+</ul>
+<pre><code class="language-Java">
+public class SuperExample &#123;
+    protected int x;
+    protected int y;
+
+    public SuperExample(int x, int y) &#123;
+        this.x = x;
+        this.y = y;
+    &#125;
+
+    public void func() &#123;
+        System.out.println(&quot;SuperExample.func()&quot;);
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+public class SuperExtendExample extends SuperExample &#123;
+    private int z;
+
+    public SuperExtendExample(int x, int y, int z) &#123;
+        super(x, y);
+        this.z = z;
+    &#125;
+
+    @Override
+    public void func() &#123;
+        super.func();
+        System.out.println(&quot;SuperExtendExample.func()&quot;);
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+SuperExample e = new SuperExtendExample(1, 2, 3);
+e.func();
+
+// SuperExample.func()
+// SuperExtendExample.func()
+
+</code></pre>
+<h3 id="重写与重载"><a class="markdownIt-Anchor" href="#重写与重载">#</a> 重写与重载</h3>
+<ol>
+<li>
+<p>重写 (Override)<br>
+ 存在于继承体系中，指字类实现了一个与父类在方法声明上完全相同的方法<br>
+为了满足里氏替换原则，重写有以下两个限制</p>
+<ul>
+<li>字类方法的访问权限必须大于等于父类方法</li>
+<li>字类方法的返回类型必须是父类方法的放回类型或为其子类型</li>
+</ul>
+</li>
+<li>
+<p>重载 (Overload)<br>
+ 存在于同一个类中，指一个方法已经存在的方法名称上相同，但是<strong>参数类型</strong>、<strong>个数</strong>、<strong>顺序</strong>至少有一个不同<br>
+注意： 返回值不同，其他都相同不算是重载 (所以这种非重载方法会报错)</p>
+</li>
+</ol>
+<h2 id="object通用方法"><a class="markdownIt-Anchor" href="#object通用方法">#</a> Object 通用方法</h2>
+<h3 id="概览-2"><a class="markdownIt-Anchor" href="#概览-2">#</a> 概览</h3>
+<pre><code class="language-Java">
+public final native Class&lt;?&gt; getClass()
+
+public native int hashCode()
+
+public boolean equals(Object obj)
+
+protected native Object clone() throws CloneNotSupportedException
+
+public String toString()
+
+public final native void notify()
+
+public final native void notifyAll()
+
+public final native void wait(long timeout) throws InterruptedException
+
+public final void wait(long timeout, int nanos) throws InterruptedException
+
+public final void wait() throws InterruptedException
+
+protected void finalize() throws Throwable &#123;&#125;
+
+</code></pre>
+<h3 id="equals"><a class="markdownIt-Anchor" href="#equals">#</a> equals()</h3>
+<h4 id="等价关系"><a class="markdownIt-Anchor" href="#等价关系">#</a> 等价关系</h4>
+<ol>
+<li>自反性</li>
+</ol>
+<pre><code class="language-Java">
+x.equals(x); // true
+
+</code></pre>
+<ol start="2">
+<li>对称性</li>
+</ol>
+<pre><code class="language-Java">
+x.equals(y) == y.equals(x); // true
+
+</code></pre>
+<ol start="3">
+<li>传递性</li>
+</ol>
+<pre><code class="language-Java">
+if(x.equals(y) &amp;&amp; y.equals(z))
+     x.equals(z); // true
+
+</code></pre>
+<ol start="4">
+<li>一致性<br>
+多次调用 equals 方法的结果不变</li>
+</ol>
+<pre><code class="language-Java">
+x.equals(y) == x.equals(y); // true
+
+</code></pre>
+<ol start="5">
+<li>与 NULL 的比较<br>
+对于任何不是 NULL 的对象 x 调用 x.equals (null) 结果都为 false</li>
+</ol>
+<pre><code class="language-Java">
+x.equals(null); // false
+
+</code></pre>
+<h4 id="equals与"><a class="markdownIt-Anchor" href="#equals与">#</a> equals 与 ==</h4>
+<ul>
+<li>对于基本类型，== 判断连个值是否相等，基本类型没有 equals</li>
+<li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals 判断引用对象的对象是否等价</li>
+</ul>
+<pre><code class="language-Java">
+Integer x = new Integer(1);
+Integer y = new Integer(1);
+System.out.println(x.equals(y)); // true
+System.out.println(x == y);      // false
+
+</code></pre>
+<h4 id="实现"><a class="markdownIt-Anchor" href="#实现">#</a> 实现</h4>
+<ul>
+<li>检查是否为同一个对象的引用，如果是直接返回 true；</li>
+<li>检查是否是同一个类型，如果不是，直接返回 false；</li>
+<li>将 Object 对象进行转型；</li>
+<li>判断每个关键域是否相等。</li>
+</ul>
+<pre><code class="language-Java">
+public class EqualExample &#123;
+    private int x;
+    private int y;
+    private int z;
+
+    public EqualExample(int x, int y, int z) &#123;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    &#125;
+
+    @Override
+    public boolean equals(Object o) &#123;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        EqualExample that = (EqualExample) o;
+
+        if (x != that.x) return false;
+        if (y != that.y) return false;
+        return z == that.z;
+    &#125;
+&#125;
+
+</code></pre>
+<h3 id="hashcode"><a class="markdownIt-Anchor" href="#hashcode">#</a> hashCode()</h3>
+<p>hashCode 返回散列值，而 Equals 是用来判断两个对象是否等价。等价的两个对象的散列值一定相同，但散列值相同的两个对象不一定等价</p>
+<p>在重写 equals 方法的同时应当也重写 hashCode 方法，保证等价的两个对象散列值也相等</p>
+<p>下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中。我们希望将这两个对象当成一样的，只在集合中添加一个对象，但是因为 EqualExample 没有实现 hasCode () 方法，因此这两个对象的散列值是不同的，最终导致集合添加了两个等价的对象。</p>
+<pre><code class="language-Java">
+EqualExample e1 = new EqualExample(1, 1, 1);
+EqualExample e2 = new EqualExample(1, 1, 1);
+System.out.println(e1.equals(e2)); // true
+HashSet&lt;EqualExample&gt; set = new HashSet&lt;&gt;();
+set.add(e1);
+set.add(e2);
+System.out.println(set.size());   // 2
+
+</code></pre>
+<h3 id="tostring"><a class="markdownIt-Anchor" href="#tostring">#</a> toString()</h3>
+<p>默认返回 ToStringExample@455617c 这种形式，其中 @后面的数值为散列码的无符号十六进制表示</p>
+<h3 id="clone"><a class="markdownIt-Anchor" href="#clone">#</a> clone()</h3>
+<ol>
+<li>cloneable</li>
+</ol>
+<p>clone () 是 Object 的 protected 方法，他不是 public，一个类不去显示的重写 clone，其他类就不能直接去调用该类实例的 clone 方法</p>
+<p>重写 clone</p>
+<pre><code class="language-Java">
+public class CloneExample &#123;
+    private int a;
+    private int b;
+
+    @Override
+    protected CloneExample clone() throws CloneNotSupportedException &#123;
+        return (CloneExample)super.clone();
+    &#125;
+&#125;
+
+</code></pre>
+<p>但是此时调用该 clone 方法，还是会报错</p>
+<blockquote>
+<p>java.lang.CloneNotSupportedException: CloneExample</p>
+</blockquote>
+<p>尽管 clone 并不是 Cloneable 接口的方法，但 Cloneable 规定，如果一个类没有实现 Cloneable 接口又调用了 clone 方法，就会报 CloneNotSupportedException</p>
+<h4 id="浅拷贝"><a class="markdownIt-Anchor" href="#浅拷贝">#</a> 浅拷贝</h4>
+<p>拷贝对象和原始对象的引用类型引用同一个对象</p>
+<pre><code class="language-Java">
+public class ShallowCloneExample implements Cloneable &#123;
+    private int[] arr;
+
+    public ShallowCloneExample() &#123;
+        arr = new int[10];
+        for (int i = 0; i &lt; arr.length; i++) &#123;
+            arr[i] = i;
+        &#125;
+    &#125;
+
+    public void set(int index, int value) &#123;
+        arr[index] = value;
+    &#125;
+
+    public int get(int index) &#123;
+        return arr[index];
+    &#125;
+
+    @Override
+    protected ShallowCloneExample clone() throws CloneNotSupportedException &#123;
+        return (ShallowCloneExample) super.clone();
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+ShallowCloneExample e1 = new ShallowCloneExample();
+ShallowCloneExample e2 = null;
+try &#123;
+    e2 = e1.clone();
+&#125; catch (CloneNotSupportedException e) &#123;
+    e.printStackTrace();
+&#125;
+e1.set(2, 222);
+System.out.println(e2.get(2)); // 222
+
+</code></pre>
+<h4 id="深拷贝"><a class="markdownIt-Anchor" href="#深拷贝">#</a> 深拷贝</h4>
+<p>拷贝对象和原始对象的引用类型引用不同对象</p>
+<pre><code class="language-Java">
+public class DeepCloneExample implements Cloneable &#123;
+    private int[] arr;
+
+    public DeepCloneExample() &#123;
+        arr = new int[10];
+        for (int i = 0; i &lt; arr.length; i++) &#123;
+            arr[i] = i;
+        &#125;
+    &#125;
+
+    public void set(int index, int value) &#123;
+        arr[index] = value;
+    &#125;
+
+    public int get(int index) &#123;
+        return arr[index];
+    &#125;
+
+    @Override
+    protected DeepCloneExample clone() throws CloneNotSupportedException &#123;
+        DeepCloneExample result = (DeepCloneExample) super.clone();
+        result.arr = new int[arr.length];
+        for (int i = 0; i &lt; arr.length; i++) &#123;
+            result.arr[i] = arr[i];
+        &#125;
+        return result;
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Java">
+DeepCloneExample e1 = new DeepCloneExample();
+DeepCloneExample e2 = null;
+try &#123;
+    e2 = e1.clone();
+&#125; catch (CloneNotSupportedException e) &#123;
+    e.printStackTrace();
+&#125;
+e1.set(2, 222);
+System.out.println(e2.get(2)); // 2
+
+</code></pre>
+<h2 id="关键字"><a class="markdownIt-Anchor" href="#关键字">#</a> 关键字</h2>
+<h3 id="final"><a class="markdownIt-Anchor" href="#final">#</a> final</h3>
+<ol>
+<li>
+<p>数据<br>
+声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能改变的常量</p>
+<ul>
+<li>对于基本类型，final 使数据值不变</li>
+<li>对于引用类型，final 使引用不变，也就不能引用其他对象，但是引用的对象本身使可以修改的</li>
+</ul>
+</li>
+<li>
+<p>方法<br>
+声明方法不能被字类重写<br>
+ Private 方法隐式的被指定为 final，如果子类中定义的方法基类中的一个 private 方法名相同，此时子类的方法不是重写方法，而是在子类中定义了一个新方法</p>
+</li>
+<li>
+<p>类<br>
+声明该类不允许被继承</p>
+</li>
+</ol>
+<h3 id="static"><a class="markdownIt-Anchor" href="#static">#</a> static</h3>
+<ol>
+<li>静态变量
+<ul>
+<li>静态变量：又称为类变量，也就是说这个变量是属于类的，类所有的额实例都共享静态变量，可以直接通过类名来访问它；静态变量在内存中只存在一份</li>
+<li>实例变量：没创建一个实例，就会产生一个实例变量，它与该实例同生共死</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-Java">
+public class A &#123;
+    private int x;         // 实例变量
+    private static int y;  // 静态变量
+
+    public static void main(String[] args) &#123;
+        // int x = A.x;  // Non-static field 'x' cannot be referenced from a static context
+        int yy = A.y;
+        A a = new A();
+        int x = a.x;
+        int y = A.y;
+    &#125;
+&#125;
+
+</code></pre>
+<ol start="2">
+<li>静态方法<br>
+静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法 (abstract)。</li>
+</ol>
+<pre><code class="language-Java">
+public abstract class A &#123;
+    public static void func1()&#123;
+    &#125;
+    // public abstract static void func2();  // Illegal combination of modifiers: 'abstract' and 'static'
+&#125;
+
+</code></pre>
+<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 supper 关键字</p>
+<pre><code class="language-Java">
+public class Demo11 &#123;
+
+    private int a = 10;
+    private static int b = 20;
+
+    public static void main(String[] args) &#123;
+        // int aa = a; // Non-static field 'a' cannot be referenced from a static context
+        // this.fun(); // this' cannot be referenced from a static context
+        int bb = b;
+    &#125;
+
+    public void fun()&#123;
+        System.out.println(&quot;Demo11.fun&quot;);
+    &#125;
+&#125;
+
+</code></pre>
+<ol start="3">
+<li>静态语句块</li>
+</ol>
+<p>静态语句块在类初始化时运行一次</p>
+<pre><code class="language-Java">
+public class A &#123;
+    static &#123;
+        System.out.println(&quot;123&quot;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        A a1 = new A();
+        A a2 = new A();
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Html">
+123
+
+</code></pre>
+<ol start="4">
+<li>非静态内部类</li>
+</ol>
+<p>非静态内部类依赖于外部类的实例，而静态内部类不需要</p>
+<pre><code class="language-Java">
+public class OuterClass &#123;
+
+    class InnerClass &#123;
+
+    &#125;
+
+    static class StaticInnerClass&#123;
+
+    &#125;
+
+    public static void main(String[] args) &#123;
+        OuterClass outerClass = new OuterClass();
+        // InnerClass innerClass = new InnerClass(); // OuterClass.this' cannot be referenced from a static context
+        InnerClass innerClass = outerClass.new InnerClass();
+        StaticInnerClass staticInnerClass = new StaticInnerClass();
+    &#125;
+&#125;
+
+</code></pre>
+<p><strong>注意：静态内部类不能访问外部类的非静态变量和方法</strong></p>
+<ol start="5">
+<li>静态导包</li>
+</ol>
+<p>在使用静态变量和方法时不用再指明 ClassName，从而简化代码，但可读性大大降低</p>
+<pre><code class="language-Java">
+import static com.xxx.ClassName.*
+
+</code></pre>
+<ol start="6">
+<li>初始化顺序</li>
+</ol>
+<p>静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序，取决于它们在代码中的顺序</p>
+<pre><code class="language-Java">
+public class StaticDemo12 &#123;
+
+    private static String str = &quot;static str变量&quot;;
+
+    static &#123;
+        System.out.println(&quot;static 块&quot;);
+    &#125;
+
+    public String field = &quot;实例变量&quot;;
+
+
+    public StaticDemo12() &#123;
+        System.out.println(&quot;StaticDemo12.StaticDemo12&quot;);
+    &#125;
+
+    &#123;
+        System.out.println(&quot;普通语句块&quot;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        StaticDemo12 staticDemo12 = new StaticDemo12();
+    &#125;
+&#125;
+
+</code></pre>
+<pre><code class="language-Html">
+static 块
+普通语句块
+StaticDemo12.StaticDemo12
+
+</code></pre>
+<p>存在继承的情况下，初始化的顺序如下：</p>
+<ul>
+<li>父类 (静态变量、静态语句块)</li>
+<li>子类 (静态变量、静态语句块)</li>
+<li>父类 (实例变量、普通语句块)</li>
+<li>父类 (构造函数)</li>
+<li>子类 (实例变量、普通语句块)</li>
+<li>子类 (构造函数)</li>
+</ul>
+<h2 id="反射"><a class="markdownIt-Anchor" href="#反射">#</a> 反射</h2>
+<p>每个类都有一个 Class 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的.class 文件，该文件内容保存着 Class 对象</p>
+<p>类加载相当于 Class 对象的加载，类在第一次使用时在动态加载到 JVM 中，可以使用 Class.forName (“com.mysql.jdbc.Driver”) 这种方式来控制类的加载，该方法会返回一个 Class 对象。</p>
+<p>反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的.class 不存在也可以加载进来</p>
+<p>Class 和 java.lang.reflect 一起对反射提供了支持，java.lang.reflect 类库主要包含以下三个类</p>
+<ul>
+<li>Field：可以使用 get () 和 set () 方法读取和修改 Field 对象关联的字段</li>
+<li>Method：可以使用 invoke () 方法调用与 Method 对象关联的方法</li>
+<li>Constructor：可以用 Constructor 创建新的对象</li>
+</ul>
+<h2 id="异常"><a class="markdownIt-Anchor" href="#异常">#</a> 异常</h2>
+<p>Thorwable 可以用来表示任何可以作为异常抛出的类，分为两种：Error 和 Exception。其中 Error 表示 JVM 无法处理的错误，Exception 分为两种：</p>
+<ul>
+<li>受检异常：需要用 try…catch 语句捕获并进行处理，并且可以从一场中恢复</li>
+<li>非受检异常：是程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复</li>
+</ul>
+<p><img data-src="/image/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/PPjwP.png" alt="异常"></p>
+<h2 id="泛型"><a class="markdownIt-Anchor" href="#泛型">#</a> 泛型</h2>
+<pre><code class="language-Java">
+public class Box&lt;T&gt; &#123;
+    // T stands for &quot;Type&quot;
+    private T t;
+    public void set(T t) &#123; this.t = t; &#125;
+    public T get() &#123; return t; &#125;
+&#125;
+
+</code></pre>
+<h2 id="注解"><a class="markdownIt-Anchor" href="#注解">#</a> 注解</h2>
+<p>Java 注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用。</p>
+<div class="tags"><a href="/tags/Java/" rel="tag"><i class="ic i-tag"></i>Java</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于</span><time title="修改时间：2024-01-22 15:16:48" itemprop="dateModified" datetime="2024-01-22T15:16:48+08:00">2024-01-22</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/assets/wechatpay.png" alt="一念成余 微信支付"/><p>微信支付</p></div><div><img data-src="/assets/alipay.png" alt="一念成余 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>一念成余<i class="ic i-at"><em>@</em></i>Live My Life</li><li class="link"><strong>本文链接：</strong><a href="http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%9F%A5%E8%AF%86%E7%82%B9/" title="知识点">http://1405904364.github.io/2024/02/18/后端/Java/基础/知识点/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="prev" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;YSj7p.jpg" title="面向对象"><span class="type">上一篇</span><h3>面向对象</h3></a></div><div class="item right"><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E5%9B%BE%E8%B0%B1/" rel="next" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;YS6XY.jpg" title="图谱"><span class="type">下一篇</span><h3>图谱</h3></a></div></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E5%9F%BA%E7%A1%80-%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text"> Java 基础 - 知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text"> 数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%B1%A0"><span class="toc-number">1.2.</span> <span class="toc-text"> 缓存池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string"><span class="toc-number">1.3.</span> <span class="toc-text"> String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%A7%88"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 不可变的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-stringbuffer-stringbuilder"><span class="toc-number">1.3.3.</span> <span class="toc-text"> String、StringBuffer、StringBuilder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stringintern"><span class="toc-number">1.3.4.</span> <span class="toc-text"> String.intern()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">1.4.</span> <span class="toc-text"> 运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 参数传递</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#float-%E4%B8%8E-double"><span class="toc-number">1.5.</span> <span class="toc-text"> float 与 double</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.6.</span> <span class="toc-text"> 隐式类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#switch"><span class="toc-number">1.7.</span> <span class="toc-text"> switch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-number">1.8.</span> <span class="toc-text"> 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-number">1.8.1.</span> <span class="toc-text"> 访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.8.2.</span> <span class="toc-text"> 抽象类与接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-number">1.8.3.</span> <span class="toc-text"> super</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD"><span class="toc-number">1.8.4.</span> <span class="toc-text"> 重写与重载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#object%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.9.</span> <span class="toc-text"> Object 通用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%A7%88-2"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals"><span class="toc-number">1.9.2.</span> <span class="toc-text"> equals()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E5%85%B3%E7%B3%BB"><span class="toc-number">1.9.2.1.</span> <span class="toc-text"> 等价关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#equals%E4%B8%8E"><span class="toc-number">1.9.2.2.</span> <span class="toc-text"> equals 与 &#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.9.2.3.</span> <span class="toc-text"> 实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hashcode"><span class="toc-number">1.9.3.</span> <span class="toc-text"> hashCode()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tostring"><span class="toc-number">1.9.4.</span> <span class="toc-text"> toString()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clone"><span class="toc-number">1.9.5.</span> <span class="toc-text"> clone()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.9.5.1.</span> <span class="toc-text"> 浅拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.9.5.2.</span> <span class="toc-text"> 深拷贝</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.10.</span> <span class="toc-text"> 关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#final"><span class="toc-number">1.10.1.</span> <span class="toc-text"> final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#static"><span class="toc-number">1.10.2.</span> <span class="toc-text"> static</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">1.11.</span> <span class="toc-text"> 反射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-number">1.12.</span> <span class="toc-text"> 异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-number">1.13.</span> <span class="toc-text"> 泛型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.14.</span> <span class="toc-text"> 注解</span></a></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="一念成余" data-src="/assets/avatar.jpg"/><p class="name" itemprop="name">一念成余</p><div class="description" itemprop="description">个人学习使用</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">97</span><span class="name">文章</span></a></div><div class="item tags"><a href="/tags/"><span class="count">15</span><span class="name">标签</span></a></div></nav><div class="social"><a href="https://github.com/name" class="item github" rel="noopener" title="https:&#x2F;&#x2F;github.com&#x2F;name" target="_blank"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-user"></i>关于</a><ul class="submenu"><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于本站</a></li><li class="item"><a href="/admiration/" rel="section"><i class="ic i-coffee"></i>赞赏博主</a></li></ul></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E5%9B%BE%E8%B0%B1/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/C#/2.%E7%8E%AF%E5%A2%83/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%89%8D%E7%AB%AF/%E4%B8%89%E4%BB%B6%E5%A5%97/JavaScript/Promise/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Spring/SpringBoot/%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%98%A0%E5%B0%84/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E4%B8%AA%E4%BA%BA/PhotoShop/1.%E4%BA%86%E8%A7%A3%E5%9B%BE%E5%B1%82/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/">Mysql实用技巧</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/Git/1.Git%E5%9F%BA%E7%A1%80/6.%E6%89%93%E6%A0%87%E7%AD%BE/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/Mysql/11.distinct%E5%8E%BB%E9%87%8D/distinct/">Mysql中Distinct去重</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/%E5%90%8E%E7%AB%AF/RabbitMq/3.%E4%BA%A4%E6%8D%A2%E5%99%A8%E7%B1%BB%E5%9E%8B/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/Git/1.Git%E5%9F%BA%E7%A1%80/%E6%80%BB%E7%BB%93/">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2024/02/18/Git/%E5%B8%B8%E7%94%A8%E8%A7%84%E5%88%99/">未命名</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2><ul class="leancloud-recent-comment" id="new-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">一念成余 @ testName</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">184k 字</span><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:47</span></div><div class="powered-by">基于 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & Theme.<a href="https://github.com/theme-shoka-x/hexo-theme-shokaX/" rel="noopener" target="_blank">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+        path: `2024/02/18/后端/Java/基础/知识点/`,
+        favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,
+    chart: false,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: ``,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `&lt;div class=&quot;note warning&quot;&gt;&lt;p&gt;&lt;span class=&quot;label warning&quot;&gt;文章时效性提示&lt;/span&gt;&lt;br&gt;这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。&lt;/p&gt;&lt;/div&gt;`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://polyfill.io/v3/polyfill.min.js?features=default,fetch"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/pace/1.0.2/pace.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/algoliasearch/4.12.1/algoliasearch-lite.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/instantsearch.js/4.39.0/instantsearch.production.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/quicklink/2.2.0/quicklink.umd.min.js"></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/??jquery/3.5.1/jquery.min.js,fancybox/3.5.7/jquery.fancybox.min.js,justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" async></script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/KaTeX/0.15.2/contrib/copy-tex.min.js" async></script><script src="/js/app.js?v=0.3.3"></script></body></html>

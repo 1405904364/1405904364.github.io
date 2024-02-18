@@ -5,21 +5,21 @@
     "home_page_url": "http://1405904364.github.io",
     "items": [
         {
-            "id": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/",
-            "url": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/",
-            "title": "常用元素标签",
-            "date_published": "2024-02-18T08:13:44.954Z",
-            "content_html": "<h1 id=\"pomxml常用元素介绍\"><a class=\"markdownIt-Anchor\" href=\"#pomxml常用元素介绍\">#</a> pom.xml 常用元素介绍</h1>\n<ul>\n<li>project 包含 pom 一些约束的信息</li>\n<li>modelVersion 指定当前 pom 的版本</li>\n<li>groupId（主项目标示，定义当前 maven 属于哪个项目，- 反写公司网址 + 项目名）、</li>\n<li>artifactId（实际项目模块标识，项目名 + 模块名）、</li>\n<li>version（当前项目版本号，第一个 0 标识大版本号，第 - 二个 0 标示分支版本号，第三个 0 标识小版本号，0.0.1，- snapshot 快照，alpha 内部测试，beta 公测，release 稳 - 定，GA 正式发布）</li>\n<li>name 项目描述名</li>\n<li>url 项目地址</li>\n<li>description 项目描述</li>\n<li>developers 开发人员列表</li>\n<li>licenses 许可证</li>\n<li>organization：组织</li>\n<li>dependencies：依赖列表</li>\n<li>dependency：依赖项目 里面放置坐标</li>\n<li>scope：包的依赖范围 test</li>\n<li>optional ：设置依赖是否可选</li>\n<li>exclusions：排除依赖传递列表</li>\n<li>dependencyManagement 依赖的管理</li>\n<li>build：为构建行为提供支持</li>\n<li>plugins：插件列表</li>\n<li>parent：子模块对父模块的继承</li>\n<li>modules：聚合多个 maven 项目</li>\n</ul>\n",
-            "tags": [
-                "maven"
-            ]
-        },
-        {
             "id": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Maven/scope%E6%A0%87%E7%AD%BE/",
             "url": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Maven/scope%E6%A0%87%E7%AD%BE/",
             "title": "scope标签的作用",
             "date_published": "2024-02-18T08:13:44.954Z",
             "content_html": "<h1 id=\"scope的作用\"><a class=\"markdownIt-Anchor\" href=\"#scope的作用\">#</a> Scope 的作用</h1>\n<p>概述：</p>\n<blockquote>\n<p>Maven 中使用 scope 来指定当前包的依赖范围和依赖的传递性。常见的可选值有: complie、provide、runtime、test、system 等</p>\n</blockquote>\n<pre><code class=\"language-maven\">        &lt;dependency&gt;\n            &lt;groupId&gt;org.springframework&lt;/groupId&gt;\n            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;\n            &lt;version&gt;3.2.1.RELEASE&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n</code></pre>\n<h2 id=\"scope取值\"><a class=\"markdownIt-Anchor\" href=\"#scope取值\">#</a> scope 取值</h2>\n<ul>\n<li>complie\n<ul>\n<li>范围：all</li>\n<li>依赖传递：是</li>\n<li>例子：spring-core</li>\n<li>详解：complie 为默认的依赖有效范围。如果没有明确指定依赖有效范围的花，则默认采用该值。在编译、运行、测试时均有效</li>\n</ul>\n</li>\n<li>provided\n<ul>\n<li>范围：complie、test</li>\n<li>依赖传递：否</li>\n<li>例子：servlet-api</li>\n<li>详解：provided 在编译、测试时有效，但是在运行时无效。例如 servlet-api 依赖，在部署到 tomcat 服务器中，容器已经提供了，就不再需要 maven 重复引入了</li>\n</ul>\n</li>\n<li>runtime\n<ul>\n<li>范围：runtime、test</li>\n<li>依赖传递：是</li>\n<li>例子：JDBC 驱动</li>\n<li>详解：runtime 在运行、测试时有效，但是在编译时无效。例如 JDBC 的驱动实现</li>\n</ul>\n</li>\n<li>test\n<ul>\n<li>范围：test</li>\n<li>依赖传递：否</li>\n<li>例子：JUnit</li>\n<li>详解：只在测试时有效，例如 Junit</li>\n</ul>\n</li>\n<li>system\n<ul>\n<li>范围：complie、test</li>\n<li>依赖传递：是</li>\n<li>例子：</li>\n<li>详解：system 在编译、测试时有效，但是在运行时无效。与 provided 的区别是，使用 system 范围依赖时，必须通过 systemPath 元素显示指定依赖文件的路径。此依赖时通过本机绑定的，不可移植使用，因此要谨慎使用。systemPath 元素可以引用环境变量。例如：<pre><code class=\"language-maven\">        &lt;dependency&gt;\n            &lt;groupId&gt;javax.sql&lt;/groupId&gt;\n            &lt;artifactId&gt;jdbc-stdext&lt;/artifactId&gt;\n            &lt;version&gt;2.0&lt;/version&gt;\n            &lt;scope&gt;system&lt;/scope&gt;\n            &lt;systemPath&gt;$&#123;java.home&#125;/lib/rt.jar&lt;/systemPath&gt;\n        &lt;/dependency&gt;\n</code></pre>\n</li>\n</ul>\n</li>\n</ul>\n<p>在编译或者是运行时有效的范围依赖，在打包时会一起打包</p>\n",
+            "tags": [
+                "maven"
+            ]
+        },
+        {
+            "id": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/",
+            "url": "http://1405904364.github.io/2024/02/18/%E5%90%8E%E7%AB%AF/Maven/%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE/",
+            "title": "常用元素标签",
+            "date_published": "2024-02-18T08:13:44.954Z",
+            "content_html": "<h1 id=\"pomxml常用元素介绍\"><a class=\"markdownIt-Anchor\" href=\"#pomxml常用元素介绍\">#</a> pom.xml 常用元素介绍</h1>\n<ul>\n<li>project 包含 pom 一些约束的信息</li>\n<li>modelVersion 指定当前 pom 的版本</li>\n<li>groupId（主项目标示，定义当前 maven 属于哪个项目，- 反写公司网址 + 项目名）、</li>\n<li>artifactId（实际项目模块标识，项目名 + 模块名）、</li>\n<li>version（当前项目版本号，第一个 0 标识大版本号，第 - 二个 0 标示分支版本号，第三个 0 标识小版本号，0.0.1，- snapshot 快照，alpha 内部测试，beta 公测，release 稳 - 定，GA 正式发布）</li>\n<li>name 项目描述名</li>\n<li>url 项目地址</li>\n<li>description 项目描述</li>\n<li>developers 开发人员列表</li>\n<li>licenses 许可证</li>\n<li>organization：组织</li>\n<li>dependencies：依赖列表</li>\n<li>dependency：依赖项目 里面放置坐标</li>\n<li>scope：包的依赖范围 test</li>\n<li>optional ：设置依赖是否可选</li>\n<li>exclusions：排除依赖传递列表</li>\n<li>dependencyManagement 依赖的管理</li>\n<li>build：为构建行为提供支持</li>\n<li>plugins：插件列表</li>\n<li>parent：子模块对父模块的继承</li>\n<li>modules：聚合多个 maven 项目</li>\n</ul>\n",
             "tags": [
                 "maven"
             ]
